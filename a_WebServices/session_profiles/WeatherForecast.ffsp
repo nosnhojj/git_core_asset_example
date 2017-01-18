@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.itest.applications.webservices</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices" transferableType="com.fnfr.itest.applications.webservices.properties.wsdl.WSDLSessionProperties" wsdlUrl="http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl" wsdlUrl.inherit="false"/>
+    <responseLibrary inherit="false">project://a_WebServices/</responseLibrary>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

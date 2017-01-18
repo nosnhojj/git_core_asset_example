@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.0.0.77059">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">192.168.100.33</ipAddress>
+    </sessionProperties>
+    <nickName>C7200_GNS</nickName>
+    <baseProfile>project://d_Cisco/session_profiles/Cisco7200_Telnet_Base.ffsp</baseProfile>
+    <standalone>false</standalone>
+</SessionTemplate>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name>Local</name>
+    <description>Office Network</description>
+    <property name="dateModified">2017-01-18T12:22:02.455-05:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">6.0.0.18638fa</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="6685eeeb-7fdc-4339-832b-dd19845cc803" id="Cisco2940" type="switch">
+        <boundary height="301" width="313" x="504" y="72"/>
+        <property name="iconURI">project://d_Cisco/images/C2940.jpg</property>
+        <property name="name">DUT</property>
+        <property name="ipAddressV4">192.168.1.33</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="CLI" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                <ipAddress inherit="false">[param MY_IP 192.168.1.33]</ipAddress>
+              </sessionProperties>
+              <baseProfile>project://d_Cisco/session_profiles/Cisco2940_Telnet_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="SNMP" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.snmp</baseApplication>
+              <sessionProperties ipAddress="192.168.1.33" ipAddress.inherit="false" type="com.fnfr.svt.applications.snmp.documents.DeviceProperties"/>
+              <baseProfile>project://d_Cisco/session_profiles/CiscoIOS_SNMP.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="serial" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.application.serial</baseApplication>
+              <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties">
+                <portName inherit="false">COM6</portName>
+              </sessionProperties>
+              <baseProfile>project://d_Cisco/session_profiles/CiscoIOS_Serial_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Syslog" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.syslog</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.syslog.SyslogSessionProperties"/>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="web" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+                <baseUrl inherit="false">192.168.1.33</baseUrl>
+              </sessionProperties>
+              <baseProfile>project://d_Cisco/session_profiles/Cisco2940_Web_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="838da54c-4442-47b9-ac62-64a34593d104" id="port1" type="port">
+          <property name="name">fe0_1</property>
+        </resource>
+        <resource guid="cf821e96-e555-4943-97a4-618b49988400" id="port2" type="port">
+          <property name="name">fe0_2</property>
+        </resource>
+        <resource guid="34fbd541-0c28-4dd4-84d2-3528f82fdb8e" id="port3" type="port">
+          <property name="name">fe0_3</property>
+        </resource>
+        <resource guid="6b397ef2-10c1-4100-bfa4-ed3f48f23714" id="port4" type="port">
+          <property name="name">fe0_4</property>
+        </resource>
+        <resource guid="463eb196-32ee-41fc-99a9-3c998ecb6cc2" id="port5" type="port">
+          <property name="name">fe0_5</property>
+        </resource>
+        <resource guid="aae60853-b3cd-4d7e-aa8e-b194f88f3273" id="port6" type="port">
+          <property name="name">fe0_6</property>
+        </resource>
+        <resource guid="0530566a-87cf-40e6-90a4-97ead388b8bb" id="port7" type="port">
+          <property name="name">fe0_7</property>
+        </resource>
+        <resource guid="07dd76f5-916b-4f2f-b732-fd554dc93d1d" id="port8" type="port">
+          <property name="name">fe0_8</property>
+        </resource>
+        <resource guid="58d5f663-ef23-4132-aa18-d6ac0bc44b3f" id="port9" type="port">
+          <property name="name">ge0_1</property>
+        </resource>
+        <resource guid="63ff9336-775c-435b-b68e-ed4d0ce9af6e" id="port10" type="port">
+          <property name="name">management</property>
+        </resource>
+      </resource>
+      <resource guid="2d7e1c4f-ac2f-4ca5-8020-1205db1141ad" id="resource_2" type="host">
+        <boundary height="80" width="63" x="216" y="72"/>
+        <property name="iconURI">project://Windows/images/windows.bmp</property>
+        <property name="name">host</property>
+        <property name="ipAddressV4">192.168.184</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="laptop" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <baseProfile>project://Windows/session_profiles/windows_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="project://a_Gmail/session_profiles/gmail.ffsp" name="gmail" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.mail</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties"/>
+              <baseProfile>project://a_Gmail/session_profiles/gmail.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="web" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+                <baseUrl inherit="false">https://www.google.com</baseUrl>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="73b2303c-d4cc-44f4-91b5-3c9390157579" id="resource_2_0" type="port">
+          <property name="name">Wired_Ethernet</property>
+        </resource>
+      </resource>
+      <resource guid="ed927784-544c-412b-a4c9-16880d162667" id="resource_3" type="server">
+        <boundary height="62" width="48" x="216" y="216"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">MySQL</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://d_Database/session_profiles/heartbeat_db.ffsp" name="Database_Client" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.tools.database</baseApplication>
+              <sessionProperties databaseName="heartbeat_db" databaseName.inherit="false" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject"/>
+              <baseProfile>project://d_Database/session_profiles/heartbeat_db.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet1</property>
+        <endpoint id="port1"/>
+        <endpoint id="resource_2_0"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.1.0.77511">
+    <baseApplication>com.fnfr.svt.applications.tclsh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+    <responseLibrary inherit="false">project://d_STC/</responseLibrary>
+    <sessionClassTestCase inherit="false">project://d_STC/session_profiles/tg_stc_conformance.fftc</sessionClassTestCase>
+    <Overview>TCL Session - Spirent Test Center conformance</Overview>
+    <Description>Author: Cosmin Stanuica</Description>
+    <analysisRules>
+        <item>
+            <extractorInfo extractorType="contains">
+                <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                    <searchString>RuntimeError</searchString>
+                    <matchType>CaseInsensitive</matchType>
+                </extractorProperties>
+            </extractorInfo>
+            <processorInfo ruleType="assert">
+                <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                    <expression>$value == 1</expression>
+                    <actionsWhenTrue>
+                        <item actionId="Eval">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                <statement>set retCode &quot;FALSE&quot;</statement>
+                            </actionProperties>
+                        </item>
+                    </actionsWhenTrue>
+                </ruleProperties>
+            </processorInfo>
+        </item>
+        <item>
+            <extractorInfo extractorType="contains">
+                <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                    <searchString>ERROR</searchString>
+                </extractorProperties>
+            </extractorInfo>
+            <processorInfo ruleType="assert">
+                <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                    <expression>$value == 1</expression>
+                    <actionsWhenTrue>
+                        <item actionId="Eval">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                <statement>set retCode &quot;FALSE&quot;</statement>
+                            </actionProperties>
+                        </item>
+                    </actionsWhenTrue>
+                </ruleProperties>
+            </processorInfo>
+            <skip>true</skip>
+        </item>
+        <item>
+            <extractorInfo extractorType="contains">
+                <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                    <searchString sub="false">ERROR - (?!CTS SE license is absent)</searchString>
+                    <matchType>Regex</matchType>
+                </extractorProperties>
+            </extractorInfo>
+            <processorInfo ruleType="assert">
+                <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                    <expression>$value == 1</expression>
+                    <actionsWhenTrue>
+                        <item actionId="Eval">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                <statement>set retCode &quot;FALSE&quot;</statement>
+                            </actionProperties>
+                        </item>
+                    </actionsWhenTrue>
+                </ruleProperties>
+            </processorInfo>
+        </item>
+    </analysisRules>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

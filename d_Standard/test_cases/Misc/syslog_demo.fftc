@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution estimatedExecutionTime="7">
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <HostIP>192.168.1.111</HostIP>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c100aab3-6838-42fd-83bb-bb804639a28c" action="comment">
+                    <command>
+                        <body>Open Sessions</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2319f3c8-12e2-43f6-a795-e416786371d2" action="open" session="syslog">
+                            <command>
+                                <body>device:DUT#Syslog</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.syslog.SyslogSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2de8061b-3725-4261-9dde-2bb9bdc4d673" action="open" session="Cisco2940_Telnet" normalOffset="4.124">
+                            <command>
+                                <body>device:DUT#CLI</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="5beb4a69-ad94-4b77-85e2-61980f0cdd27" action="command" session="Cisco2940_Telnet" normalOffset="3.719">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="c6459f7b-1fa9-482e-ad41-002a48fe240e" action="command" session="Cisco2940_Telnet" normalOffset="0.952">
+                            <command>
+                                <body>ena </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="1423f70e-26c4-4079-bdfa-d538a71edd39" action="command" session="Cisco2940_Telnet" normalOffset="1.109">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d6ea18cc-2b08-402e-a9b2-11f11be0c605" action="comment">
+                    <command>
+                        <body>Verify empty syslog message queue</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f04bcb33-903a-4929-b315-66df94d98d48" action="command" session="syslog" normalOffset="4.187">
+                            <command>
+                                <body>show messages</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>totalAvailable()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>Syslog Queue is Empty</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>Syslog Queue is not empty</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="64e975c9-1e66-4781-8b43-cefb20a6f976" action="comment">
+                    <command>
+                        <body>Configure DUT for sending syslog messages to host</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cfecdbda-332b-4187-99b1-31e4a223f766" action="command" session="Cisco2940_Telnet" normalOffset="3.344" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="1beb58eb-f124-4d99-abb8-ee1e154acb1f" action="command" session="Cisco2940_Telnet" normalOffset="4.014" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>logging on</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="b3761e5e-68d5-4fba-8b14-779010f69a80" action="comment">
+                            <command>
+                                <body>Get Host IP Address</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="006fd501-fa03-4faa-9efa-39966c950969" action="open" session="host">
+                                    <command>
+                                        <body>device:host</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="20937ec7-0337-4728-b80e-3daa8d3a0032" action="getLaptopIPAddress" session="host">
+                                    <command>
+                                        <body>-adapter &quot;Local Area Connection&quot;</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>HostIP</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="f923f450-9e9a-4ded-80a9-494aac7c3d72" action="close" session="host">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="96e5513f-231a-4cda-94c8-780162fcd726" action="command" session="Cisco2940_Telnet" normalOffset="6.186" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>logging $HostIP</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="bf095df8-998d-4b62-8d01-139a01db5e0a" action="command" session="Cisco2940_Telnet" normalOffset="3.766" estimatedStepExecutionTime="0.015">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8a89d510-fdcb-4ca0-8a75-6a253d71b44b" action="comment">
+                    <command>
+                        <body>Verify logging is turned on</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a227604d-a74d-436f-8491-5fb91d54bf27" action="command" session="Cisco2940_Telnet" normalOffset="4.422" estimatedStepExecutionTime="0.515">
+                            <command>
+                                <body>show log</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="bebd8c0b-8ba6-44f1-8e1f-b4fd83776520" action="comment">
+                    <command>
+                        <body>Generate a syslog message</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fe813cb6-8a88-4a19-8608-f1533d94bb83" action="command" session="Cisco2940_Telnet" normalOffset="7.062" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="d86d6bae-1fab-44f6-8c2e-c8ee3ac6bffd" action="command" session="Cisco2940_Telnet" normalOffset="1.968" estimatedStepExecutionTime="0.015">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="bebe777d-ca8d-45e3-aa19-6e709314d810" action="sleep">
+                            <command>
+                                <body>2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="657dcbc4-cbaa-4e2c-a1db-be54a41d1ca8" action="comment">
+                    <command>
+                        <body>Show messages captured</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2fb47970-09f3-4a6f-8ff2-74ddf76269e0" action="command" session="syslog" normalOffset="2.953">
+                            <command>
+                                <body>show messages</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>totalAvailable()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Number of Messages Received:  {value}</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>message_queue</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b1119b1c-da66-4f26-ad4a-01a53eeb143e" action="for">
+                            <command>
+                                <body>{set i 0} {$i &lt; [query message_queue totalAvailable()]} {incr i}</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="76160c9a-e970-47eb-87ed-55e148de9474" action="command" session="syslog" normalOffset="7.015" estimatedStepExecutionTime="0.016">
+                                    <command>
+                                        <body>show details $i</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>full()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Message $i:  &quot;{value}&quot;</message>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="231bcbae-ed5a-45f6-b0dc-e908b43874b9" action="comment">
+                    <command>
+                        <body>Disable syslog messages</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6dd5706e-531e-4af9-b37b-ee421accd39f" action="command" session="Cisco2940_Telnet" normalOffset="6.796" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="ad8abd5b-a328-4b5e-8f02-7d89dcb91ef3" action="command" session="Cisco2940_Telnet" normalOffset="6.343" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>no log $HostIP</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="63e1d905-867d-4ed0-b9c1-2d1f891944e5" action="command" session="Cisco2940_Telnet" normalOffset="2.452" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>no log on</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="215ce524-b401-4760-b3e4-5cd0ea66bd19" action="command" session="Cisco2940_Telnet" normalOffset="3.125" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="94b75c37-bb46-4e5b-9f68-159db64c752f" action="comment">
+                    <command>
+                        <body>Verify logging is turned off</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="36034736-591d-4b2e-9c97-26b2fd22b76e" action="command" session="Cisco2940_Telnet" normalOffset="4.422" estimatedStepExecutionTime="0.515">
+                            <command>
+                                <body>show log</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="16bf4136-dac4-4e8a-9dd2-998a3b1f36a7" action="comment">
+                    <command>
+                        <body>Close Sessions</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fd4584bd-750f-4a4c-9bed-9a6ef04485b1" action="command" session="Cisco2940_Telnet" normalOffset="14.546">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="ac14e9c3-87a0-42eb-8077-2618e1bd37dc" action="close" session="Cisco2940_Telnet" normalOffset="0.125">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="df265f8f-d905-4024-b765-e8dadb334fb9" action="command" session="syslog">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="350f1314-de37-48b4-ba8d-18175f51236b" action="close" session="syslog" normalOffset="3.859">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

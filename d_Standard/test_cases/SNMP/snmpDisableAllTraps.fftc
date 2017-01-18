@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="14fa3b7d-ae51-4c20-bc10-0899169186e7" action="open" session="Cisco2940_Telnet">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2f119136-b46e-46d9-931f-ae36974d4dac" action="command" session="Cisco2940_Telnet" normalOffset="2.081" estimatedStepExecutionTime="0.015">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="90ef6cab-453f-4fe2-8916-3a988012671d" action="command" session="Cisco2940_Telnet" normalOffset="0.735" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>ena</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="1032dfdb-0d1d-4a82-aeb6-a8191ed3512c" action="command" session="Cisco2940_Telnet" normalOffset="1.783" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="549ffb65-49e6-4815-ada6-e987051ac3f8" action="command" session="Cisco2940_Telnet" normalOffset="1.393" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>config t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3257979b-449e-419e-870e-97fbc216ca07" action="command" session="Cisco2940_Telnet" normalOffset="16.471" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>snmp-server community public RO</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6f4f7a85-1a9e-45d8-9860-c39777eb96f8" action="command" session="Cisco2940_Telnet" normalOffset="11.873" estimatedStepExecutionTime="0.078">
+                    <command>
+                        <body>snmp-server community fanfare RW</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3128cb48-ca53-4950-800b-47a12d9f7877" action="command" session="Cisco2940_Telnet" normalOffset="23.385" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>no snmp-server contact Jeff Johnson</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c345db27-2d69-4554-a9fc-1b17fded97f1" action="command" session="Cisco2940_Telnet" normalOffset="11.435" estimatedStepExecutionTime="0.25">
+                    <command>
+                        <body>no snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="ba2a0221-fe5f-4285-9967-cde0774dbcd0" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps config</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="764fd780-7161-43c9-96fb-a9ba6781a2b0" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.063">
+                    <command>
+                        <body>no snmp-server enable traps entity</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d65886a9-0f8f-4ef2-9ca1-276f372bcc9e" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>no snmp-server enable traps flash insertion removal</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="feabe1d5-033a-49ac-a4e1-777bd2d54586" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.079">
+                    <command>
+                        <body>no snmp-server enable traps bridge</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="73d28cd6-c018-4946-b250-dd5ff6812506" action="command" session="Cisco2940_Telnet" normalOffset="0.092" estimatedStepExecutionTime="0.079">
+                    <command>
+                        <body>no snmp-server enable traps stpx</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="59c33ecb-ad90-4ed2-9514-384bfe9a7044" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.078">
+                    <command>
+                        <body>no snmp-server enable traps rtr</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="98079223-a819-4faf-962a-c54986e8e634" action="command" session="Cisco2940_Telnet" normalOffset="0.11" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps port-security </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3e68ee62-3700-49c1-8a68-c73029d5b76a" action="command" session="Cisco2940_Telnet" normalOffset="0.094" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps vtp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="a04875eb-3652-4fd6-af23-570db6506de6" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps vlancreate</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0e6d3324-6a73-4271-85c1-cbd8cf296ed5" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps vlandelete</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="277f37e8-dc7d-4330-83e4-f1196d73d14a" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps MAC-Notification</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="ecd42184-fe21-4e1a-a05d-74ba687a8edc" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps envmon</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="50ceee02-3cd4-4444-b2d2-b33ae83f8717" action="command" session="Cisco2940_Telnet" normalOffset="0.11" estimatedStepExecutionTime="0.093">
+                    <command>
+                        <body>no snmp-server enable traps cluster</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="8e8bc256-ed60-4c87-b156-25f26dcda488" action="command" session="Cisco2940_Telnet" normalOffset="0.11" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps copy-config</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="85e9cef3-2e99-4752-981f-9a5c9e09e148" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.078">
+                    <command>
+                        <body>no snmp-server enable traps syslog</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="2103dd89-0467-49fb-9188-4f10af3d395c" action="command" session="Cisco2940_Telnet" normalOffset="0.11" estimatedStepExecutionTime="0.078">
+                    <command>
+                        <body>no snmp-server enable traps hsrp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="8e1a5e20-2431-4430-a7cb-40b2cd7d07f4" action="command" session="Cisco2940_Telnet" normalOffset="0.11" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>no snmp-server enable traps vlan-membership</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3cd48d55-b101-47b2-93b8-5991e2cbcc7d" action="command" session="Cisco2940_Telnet">
+                    <command>
+                        <body>no snmp-server enable traps</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="aea82c2d-d1c2-446c-b51d-6bdbc11f4a84" action="command" session="Cisco2940_Telnet" normalOffset="7.147" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server host 10.155.20.2 public</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d7bc7276-3f19-4b95-b7e5-ddc1f29d52e2" action="command" session="Cisco2940_Telnet">
+                    <command>
+                        <body>no snmp-server host 10.155.20.100 public</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="920da3f5-7d8e-458b-9906-2ae4e5d8ca65" action="command" session="Cisco2940_Telnet" normalOffset="42.838" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="623f917c-6503-4130-961d-bea37fa8d8ec" action="command" session="Cisco2940_Telnet">
+                    <command>
+                        <body>show running-config</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="2526a24f-05f2-49db-9bbd-0cccad62931f" action="command" session="Cisco2940_Telnet" normalOffset="70.69" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d704ac29-ec1f-463c-a484-da16578b8616" action="close" session="Cisco2940_Telnet" normalOffset="0.094">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

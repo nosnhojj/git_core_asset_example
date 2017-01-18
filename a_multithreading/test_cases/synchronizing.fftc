@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <documentation>Demonstrate Mutex Semaphores in iTest</documentation>
+        <owner>jjohnson</owner>
+    </general>
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_multithreading/topologies/multithreading_topo.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="8a436c20-21af-4123-905e-e1fada6fa738" action="comment">
+                    <command>
+                        <body>Open devices and configure it.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0dc460b3-6bf6-4278-a2bc-2d19fa83b08a" action="call" async="true">
+                            <command>
+                                <body>initializeDUTs</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="cd8efa45-ec56-42dc-b811-e91378731428" action="comment">
+                            <command>
+                                <body>Wait for device to open before continuing.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="e34e6dc2-7bb1-4c80-9966-5bce2305ac65" action="signalWait">
+                                    <command>
+                                        <body>sigDUTOpen</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ba5831e9-374e-465b-9f1b-a521d3c8c6f4" action="comment">
+                    <command>
+                        <body>Conduct the test.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1de09980-0fbc-4c3f-9a21-e43056178979" action="command" session="s1">
+                            <command>
+                                <body>ver</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Microsoft_Windows_XP()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Current version is {value}</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="85b6d876-4bf8-47a5-bdf6-5c65fa085e96" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="39d02c8f-995b-45cf-bc23-3cdbc914efc7" action="comment">
+                    <command>
+                        <body>Close the device</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="37daaec2-99c3-4618-8da3-c47ee2303bcb" action="signal">
+                            <command>
+                                <body>sigDUTClose</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="initializeDUTs">
+            <steps>
+                <item guid="fecb4967-1396-437b-a024-4c838e48ce09" action="comment">
+                    <command>
+                        <body>Open the device</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9ab86fd4-4b82-4313-a4af-2f66638e4b97" action="open" session="s1">
+                            <command>
+                                <body>device:laptop</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="aee542f1-8c54-4ec6-ae26-566358596da4" action="comment">
+                    <command>
+                        <body>Configure the device</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5f677c3c-ca44-4194-b9d1-133d33474605" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="bd4e0ebb-183d-48fd-9243-1247d37b4cb1" action="comment">
+                    <command>
+                        <body>Signal the main thread that the device is open and configured.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="90c510e3-15fd-4843-8ab8-e23e32e0e0c7" action="signalActivate">
+                            <command>
+                                <body>sigDUTOpen</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="47218803-46e7-40cf-99cf-9d36b0a9c081" action="comment">
+                    <command>
+                        <body>Wait for the main thread to tell us the test is done.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fab47acf-b2a9-4d38-b2de-1b58c20c06e4" action="signalWait">
+                            <command>
+                                <body>sigDUTClose</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6a0845cf-2ff2-4289-afe5-0153d9196e2e" action="comment">
+                    <command>
+                        <body>Signal the main thread that we are no longer open and close the device.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ef402645-c9e2-4048-a221-3f1b7e18f46e" action="signalClear">
+                            <command>
+                                <body>sigDUTOpen</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="5137f649-3c84-4d25-a7ba-6c1278264ac8" action="close" session="s1">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

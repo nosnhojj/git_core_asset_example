@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="CiscoIOS_SNMP.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="accc7d26-52d2-4a44-af72-bc3955f2be5a" action="comment">
+                    <command>
+                        <body>Quickcall Library for Cisco IOS SNMP</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="login" isPublic="true">
+            <steps>
+                <item guid="c7258b8f-c706-462b-a60e-d1a9bfcb7a47" action="comment">
+                    <command>
+                        <body>Noop</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="doit" isPublic="true">
+            <steps>
+                <item guid="0285acca-ea2e-4d6a-818f-1f675c3e02cb" action="return">
+                    <command>
+                        <body>&quot;This is the SNMP session&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

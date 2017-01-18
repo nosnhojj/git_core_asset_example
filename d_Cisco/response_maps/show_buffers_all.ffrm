@@ -1,0 +1,425 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show buffers all</body>
+                </command>
+            </action>
+            <responseBody>
+  Header DataArea  Pool Rcnt  Size Link  Enc    Flags          Input      Output
+
+80BC1BF8 A08B412C Small    0    60    0    0        0           None        None
+80BC1EA4 A08B425C Small    0    60    0    0        0           None        None
+80BC2150 A08B438C Small    0    60    0    0        0           None        None
+80BC23FC A08B44BC Small    0    60    0    0        0           None        None
+80BC26A8 A08B45EC Small    0    60    0    0        0           None        None
+80BC2954 A08B471C Small    0    60    0    0        0           None        None
+80BC2C00 A08B484C Small    0    60    0    0        0           None        None
+80BC2EAC A08B497C Small    0    60    0    0        0           None        None
+80BC3158 A08B4AAC Small    0    60    0    0        0           None        None
+80BC3404 A08B4BDC Small    0    60    0    0        0           None        None
+80BC36B0 A08B4D0C Small    0    60    0    0        0           None        None
+80BC395C A08B4E3C Small    0    60    0    0        0           None        None
+80BC3C08 A08B4F6C Small    0    60    0    0        0           None        None
+80BC3EB4 A08B509C Small    0    60    0    0        0           None        None
+80BC4160 A08B51CC Small    0    60    0    0        0           None        None
+80BC440C A08B52FC Small    0    90    0    0        0           None        None
+80BC46B8 A08B542C Small    0    60    0    0        0           None        None
+80BC4964 A08B555C Small    0    60    0    0        0           None        None
+80BC4C10 A08B568C Small    0    60    0    0        0           None        None
+80BC4EBC A08B57BC Small    0    60    0    0        0           None        None
+80BC5168 A08B58EC Small    0    60    0    0        0           None        None
+80BC5414 A08B5A1C Small    0    60    0    0        0           None        None
+80BC56C0 A08B5B4C Small    0    60    0    0        0           None        None
+80BC596C A08B5C7C Small    0    60    0    0        0           None        None
+80BC5C18 A08B5DAC Small    0    60    0    0        0           None        None
+80BC5EC4 A08B5EDC Middl    0   489    0    0        0           None        None
+80BC6170 A08B61FC Middl    0    60    0    0        0           None        None
+80BC641C A08B651C Middl    0    60    0    0        0           None        None
+80BC66C8 A08B683C Middl    0    60    0    0        0           None        None
+80BC6974 A08B6B5C Middl    0    60    0    0        0           None        None
+80BC6C20 A08B6E7C Middl    0    60    0    0        0           None        None
+80BC6ECC A08B719C Middl    0   614    0    0        0           None        None
+80BC7178 A08B74BC Middl    0   520    0    0        0           None        None
+80BC7424 A08B77DC Middl    1   614    7    1        0           None         Vl1
+80BC76D0 A08B7AFC Middl    0   614    0    0        0           None        None
+80BC797C A08B7E1C Middl    0    60    0    0        0           None        None
+80BC7C28 A08B813C Middl    0    60    0    0        0           None        None
+80BC7ED4 A08B845C Middl    0    60    0    0        0           None        None
+80BC8180 A08B877C Middl    0   614    0    0        0           None        None
+80BC842C A08B8A9C Middl    0    60    0    0        0           None        None
+80BC86D8 A08B8DBC   Big    0   418    0    0        0           None        None
+80BC8984 A08B9478   Big    0   418    0    0        0           None        None
+80BC8C30 A08B9B34   Big    0   418    0    0        0           None        None
+80BC8EDC A08BA1F0   Big    0   418    0    0        0           None        None
+80BC9188 A08BA8AC   Big    0   418    0    0        0           None        None
+80C9FF54 A095E1B8   Big    0     0    0    0        0           None        None
+80CA0200 A095E874   Big    0     0    0    0        0           None        None
+80CA04AC A095EF30   Big    0   618    0    0        0           None        None
+80CAC308 A095A348 Middl    0     0    0    0        0           None        None
+80CAC5B4 A095A668 Middl    0     0    0    0        0           None        None
+80CAC860 A095A988 Middl    0     0    0    0        0           None        None
+80CACB0C A095ACA8 Small    0     0    0    0        0           None        None
+80CACDB8 A095ADD8 Small    0     0    0    0        0           None        None
+80CAD064 A095AF08 Small    0     0    0    0        0           None        None
+80CAD310 A095B038 Middl    0     0    0    0        0           None        None
+80CAD5BC A095B358 Middl    0     0    0    0        0           None        None
+80CAD868 A095B678 Middl    0     0    0    0        0           None        None
+80CADB14 A095B998 Small    0     0    0    0        0           None        None
+80CADDC0 A095BAC8 Small    0     0    0    0        0           None        None
+80CB6A0C A095BBF8 Small    0     0    0    0        0           None        None
+80CC3448 A095D858 Middl    0     0    0    0        0           None        None
+80CC36F4 A095DB78 Middl    0     0    0    0        0           None        None
+80CC39A0 A095DE98 Middl    0     0    0    0        0           None        None
+80CEFA80 A095D138 Small    0     0    0    0        0           None        None
+80CF6FE4 A095D268 Small    0     0    0    0        0           None        None
+80CF7290 A095D398 Small    0     0    0    0        0           None        None
+80CF7784 A095D4C8 Small    0     0    0    0        0           None        None
+80CF7A30 A095D5F8 Small    0     0    0    0        0           None        None
+80CF7CDC A095D728 Small    0     0    0    0        0           None        None
+80CFD7AC A095C7D8 Middl    0     0    0    0        0           None        None
+80CFDA58 A095CAF8 Middl    0     0    0    0        0           None        None
+80CFDD04 A095CE18 Middl    0     0    0    0        0           None        None
+80D318A4 A095BD28 Small    0     0    0    0        0           None        None
+80D31B50 A095BE58 Small    0     0    0    0        0           None        None
+80D31DFC A095BF88 Small    0     0    0    0        0           None        None
+80D321A8 A095C0B8 Small    0     0    0    0        0           None        None
+80D32454 A095C1E8 Small    0     0    0    0        0           None        None
+80D32700 A095C318 Small    0     0    0    0        0           None        None
+80D32BAC A095C448 Small    0     0    0    0        0           None        None
+80D32E58 A095C578 Small    0     0    0    0        0           None        None
+80D33104 A095C6A8 Small    0     0    0    0        0           None        None
+80794590 A08BAF68 Calho    0    60    0    0        0           None        None
+8079483C A08BB648 Calho    0    60    0    0        0           None        None
+80794AE8 A08BBD28 Calho    0    60    0    0        0           None        None
+80794D94 A08BC408 Calho    0    60    0    0        0           None        None
+80795040 A08BCAE8 Calho    0    60    0    0        0           None        None
+807952EC A08BD1C8 Calho    0    60    0    0        0           None        None
+80795598 A08BD8A8 Calho    0    60    0    0        0           None        None
+80795844 A08BDF88 Calho    0    60    0    0        0           None        None
+80795AF0 A08BE668 Calho    0    60    0    0        0           None        None
+80795D9C A08BED48 Calho    0    60    0    0        0           None        None
+80796048 A08BF428 Calho    0    60    0    0        0           None        None
+807962F4 A08BFB08 Calho    0    60    0    0        0           None        None
+807965A0 A08C01E8 Calho    0    60    0    0        0           None        None
+8079684C A08C08C8 Calho    0    60    0    0        0           None        None
+80796AF8 A08C0FA8 Calho    0    60    0    0        0           None        None
+80796DA4 A08C1688 Calho    0    60    0    0        0           None        None
+80797050 A08C1D68 Calho    0    60    0    0        0           None        None
+807972FC A08C2448 Calho    0    60    0    0        0           None        None
+807975A8 A08C2B28 Calho    0    60    0    0        0           None        None
+80797854 A08C3208 Calho    0    60    0    0        0           None        None
+80797B00 A08C38E8 Calho    0    60    0    0        0           None        None
+80797DAC A08C3FC8 Calho    0    60    0    0        0           None        None
+80798058 A08C46A8 Calho    0    60    0    0        0           None        None
+80798304 A08C4D88 Calho    0    60    0    0        0           None        None
+807985B0 A08C5468 Calho    0    60    0    0        0           None        None
+8079885C A08C5B48 Calho    0    60    0    0        0           None        None
+80798B08 A08C6228 Calho    0    60    0    0        0           None        None
+80798DB4 A08C6908 Calho    0    60    0    0        0           None        None
+80799060 A08C6FE8 Calho    0    60    0    0        0           None        None
+8079930C A08C76C8 Calho    0    60    0    0        0           None        None
+807995B8 A08C7DA8 Calho    0    60    0    0        0           None        None
+80799864 A08C8488 Calho    0    60    0    0        0           None        None
+80799B10 A08C8B68 Calho    0    60    0    0        0           None        None
+80799DBC A08C9248 Calho    0    60    0    0        0           None        None
+8079A068 A08C9928 Calho    0    60    0    0        0           None        None
+8079A314 A08CA008 Calho    0    60    0    0        0           None        None
+8079A5C0 A08CA6E8 Calho    0    60    0    0        0           None        None
+8079A86C A08CADC8 Calho    0    60    0    0        0           None        None
+8079AB18 A08CB4A8 Calho    0    60    0    0        0           None        None
+8079ADC4 A08CBB88 Calho    0    60    0    0        0           None        None
+8079B070 A08CC268 Calho    1    60    7    1        0           None        None
+8079B31C A08CC948 Calho    1   357    0    0        0           None        None
+8079B5C8 A08CD028 Calho    1   365    0    0        0           None        None
+8079B874 A08CD708 Calho    1   371    0    0        0           None        None
+8079BB20 A08CDDE8 Calho    1    60    0    0        0           None        None
+8079BDCC A08CE4C8 Calho    1   243    0    0        0           None        None
+8079C078 A08CEBA8 Calho    1   313    0    0        0           None        None
+8079C324 A08CF288 Calho    1   322    0    0        0           None        None
+8079C5D0 A08CF968 Calho    1   357    0    0        0           None        None
+8079C87C A08D0048 Calho    1   365    0    0        0           None        None
+8079CB28 A08D0728 Calho    1   371    0    0        0           None        None
+8079CDD4 A08D0E08 Calho    1   313    0    0        0           None        None
+8079D080 A08D14E8 Calho    1   322    0    0        0           None        None
+8079D32C A08D1BC8 Calho    1   357    0    0        0           None        None
+8079D5D8 A08D22A8 Calho    1   365    0    0        0           None        None
+8079D884 A08D2988 Calho    1   371    0    0        0           None        None
+8079DB30 A08D3068 Calho    1    60    0    0        0           None        None
+8079DDDC A08D3748 Calho    1   243    0    0        0           None        None
+8079E088 A08D3E28 Calho    1   313    0    0        0           None        None
+8079E334 A08D4508 Calho    1   322    0    0        0           None        None
+8079E5E0 A08D4BE8 Calho    1   357    0    0        0           None        None
+8079E88C A08D52C8 Calho    1   365    0    0        0           None        None
+8079EB38 A08D59A8 Calho    1   371    0    0        0           None        None
+8079EDE4 A08D6088 Calho    1   313    0    0        0           None        None
+8079F090 A08D6768 Calho    1   322    0    0        0           None        None
+8079F33C A08D6E48 Calho    1   357    0    0        0           None        None
+8079F5E8 A08D7528 Calho    1   365    0    0        0           None        None
+8079F894 A08D7C08 Calho    1   371    0    0        0           None        None
+8079FB40 A08D82E8 Calho    1    60    0    0        0           None        None
+8079FDEC A08D89C8 Calho    1   243    0    0        0           None        None
+807A0098 A08D90A8 Calho    1   243    0    0        0           None        None
+807A0344 A08D9788 Calho    1    92    0    0        0           None        None
+807A05F0 A08D9E68 Calho    1    92    0    0        0           None        None
+807A089C A08DA548 Calho    1    92    0    0        0           None        None
+807A0B48 A08DAC28 Calho    1    60    0    0        0           None        None
+807A0DF4 A08DB308 Calho    1    62    0    0        0           None        None
+807A10A0 A08DB9E8 Calho    1    60    0    0        0           None        None
+807A134C A08DC0C8 Calho    1    60    0    0        0           None        None
+807A15F8 A08DC7A8 Calho    0    60    0    0        0           None        None
+807A18A4 A08DCE88 Calho    0    69    0    0        0           None        None
+807A1B50 A08DD568 Calho    0    60    0    0        0           None        None
+807A1DFC A08DDC48 Calho    0    73    0    0        0           None        None
+807A20A8 A08DE328 Calho    0    63    0    0        0           None        None
+807A2354 A08DEA08 Calho    0    60    0    0        0           None        None
+807A2600 A08DF0E8 Calho    0    60    0    0        0           None        None
+807A28AC A08DF7C8 Calho    0    60    0    0        0           None        None
+807A2B58 A08DFEA8 Calho    0    60    0    0        0           None        None
+807A2E04 A08E0588 Calho    0    60    0    0        0           None        None
+807A30B0 A08E0C68 Calho    0    60    0    0        0           None        None
+807A335C A08E1348 Calho    0    60    0    0        0           None        None
+807A3608 A08E1A28 Calho    0    60    0    0        0           None        None
+807A38B4 A08E2108 Calho    0    60    0    0        0           None        None
+807A3B60 A08E27E8 Calho    0    60    0    0        0           None        None
+807A3E0C A08E2EC8 Calho    0    60    0    0        0           None        None
+807A40B8 A08E35A8 Calho    0    60    0    0        0           None        None
+807A4364 A08E3C88 Calho    0    60    0    0        0           None        None
+807A4610 A08E4368 Calho    0    60    0    0        0           None        None
+807A48BC A08E4A48 Calho    0    60    0    0        0           None        None
+807A4B68 A08E5128 Calho    0    60    0    0        0           None        None
+807A4E14 A08E5808 Calho    0    60    0    0        0           None        None
+807A50C0 A08E5EE8 Calho    0    60    0    0        0           None        None
+807A536C A08E65C8 Calho    0    60    0    0        0           None        None
+807A5618 A08E6CA8 Calho    0    60    0    0        0           None        None
+807A58C4 A08E7388 Calho    0    60    0    0        0           None        None
+807A5B70 A08E7A68 Calho    0    60    0    0        0           None        None
+807A5E1C A08E8148 Calho    0    60    0    0        0           None        None
+807A60C8 A08E8828 Calho    0    60    0    0        0           None        None
+807A6374 A08E8F08 Calho    0    60    0    0        0           None        None
+807A6620 A08E95E8 Calho    0    60    0    0        0           None        None
+807A68CC A08E9CC8 Calho    0    60    0    0        0           None        None
+807A6B78 A08EA3A8 Calho    0    60    0    0        0           None        None
+807A6E24 A08EAA88 Calho    0    60    0    0        0           None        None
+807A70D0 A08EB168 Calho    0    60    0    0        0           None        None
+807A737C A08EB848 Calho    0    60    0    0        0           None        None
+807A7628 A08EBF28 Calho    0    60    0    0        0           None        None
+807A78D4 A08EC608 Calho    0    60    0    0        0           None        None
+807A7B80 A08ECCE8 Calho    0    60    0    0        0           None        None
+807A7E2C A08ED3C8 Calho    0    60    0    0        0           None        None
+807A80D8 A08EDAA8 Calho    0    60    0    0        0           None        None
+807A8384 A08EE188 Calho    0    60    0    0        0           None        None
+807A8630 A08EE868 Calho    0    60    0    0        0           None        None
+807A88DC A08EEF48 Calho    0    60    0    0        0           None        None
+807A8B88 A08EF628 Calho    0    60    0    0        0           None        None
+807A8E34 A08EFD08 Calho    0    60    0    0        0           None        None
+807A90E0 A08F03E8 Calho    0    60    0    0        0           None        None
+807A938C A08F0AC8 Calho    0    60    0    0        0           None        None
+807A9638 A08F11A8 Calho    0    60    0    0        0           None        None
+807A98E4 A08F1888 Calho    0    60    0    0        0           None        None
+807A9B90 A08F1F68 Calho    0    60    0    0        0           None        None
+807A9E3C A08F2648 Calho    0    60    0    0        0           None        None
+807AA0E8 A08F2D28 Calho    0    60    0    0        0           None        None
+807AA394 A08F3408 Calho    0    60    0    0        0           None        None
+807AA640 A08F3AE8 Calho    0    60    0    0        0           None        None
+807AA8EC A08F41C8 Calho    0    60    0    0        0           None        None
+807AAB98 A08F48A8 Calho    0    60    0    0        0           None        None
+807AAE44 A08F4F88 Calho    0    60    0    0        0           None        None
+807AB0F0 A08F5668 Calho    0    60    0    0        0           None        None
+807AB39C A08F5D48 Calho    0    60    0    0        0           None        None
+807AB648 A08F6428 Calho    0    60    0    0        0           None        None
+807AB8F4 A08F6B08 Calho    0    60    0    0        0           None        None
+807ABBA0 A08F71E8 Calho    0    60    0    0        0           None        None
+807ABE4C A08F78C8 Calho    0    60    0    0        0           None        None
+807AC0F8 A08F7FA8 Calho    0    60    0    0        0           None        None
+807AC3A4 A08F8688 Calho    0    60    0    0        0           None        None
+807AC650 A08F8D68 Calho    0    60    0    0        0           None        None
+807AC8FC A08F9448 Calho    0    60    0    0        0           None        None
+807ACBA8 A08F9B28 Calho    0    60    0    0        0           None        None
+807ACE54 A08FA208 Calho    0    60    0    0        0           None        None
+807AD100 A08FA8E8 Calho    0    60    0    0        0           None        None
+807AD3AC A08FAFC8 Calho    0    60    0    0        0           None        None
+807AD658 A08FB6A8 Calho    0    60    0    0        0           None        None
+807AD904 A08FBD88 Calho    0    60    0    0        0           None        None
+807ADBB0 A08FC468 Calho    0    60    0    0        0           None        None
+807ADE5C A08FCB48 Calho    0    60    0    0        0           None        None
+807AE108 A08FD228 Calho    0    60    0    0        0           None        None
+807AE3B4 A08FD908 Calho    0    60    0    0        0           None        None
+807AE660 A08FDFE8 Calho    0    60    0    0        0           None        None
+807AE90C A08FE6C8 Calho    0    60    0    0        0           None        None
+807AEBB8 A08FEDA8 Calho    0    60    0    0        0           None        None
+807AEE64 A08FF488 Calho    0    60    0    0        0           None        None
+807AF110 A08FFB68 Calho    0    60    0    0        0           None        None
+807AF3BC A0900248 Calho    0    60    0    0        0           None        None
+807AF668 A0900928 Calho    0    60    0    0        0           None        None
+807AF914 A0901008 Calho    0    60    0    0        0           None        None
+807AFBC0 A09016E8 Calho    0    60    0    0        0           None        None
+807AFE6C A0901DC8 Calho    0    60    0    0        0           None        None
+807B0118 A09024A8 Calho    0    60    0    0        0           None        None
+807B03C4 A0902B88 Calho    0    60    0    0        0           None        None
+807B0670 A0903268 Calho    0    60    0    0        0           None        None
+807B091C A0903948 Calho    0    60    0    0        0           None        None
+807B0BC8 A0904028 Calho    0    60    0    0        0           None        None
+807B0E74 A0904708 Calho    0    60    0    0        0           None        None
+807B1120 A0904DE8 Calho    0    60    0    0        0           None        None
+807B13CC A09054C8 Calho    0    60    0    0        0           None        None
+807B1678 A0905BA8 Calho    0    60    0    0        0           None        None
+807B1924 A0906288 Calho    0    60    0    0        0           None        None
+807B1BD0 A0906968 Calho    0    60    0    0        0           None        None
+807B1E7C A0907048 Calho    0    60    0    0        0           None        None
+807B2128 A0907728 Calho    0    60    0    0        0           None        None
+807B23D4 A0907E08 Calho    0    60    0    0        0           None        None
+807B2680 A09084E8 Calho    0    60    0    0        0           None        None
+807B292C A0908BC8 Calho    0    60    0    0        0           None        None
+807B2BD8 A09092A8 Calho    0    60    0    0        0           None        None
+807B2E84 A0909988 Calho    0    60    0    0        0           None        None
+807B3130 A090A068 Calho    0    60    0    0        0           None        None
+807B33DC A090A748 Calho    0    60    0    0        0           None        None
+807B3688 A090AE28 Calho    0    60    0    0        0           None        None
+807B3934 A090B508 Calho    0    60    0    0        0           None        None
+807B3BE0 A090BBE8 Calho    0    60    0    0        0           None        None
+807B3E8C A090C2C8 Calho    0    60    0    0        0           None        None
+807B4138 A090C9A8 Calho    0    60    0    0        0           None        None
+807B43E4 A090D088 Calho    0    60    0    0        0           None        None
+807B4690 A090D768 Calho    0    60    0    0        0           None        None
+807B493C A090DE48 Calho    0    60    0    0        0           None        None
+807B4BE8 A090E528 Calho    0    60    0    0        0           None        None
+807B4E94 A090EC08 Calho    0    60    0    0        0           None        None
+807B5140 A090F2E8 Calho    0    60    0    0        0           None        None
+807B53EC A090F9C8 Calho    0    60    0    0        0           None        None
+807B5698 A09100A8 Calho    0    60    0    0        0           None        None
+807B5944 A0910788 Calho    0    60    0    0        0           None        None
+807B5BF0 A0910E68 Calho    0    60    0    0        0           None        None
+807B5E9C A0911548 Calho    0    60    0    0        0           None        None
+807B6148 A0911C28 Calho    0    60    0    0        0           None        None
+807B63F4 A0912308 Calho    0    60    0    0        0           None        None
+807B66A0 A09129E8 Calho    0    60    0    0        0           None        None
+807B694C A09130C8 Calho    0    60    0    0        0           None        None
+807B6BF8 A09137A8 Calho    0    60    0    0        0           None        None
+807B6EA4 A0913E88 Calho    0    60    0    0        0           None        None
+807B7150 A0914568 Calho    0    60    0    0        0           None        None
+807B73FC A0914C48 Calho    0    60    0    0        0           None        None
+807B76A8 A0915328 Calho    0    60    0    0        0           None        None
+807B7954 A0915A08 Calho    0    60    0    0        0           None        None
+807B7C00 A09160E8 Calho    0    60    0    0        0           None        None
+807B7EAC A09167C8 Calho    0    60    0    0        0           None        None
+807B8158 A0916EA8 Calho    0    60    0    0        0           None        None
+807B8404 A0917588 Calho    0    60    0    0        0           None        None
+807B86B0 A0917C68 Calho    0    60    0    0        0           None        None
+807B895C A0918348 Calho    0    60    0    0        0           None        None
+807B8C08 A0918A28 Calho    0    60    0    0        0           None        None
+807B8EB4 A0919108 Calho    0    60    0    0        0           None        None
+807B9160 A09197E8 Calho    0    60    0    0        0           None        None
+807B940C A0919EC8 Calho    0    60    0    0        0           None        None
+807B96B8 A091A5A8 Calho    0    60    0    0        0           None        None
+807B9964 A091AC88 Calho    0    60    0    0        0           None        None
+807B9C10 A091B368 Calho    0    60    0    0        0           None        None
+807B9EBC A091BA48 Calho    0    60    0    0        0           None        None
+807BA168 A091C128 Calho    0    60    0    0        0           None        None
+807BA414 A091C808 Calho    0    60    0    0        0           None        None
+807BA6C0 A091CEE8 Calho    0    60    0    0        0           None        None
+807BA96C A091D5C8 Calho    0    60    0    0        0           None        None
+807BAC18 A091DCA8 Calho    0    60    0    0        0           None        None
+807BAEC4 A091E388 Calho    0    60    0    0        0           None        None
+807BB170 A091EA68 Calho    0    60    0    0        0           None        None
+807BB41C A091F148 Calho    0    60    0    0        0           None        None
+807BB6C8 A091F828 Calho    0    60    0    0        0           None        None
+807BB974 A091FF08 Calho    0    60    0    0        0           None        None
+807BBC20 A09205E8 Calho    0    60    0    0        0           None        None
+807BBECC A0920CC8 Calho    0    60    0    0        0           None        None
+807BC178 A09213A8 Calho    0    60    0    0        0           None        None
+807BC424 A0921A88 Calho    0    60    0    0        0           None        None
+807BC6D0 A0922168 Calho    0   313    0    0        0           None        None
+807BC97C A0922848 Calho    0   322    0    0        0           None        None
+807BCC28 A0922F28 Calho    0   357    0    0        0           None        None
+807BCED4 A0923608 Calho    0   365    0    0        0           None        None
+807BD180 A0923CE8 Calho    0   371    0    0        0           None        None
+807BD42C A09243C8 Calho    0   313    0    0        0           None        None
+807BD6D8 A0924AA8 Calho    0   322    0    0        0           None        None
+807BD984 A0925188 Calho    0   357    0    0        0           None        None
+807BDC30 A0925868 Calho    0   365    0    0        0           None        None
+807BDEDC A0925F48 Calho    0   371    0    0        0           None        None
+807BE188 A0926628 Calho    0    60    0    0        0           None        None
+807BE434 A0926D08 Calho    0    60    0    0        0           None        None
+807BE6E0 A09273E8 Calho    0    60    0    0        0           None        None
+807BE98C A0927AC8 Calho    0    60    0    0        0           None        None
+807BEC38 A09281A8 Calho    0    60    0    0        0           None        None
+807BEEE4 A0928888 Calho    0    60    0    0        0           None        None
+
+
+  Header DataArea  Pool           Rcnt  Size  Original   Flags   caller_pc
+
+
+  Header DataArea  Pool Rcnt  Size Link  Enc    Flags          Input      Output
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+      &lt;prompt&gt;Cisco2940#&lt;/prompt&gt;
+      &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+      &lt;echo&gt;all&lt;/echo&gt;
+      &lt;idleTime&gt;1.938&lt;/idleTime&gt;
+      &lt;contentType&gt;text&lt;/contentType&gt;
+      &lt;terminator&gt;SLASH_R_SLASH_N&lt;/terminator&gt;
+   &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+            <duration>12.5</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <banner>  Header DataArea  Pool Rcnt  Size Link  Enc    Flags          Input      Output</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Header">
+                            <width>9</width>
+                        </item>
+                        <item name="DataArea">
+                            <width>9</width>
+                        </item>
+                        <item name="Pool">
+                            <width>6</width>
+                        </item>
+                        <item name="Rcnt">
+                            <width>4</width>
+                        </item>
+                        <item name="Size">
+                            <width>6</width>
+                        </item>
+                        <item name="Link">
+                            <width>5</width>
+                        </item>
+                        <item name="Enc">
+                            <width>5</width>
+                        </item>
+                        <item name="Flags">
+                            <width>9</width>
+                        </item>
+                        <item name="Input">
+                            <width>21</width>
+                        </item>
+                        <item name="Output">
+                            <width>0</width>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* buf* *l">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

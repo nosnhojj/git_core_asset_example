@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+    <nickName>laptop</nickName>
+    <baseProfile>project://Windows/session_profiles/windows_base.ffsp</baseProfile>
+    <standalone>false</standalone>
+</SessionTemplate>

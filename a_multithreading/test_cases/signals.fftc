@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<testCase version="4.0.2.52893">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="aed10912-e7e0-42cc-8474-d6cc6623b8fb" action="comment" async="true">
+                    <threadName>First</threadName>
+                    <command>
+                        <body>First Thread</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="message">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                        <message>First thread waiting on SignalA</message>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <nestedSteps>
+                        <item guid="f122ef54-0c85-46e1-8096-8363938b116d" action="signalWait">
+                            <command>
+                                <body>SignalA</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>First thread is now awake up from SignalA</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7426a052-f89b-487c-a96f-80077c91e7e7" action="comment">
+                    <command>
+                        <body>Second thread will never wake on signalAll; signalActivate is needed for future signalWaits</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="182ad817-97ba-4a26-88f0-14665a62d331" action="sleep">
+                            <command>
+                                <body>2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a728dfbb-7763-4b8f-841a-15d52a40aa45" action="signalActivate" skip="true">
+                            <command>
+                                <body>SignalA</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>SignalA Activated</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ebe38263-6d6d-486c-9208-5d5c84c6e1e5" action="signalAll">
+                            <command>
+                                <body>SignalA</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>SignalA pulsed</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="9d7e83e7-fa08-4a96-a401-2327c0ec3feb" action="comment" async="true">
+                    <threadName>Second</threadName>
+                    <command>
+                        <body>Second Thread</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9c544a63-cded-4859-99aa-8348793b1e34" action="signalWait">
+                            <command>
+                                <body>SignalA</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Second thread is now awake up from SignalA</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

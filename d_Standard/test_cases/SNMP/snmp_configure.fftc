@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="79c3ca11-68b0-48d7-b0c9-16051e22aa82" action="open" session="DUT_Telnt">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="551c3af5-c66c-4429-b51d-d75700db9073" action="command" session="DUT_Telnt" normalOffset="1.453" estimatedStepExecutionTime="0.062">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0215be5d-bfda-462d-a31c-5053408c9e3b" action="command" session="DUT_Telnt" normalOffset="9.829" estimatedStepExecutionTime="0.14">
+                    <command>
+                        <body>ena    </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.5" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="5b355765-d841-48d9-8486-386f57477731" action="command" session="DUT_Telnt" normalOffset="1" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="165fde67-b37f-4f26-abc0-5c85f8ce49e4" action="comment">
+                    <command>
+                        <body>Stop the SNMP Server if it is running</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2f823c01-14d1-41e1-962f-f442cddbfc6f" action="command" session="DUT_Telnt" normalOffset="1.671" estimatedStepExecutionTime="11.328">
+                            <command>
+                                <body>show run</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>snmp-server community</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>SNMP Server Not Running</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>Stopping SNMP Server</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="CallProcedure">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                                            <command>stopSNMPServer</command>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="4.625" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b2d47150-5c78-4e51-8595-a97d1388da5f" action="comment">
+                    <command>
+                        <body>Setup SNMP Server</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="93327691-b97c-4863-a9c3-222592efc1c1" action="command" session="DUT_Telnt" normalOffset="8.704" estimatedStepExecutionTime="0.078">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="1.219" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="127c5e35-7f4b-409f-8c22-465650a0cd0b" action="command" session="DUT_Telnt" normalOffset="244.703" estimatedStepExecutionTime="0.187">
+                            <command>
+                                <body>snmp-server community public rw</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.485" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="aef2a4e9-6cd7-4dd0-998c-50f247f39273" action="command" session="DUT_Telnt" normalOffset="22.046" estimatedStepExecutionTime="0.094">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.265" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="ce00534e-464f-4241-9b19-362be4cff23e" action="command" session="DUT_Telnt" normalOffset="1.453" estimatedStepExecutionTime="10.313">
+                            <command>
+                                <body>show run</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>snmp-server community</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>SNMP Server is Running</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Failed to start SNMP Server</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="4.953" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="b49288e8-f2eb-477e-889f-24cc72504da5" action="command" session="DUT_Telnt" normalOffset="20.436" estimatedStepExecutionTime="0.063">
+                            <command>
+                                <body>copy running-config startup-config</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.843" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a14220fe-36a5-421a-beed-505dd1045302" action="command" session="DUT_Telnt" normalOffset="2.889" estimatedStepExecutionTime="1.203">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.125" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="35704973-2de9-4941-b342-910985d3b315" action="command" session="DUT_Telnt" normalOffset="37.578" estimatedStepExecutionTime="0.016">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="7cc155b9-e5c9-407d-88f2-4f6e8b6cbfd0" action="close" session="DUT_Telnt" normalOffset="0.125">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+        <item name="stopSNMPServer">
+            <steps>
+                <item guid="36e72fb8-4c67-4246-a2c5-5d32e589fff2" action="command" session="DUT_Telnt">
+                    <command>
+                        <body>conf t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="1d3ebf81-052f-45d5-ae09-5daa0d81ca8d" action="command" session="DUT_Telnt">
+                    <command>
+                        <body>no snmp-server</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c54aa255-90e9-4f92-bb63-1425d187bd2d" action="command" session="DUT_Telnt">
+                    <command>
+                        <body>end</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

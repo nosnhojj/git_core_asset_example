@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.0.0.49128">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="call">
+                <command>
+                    <body>VoIP_Service -session [param SESSION_NAME] -db [param VQA_DB_NAME]</body>
+                </command>
+            </action>
+            <responseBody>Metrics for the Call
+MoS-LQ Best Call;MoS-LQ Worst Call;MoS-LQ Average Call;MoS-CQ Best Call;MoS-CLQ Worst Call;MoS-CQ Average Call
+0;0;0;0;0;0;
+
+Metrics for the User
+MoS-LQ Best Call;MoS-LQ Worst Call;MoS-CQ Best Call;MoS-CLQ Worst Call
+0;0;0;0;
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="call">
+                    <banner>MoS-LQ Best Call;MoS-LQ Worst Call;MoS-LQ Average Call;MoS-CQ Best Call;MoS-CLQ Worst Call;MoS-CQ Average Call</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>;</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="MoS-LQ_Best_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-LQ_Worst_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-LQ_Average_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-CQ_Best_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-CLQ_Worst_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-CQ_Average_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="col1"/>
+                    </columns>
+                </item>
+                <item name="user">
+                    <banner>MoS-LQ Best Call;MoS-LQ Worst Call;MoS-CQ Best Call;MoS-CLQ Worst Call</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>;</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="MoS-LQ_Best_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-LQ_Worst_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-CQ_Best_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MoS-CLQ_Worst_Call">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="col1"/>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="call" command="VoIP_Service -session [param SESSION_NAME] -db [param VQA_DB_NAME]" includeInLibrary="false"/>
+</ResponseMap>

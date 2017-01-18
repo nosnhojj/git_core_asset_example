@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.itest.tools.database</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" ipAddress="localhost" ipAddress.inherit="false" port="3306" port.inherit="false" databaseName="itestdb" databaseName.inherit="false" user="root" user.inherit="false" password.masked="true" password="X6xeX/mkBjEJor6ZZIWzzg==" password.inherit="false">
+        <statementTemplates transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseStatementTemplates">
+            <definitions inherit="false" sub="true">all_test_reports: SELECT * FROM testreport;
+tables:show tables;
+passed: SELECT * FROM testreport WHERE result = &quot;Pass&quot;;
+failed: SELECT * FROM testreport WHERE result = &quot;Fail&quot;;
+daily_test_count:select date(enddate) as d, count(id) from testreport where datediff(now(), enddate) &lt;= 365 group by d;
+ave_time_by_month: select monthname(enddate) as m, avg(unix_timestamp(enddate) - unix_timestamp(startdate)) as avg_execution_time from testreport where datediff(now(), enddate) &lt;= 365 group by m;
+passed_ave_time_by_month:  select monthname(enddate) m, count(id) passed from testreport where datediff(now(), enddate) &lt;= 365 and result = &apos;pass&apos; group by m;
+count_passed_testcases:  SELECT testCase, result, count(testCase) as count  FROM testreport WHERE result = &quot;Pass&quot; AND datediff(now(), enddate) &lt;= 365 group by testCase;
+DB Sizes: SELECT table_schema &quot;DB Name&quot;, Round(Sum(data_length + index_length) / 1024 / 1024, 1) &quot;DB Size in MB&quot; FROM information_schema.tables GROUP BY table_schema;
+Table Sizes:  SELECT table_name AS &quot;Table&quot;, round(((data_length + index_length) / 1024 / 1024), 2) &quot;Size in MB&quot; FROM information_schema.TABLES WHERE table_schema = &quot;itestdb&quot;;</definitions>
+        </statementTemplates>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://a_Test_Report_Database/</responseLibrary>
+    <nickName>iTestDB</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

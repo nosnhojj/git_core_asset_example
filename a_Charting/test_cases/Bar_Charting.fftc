@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<testCase version="4.2.0.65456">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="57bb1c02-69ec-4afb-b99f-074c10000512" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; 5} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8cef4e66-e806-4ae6-b3e0-93142e68bb9c" action="eval">
+                            <command>
+                                <body>set A [expr [math.int [expr [math.rand]*40]]+1 ]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="e593eaeb-1257-47d2-9d99-7ab64cbc7ffe" action="eval">
+                            <command>
+                                <body>set B [expr [math.int [expr [math.rand]*40]]+1 ]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="27f46233-cbdf-4413-b0dd-5742a6894de3" action="comment">
+                            <command>
+                                <body>This is a BAR Chart for both A and B</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_bar">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingBarPropertyGroup" chartName="barchart1" yAxisLabel="Random Values" category="$i" series="A Value" rotate="false">
+                                                <title>Example Bar Chart</title>
+                                                <expression>$A</expression>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_bar">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingBarPropertyGroup" chartName="barchart1" yAxisLabel="Random Values" category="$i" series="B Value" rotate="false" exportImageHeight="50">
+                                                <title>Example Bar Chart</title>
+                                                <expression>$B</expression>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="7e11df29-197e-4b64-991a-8016264825da" action="comment">
+                            <command>
+                                <body>This is a BAR Chart for both A and B</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_bar">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingBarPropertyGroup" chartName="barchart2" yAxisLabel="Random Values" category="$i" series="A Value">
+                                                <title>Example Bar Chart</title>
+                                                <expression>$A</expression>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_bar">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingBarPropertyGroup" chartName="barchart2" yAxisLabel="Random Values" category="$i" series="B Value" exportImageHeight="50">
+                                                <title>Example Bar Chart</title>
+                                                <expression>$B</expression>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

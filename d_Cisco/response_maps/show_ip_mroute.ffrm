@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>IP Multicast Routing Table
+Flags: D - Dense, S - Sparse, B - Bidir Group, s - SSM Group, C - Connected,
+       L - Local, P - Pruned, R - RP-bit set, F - Register flag,
+       T - SPT-bit set, J - Join SPT, M - MSDP created entry,
+       X - Proxy Join Timer Running, A - Candidate for MSDP Advertisement,
+       U - URD, I - Received Source Specific Host Report,
+       Z - Multicast Tunnel, z - MDT-data group sender,
+       Y - Joined MDT-data group, y - Sending to MDT-data group
+Outgoing interface flags: H - Hardware switched, A - Assert winner
+ Timers: Uptime/Expires
+ Interface state: Interface, Next-Hop or VCD, State/Mode
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                        <lines>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="IP" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Multicast" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Routing" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Table" parser="Word"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="Flags" parser="Word"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="D" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Dense" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="S" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Sparse" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="B" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Bidir" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Group" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="s" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="SSM" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Group" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="C" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Connected" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="L" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Local" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="P" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Pruned" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="R" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="RP" parser="Word"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue="bit" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="set" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="F" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Register" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="flag" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="T" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="SPT" parser="Word"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue="bit" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="set" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="J" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Join" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="SPT" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="M" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MSDP" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="created" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="entry" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="X" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Proxy" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Join" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Timer" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Running" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="A" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Candidate" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="for" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MSDP" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Advertisement" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="U" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="URD" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="I" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Received" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Source" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Specific" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Host" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Report" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Z" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Multicast" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Tunnel" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="z" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MDT" parser="Word"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue="data" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="group" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="sender" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Y" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Joined" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MDT" parser="Word"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue="data" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="group" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="y" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Sending" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="to" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MDT" parser="Word"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue="data" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="group" parser="Word"/>
+                                </tokens>
+                            </item>
+                            <item/>
+                        </lines>
+                    </item>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="output_interface">
+                        <lines>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="Outgoing" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="interface" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="flags" parser="Word"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Outgoing_interface_flags" representativeValue="flags" parser="Word" isVariable="true" isWildcard="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Timers" parser="Word"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Uptime" parser="Word"/>
+                                    <item representativeValue="/" parser="Punctuation"/>
+                                    <item representativeValue="Expires" parser="Word"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Interface" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="state" parser="Word"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Interface_state" representativeValue="state" parser="Word" isVariable="true" isWildcard="true"/>
+                                </tokens>
+                            </item>
+                        </lines>
+                    </item>
+                </nodes>
+            </BlockMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* ip mroute">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

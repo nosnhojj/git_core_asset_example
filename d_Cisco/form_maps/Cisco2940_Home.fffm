@@ -1,0 +1,812 @@
+<?xml version="1.0"?>
+<FormMap version="4.1.4.63326">
+    <samplesList>
+        <item name="formsample1">
+            <structure escape="true">
+                <WebDocument>
+                    <Document doctype="BaseDocument" id="BaseWebDocument" parent="" target="" url="http://192.168.1.33/">
+                        <HTML>
+                            <HEAD>
+                                <TITLE>Cisco Catalyst Switch - Home</TITLE>
+                                <SCRIPT language="JavaScript" src="appsui.js"/>
+                                <SCRIPT language="JavaScript" src="common.js"/>
+                                <SCRIPT language="JavaScript" src="sitewide.js"/>
+                                <SCRIPT language="JavaScript" src="forms.js"/>
+                                <SCRIPT language="JavaScript">
+&lt;!--
+
+var IP_Address = &quot;&quot;;
+var cms_ip = &quot;&quot;;
+var ipInterfaces = null;
+var activeInterface = null;
+
+DLIM_WhSp = /[\\s]+/; 
+DLIM_WhSp_slash = /[\\/\\s]+/; 
+DLIM_WhSp_comma = /[\\,\\s]+/; 
+DLIM_WhSp_parens = /[\\(\\)\\s]+/; 
+DLIM_WhSp_colon = /[\\:\\s]+/; 
+DLIM_newline = /[\\r\\n]+/;
+DLIM_nonword          = /[\\W]+/;
+DLIM_nonword_period   = /[^a-zA-Z0-9_\\.]+/;   //use if IP addresses
+DLIM_nonword_colon    = /[^a-zA-Z0-9_:]+/;    //use if clock time
+
+function IpInterface(_name, _ip, _netmask, _state) {
+\tthis.name = _name;
+\tthis.ip = _ip;
+\tthis.netmask = _netmask;
+\tthis.state = _state;
+\treturn this;
+}
+
+function extract_IP_Address() {
+  var form = document.forms[0];
+  
+  ipInterfaces = extractIpDetails(form.IP_INT_DETAIL.value);
+  activeInterface = getActiveInterface(ipInterfaces);
+  IP_Address =activeInterface.ip;
+  cms_ip = IP_Address;
+}
+
+function addMasterLabel() {
+  var form = document.forms[0];
+  var temp = grep_string (/IOS/, form.VERSION.value);
+  temp = token_string (&quot;\\,&quot;, 0, temp);
+
+  if(temp.search(&quot;3750&quot;) != -1) {
+    document.write(&quot;Master &quot;);
+  }
+}
+
+function showSysInfo()
+{
+  var form = document.forms[0];
+  
+  IP = IP_Address;
+
+  MAC = &quot;&quot;;
+  temp = form.VERSION.value;
+  if (temp.search(&quot;Base ethernet MAC Address&quot;) != -1) {
+        temp = grep_string (/Base ethernet MAC Address/, temp);
+        var words = split(&quot; &quot;, temp);
+        MAC = words[words.length - 1];
+  }
+ 
+  var tableCode = &quot;&quot;
+  tableCode += &quot;&lt;tr bgcolor=&apos;#99CCCC&apos;&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;2&apos;&gt;&lt;span class=&apos;contentbold&apos;&gt;&quot;
+  tableCode += &quot;Network Identity&lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+  
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&quot;
+  tableCode += &quot;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;IP Address &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += IP
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot;&lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+  
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;MAC Address &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += MAC
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot;&lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+  document.write(tableCode)
+}
+function showNetIfSection()
+{  
+  showSysInfo()
+}
+
+function showSystemDetails()
+{
+
+  var form = document.forms[0];
+  var tableCode = &quot;&quot;
+  
+  temp = grep_string(/uptime/,form.VERSION.value);
+  hostname = token_string (/ uptime is /, 0, temp);
+  
+  uptime = token_string(/uptime is/, 1, temp);
+  
+  serialNumber = &quot;&quot;;
+  temp = form.VERSION.value;
+  if (temp.search(&quot;System serial number&quot;) != -1) {
+  \ttemp = grep_string (/System serial number/, temp);
+  \tserialNumber = token_string (&quot;:&quot;, 1, temp);
+  }
+  
+  temp = grep_string (/IOS/, form.VERSION.value);
+  temp = token_string (&quot;\\,&quot;, 1, temp);
+  softwareVersion = token_string (/Version /, 1, temp);
+
+  temp = form.SNMP_LOCATION.value;
+  if (temp.search(&quot;\\n&quot;) != -1)
+     form.SNMP_CONTACT.value = &quot;&quot;;
+  systemContact = form.SNMP_CONTACT.value;
+
+  temp = form.SNMP_LOCATION.value;
+  if (temp.search(&quot;\\n&quot;) != -1)
+     form.SNMP_LOCATION.value = &quot;&quot;;
+  systemLocation = form.SNMP_LOCATION.value;
+
+ // label
+  tableCode += &quot;&lt;tr bgcolor=&apos;#99CCCC&apos;&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;2&apos;&gt;&lt;span class=&apos;contentbold&apos;&gt;&quot;
+  tableCode += &quot;System Details&lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&quot;
+  tableCode += &quot;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;Host Name &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += hostname
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot; &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&quot;
+  tableCode += &quot;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;System Uptime &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += uptime
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot; &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+ 
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&quot;
+  tableCode += &quot;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;Serial Number &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += serialNumber
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot; &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&quot;
+  tableCode += &quot;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;Software Version &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += softwareVersion
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot; &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&quot;
+  tableCode += &quot;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;System Contact &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += systemContact
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot; &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+
+  tableCode += &quot;&lt;tr&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;23%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&quot;
+  tableCode += &quot;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += &quot;System Location &lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;td colspan=&apos;1&apos; width=&apos;77%&apos; bgcolor=&apos;#FFFFFF&apos; valign=&apos;top&apos;&gt;&lt;span class=&apos;content&apos;&gt;&quot;
+  tableCode += systemLocation
+  tableCode += &quot;&amp;nbsp;&quot;
+  tableCode += &quot;&lt;/span&gt;&lt;/td&gt;&quot;
+  tableCode += &quot;&lt;/tr&gt;&quot;
+
+  document.write(tableCode)
+}
+
+
+function displayAllSections()
+{
+  showNetIfSection()
+  showSystemDetails()
+}
+function onRefresh()
+{
+   location.reload(true);
+}
+
+function sysInit()
+{
+}
+function onResize()
+{
+  sysInit()
+}
+//--&gt;
+</SCRIPT>
+                                <LINK href="stylesheet.css" rel="stylesheet" type="text/css"/>
+                            </HEAD>
+                            <BODY bgcolor="#ffffff" onload="sysInit()" onresize="onResize()">
+                                <TABLE bgcolor="#ffffff" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD align="center" rowspan="3" valign="top" width="120">
+                                                <IMG height="10" src="ximages/pixel.gif" width="120"/>
+                                                <BR/>
+                                                <A href="http://www.cisco.com">
+                                                    <IMG alt="Cisco Systems" height="45" src="ximages/logo.gif" width="87"/>
+                                                </A>
+                                            </TD>
+                                            <TD bgcolor="#ffffff" valign="top" width="100%">
+                                                <TABLE width="100%">
+                                                    <TBODY>
+                                                        <TR>
+                                                            <TD bgcolor="#336666" valign="top" width="90">
+                                                                <IMG height="8" src="ximages/pixel.gif" width="90"/>
+                                                            </TD>
+                                                            <TD bgcolor="#336666" valign="top" width="79%">
+                                                                <IMG height="8" src="ximages/pixel.gif" width="1"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR>
+                                                            <TD valign="top">
+                                                                <A class="apphinavchildlink" href="javascript:window.close();">Close 
+            Window</A>
+                                                            </TD>
+                                                            <TD align="left" background="ximages/top.gif" valign="top">
+                                                                <IMG height="11" src="ximages/botleft.gif" width="11"/>
+                                                                <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                            </TD>
+                                                        </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                                <BR/>
+                                                <B/>
+                                                <IMG height="1" src="ximages/pixel.gif" width="470"/>
+                                            </TD>
+                                            <TD valign="top" width="180">
+                                                <TABLE width="100">
+                                                    <TBODY>
+                                                        <TR valign="bottom">
+                                                            <TD bgcolor="#336666" colspan="2">
+                                                                <IMG height="19" name="toolkit_text_img" src="ximages/text_start.gif" width="145"/>
+                                                            </TD>
+                                                        </TR>
+                                                        <TR valign="bottom">
+                                                            <TD bgcolor="#669999" width="7">
+                                                                <IMG height="7" src="ximages/downleft.gif" width="7"/>
+                                                            </TD>
+                                                            <TD bgcolor="#669999">
+                                                                <DIV align="center">
+                                                                    <A href="javascript:helpPage(&apos;home_help&apos;);" onmouseout="img_out(&apos;glossary&apos;);" onmouseover="img_over(&apos;glossary&apos;);">
+                                                                        <IMG alt="Help" height="25" name="glossaryimg" src="ximages/glossary_off.gif" width="28"/>
+                                                                    </A>
+                                                                    <A href="javascript:printPage();" onmouseout="img_out(&apos;print&apos;);" onmouseover="img_over(&apos;print&apos;);">
+                                                                        <IMG alt="Print this page" height="25" name="printimg" src="ximages/print_off.gif" width="34"/>
+                                                                    </A>
+                                                                    <BR/>
+                                                                    <IMG height="4" src="ximages/pixel.gif" width="1"/>
+                                                                </DIV>
+                                                            </TD>
+                                                        </TR>
+                                                    </TBODY>
+                                                </TABLE>
+                                            </TD>
+                                        </TR>
+                                    </TBODY>
+                                </TABLE>
+                                <TABLE bgcolor="#ffffff" width="100%">
+                                    <TBODY>
+                                        <TR>
+                                            <TD>
+                                                <FORM method="post" onsubmit="return false;">
+                                                    <INPUT name="VERSION" type="hidden" value="Cisco Internetwork Operating System Software  IOS (tm) C2940 Software (C2940-I6Q4L2-M), Version 12.1(22)EA1, RELEASE SOFTWARE (fc1) Copyright (c) 1986-2004 by cisco Systems, Inc. Compiled Mon 12-Jul-04 07:56 by madison Image text-base: 0x80010000, data-base: 0x80566000  ROM: Bootstrap program is C2950 boot loader  Cisco2940 uptime is 3 weeks, 6 days, 7 hours, 41 minutes System returned to ROM by power-on System image file is &quot;flash:/c2940-i6q4l2-mz.121-22.EA1/c2940-i6q4l2-mz.121-22.EA1.bin&quot;  cisco WS-C2940-8TT-S (RC32300) processor (revision D0) with 20841K bytes of memory. Processor board ID FHK0845Z08E Last reset from system-reset Running Standard Image 8 FastEthernet/IEEE 802.3 interface(s) 1 Gigabit Ethernet/IEEE 802.3 interface(s) The password-recovery mechanism is enabled.  32K bytes of flash-simulated non-volatile configuration memory. Base ethernet MAC Address: 00:12:7F:95:EC:40 Motherboard assembly number: 73-8784-05 Power supply part number: 341-0085-01 Motherboard serial number: FOC08442R3P Power supply serial number: HIC082602JN Model revision number: D0 Motherboard revision number: A0 Model number: WS-C2940-8TT-S System serial number: FHK0845Z08E Configuration register is 0xF "/>
+                                                    <INPUT name="send" type="hidden" value="back.htm"/>
+                                                    <INPUT name="IP_BRIEF" type="hidden" value=" Interface                  IP-Address      OK? Method Status                Protocol Vlan1                      192.168.1.33    YES manual up                    up       FastEthernet0/1            unassigned      YES unset  up                    up       FastEthernet0/2            unassigned      YES unset  down                  down     FastEthernet0/3            unassigned      YES unset  down                  down     FastEthernet0/4            unassigned      YES unset  down                  down     FastEthernet0/5            unassigned      YES unset  down                  down     FastEthernet0/6            unassigned      YES unset  down                  down     FastEthernet0/7            unassigned      YES unset  down                  down     FastEthernet0/8            unassigned      YES unset  down                  down     GigabitEthernet0/1         unassigned      YES unset  down                  down    "/>
+                                                    <INPUT name="SNMP_LOCATION" type="hidden"/>
+                                                    <INPUT name="SNMP_CONTACT" type="hidden"/>
+                                                    <INPUT name="IP_INT_DETAIL" type="hidden" value="Vlan1 is up, line protocol is up   Internet address is 192.168.1.33/24 "/>
+                                                    <TABLE bgcolor="#ffffff" width="100%">
+                                                        <TBODY>
+                                                            <TR>
+                                                                <TD width="120">
+                                                                    <IMG height="10" src="ximages/pixel.gif" width="120"/>
+                                                                </TD>
+                                                                <TD valign="bottom" width="460">
+                                                                    <FONT face="Arial, Helvetica, sans-serif">
+                                                                        <B>
+                                                                            <FONT color="#003333" size="4"> 
+              Cisco 
+              
+                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                
+                                                                                <SCRIPT language="JavaScript">
+                      extract_IP_Address();
+                      find(/bytes of memory./,DLIM_WhSp,1,document.forms[0].VERSION.value);
+\t\t  \t\t      </SCRIPT>
+
+
+
+
+
+WS-C2940-8TT-S
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <NOSCRIPT>
+              Switch
+              </NOSCRIPT>
+                                                                            </FONT>
+                                                                        </B>
+                                                                    </FONT>
+                                                                </TD>
+                                                                <TD width="190">
+                                                                    <IMG height="1" src="ximages/pixel.gif" width="190"/>
+                                                                </TD>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD bgcolor="#003333" colspan="3">
+                                                                    <IMG height="10" src="ximages/pixel.gif" width="1"/>
+                                                                </TD>
+                                                            </TR>
+                                                        </TBODY>
+                                                    </TABLE>
+                                                    <TABLE bgcolor="#ffffff" width="100%">
+                                                        <TBODY>
+                                                            <TR>
+                                                                <TD>
+                                                                    <TABLE bgcolor="#ffffff" width="100%">
+                                                                        <TBODY>
+                                                                            <TR>
+                                                                                <TD background="ximages/left_bkg.gif" valign="top" width="162">
+                                                                                    <TABLE bgcolor="#ffffff" width="100%">
+                                                                                        <TBODY>
+                                                                                            <TR>
+                                                                                                <TD bgcolor="#003333" colspan="4">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR>
+                                                                                                <TD background="ximages/dkgreen.gif" bgcolor="#336666" width="8">
+                                                                                                    <IMG height="18" src="ximages/pixel.gif" width="8"/>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#336666" width="8">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="8"/>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#336666" width="100%">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="128"/>
+                                                                                                </TD>
+                                                                                                <TD align="right" bgcolor="#336666" valign="top" width="18">
+                                                                                                    <IMG height="18" src="ximages/upright.gif" width="18"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR>
+                                                                                                <TD bgcolor="#003333" colspan="4">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR class="menuitem" onclick="javascript:window.location=&apos;xhome.htm&apos;;">
+                                                                                                <TD background="ximages/yellow.gif" bgcolor="#ffffff">
+                                                                                                    <IMG height="17" src="ximages/pixel.gif" width="8"/>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#ffffff" colspan="2">
+                                                                                                    <A href="#"/>
+                                                                                                    <A class="apphinavchild" href="xhome.htm">HOME</A>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#ffffff">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR>
+                                                                                                <TD bgcolor="#003333" colspan="4">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR class="menuitem" onclick="javascript:window.location=&apos;/express-setup.htm&apos;">
+                                                                                                <TD background="ximages/green.gif" bgcolor="#669999">
+                                                                                                    <IMG height="17" src="ximages/pixel.gif" width="8"/>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999" colspan="2">
+                                                                                                    <A href="#"/>
+                                                                                                    <A class="apphinavpeer" href="/express-setup.htm">EXPRESS 
+                          SETUP </A>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <SCRIPT language="JavaScript">
+\t\tvar device_type = getFind(/bytes of memory./,DLIM_WhSp,1,document.forms[0].VERSION.value);
+
+\t\tif(device_type.indexOf(&quot;ME-C3750&quot;) == -1)
+\t\t{
+\t\tif(!isNetscape()) 
+\t\t\tdocument.write(&apos;&lt;SCRIPT LANGUAGE=&quot;JavaScript&quot; SRC=&quot;cmsplugin.js&quot;&gt;&lt;\\/SCRIPT&gt;&apos;);
+\t\t}
+\t\t</SCRIPT>
+
+
+
+
+
+\t\t
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <SCRIPT language="JavaScript">\t        
+                
+\t\tvar device_type = getFind(/bytes of memory./,DLIM_WhSp,1,document.forms[0].VERSION.value);
+\t\tif(device_type.indexOf(&quot;ME-C3750&quot;) == -1)\t\t
+\t\t{\t\t\t\t
+\t\t\tdocument.write(&quot;&lt;tr&gt;&lt;td colspan=&apos;4&apos; bgcolor=&apos;003333&apos;&gt;&lt;img src=&apos;ximages/pixel.gif&apos; alt=&apos;&apos; border=&apos;0&apos; width=&apos;1&apos; height=&apos;1&apos;&gt;&lt;/td&gt;&lt;/tr&gt;&quot;);
+\t\t\tif(isOlderNetscape())
+\t\t\t\t    document.write(&quot;&lt;tr&gt;&quot;);
+\t\t\t\t\telse
+\t\t\t\t    document.write(&quot;&lt;tr onClick=&apos;launchPreflight(cms_ip)&apos;&gt;&quot;);\t\t\t\t\t
+document.write(&quot;&lt;td bgcolor=&apos;#669999&apos; background=&apos;ximages/green.gif&apos;&gt;&lt;img src=&apos;ximages/pixel.gif&apos; alt=&apos;&apos; width=&apos;8&apos; height=&apos;17&apos; border=&apos;0&apos;&gt;&lt;/td&gt;&quot;);
+\t\tdocument.write(&quot;&lt;td colspan=&apos;2&apos; bgcolor=&apos;#669999&apos;&gt;&lt;a href=&apos;#&apos;&gt;&lt;/a&gt;&quot;);
+\tif(isOlderNetscape())
+\t\t     document.write(&quot;&lt;a href=&apos;javascript:launchPreflight(cms_ip);&apos; class=&apos;menuitemstyle&apos;&gt;CLUSTER MANAGEMENT SUITE&lt;/a&gt;&quot;);
+\t\t\t\t\telse
+\t\t \t     document.write(&quot;&lt;span class=&apos;menuitemstyle&apos;&gt;CLUSTER MANAGEMENT SUITE&lt;/span&gt;&quot;);
+\t\tdocument.write(&quot;&lt;/td&gt;&quot;);
+ \t\tdocument.write(&quot;&lt;td bgcolor=&apos;#669999&apos;&gt;&lt;img src=&apos;ximages/pixel.gif&apos; alt=&apos;&apos; border=&apos;0&apos; width=&apos;1&apos; height=&apos;1&apos;&gt;&lt;/td&gt;&quot;);
+\t\tdocument.write(&quot;&lt;/tr&gt;&quot;);
+\t\t\t\t
+\t\t\t\t
+\t\t}
+\t\t</SCRIPT>
+                                                                                            <TR>
+                                                                                                <TD bgcolor="#003333" colspan="4">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR onclick="launchPreflight(cms_ip)">
+                                                                                                <TD background="ximages/green.gif" bgcolor="#669999">
+                                                                                                    <IMG height="17" src="ximages/pixel.gif" width="8"/>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999" colspan="2">
+                                                                                                    <A href="#"/>
+                                                                                                    <SPAN class="menuitemstyle">CLUSTER MANAGEMENT SUITE</SPAN>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+
+
+
+
+
+\t\t
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <TR>
+                                                                                                <TD bgcolor="#003333" colspan="4">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR class="menuitem" onclick="javascript:window.location=&apos;tools.htm&apos;">
+                                                                                                <TD background="ximages/green.gif" bgcolor="#669999">
+                                                                                                    <IMG height="17" src="ximages/pixel.gif" width="8"/>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999" colspan="2">
+                                                                                                    <A href="#"/>
+                                                                                                    <SPAN class="apphinavchildlink">
+                                                                                                        <A class="apphinavchildlink" href="tools.htm">TOOLS</A>
+                                                                                                    </SPAN>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR>
+                                                                                                <TD bgcolor="#003333" colspan="4">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR class="menuitem" onclick="javascript:window.location=&apos;doc.htm&apos;">
+                                                                                                <TD background="ximages/green.gif" bgcolor="#669999">
+                                                                                                    <IMG height="17" src="ximages/pixel.gif" width="8"/>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999" colspan="2">
+                                                                                                    <A href="#"/>
+                                                                                                    <A class="apphinavpeer" href="doc.htm"> 
+                          SUPPORT</A>
+                                                                                                </TD>
+                                                                                                <TD bgcolor="#669999">
+                                                                                                    <DIV align="center">
+                                                                                                        <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                    </DIV>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                            <TR>
+                                                                                                <TD bgcolor="#003333" colspan="4">
+                                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                                </TD>
+                                                                                            </TR>
+                                                                                        </TBODY>
+                                                                                    </TABLE>
+                                                                                </TD>
+                                                                                <TD valign="top" width="100%">
+                                                                                    <TABLE bgcolor="#ffffff" width="100%">
+                                                                                        <TBODY>
+                                                                                            <TR>
+                                                                                                <TD width="24"/>
+                                                                                                <TD colspan="2" valign="top">
+                                                                                                    <SPAN>
+                                                                                                        <FONT color="#ffffff">
+                                                                                                            <IMG height="8" src="ximages/spacer.gif" width="8"/>
+                                                                                                        </FONT>
+                                                                                                    </SPAN>
+                                                                                                    <TABLE width="100%">
+                                                                                                        <TBODY>
+                                                                                                            <TR>
+                                                                                                                <TD bgcolor="#669999">
+                                                                                                                    <TABLE width="100%">
+                                                                                                                        <TBODY>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#669999" width="6">
+                                                                                                                                    <IMG height="8" src="ximages/spacer.gif" width="8"/>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#669999" width="100%">
+                                                                                                                                    <IMG height="5" src="ximages/spacer.gif" width="1"/>
+                                                                                                                                    <BR/>
+                                                                                                                                    <SPAN>
+                                                                                                                                        <FONT color="#ffffff" face="Arial, Helvetica, sans-serif" size="2">
+                                                                                                                                            <B>Home: 
+                                      
+                                                                                                                                
+                                                                                                                                                
+                                                                                                                                                
+                                                                                                                                                
+                                                                                                                                                
+                                                                                                                                                <SCRIPT language="JavaScript">
+                            addMasterLabel();
+                          </SCRIPT>
+
+
+
+
+
+
+                                      Summary Status                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </B>
+                                                                                                                                        </FONT>
+                                                                                                                                        <FONT color="#ffffff">
+                                                                                                                                            <BR/>
+                                                                                                                                        </FONT>
+                                                                                                                                    </SPAN>
+                                                                                                                                    <IMG height="5" src="ximages/spacer.gif" width="1"/>
+                                                                                                                                </TD>
+                                                                                                                                <TD align="right" bgcolor="#669999" valign="top" width="7">
+                                                                                                                                    <IMG height="7" src="ximages/corner_ur_7.gif" width="7"/>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                        </TBODY>
+                                                                                                                    </TABLE>
+                                                                                                                    <NOSCRIPT>
+                                  &lt;TR&gt; 
+                                    &lt;TD vAlign=center borderColor=#ffffff borderColorLight=#ffffff width=54 bgColor=#ffffff borderColorDark=#ffffff height=39&gt; 
+                                      &lt;P align=left&gt;&lt;FONT face=Arial size=2&gt;&amp;nbsp; 
+                                        &lt;A href=&quot;troubleshooting_JavaScript.htm&quot;&gt;&lt;IMG height=32 src=&quot;ximages/fatal_error.gif&quot; width=32 border=0&gt;&lt;/A&gt; 
+                                        &lt;/FONT&gt;&lt;/P&gt;&lt;/TD&gt;
+                                    &lt;TD vAlign=center borderColor=#ffffff borderColorLight=#ffffff align=left width=98 bgColor=#ffffff borderColorDark=#ffffff height=39&gt; 
+                                      &lt;P align=left&gt;&lt;B&gt;&lt;FONT face=Arial color=#012d32 size=2&gt;JavaScript&lt;/FONT&gt;&lt;/B&gt;&lt;/P&gt;&lt;/TD&gt;
+                                    &lt;TD vAlign=center borderColor=#ffffff borderColorLight=#ffffff align=left width=765 bgColor=#ffffff borderColorDark=#ffffff height=39&gt; 
+                                      &lt;P align=left&gt;&lt;FONT face=Arial size=2&gt; JavaScript 
+                                        has not been enabled. This Page cannot 
+                                        be displayed properly until JavaScript 
+                                        is enabled. Click &lt;A href=&quot;troubleshooting_JavaScript.htm&quot;&gt;here&lt;/A&gt;&amp;nbsp; 
+                                        for more information.&lt;FONT color=#800000&gt;&amp;nbsp;&amp;nbsp;&lt;/FONT&gt; 
+                                      &lt;/P&gt;&lt;/font&gt;
+                                      &lt;/TD&gt;
+                                  &lt;/TR&gt;
+                                  </NOSCRIPT>
+                                                                                                                    <TABLE bgcolor="#669999" cellpadding="6" cellspacing="1" width="100%">
+                                                                                                                        <SCRIPT language="JavaScript">
+\t\t\t\t\t\t\tdisplayAllSections()
+                      </SCRIPT>
+                                                                                                                        <TBODY>
+                                                                                                                            <TR bgcolor="#99cccc">
+                                                                                                                                <TD colspan="2">
+                                                                                                                                    <SPAN class="contentbold">Network Identity</SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="23%">
+                                                                                                                                    <SPAN class="content">IP Address </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="77%">
+                                                                                                                                    <SPAN class="content">192.168.1.33 </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="23%">
+                                                                                                                                    <SPAN class="content">MAC Address </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="77%">
+                                                                                                                                    <SPAN class="content">00:12:7F:95:EC:40 </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR bgcolor="#99cccc">
+                                                                                                                                <TD colspan="2">
+                                                                                                                                    <SPAN class="contentbold">System Details</SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="23%">
+                                                                                                                                    <SPAN class="content">Host Name </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="77%">
+                                                                                                                                    <SPAN class="content">Cisco2940  </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="23%">
+                                                                                                                                    <SPAN class="content">System Uptime </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="77%">
+                                                                                                                                    <SPAN class="content"> 3 weeks, 6 days, 7 hours, 41 minutes  </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="23%">
+                                                                                                                                    <SPAN class="content">Serial Number </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="77%">
+                                                                                                                                    <SPAN class="content"> FHK0845Z08E  </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="23%">
+                                                                                                                                    <SPAN class="content">Software Version </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="77%">
+                                                                                                                                    <SPAN class="content">12.1(22)EA1  </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="23%">
+                                                                                                                                    <SPAN class="content">System Contact </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" width="77%">
+                                                                                                                                    <SPAN class="content">  </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                            <TR>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="23%">
+                                                                                                                                    <SPAN class="content">System Location </SPAN>
+                                                                                                                                </TD>
+                                                                                                                                <TD bgcolor="#ffffff" colspan="1" valign="top" width="77%">
+                                                                                                                                    <SPAN class="content"> </SPAN>
+                                                                                                                                </TD>
+                                                                                                                            </TR>
+                                                                                                                        </TBODY>
+                                                                                                                    </TABLE>
+                                                                                                                </TD>
+                                                                                                            </TR>
+                                                                                                        </TBODY>
+                                                                                                    </TABLE>
+                                                                                                    <SPAN>
+                                                                                                        <FONT color="#ffffff">
+                                                                                                            <IMG height="8" src="ximages/spacer.gif" width="8"/>
+                                                                                                        </FONT>
+                                                                                                    </SPAN>
+                                                                                                </TD>
+                                                                                                <TD width="16"/>
+                                                                                            </TR>
+                                                                                        </TBODY>
+                                                                                    </TABLE>
+                                                                                </TD>
+                                                                            </TR>
+                                                                        </TBODY>
+                                                                    </TABLE>
+                                                                    <TABLE bgcolor="#ffffff" width="100%">
+                                                                        <TBODY>
+                                                                            <TR>
+                                                                                <TD bgcolor="#003333" width="100%">
+                                                                                    <IMG height="8" src="ximages/pixel.gif" width="492"/>
+                                                                                </TD>
+                                                                                <TD bgcolor="#003333" width="28">
+                                                                                    <IMG height="8" src="ximages/pixel.gif" width="28"/>
+                                                                                </TD>
+                                                                                <TD bgcolor="#003333" width="234">
+                                                                                    <IMG height="8" src="ximages/pixel.gif" width="234"/>
+                                                                                </TD>
+                                                                                <TD bgcolor="#003333" width="16">
+                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                </TD>
+                                                                            </TR>
+                                                                            <TR>
+                                                                                <TD/>
+                                                                                <TD align="right" valign="top">
+                                                                                    <IMG height="28" src="ximages/28_upright.gif" width="28"/>
+                                                                                </TD>
+                                                                                <TD align="right" bgcolor="#003333" valign="middle" width="400">
+                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                    <FONT face="Arial, Helvetica, sans-serif" size="2">
+                                                                                        <SPAN>
+                                                                                            <SCRIPT language="JavaScript">
+              \tdocument.write(&apos;&lt;input name=&quot;refresh&quot; type=&quot;button&quot; value=&quot;Refresh&quot; onClick=&quot;onRefresh()&quot;&gt;&amp;nbsp;&apos;);
+\t\t\t\tdocument.write(&apos;&lt;input name=&quot;help&quot; type=&quot;button&quot; value=&quot;Help&quot; onClick=&quot;helpPage(\\&apos;home_help\\&apos;);&quot;&gt;&amp;nbsp;&apos;);
+              </SCRIPT>
+                                                                                            <INPUT name="refresh" onclick="onRefresh()" type="button" value="Refresh"/>
+
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <INPUT name="help" onclick="helpPage(&apos;home_help&apos;);" type="button" value="Help"/>
+
+
+
+
+
+ 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </SPAN>
+                                                                                    </FONT>
+                                                                                    <FONT face="Arial, Helvetica, sans-serif" size="2">
+                                                                                        <SPAN/>
+                                                                                    </FONT>
+                                                                                </TD>
+                                                                                <TD bgcolor="#003333">
+                                                                                    <IMG height="1" src="ximages/pixel.gif" width="1"/>
+                                                                                </TD>
+                                                                            </TR>
+                                                                        </TBODY>
+                                                                    </TABLE>
+                                                                </TD>
+                                                            </TR>
+                                                        </TBODY>
+                                                    </TABLE>
+                                                    <TABLE bgcolor="#ffffff" width="100%">
+                                                        <TBODY>
+                                                            <TR>
+                                                                <TD width="120">
+                                                                    <IMG height="20" src="ximages/pixel.gif" width="120"/>
+                                                                </TD>
+                                                                <TD rowspan="2" valign="bottom">
+                                                                    <A class="apphinavchildlink" href="javascript:closeWindow();">Close 
+              Window</A>
+                                                                    <IMG height="20" src="ximages/pixel.gif" width="10"/>
+                                                                </TD>
+                                                                <TD width="100%">
+                                                                    <IMG height="20" src="ximages/pixel.gif" width="85"/>
+                                                                </TD>
+                                                                <TD align="right" rowspan="2" valign="bottom">
+                                                                    <SPAN class="content"> 
+              Copyright (c) 2004 by Cisco Systems, Inc. </SPAN>
+                                                                    <P id="cms_plugin_paragraph"/>
+                                                                </TD>
+                                                            </TR>
+                                                            <TR>
+                                                                <TD width="120">
+                                                                    <IMG height="11" src="ximages/pixel.gif" width="120"/>
+                                                                </TD>
+                                                                <TD align="right" background="ximages/bottom.gif" valign="top" width="100%">
+                                                                    <IMG height="11" src="ximages/11_upright.gif" width="11"/>
+                                                                </TD>
+                                                            </TR>
+                                                        </TBODY>
+                                                    </TABLE>
+                                                </FORM>
+                                            </TD>
+                                        </TR>
+                                    </TBODY>
+                                </TABLE>
+                            </BODY>
+                        </HTML>
+                    </Document>
+                </WebDocument>
+            </structure>
+        </item>
+    </samplesList>
+    <targets>
+        <item name="Tools">
+            <queryFormatString>link=TOOLS</queryFormatString>
+        </item>
+        <item name="Express_Setup">
+            <queryFormatString>link=EXPRESS SETUP</queryFormatString>
+        </item>
+        <item name="IP_Address">
+            <queryFormatString>//TR[2]/TD[2]/SPAN</queryFormatString>
+        </item>
+        <item name="Summary_Table">
+            <queryFormatString>//TD/TABLE[2]</queryFormatString>
+        </item>
+    </targets>
+</FormMap>

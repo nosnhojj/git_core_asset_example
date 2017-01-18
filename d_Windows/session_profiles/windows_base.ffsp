@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+    <responseLibrary inherit="false">project://d_Windows/</responseLibrary>
+    <sessionClassTestCase inherit="false">windows_quickcalls.fftc</sessionClassTestCase>
+    <initializationProcedure inherit="false">configure</initializationProcedure>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

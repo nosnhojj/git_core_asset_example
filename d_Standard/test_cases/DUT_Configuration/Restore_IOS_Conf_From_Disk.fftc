@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <owner>jjohnson</owner>
+    </general>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="39cf90da-bd23-4a2f-bcd9-4d405c518897" action="open" session="DUT">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="6a734727-16ba-48b8-af29-69293f70b4d0" action="login" session="DUT" normalOffset="0.112" estimatedStepExecutionTime="1.233">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="46db6b16-c79f-4d4c-8439-43e29bd62aac" action="command" session="DUT" normalOffset="12.777" estimatedStepExecutionTime="0.064">
+                    <command>
+                        <body>dir disk0:</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.188" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="4d4e783f-364d-405e-aa8f-209095497428" action="command" session="DUT" normalOffset="21.223" estimatedStepExecutionTime="0.049">
+                    <command>
+                        <body>copy disk0:running-config-20110412 run</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.357" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="8a45c380-1244-4918-981f-ce454ad94c86" action="command" session="DUT" normalOffset="3.575" estimatedStepExecutionTime="0.558">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.511" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="a3396565-b124-4842-8470-586fa1f878ce" action="command" session="DUT" normalOffset="19.702" estimatedStepExecutionTime="2.478">
+                    <command>
+                        <body>show run</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.147" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="57d33759-8677-4ff4-a72f-ecaa71bba9b5" action="command" session="DUT" normalOffset="2.043" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="bfba5a78-8d2d-4658-8a3d-4ae6fac03c36" action="close" session="DUT" normalOffset="0.068">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

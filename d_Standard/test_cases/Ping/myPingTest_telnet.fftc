@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <notes>Jeff is a Bubba.  And he&apos;s pretty cool!</notes>
+    </general>
+    <execution estimatedExecutionTime="7">
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <ping_count pt:datatype="INTEGER">3</ping_count>
+                    <DUT_ip_addr>192.168.1.33</DUT_ip_addr>
+                    <MY_IP>192.168.1.33</MY_IP>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://d_Standard/topologies/local.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="e95435c0-1d54-483a-a820-cd493f3396a2" action="teststep">
+                    <command>
+                        <body>Open Devices</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="12098eb7-31cf-4adb-954b-4a7375e89575" action="open" session="DUT_Telnet">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2ba2b904-4e78-43eb-851d-ac3b18078985" action="login" session="DUT_Telnet">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1bd695c8-cfad-448c-8f04-d7cffc13a043" action="teststep">
+                    <command>
+                        <body>Get Initial Information</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="87744fee-eb01-417e-b90a-de793037226b" action="command" session="DUT_Telnet" normalOffset="2.312" estimatedStepExecutionTime="0.891">
+                    <command>
+                        <body>show version</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <qualityCenterStepInfo stepName="Step 1">
+                        <description>Get Version</description>
+                        <expectedResult>IOS Version should be C2940-I6Q4L2-M</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="72e859cf-427c-49f6-981c-5b5ad5a70269" action="command" session="DUT_Telnet" normalOffset="3.422" estimatedStepExecutionTime="4.547">
+                    <command>
+                        <body>show interfaces </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <qualityCenterStepInfo stepName="Step 2">
+                        <description>Show all interfaces</description>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="9d77da85-45e1-4b61-a786-70f5deb23298" action="showIPTraffic" session="DUT_Telnet" normalOffset="12.093" estimatedStepExecutionTime="1.047">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>icmp_rcvd_echo()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>initial_ping_count</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>icmp_rcvd_echo()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="message">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                        <message>Initial Ping Count is {value}</message>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                    <qualityCenterStepInfo stepName="Step 2">
+                        <description>Determine current ping count</description>
+                        <expectedResult>Information Only</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="76a537bc-47f1-4a1a-be8f-9f075fbe6283" action="teststep">
+                    <command>
+                        <body>Run Traffic</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="fcd84e2c-3d70-48dc-952c-b407d8771909" action="open" session="laptop" normalOffset="20.235">
+                    <command>
+                        <body>device:host</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="7123977c-e5a0-4cc2-a09d-c8f63fbfef46" action="ping" session="laptop" normalOffset="9.905" estimatedStepExecutionTime="2.078">
+                    <command>
+                        <body>-ping_count [param ping_count] -host [profile DUT_Telnet document/sessionProperties/ipAddress]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="f5620667-d1ee-4d00-919b-ec3703eb3de1" action="teststep">
+                    <command>
+                        <body>Get Results &amp; Analyze</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3e54d630-075d-43a3-b918-ca2e3f6bfc36" action="showIPTraffic" session="DUT_Telnet" target.sub="true" normalOffset="4.703" estimatedStepExecutionTime="2.078">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>icmp_rcvd_echo()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == $initial_ping_count + [param ping_count]</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>Ping Count is {value}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>Ping Count Incorrect, Value &apos;&apos;{value}&apos;&apos;</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                    <qualityCenterStepInfo stepName="Step 3">
+                        <description>Verify Ping Count is the previous count plus the ping count</description>
+                        <expectedResult>Previous Ping Count + Number of Pings</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="c4788148-f9ed-4795-9e23-5267e3601448" action="teststep">
+                    <command>
+                        <body>Close </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="9ac3a69b-8301-43ae-a982-0fbb5603f2fc" action="command" session="DUT_Telnet" normalOffset="4.172" estimatedStepExecutionTime="0.016">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="437325ee-e647-4a56-b9b2-87950426f43c" action="close" session="DUT_Telnet" normalOffset="0.124">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="a296a53f-d176-49dd-906d-315cca0b87da" action="command" session="laptop" normalOffset="5.046" estimatedStepExecutionTime="0.015">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="4b333017-c91b-42cb-8d43-bc6ace9fbe08" action="close" session="laptop" normalOffset="0.032">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <qualityCenterTestInfo domain="FANFARE" project="MANUALTEST">
+        <testLocation>Subject\\jjohnson\\Verizon_Demo</testLocation>
+        <testInstanceLocation>Root\\jjohnson\\Verizon_Demo\\[1]Verizon_Demo</testInstanceLocation>
+    </qualityCenterTestInfo>
+</testCase>

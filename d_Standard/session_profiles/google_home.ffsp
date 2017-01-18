@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+        <baseUrl inherit="false">www.google.com</baseUrl>
+    </sessionProperties>
+    <nickName>google</nickName>
+</SessionTemplate>

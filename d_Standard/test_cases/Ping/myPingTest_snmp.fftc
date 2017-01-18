@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution estimatedExecutionTime="10">
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <ping_count pt:datatype="INTEGER">5</ping_count>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="7be4eed1-187a-4e95-9405-35b8da92c2d9" action="open" session="DUT_SNMP">
+                    <command>
+                        <body>device:DUT#SNMP</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2cc1afad-cf0b-466c-a24b-1fc2265ee0a1" action="walk" session="DUT_SNMP" normalOffset="6.059" estimatedStepExecutionTime="0.047">
+                    <command>
+                        <body>MIB-2::icmp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e55a62a7-4ee1-417a-9a20-3aea99d8efcd" action="get" session="DUT_SNMP" normalOffset="3.967">
+                    <command>
+                        <body>MIB-2::icmp.icmpInEchos</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>icmpInEchos()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>initial_ping_count</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="58f04aba-c9af-4bb7-a0a2-16f0e278bfae" action="open" session="laptop" normalOffset="3.138">
+                    <command>
+                        <body>device:host</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="b405cd1a-0d74-4552-9ee4-3cfb3fc9ae29" action="command" session="laptop" normalOffset="12.431" estimatedStepExecutionTime="2.093">
+                    <command>
+                        <body>ping -n [param ping_count] [profile DUT_SNMP document/sessionProperties/ipAddress]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="8c9505af-4475-4f03-a9a7-ccf526c9cf27" action="get" session="DUT_SNMP" normalOffset="4.717" estimatedStepExecutionTime="0.015">
+                    <command>
+                        <body>MIB-2::icmp.icmpInEchos</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>icmpInEchos()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == $initial_ping_count + [param ping_count]</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>Ping Count Correct</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>Invalid Ping Count:  &apos;&apos;{value}&apos;&apos;</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="8c952716-06b7-47a3-a726-ab9e13914e8b" action="close" session="DUT_SNMP" normalOffset="5.81">
+                    <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="5be179d8-fbd2-42fe-8c4a-2a960afa4c9a" action="command" session="laptop" normalOffset="1.545">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="279cd47c-e725-47dc-8a8b-698244adae4d" action="close" session="laptop" normalOffset="0.03">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <qualityCenterTestInfo domain="FANFARE" project="DEMO">
+        <testLocation>Subject\\Training\\Managing Test Cases\\myPingTest_snmp</testLocation>
+        <testInstanceLocation>Root\\Training\\Workshop\\[1]myPingTest_snmp</testInstanceLocation>
+    </qualityCenterTestInfo>
+</testCase>

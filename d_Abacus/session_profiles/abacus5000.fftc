@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <documentation>QuickCall Library Abacus 5000 -- DO NOT EXECUTE</documentation>
+        <owner>amichaels</owner>
+        <sessionClass includeTestCase="true" sessionType="abacus5000.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <description>The entry point to the test case</description>
+            <steps>
+                <item guid="5b249d91-f200-413d-802b-2d6c9237c33a" action="comment">
+                    <command>
+                        <body>Don&apos;t run this test case</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="connect" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <description>Connect to an Abacus chassis</description>
+            <steps>
+                <item guid="c9974ad1-331e-4d79-9986-fed0763a302c" action="command" session="$session" normalOffset="32.787" estimatedStepExecutionTime="7.207">
+                    <command>
+                        <body>::abacus::connect $ip_address</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>set_ip</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="79376253-9a20-4b90-99bc-7c98deb1a0f7" action="return">
+                    <command>
+                        <body>$set_ip</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>amichaels</author>
+            <version>1.0</version>
+            <multilineDescription>Use this procedure to open a connection to the Spirent Abacus chassis via the Tcl API.  A session name will be returned by this procedure that must be used when calling additional procedures from this library.
+
+connect -ip_address 10.10.1.1</multilineDescription>
+            <arguments>
+                <item name="ip_address">
+                    <description>The IP address of the Abacus chassis.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="disconnect" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="4cf32ac7-3d80-4f9e-bb2a-3f2256e855f0" action="command" session="$session" normalOffset="21.022" estimatedStepExecutionTime="28.795">
+                    <command>
+                        <body>::abacus::disconnect</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>exit_val</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="bf393e8c-dc1b-4fdd-bd51-5c13e080fcf9" action="return">
+                    <command>
+                        <body>$exit_val</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>amichaels</author>
+            <version>1.0</version>
+            <multilineDescription>Disconnect</multilineDescription>
+        </item>
+        <item name="loadConfig" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="fca181ce-ec09-4116-9254-787efaac9310" action="command" session="$session" normalOffset="17.607" estimatedStepExecutionTime="11.518">
+                    <command>
+                        <body>::abacus::loadConfig $env_file</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>report</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="389d7a52-290d-4b0a-8d74-33e488ed7187" action="return">
+                    <command>
+                        <body>[response report]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>amichaels</author>
+            <version>1.0</version>
+            <multilineDescription>Load an Abacus configuration file with a .env file extension for use with this test.</multilineDescription>
+            <arguments>
+                <item name="env_file">
+                    <description>The environment file to load.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="testStart" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="43e3643d-540c-4a4e-86ca-9763fa59a39f" action="command" session="$session" normalOffset="27.883" estimatedStepExecutionTime="24.924">
+                    <command>
+                        <body>::abacus::start</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>test_start</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c42b4c34-d382-4d56-93dc-475481106893" action="return">
+                    <command>
+                        <body>$test_start</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>amichaels</author>
+            <version>1.0</version>
+        </item>
+        <item name="testStop" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="a3da05f2-c8f1-4903-9f06-e9e964963421" action="command" session="$session" normalOffset="27.883" estimatedStepExecutionTime="24.924">
+                    <command>
+                        <body>::abacus::stop</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>test_stop</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2c6f3c36-dc1f-4a5b-8d85-e098ce34a4e1" action="return">
+                    <command>
+                        <body>$test_stop</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>amichaels</author>
+            <version>1.0</version>
+        </item>
+        <item name="getResults" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <responseMap>project://d_Abacus/response_maps/abacus_report.ffrm</responseMap>
+            <steps>
+                <item guid="3dc80499-111a-4e0d-aa75-59c608769445" action="command" session="$session" useResponseMapLibraryApplicability="false">
+                    <command>
+                        <body>::abacus::getResults</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>results_xml</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <responseMap>project://d_Abacus/response_maps/abacus_report.ffrm</responseMap>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="30535e2d-dff5-4503-8adb-3f1371e4aacc" action="return">
+                    <command>
+                        <body>[response results_xml]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>amichaels</author>
+            <version>1.0</version>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="0d8a51c6-4042-4ab0-a9a4-a9541cd24a1b" action="open" session="t1">
+                    <command>
+                        <body>project://d_OnPath_Simulator/session_profiles/OnPath_Sim_Telnet_Base.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="c0b5a73e-fbf4-4387-967f-da76c0264ed0" action="command" session="t1" normalOffset="0.357" estimatedStepExecutionTime="0.014">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="4a8e1963-37bf-4753-a129-7940efd76929" action="command" session="t1" normalOffset="20.52" estimatedStepExecutionTime="0.202">
+                    <command>
+                        <body>logon admin password</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.3" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="eee8de98-9e59-4f27-90ea-39f96bb76c17" action="command" session="t1" normalOffset="20.075" estimatedStepExecutionTime="0.202">
+                    <command>
+                        <body>select switch OnPath_SIM</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.52" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2083cddc-7b86-4502-88c6-10735c031b43" action="command" session="t1" normalOffset="9.874" estimatedStepExecutionTime="2.404">
+                    <command>
+                        <body>disp port</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                        <regex>^\\w+\\s+(\\d+)\\.([\\d]+(\\.[\\d]+))$</regex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>chassis</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                        <regex>^\\w+\\s+\\d+\\.(\\d+)\\.\\d+$</regex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>slots</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                        <regex>^\\w+\\s+([\\d]+(\\.[\\d]+))\\.(\\d+)$</regex>
+                                        <extractionGroupIndex>3</extractionGroupIndex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>ports</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.201" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="81cdaceb-6ef2-45da-be8a-f50a846a488d" action="command" session="t1" normalOffset="40.983" estimatedStepExecutionTime="0.02">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="7d964718-45ab-4b69-ab2f-a516c2c5c4a7" action="command" session="t1" skip="true" estimatedStepExecutionTime="0.252">
+                    <command>
+                        <body>disp con port</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                        <regex>^\\w+\\s+([\\d]+(\\.[\\d]+))\\.\\d+\\s+@\\s+\\w+\\s+(((\\d+\\.)+\\d+))\\s+@\\s+$</regex>
+                                        <extractionGroupIndex>3</extractionGroupIndex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>port2</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="regex">
+                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                        <regex>^\\w+\\s+(((\\d+\\.)+\\d+))\\s+@\\s+\\w+\\s+([\\d]+(\\.[\\d]+))\\.\\d+\\s+@\\s+$</regex>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>port1</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="2.4" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="41f4aedd-7c6f-4e63-891a-053e0e12b1d6" action="close" session="t1" normalOffset="17.85">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

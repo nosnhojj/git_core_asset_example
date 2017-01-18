@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name></name>
+    <description></description>
+    <property name="dateModified">2017-01-18T12:01:13.998-05:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">6.0.0.18638fa</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="2765e73e-046d-47c3-92b3-a6cdcc195d06" id="resource_0" type="pc">
+        <boundary height="61" width="45" x="384" y="336"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/pc_32.gif</property>
+        <property name="name">laptop</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="command_prompt" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <baseProfile>project://Windows/session_profiles/windows_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="b349a87d-aa32-49d9-83f8-6f93b8834d29" id="COM1" type="port">
+          <property name="name">Serial_1</property>
+        </resource>
+        <resource guid="2c580b4d-d9b3-4d58-9312-5c9d3c5cb16b" id="NIC_Hardwire" type="port">
+          <property name="name">Ethernet</property>
+        </resource>
+      </resource>
+      <resource guid="c60da5a7-2056-4375-b7df-60dfe919140d" id="MRV" type="switch">
+        <boundary height="61" width="45" x="378" y="159"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/switch_32.gif</property>
+        <property name="name">MRV</property>
+        <property name="SN" vendor="Customer">123456</property>
+        <property name="chassis" vendor="ATKK">1</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://d_MRV/session_profiles/mrv.ffsp" name="serial" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.application.serial</baseApplication>
+              <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties">
+                <portName inherit="false">COM1</portName>
+                <baudRate inherit="false">38400</baudRate>
+              </sessionProperties>
+              <baseProfile>project://d_MRV/session_profiles/mrv.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="telnet" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                <ipAddress inherit="false">192.168.1.200</ipAddress>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="32248801-7717-4a21-8a48-87a09468346a" id="Switch" type="slot">
+          <property name="name">Switch36</property>
+          <property name="slot" vendor="ATKK">1</property>
+          <property name="num_ports" vendor="ATKK">10</property>
+          <resource guid="e71549d5-71e6-4c2b-90b2-4e076b2966fe" id="Port_1.1.1" type="port">
+            <property name="name">port1</property>
+            <propertyCollection name="custom" vendor="ATKK"><property name="port" vendor="ATKK">1</property></propertyCollection>
+            <property name="port" vendor="ATKK">1</property>
+          </resource>
+          <resource guid="cbc208bc-e095-42dc-abd1-003bc0dff55d" id="Port_1.1.2" type="port">
+            <property name="name">port2</property>
+            <property name="port" vendor="ATKK">2</property>
+          </resource>
+          <resource guid="72756806-7cd7-4c2e-88ca-e715219bc6d3" id="Port_1.1.3" type="port">
+            <property name="name">port3</property>
+            <property name="port" vendor="ATKK">3</property>
+          </resource>
+          <resource guid="882803e6-d50e-4de1-9580-5c2920f42e4b" id="Port_1.1.4" type="port">
+            <property name="name">port4</property>
+            <property name="port" vendor="ATKK">4</property>
+          </resource>
+          <resource guid="488fca2f-45f7-4617-9fb0-748374e9e2ba" id="Port_1.1.5" type="port">
+            <property name="name">port5</property>
+            <property name="port" vendor="ATKK">5</property>
+          </resource>
+          <resource guid="2a60a9cb-24b0-4587-8832-59b731c5a031" id="Port_1.1.6" type="port">
+            <property name="name">port6</property>
+            <property name="port" vendor="ATKK">6</property>
+          </resource>
+          <resource guid="ee7c55c3-0b32-44dc-ba6f-b48a6cacf394" id="Port_1.1.7" type="port">
+            <property name="name">port7</property>
+            <property name="port" vendor="ATKK">7</property>
+          </resource>
+          <resource guid="b8886de1-e838-4431-a46b-091be5f44f25" id="Port_1.1.8" type="port">
+            <property name="name">port8</property>
+            <property name="port" vendor="ATKK">8</property>
+          </resource>
+          <resource guid="7cc3dc3f-f180-47eb-bad6-a01be22320e9" id="Port_1.1.9" type="port">
+            <property name="name">port9</property>
+            <property name="port" vendor="ATKK">9</property>
+          </resource>
+          <resource guid="e8988639-5e92-4b07-a448-1574e6414759" id="Port_1.1.10" type="port">
+            <property name="name">port10</property>
+            <property name="port" vendor="ATKK">10</property>
+          </resource>
+        </resource>
+        <resource guid="abe80533-d8ed-4452-9876-0990cb2d92a4" id="Empty" type="slot">
+          <property name="name">Empty</property>
+          <property name="slot" vendor="ATKK">2</property>
+          <property name="num_ports" vendor="ATKK">0</property>
+        </resource>
+        <resource guid="37a518c0-32e6-4b73-8ea3-8e57f7c727cc" id="Management" type="slot">
+          <property name="name">Management</property>
+          <property name="slot" vendor="ATKK">3</property>
+          <resource guid="096add55-116b-4e35-8c8c-0f1c913a61cd" id="Mgmnt_Serial" type="port">
+            <property name="name">Mgmnt_Serial</property>
+          </resource>
+          <resource guid="74695260-0836-4d9e-9ba3-722019588a00" id="Mgmnt_Ethernet" type="port">
+            <property name="name">Mgmnt_Ethernet</property>
+          </resource>
+        </resource>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="name">link1</property>
+        <endpoint id="COM1"/>
+        <endpoint id="Mgmnt_Serial"/>
+      </link>
+      <link id="link_1">
+        <property name="name">link2</property>
+        <endpoint id="Port_1.1.2"/>
+        <endpoint id="Mgmnt_Ethernet"/>
+      </link>
+      <link id="link_2">
+        <property name="name">link3</property>
+        <endpoint id="Port_1.1.1"/>
+        <endpoint id="NIC_Hardwire"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

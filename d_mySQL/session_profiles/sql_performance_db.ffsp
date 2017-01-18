@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.itest.tools.database</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" databaseType.inherit="false" ipAddress="localhost" ipAddress.inherit="false" databaseName="performance" databaseName.inherit="false" user="root" user.inherit="false" password.masked="true" password="X6xeX/mkBjEJor6ZZIWzzg==" password.inherit="false">
+        <statementTemplates transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseStatementTemplates">
+            <definitions inherit="false" sub="true">all_rows: SELECT * FROM perf_data;
+tables:show tables;
+</definitions>
+        </statementTemplates>
+    </sessionProperties>
+    <nickName>performance</nickName>
+</SessionTemplate>

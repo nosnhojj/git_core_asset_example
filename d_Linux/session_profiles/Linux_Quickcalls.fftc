@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<testCase version="4.2.0.65456">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="3e13ebd0-fb9b-4c59-8599-89b5f10b57d4" action="comment">
+                    <command>
+                        <body>Linux Quickcall Library</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="ping" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.telnet">
+            <steps>
+                <item guid="c6da4b64-8d29-4322-834c-064834a9eee4" action="command" session="$session">
+                    <command>
+                        <body>ping -c $ping_count $host</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>ping_response</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="20ef4769-11c6-4c5d-a9e5-2603b252a02f" action="return">
+                    <command>
+                        <body>[response ping_response]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>This routine will generate a ping.  The user inputs are the destination IPv4 address and the number of pings to send.</multilineDescription>
+            <arguments>
+                <item name="session">
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="host">
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="ping_count"/>
+            </arguments>
+        </item>
+        <item name="getLaptopIPAddress" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.telnet">
+            <steps>
+                <item guid="cedcce91-8135-4cd0-89c7-f20c219a5530" action="command" session="$session">
+                    <command>
+                        <body>ipconfig</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query sub="true">ipv4_address_by_adapter(&quot;$adapter&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>hostIp</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="04979aa5-f201-4ebf-8881-868538712b39" action="return">
+                    <command>
+                        <body>$hostIp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="adapter">
+                    <defaultValue>Local Area Connection</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

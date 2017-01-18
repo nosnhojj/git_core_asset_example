@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="241a4a33-cae9-4c93-9a2a-b798d337796f" action="comment">
+                    <command>
+                        <body>This test case illustrates how to wait for a single thread to complete</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="69445885-dd8f-4742-bf5c-4908bdd18617" action="comment">
+                    <command>
+                        <body>The global variable &apos;flag&apos; is use to determine if the child has preformed any actions.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e41785dc-ad36-4287-871b-a1fefa872e11" action="eval">
+                    <command>
+                        <body>gset flag 0</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="655868d1-602e-453c-9e26-64a58e3dc9ec" action="call" async="true">
+                    <threadName>myChild</threadName>
+                    <command>
+                        <body>childThread -time_to_wait 10</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>child_status</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="09cd0255-e11a-47d5-a84a-47b3191d781a" action="waitthread">
+                    <command>
+                        <body>myChild</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                </item>
+                <item guid="515a08f8-e25a-4e63-8989-598b4bfeec2a" action="comment">
+                    <command>
+                        <body>check the flags to see if it&apos;s set</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>[gget flag] &gt; 0</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>The child is awake</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>The child is asleep</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="childThread">
+            <steps>
+                <item guid="0171d96c-0bbe-4d61-b557-03a3f10f8046" action="sleep">
+                    <command>
+                        <body>$time_to_wait</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="325c98da-99bf-4fdd-9fcb-25757432400b" action="eval">
+                    <command>
+                        <body>gset flag 1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="77519d48-8cad-44c3-bc88-669b20a15d67" action="return">
+                    <command>
+                        <body>&quot;I&apos;m awake!!&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="time_to_wait">
+                    <description>The time for the child to wait until it completes.
+</description>
+                    <defaultValue>5</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

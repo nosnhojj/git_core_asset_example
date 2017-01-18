@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.0.0.77059">
+    <baseApplication>com.fnfr.svt.applications.spirent.testcenter.gui</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.TestCenterGUISessionProperties" ipAddress="1.1.1.1" ipAddress.inherit="false" ports="2:1" ports.inherit="false" config.inherit="false" forceOwnership="true" forceOwnership.inherit="false" subscribeResultsFromConfig="false" subscribeResultsFromConfig.inherit="false">
+        <labServer transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.LabServerProperties" useLabServer.inherit="false" serverHost.inherit="false" createNewSession.inherit="false" sessionName.inherit="false" ownerId.inherit="false" terminateSession.inherit="false"/>
+        <configurePort transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.ConfigurePortProperties" duplexMode.inherit="false" mediaType="Fiber" mediaType.inherit="false" dataPathMode.inherit="false"/>
+        <configureCustom16bitFilter transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.Analyzer16BitFilterProperties" mask="65535" mask.inherit="false" endOfRange="ffff" endOfRange.inherit="false"/>
+        <configureStreamBlock transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.StreamBlockProperties" enableFcsErrorInsertion.inherit="false"/>
+        <miscProperties transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.MiscProperties" displayPortFullName="true" displayPortFullName.inherit="false" displayPortFullNameForCapture="true" displayPortFullNameForCapture.inherit="false"/>
+    </sessionProperties>
+    <eventHandlers>
+        <item name="OnToolCloseSessionError">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                    <message>Error closing session : {error}</message>
+                </actionProperties>
+            </item>
+        </item>
+        <item name="OnToolOpenSessionError">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                    <message>Unable to open session : {error}</message>
+                </actionProperties>
+            </item>
+        </item>
+        <item name="OnToolError">
+            <item actionId="DeclareExecutionIssue">
+                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                    <message>{error}</message>
+                </actionProperties>
+            </item>
+            <item actionId="FailTest">
+                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+            </item>
+        </item>
+    </eventHandlers>
+    <responseLibrary inherit="false">project://d_STC/</responseLibrary>
+    <sessionClassTestCase inherit="false">tg_stc.fftc</sessionClassTestCase>
+    <nickName>STC</nickName>
+    <analysisRules>
+        <item>
+            <extractorInfo extractorType="contains">
+                <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                    <searchString>Result = RuntimeError</searchString>
+                    <matchType>CaseInsensitive</matchType>
+                </extractorProperties>
+            </extractorInfo>
+            <processorInfo ruleType="assert">
+                <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                    <expression>$value == 1</expression>
+                    <actionsWhenTrue>
+                        <item actionId="Eval">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                <statement>set retCode FALSE</statement>
+                            </actionProperties>
+                        </item>
+                    </actionsWhenTrue>
+                </ruleProperties>
+            </processorInfo>
+        </item>
+        <item>
+            <extractorInfo extractorType="contains">
+                <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                    <searchString>retCode: FALSE</searchString>
+                </extractorProperties>
+            </extractorInfo>
+            <processorInfo ruleType="assert">
+                <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                    <expression>$value == 1</expression>
+                    <actionsWhenTrue>
+                        <item actionId="DeclareExecutionIssue">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                <message>STC Quickcall returned error code</message>
+                            </actionProperties>
+                        </item>
+                        <item actionId="FailTest">
+                            <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item actionId="SkipRemainingRules">
+                            <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </actionsWhenTrue>
+                </ruleProperties>
+            </processorInfo>
+            <skip>true</skip>
+        </item>
+        <item>
+            <extractorInfo extractorType="contains">
+                <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                    <searchString>Result = RuntimeError</searchString>
+                    <matchType>CaseInsensitive</matchType>
+                </extractorProperties>
+            </extractorInfo>
+            <processorInfo ruleType="assert">
+                <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                    <expression>$value == 1</expression>
+                    <actionsWhenTrue>
+                        <item actionId="Eval">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                <statement>set retCode FALSE</statement>
+                            </actionProperties>
+                        </item>
+                        <item actionId="CallProcedure">
+                            <actionProperties type="com.fnfr.svt.execution.builtin.actions.CallProcedurePropertyGroup">
+                                <command>../procedures/sessions_handle.fftc#close_stc_session</command>
+                            </actionProperties>
+                        </item>
+                    </actionsWhenTrue>
+                </ruleProperties>
+            </processorInfo>
+            <skip>true</skip>
+        </item>
+    </analysisRules>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<testCase version="4.1.4.63326">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="a4aa0e84-35d3-46ad-8572-4291bf9ccf51" action="comment">
+                    <command>
+                        <body>This is a Procedure Library to abstract common Cisco IOS calls</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ba85dc5a-42ec-4063-83bf-c36aa3100b6b" action="comment">
+                    <command>
+                        <body>This library has been created to provide the common abstraction layer for all Cisco CLI interfaces.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8310ee94-86f6-4feb-acce-3bd3476416e6" action="comment">
+                    <command>
+                        <body>The actual abstraction can be called directly to these calls or via Quickcalls.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="showVersion" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.ssh">
+            <steps>
+                <item guid="0ad74bbf-ee8e-4a16-9db6-e85be3f8d17b" action="command" session="$session">
+                    <command>
+                        <body>show version</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>procResponse</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="32d81a35-6266-4c0f-8469-9c6dfd648530" action="return">
+                    <command>
+                        <body>[response procResponse]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="showInterfaces" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.ssh">
+            <steps>
+                <item guid="f6d88d86-0b88-46de-9455-77d49bc245fa" action="command" session="$session">
+                    <command>
+                        <body>show interfaces</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>procResponse</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="3e52ae3a-dc26-425e-ba44-9ace2a74313d" action="return">
+                    <command>
+                        <body>[response procResponse]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="showIpTraffic" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.ssh">
+            <steps>
+                <item guid="32395108-5cfb-4bbb-9b3a-c2ca71981e0c" action="command" session="$session">
+                    <command>
+                        <body>show ip traffic</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>procResponse</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b3d60b73-7824-4308-a884-e1a55c6f05e5" action="return">
+                    <command>
+                        <body>[response procResponse]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

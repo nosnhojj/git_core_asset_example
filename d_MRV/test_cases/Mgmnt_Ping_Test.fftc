@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <notes>Simple ping test to show ability to route through the ports to the telnet management port.</notes>
+        <owner>jjohnson</owner>
+        <emulation enable="true"/>
+    </general>
+    <testbed>project://d_MRV/topologies/mrv.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="22bef6da-bd46-4dc8-9a92-c56177496fc1" action="comment">
+                    <command>
+                        <body>Open Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ceb99ac3-9d60-4990-aa22-d89213a277bf" action="open" session="MRV">
+                            <command>
+                                <body>device:MRV#serial</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                    <completionProperties>
+                                        <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                                    </completionProperties>
+                                </stepProperties>
+                                <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <emulation emulate="ALWAYS">
+                                <behavior>
+                                    <response>SysRq : HELP : loglevel0-8 reBoot tErm Full kIll showMem Nice showPc Sync showTasks Unmount 
+</response>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;connectStatus&gt;true&lt;/connectStatus&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="connectStatus">
+                                            <queryFormatString>.//connectStatus</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.4</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="67e1db21-a870-49c1-972e-1cbafaa5537d" action="login" session="MRV" normalOffset="0.218" estimatedStepExecutionTime="1.703">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;definedIn&gt;project://MRV/quick_calls/mrv_quickcall_library.fftc&lt;/definedIn&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="definedIn">
+                                            <queryFormatString>.//definedIn</queryFormatString>
+                                            <source>Kernel</source>
+                                        </item>
+                                    </aliases>
+                                    <duration>1.3</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="a36f12b2-7f55-4950-b7e0-8a8bbf14d364" action="open" session="laptop" normalOffset="7.126">
+                            <command>
+                                <body>device:laptop#command_prompt</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <emulation emulate="ALWAYS">
+                                <behavior>
+                                    <response>
+</response>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;connectStatus&gt;true&lt;/connectStatus&gt;
+   &lt;prompt&gt;C:\\Documents and Settings\\jjohnson\\My Documents\\My Downloads\\Fanfare\\Software\\iTest\\iTest 4.0\\Beta_49691\\iTestTeam&amp;gt;&lt;/prompt&gt;
+   &lt;promptName&gt;defaultPrompt&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="connectStatus">
+                                            <queryFormatString>.//connectStatus</queryFormatString>
+                                        </item>
+                                        <item name="prompt">
+                                            <queryFormatString>.//prompt</queryFormatString>
+                                        </item>
+                                        <item name="promptName">
+                                            <queryFormatString>.//promptName</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.3</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="28a44404-ea9a-4902-8aaa-537193400e64" action="configure" session="laptop" normalOffset="0.062" estimatedStepExecutionTime="0.406">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;definedIn&gt;project://Base/quickcall_library/laptop_quickcall.fftc&lt;/definedIn&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="definedIn">
+                                            <queryFormatString>.//definedIn</queryFormatString>
+                                            <source>Kernel</source>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.3</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4ab110a1-707c-428b-bb04-e558475d4c42" action="comment">
+                    <command>
+                        <body>Configure the IP address of the Management Telenet Port via the serial port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e6f03277-3084-4086-87f5-779c1f68ff46" action="configureIP" session="MRV">
+                            <command>
+                                <body>-ipAddress 192.168.1.200/24 -gateway 192.168.1.254</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;definedIn&gt;project://MRV/quick_calls/mrv_quickcall_library.fftc&lt;/definedIn&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="definedIn">
+                                            <queryFormatString>.//definedIn</queryFormatString>
+                                            <source>Kernel</source>
+                                        </item>
+                                    </aliases>
+                                    <duration>2.9</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="309cd72e-c454-4bd3-b7af-16bf3c7a1b31" action="comment">
+                    <command>
+                        <body>Configure the port to map us to the management telnet port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a410e30e-da01-4cb6-99aa-e3da00f7decf" action="command" session="MRV" normalOffset="4.094" estimatedStepExecutionTime="0.203">
+                            <command>
+                                <body>configure terminal</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.406" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;prompt&gt;fiberdriver(config)# &lt;/prompt&gt;
+   &lt;echo&gt;configure terminal&lt;/echo&gt;
+   &lt;promptName&gt;config&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="prompt">
+                                            <queryFormatString>.//prompt</queryFormatString>
+                                        </item>
+                                        <item name="echo">
+                                            <queryFormatString>.//echo</queryFormatString>
+                                        </item>
+                                        <item name="promptName">
+                                            <queryFormatString>.//promptName</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.4</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="95245318-9ad4-4012-ab24-14fb93fed538" action="command" session="MRV" normalOffset="8.109" estimatedStepExecutionTime="0.297">
+                            <command>
+                                <body>map 1.1.1 with 1.1.2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.594" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;prompt&gt;fiberdriver(config)# &lt;/prompt&gt;
+   &lt;echo&gt;map 1.1.1 with 1.1.2&lt;/echo&gt;
+   &lt;promptName&gt;config&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="prompt">
+                                            <queryFormatString>.//prompt</queryFormatString>
+                                        </item>
+                                        <item name="echo">
+                                            <queryFormatString>.//echo</queryFormatString>
+                                        </item>
+                                        <item name="promptName">
+                                            <queryFormatString>.//promptName</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.4</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="ea29d0b0-c75e-4f1b-8035-59263e5c6c46" action="showMapForSlot" session="MRV" normalOffset="4.093" estimatedStepExecutionTime="0.313">
+                            <command>
+                                <body>-slot 1.1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.203" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <emulation>
+                                <behavior>
+                                    <response>
+Desired Port Connection Map for slot 1.1
+================================================================================
+    1.1.1==1.1.2     
+
+Actual Port Connection Map for slot 1.1
+================================================================================
+    1.1.1==1.1.2     
+</response>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;definedIn&gt;project://MRV/quick_calls/mrv_quickcall_library.fftc&lt;/definedIn&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="definedIn">
+                                            <queryFormatString>.//definedIn</queryFormatString>
+                                            <source>Kernel</source>
+                                        </item>
+                                    </aliases>
+                                    <duration>4.4</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b6e27c5e-b501-4087-ae70-e5a7b9e5fef1" action="comment">
+                    <command>
+                        <body>Ping the Management telnet port to show connectivity.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="60ea4381-679b-4ac5-b6ea-ed7c09778da9" action="command" session="laptop" normalOffset="3.703" estimatedStepExecutionTime="3.125">
+                            <command>
+                                <body>ping 192.168.1.200</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Percent_Loss()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value &lt; &quot;100&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Connectivity successful</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>No or flakey connectivity.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="1.0" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <emulation>
+                                <behavior>
+                                    <response>
+Pinging 192.168.1.200 with 32 bytes of data:
+
+Request timed out.
+Reply from 192.168.1.200: bytes=32 time=2ms TTL=64
+Reply from 192.168.1.200: bytes=32 time&lt;1ms TTL=64
+Reply from 192.168.1.200: bytes=32 time&lt;1ms TTL=64
+
+Ping statistics for 192.168.1.200:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 2ms, Average = 0ms
+
+</response>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;prompt&gt;C:\\&amp;gt;&lt;/prompt&gt;
+   &lt;echo&gt;ping 192.168.1.200&lt;/echo&gt;
+   &lt;promptName&gt;defaultPrompt&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="prompt">
+                                            <queryFormatString>.//prompt</queryFormatString>
+                                        </item>
+                                        <item name="echo">
+                                            <queryFormatString>.//echo</queryFormatString>
+                                        </item>
+                                        <item name="promptName">
+                                            <queryFormatString>.//promptName</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>7.7</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d18331d4-3244-40bf-bc34-7fce8c2dce3b" action="comment">
+                    <command>
+                        <body>Unmap the ports to show the disconnect.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e1d43911-2f74-43ab-9b27-9bd2c0093553" action="command" session="MRV" normalOffset="11.407" estimatedStepExecutionTime="0.172">
+                            <command>
+                                <body>map 1.1.1 not-to 1.1.2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.406" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;prompt&gt;fiberdriver(config)# &lt;/prompt&gt;
+   &lt;echo&gt;map 1.1.1 not-to 1.1.2&lt;/echo&gt;
+   &lt;promptName&gt;config&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="prompt">
+                                            <queryFormatString>.//prompt</queryFormatString>
+                                        </item>
+                                        <item name="echo">
+                                            <queryFormatString>.//echo</queryFormatString>
+                                        </item>
+                                        <item name="promptName">
+                                            <queryFormatString>.//promptName</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.4</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="8299cbbf-3667-4f52-8b3d-f0ed0350a00e" action="showMapForSlot" session="MRV" normalOffset="4.016" estimatedStepExecutionTime="0.203">
+                            <command>
+                                <body>-slot 1.1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.812" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <emulation>
+                                <behavior>
+                                    <response>
+Desired Port Connection Map for slot 1.1
+================================================================================
+    1.1.2-&gt;1.1.1     
+
+Actual Port Connection Map for slot 1.1
+================================================================================
+    1.1.2-&gt;1.1.1     
+</response>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;definedIn&gt;project://MRV/quick_calls/mrv_quickcall_library.fftc&lt;/definedIn&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="definedIn">
+                                            <queryFormatString>.//definedIn</queryFormatString>
+                                            <source>Kernel</source>
+                                        </item>
+                                    </aliases>
+                                    <duration>4.2</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="30de17b8-95f1-41aa-9f71-7728d91dddb4" action="comment">
+                    <command>
+                        <body>Try pinging the management telnet port again.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="da22e096-1979-4f12-9e2d-b2eb3a4f877c" action="command" session="laptop" normalOffset="3.656" estimatedStepExecutionTime="20.845">
+                            <command>
+                                <body>ping 192.168.1.200</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Percent_Loss()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;100&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>No connectivity</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Connectivity noted.  Ports did not unmap.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="5.501" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <emulation>
+                                <behavior>
+                                    <response>
+Pinging 192.168.1.200 with 32 bytes of data:
+
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 192.168.1.200:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+
+</response>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;prompt&gt;C:\\&amp;gt;&lt;/prompt&gt;
+   &lt;echo&gt;ping 192.168.1.200&lt;/echo&gt;
+   &lt;promptName&gt;defaultPrompt&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="prompt">
+                                            <queryFormatString>.//prompt</queryFormatString>
+                                        </item>
+                                        <item name="echo">
+                                            <queryFormatString>.//echo</queryFormatString>
+                                        </item>
+                                        <item name="promptName">
+                                            <queryFormatString>.//promptName</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>20.8</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ceadca5f-47fd-4a85-895d-ba18670a915f" action="comment">
+                    <command>
+                        <body>Close up the devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ce0c1218-950f-4ba1-8b03-544e4d6c9b26" action="command" session="laptop" normalOffset="3.063">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;echo&gt;exit&lt;/echo&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="echo">
+                                            <queryFormatString>.//echo</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.1</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="61c926be-bcee-4693-b11d-b74eb6b6caef" action="close" session="laptop" normalOffset="0.015">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="87351894-2910-441a-ae57-dbed2832ebf4" action="logout" session="MRV" normalOffset="6.438" estimatedStepExecutionTime="4.188">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;definedIn&gt;project://MRV/quick_calls/mrv_quickcall_library.fftc&lt;/definedIn&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="definedIn">
+                                            <queryFormatString>.//definedIn</queryFormatString>
+                                            <source>Kernel</source>
+                                        </item>
+                                    </aliases>
+                                    <duration>2.6</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                        <item guid="439419ac-1bf5-4fc3-b21a-19bb7a73e47f" action="close" session="MRV" normalOffset="2.296">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+                                    <duration>0.1</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

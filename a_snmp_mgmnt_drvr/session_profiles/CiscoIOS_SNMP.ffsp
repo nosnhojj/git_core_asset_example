@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.snmp</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties">
+        <MibsProperties>
+            <mibsDirectory inherit="false">project://a_snmp_mgmnt_drvr/MIBS/</mibsDirectory>
+            <strictMibParsing inherit="false">true</strictMibParsing>
+            <oidDuplicate inherit="false">true</oidDuplicate>
+            <reloadMIBFiles inherit="false">true</reloadMIBFiles>
+        </MibsProperties>
+    </sessionProperties>
+    <sessionClassTestCase inherit="false">CiscoIOS_SNMP_Quickcalls.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

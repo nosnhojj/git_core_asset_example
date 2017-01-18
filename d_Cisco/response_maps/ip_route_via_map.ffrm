@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action>
+                <command>
+                    <body>sh ip route | inc 192.168.*via
+</body>
+                </command>
+            </action>
+            <responseBody>B    192.168.14.0/24 [20/0] via 10.2.1.42, 01:17:06
+B       192.168.30.20 [20/0] via 10.2.1.42, 01:17:06
+B    192.168.8.0/24 [20/0] via 10.2.1.42, 01:17:06
+B       192.168.128.8 [20/0] via 10.2.1.42, 01:17:06
+B       192.168.98.4 [20/0] via 10.2.1.42, 01:17:06
+B       192.168.4.168 [20/0] via 10.2.1.42, 01:17:06
+B    192.168.39.0/24 [20/0] via 10.2.1.42, 01:17:06
+B    192.168.23.0/24 [20/0] via 10.2.1.42, 01:17:06
+B    192.168.19.0/24 [20/0] via 10.2.1.42, 01:17:06</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern_with_mask">
+                    <groups>
+                        <item name="protocol">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>1</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s+</regex>
+                            <start>1</start>
+                            <end>5</end>
+                        </item>
+                        <item name="network">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <key>true</key>
+                            <start>5</start>
+                            <end>17</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{12}">exactly 12 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>/</regex>
+                            <start>17</start>
+                            <end>18</end>
+                        </item>
+                        <item name="mask">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>18</start>
+                            <end>20</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s\\[</regex>
+                            <start>20</start>
+                            <end>22</end>
+                        </item>
+                        <item name="AD">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>22</start>
+                            <end>24</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>/</regex>
+                            <start>24</start>
+                            <end>25</end>
+                        </item>
+                        <item name="metric">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>26</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>] via\\s</regex>
+                            <start>26</start>
+                            <end>32</end>
+                        </item>
+                        <item name="next_hop">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>32</start>
+                            <end>41</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{9}">exactly 9 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>,\\s</regex>
+                            <start>41</start>
+                            <end>43</end>
+                        </item>
+                        <item name="time_learned">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>43</start>
+                            <end>51</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>B    192.168.14.0/24 [20/0] via 10.2.1.42, 01:17:06</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern_wo_mask">
+                    <groups>
+                        <item name="protocol">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>1</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s+</regex>
+                            <start>1</start>
+                            <end>8</end>
+                        </item>
+                        <item name="network">
+                            <regex>\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b</regex>
+                            <named>true</named>
+                            <key>true</key>
+                            <start>8</start>
+                            <end>21</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s\\[</regex>
+                            <start>21</start>
+                            <end>23</end>
+                        </item>
+                        <item name="AD">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>23</start>
+                            <end>25</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>/</regex>
+                            <start>25</start>
+                            <end>26</end>
+                        </item>
+                        <item name="metric">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>26</start>
+                            <end>27</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>] via\\s</regex>
+                            <start>27</start>
+                            <end>33</end>
+                        </item>
+                        <item name="next_hop">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>33</start>
+                            <end>42</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{9}">exactly 9 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>,\\s</regex>
+                            <start>42</start>
+                            <end>44</end>
+                        </item>
+                        <item name="time_learned">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>44</start>
+                            <end>52</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>B       192.168.30.20 [20/0] via 10.2.1.42, 01:17:06</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+            </regexMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container"/>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties command="sh ip route | inc 192.168.*via">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

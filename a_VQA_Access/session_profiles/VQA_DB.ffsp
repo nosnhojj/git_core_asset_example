@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.2.57660">
+    <baseApplication>com.fnfr.itest.tools.database</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" databaseType="Sqlite" databaseType.inherit="false" databaseName="[info workspacePath]\\\\Verizon_SIT_VQA_DB\\\\database_files\\\\vqa.db" databaseName.inherit="false">
+        <statementTemplates transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseStatementTemplates">
+            <definitions inherit="false" sub="true">dump_brief_stats:select * from brief_stats;
+dump_brief_stats_view:select * from brief_stats_view;
+ICC_metrics:
+SELECT MIN(&quot;MDI Minimum Delay Factor&quot;) , MAX(&quot;MDI Maximum Delay Factor&quot;),
+        MIN(&quot;MDI Minimum MLR&quot;) , MAX(&quot;MDI Maximum MLR&quot;) from brief_stats_view 
+        where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and &quot;Source IP&quot; = &apos;70.110.95.110&apos;;
+
+icc_user_metrics:
+      SELECT MIN(AVG_DF_USER), 
+                    MAX(AVG_DF_USER), 
+                    AVG(AVG_DF_USER),
+                    MIN(AVG_MLR_USER),
+                    MAX(AVG_MLR_USER), 
+                    AVG(AVG_MLR_USER) 
+               FROM ( SELECT &quot;Stream ID&quot;, 
+                             avg(&quot;MDI Average Delay Factor&quot;) 
+                                 AS AVG_DF_USER,
+                              avg(&quot;MDI Average MLR&quot;)
+                                  AS AVG_MLR_USER 
+                FROM brief_stats_view 
+            where &quot;Stream Type&quot; = &apos;VIDEO&apos; and 
+                        &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and
+                        &quot;Source IP&quot; = &apos;70.110.95.110&apos;
+           GROUP BY &quot;Stream ID&quot;);
+
+VOIP_call_metrics:
+      SELECT MIN(&quot;MOS-LQ&quot;) , 
+                    MAX(&quot;MOS-LQ&quot;) , 
+                    AVG(&quot;MOS-LQ&quot;) , 
+                    MIN(&quot;MOS-CQ&quot;) , 
+                    MAX(&quot;MOS-CQ&quot;) , 
+                    AVG(&quot;MOS-CQ&quot;)
+       from brief_stats_view 
+       where &quot;Stream Type&quot; = &apos;VOICE&apos;;
+
+VOIP_User_Metrics:
+SELECT MIN(MOS_LQ_AVG), MAX(MOS_LQ_AVG), MIN(MOS_CQ_AVG), MAX(MOS_CQ_AVG) FROM (SELECT &quot;Stream ID&quot;, AVG(&quot;MOS-LQ&quot;) AS  MOS_LQ_AVG, AVG(&quot;MOS-CQ&quot;) AS MOS_CQ_AVG  from brief_stats_view where &quot;Stream Type&quot; = &apos;VOICE&apos; GROUP BY &quot;Stream ID&quot;);
+
+IPTV_Unicast_metrics:
+SELECT MIN(&quot;MDI Minimum Delay Factor&quot;) , MAX(&quot;MDI Maximum Delay Factor&quot;), MIN(&quot;MDI Minimum MLR&quot;) , MAX(&quot;MDI Maximum MLR&quot;) from brief_stats_view where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and &quot;Source IP&quot; = &apos;70.110.95.110&apos;;
+
+IPTV_Unicast_user:
+SELECT MIN(AVG_DF_USER), MAX(AVG_DF_USER), AVG(AVG_DF_USER), MIN(AVG_MLR_USER), 
+      MAX(AVG_MLR_USER), AVG(AVG_MLR_USER) FROM (SELECT &quot;Stream ID&quot;, avg(&quot;MDI Average Delay Factor&quot;) AS AVG_DF_USER, 
+      avg(&quot;MDI Average MLR&quot;) AS AVG_MLR_USER from brief_stats_view 
+      where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and &quot;Source IP&quot; = &apos;70.110.95.110&apos; GROUP BY &quot;Stream ID&quot;);
+
+IPTV_Multicast_metrics:
+SELECT MIN(&quot;MDI Minimum Delay Factor&quot;) , MAX(&quot;MDI Maximum Delay Factor&quot;), MIN(&quot;MDI Minimum MLR&quot;) , MAX(&quot;MDI Maximum MLR&quot;) from brief_stats_view  where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;MULTICAST&apos;;
+
+IPTV_Multicast_user_metrics:
+SELECT MIN(AVG_DF_USER), MAX(AVG_DF_USER), AVG(AVG_DF_USER), MIN(AVG_MLR_USER), MAX(AVG_MLR_USER), AVG(AVG_MLR_USER) FROM (SELECT &quot;Stream ID&quot;, avg(&quot;MDI Average Delay Factor&quot;) AS AVG_DF_USER, avg(&quot;MDI Average MLR&quot;) AS AVG_MLR_USER from brief_stats_view where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;MULTICAST&apos; GROUP BY &quot;Stream ID&quot;);</definitions>
+        </statementTemplates>
+    </sessionProperties>
+</SessionTemplate>

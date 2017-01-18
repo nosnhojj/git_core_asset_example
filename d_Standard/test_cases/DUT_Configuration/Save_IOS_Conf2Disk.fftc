@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <owner>jjohnson</owner>
+    </general>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="e6d85e18-e464-4059-a60d-baba13f60959" action="open" session="DUT">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="eeb5280d-a41a-43a2-a20c-888e3a4c2099" action="login" session="DUT" normalOffset="0.125" estimatedStepExecutionTime="0.889">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c4df4b91-e69d-408e-b7c9-bba0ee7f29e7" action="command" session="DUT" normalOffset="14.399" estimatedStepExecutionTime="0.037">
+                    <command>
+                        <body>copy run disk0:</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="3.12" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="bf4f48f3-02a5-4091-8840-0b731f31df41" action="command" session="DUT" normalOffset="13.24" estimatedStepExecutionTime="0.608">
+                    <command>
+                        <body>running-config-[info timestamp yyyyMMdd]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.888" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2208d909-de8e-4fb2-8154-47aedd33b97a" action="command" session="DUT" normalOffset="3.384" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d204346b-4610-4f57-a764-13ff33e07003" action="close" session="DUT" normalOffset="0.06">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

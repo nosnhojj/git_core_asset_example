@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>dir</body>
+                </command>
+            </action>
+            <responseBody> Volume in drive C has no label.
+ Volume Serial Number is A414-C841
+
+ Directory of C:\\Program Files\\Fanfare\\iTest Team 3.1
+
+04/29/2008  10:18 AM    &lt;DIR&gt;          .
+04/29/2008  10:18 AM    &lt;DIR&gt;          ..
+04/10/2008  11:13 AM               123 .eclipseproduct
+04/10/2008  11:13 AM            72,624 commons-cli-1.1.jar
+04/10/2008  11:13 AM    &lt;DIR&gt;          configuration
+04/10/2008  11:13 AM               117 decode.bat
+04/29/2008  10:18 AM               805 derby.log
+04/10/2008  11:13 AM            36,359 Eula.txt
+04/10/2008  11:13 AM    &lt;DIR&gt;          features
+04/10/2008  11:13 AM            53,248 iTest.exe
+04/10/2008  11:13 AM                90 iTest.ini
+04/10/2008  11:13 AM               231 itestcli.bat
+04/10/2008  11:13 AM            26,391 itestcli.jar
+04/10/2008  11:13 AM           425,984 iTestExtension.dll
+04/10/2008  11:13 AM    &lt;DIR&gt;          iTest_install_jre
+04/10/2008  11:14 AM           526,761 iTest_Team_InstallLog.log
+04/10/2008  11:13 AM    &lt;DIR&gt;          jre
+04/10/2008  11:13 AM    &lt;DIR&gt;          plugins
+04/10/2008  11:13 AM           143,360 SendCtrlC.exe
+04/10/2008  11:13 AM    &lt;DIR&gt;          tcl
+04/10/2008  11:13 AM    &lt;DIR&gt;          Uninstall_iTest_Team
+03/24/2008  09:40 AM    &lt;DIR&gt;          workspace
+04/10/2008  11:13 AM            15,890 xmlwriter-2.2.jar
+              13 File(s)      1,301,983 bytes
+              10 Dir(s)  29,083,435,008 bytes free
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure&gt;
+   &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+      &lt;prompt&gt;C:\\Program Files\\Fanfare\\iTest Team 3.1&amp;gt;&lt;/prompt&gt;
+      &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+      &lt;echo&gt;dir&lt;/echo&gt;
+      &lt;idleTime&gt;0.25&lt;/idleTime&gt;
+      &lt;contentType&gt;text&lt;/contentType&gt;
+      &lt;terminator&gt;SLASH_R&lt;/terminator&gt;
+   &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+        <item name="sample2">
+            <action actionType="command">
+                <command>
+                    <body>dir /O-D</body>
+                </command>
+            </action>
+            <responseBody> Volume in drive C has no label.
+ Volume Serial Number is 9424-6E7C
+
+ Directory of C:\\Program Files (x86)\\Fanfare\\iTest 4.1\\Results
+
+01/05/2012  10:06 AM    &lt;DIR&gt;          system852641750611982989_2012-01-05_10-05-30
+               0 File(s)              0 bytes
+               3 Dir(s)  360,095,944,704 bytes free
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;prompt&gt;C:\\\\&amp;gt;&lt;/prompt&gt;
+    &lt;echo&gt;dir /O-D&lt;/echo&gt;
+    &lt;promptName&gt;defaultPrompt&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.1</duration>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="header">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>\\sVolume in drive\\s</regex>
+                            <start>0</start>
+                            <end>17</end>
+                        </item>
+                        <item name="Volume_drive">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>17</start>
+                            <end>18</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\shas\\s</regex>
+                            <start>18</start>
+                            <end>23</end>
+                        </item>
+                        <item name="Volume_Label">
+                            <regex>\\D+</regex>
+                            <named>true</named>
+                            <start>23</start>
+                            <end>31</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name=".{8}">exactly 8 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\.\\s+Volume Serial Number is\\s</regex>
+                            <start>31</start>
+                            <end>58</end>
+                        </item>
+                        <item name="Volume_Serial_Number">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>58</start>
+                            <end>67</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\s+</regex>
+                            <start>67</start>
+                            <end>69</end>
+                        </item>
+                    </groups>
+                    <sampleMatch> Volume in drive C has no label.
+ Volume Serial Number is A414-C841
+
+</sampleMatch>
+                </item>
+                <item name="table_header">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>\\sDirectory of\\s</regex>
+                            <start>0</start>
+                            <end>14</end>
+                        </item>
+                        <item name="Directory_name">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>14</start>
+                            <end>53</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch> Directory of C:\\Program Files\\Fanfare\\iTest Team 3.1</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="trailer_files">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>\\s+</regex>
+                            <start>0</start>
+                            <end>14</end>
+                        </item>
+                        <item name="number_of_files">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>14</start>
+                            <end>16</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\sFile\\(s\\)\\s+\\s</regex>
+                            <start>16</start>
+                            <end>30</end>
+                        </item>
+                        <item name="bytes">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>30</start>
+                            <end>39</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\sbytes\\s+</regex>
+                            <start>39</start>
+                            <end>47</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>              13 File(s)      1,301,983 bytes
+
+</sampleMatch>
+                </item>
+                <item name="trailer_dir">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>\\s+</regex>
+                            <start>0</start>
+                            <end>14</end>
+                        </item>
+                        <item name="number_of_directories">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>14</start>
+                            <end>16</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\sDir\\(s\\) \\s</regex>
+                            <start>16</start>
+                            <end>25</end>
+                        </item>
+                        <item name="bytes_free">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>39</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\sbytes free</regex>
+                            <start>39</start>
+                            <end>50</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>              10 Dir(s)  29,083,435,008 bytes free</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+            </regexMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <startingLineNumber>5</startingLineNumber>
+                    <banner> Directory of *</banner>
+                    <footer>* File(s) * bytes</footer>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <footerStructure>Wildcard</footerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <columns>
+                        <item name="date">
+                            <width>10</width>
+                        </item>
+                        <item name="time">
+                            <width>7</width>
+                        </item>
+                        <item name="am_pm">
+                            <width>7</width>
+                        </item>
+                        <item name="label">
+                            <width>7</width>
+                            <defaultValue>file</defaultValue>
+                        </item>
+                        <item name="size">
+                            <width>7</width>
+                            <defaultValue>-1</defaultValue>
+                        </item>
+                        <item name="filename">
+                            <width>0</width>
+                        </item>
+                    </columns>
+                    <ignoreBlankLines>false</ignoreBlankLines>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="dir *">
+        <application>
+            <item>com.fnfr.svt.applications.cmd</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="file_sizes_greater_than_100">
+            <queryFormatString>mapped/Tabular/table1/table/row/size[translate(.,&quot;,&quot;,&quot;&quot;)&gt;100]</queryFormatString>
+        </item>
+        <item name="filenames_greater_than_size">
+            <queryFormatString>mapped/Tabular/table1/table/row[translate(size,&quot;,&quot;,&quot;&quot;)&gt;{0}]/filename</queryFormatString>
+            <arguments>
+                <item name="size">
+                    <defaultvalue>0</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+        <item name="dir_names">
+            <queryFormatString>mapped/Tabular/table1/table/row[label=&quot;&lt;DIR&gt;&quot;]/filename</queryFormatString>
+        </item>
+        <item name="filenames_not_directories">
+            <queryFormatString>mapped/Tabular/table1/table/row[label!=&quot;&lt;DIR&gt;&quot;]/filename</queryFormatString>
+        </item>
+    </aliases>
+</ResponseMap>

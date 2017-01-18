@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<testCase version="4.3.0.71664">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+        <sessionClass includeTestCase="true" sessionType="linux_telnet_base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="3e13ebd0-fb9b-4c59-8599-89b5f10b57d4" action="comment">
+                    <command>
+                        <body>Linux Quickcall Library</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="configure" isPublic="true">
+            <steps>
+                <item guid="82462bd9-1db0-46f2-8baa-8807fa83fe0f" action="comment">
+                    <command>
+                        <body>Place Configuration commands here.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="ping" isPublic="true">
+            <steps>
+                <item guid="a12cb55f-91ea-48d6-9232-bd7c99639e07" action="call">
+                    <command>
+                        <body>Linux_Quickcalls.fftc#ping -session $session -host $host -ping_count $ping_count</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>myResponse</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2bf08c12-ea66-41a3-a63c-0eec19789eef" action="write">
+                    <command>
+                        <body>[response myResponse]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>This routine will generate a ping.  The user inputs are the destination IPv4 address and the number of pings to send.</multilineDescription>
+            <arguments>
+                <item name="ping_count"/>
+                <item name="host">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="getLaptopIPAddress" isPublic="true">
+            <steps>
+                <item guid="7b25c6a5-9708-4c12-b5a7-1b5259002d3d" action="call">
+                    <command>
+                        <body>Linux_Quickcalls.fftc#getLaptopIPAddress -session $session -adapter $adapter</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>myResponse</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="04979aa5-f201-4ebf-8881-868538712b39" action="return">
+                    <command>
+                        <body>[response myResponse]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="adapter">
+                    <defaultValue>Local Area Connection</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

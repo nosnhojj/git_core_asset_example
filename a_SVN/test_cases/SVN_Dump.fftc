@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://a_SVN/topologies/svn.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="462fa422-e4c2-45da-8d64-50f71094d404" action="comment">
+                    <command>
+                        <body>Open the Console</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="90c4db72-1b9d-42f4-9401-5877dfc60352" action="open" session="SVN Server">
+                            <command>
+                                <body>device:SVN%20Server#CLI</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="b235aa1f-9d05-4b6d-83ff-40dfe75c0e58" action="configure" session="SVN Server" skip="true" normalOffset="0.15" estimatedStepExecutionTime="0.385">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="a8e3a16e-ed1a-41a3-97f6-33ed020eb82e" action="command" session="SVN Server" normalOffset="1.775" estimatedStepExecutionTime="0.009">
+                            <command>
+                                <body>d:</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.512" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0e09f028-d754-4d85-85f9-48781705768b" action="comment">
+                    <command>
+                        <body>Dump the Repository</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6208864f-5460-4109-8aff-cd967f571d81" action="command" session="SVN Server" normalOffset="17" estimatedStepExecutionTime="1.861">
+                            <command>
+                                <body>svnadmin dump d:\\\\csvn\\\\data\\\\repositories\\\\itest &gt; c:\\\\temp\\\\SVN.dump</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.854" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b4d4694c-2aef-47ae-840d-e39390d0ae2c" action="comment">
+                    <command>
+                        <body>Zip up the Repository</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4892e99f-9e19-433c-936d-a56f2c427ce0" action="command" session="SVN Server" normalOffset="3.996" estimatedStepExecutionTime="0.004">
+                            <command>
+                                <body>c:</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.374" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2c100a6b-0b98-403f-9e0e-9633b968b322" action="command" session="SVN Server" normalOffset="3.985" estimatedStepExecutionTime="0.005">
+                            <command>
+                                <body>cd c:\\\\temp</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.58" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="545699f7-6b5e-4487-8967-9e482d305bce" action="command" session="SVN Server" normalOffset="1.579" estimatedStepExecutionTime="0.007">
+                            <command>
+                                <body>dir</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.216" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="0c8887da-c3ea-43f9-b08d-ed4b0a99a2e8" action="command" session="SVN Server" normalOffset="48.992" estimatedStepExecutionTime="2.376">
+                            <command>
+                                <body>\\&quot;C:\\\\Program Files\\\\7-Zip\\\\7z\\&quot; a -t7z SVN_Dump.7z SVN.dump</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="2.374" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5b717412-369e-4d9a-8dca-92b83e8c820d" action="comment">
+                    <command>
+                        <body>Close the Console</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b1f39b85-0013-486e-8ea4-5ceaf9fde64d" action="command" session="SVN Server" normalOffset="50.007">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="bbaf73f7-5eb8-433f-b175-1338a96934ed" action="close" session="SVN Server" normalOffset="0.009">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

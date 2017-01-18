@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<testCase version="4.0.2.52893">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="958648e0-3384-4432-8bbd-3d557f4aafac" action="lock">
+                    <command>
+                        <body>lockName</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="10340a67-fb31-4086-b1d2-0a5dd9068765" action="comment">
+                            <command>
+                                <body>Steps to be executed when &apos;lockName&apos; becomes available</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

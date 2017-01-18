@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show proc cpu</body>
+                </command>
+            </action>
+            <responseBody>CPU utilization for five seconds: 8%/1%; one minute: 7%; five minutes: 2%
+ PID Runtime(ms)   Invoked      uSecs   5Sec   1Min   5Min TTY Process 
+   1           0         2          0  0.00%  0.00%  0.00%   0 Chunk Manager    
+   2           4     30987          0  0.00%  0.00%  0.00%   0 Load Meter       
+   3          16        11       1454  0.00%  0.00%  0.00%   0 SpanTree Helper  
+   4       22280     15759       1413  0.00%  0.00%  0.00%   0 Check heaps      
+   5          44        25       1760  0.00%  0.00%  0.00%   0 Pool Manager     
+   6           0         2          0  0.00%  0.00%  0.00%   0 Timers           
+   7          56         4      14000  0.00%  0.00%  0.00%   0 Entity MIB API   
+   8         984     30983         31  0.00%  0.00%  0.00%   0 HC Counter Timer 
+   9       48264    132323        364  0.00%  0.00%  0.00%   0 ARP Input        
+  10           0         1          0  0.00%  0.00%  0.00%   0 Net Input        
+  11           0         1          0  0.00%  0.00%  0.00%   0 Critical Bkgnd   
+  12       26452     32764        807  0.00%  0.00%  0.00%   0 Net Background   
+  13           4        10        400  0.00%  0.00%  0.00%   0 Logger           
+  14         696    154907          4  0.00%  0.00%  0.00%   0 TTY Background   
+  15          36    154915          0  0.00%  0.00%  0.00%   0 Per-Second Jobs  
+  16         708     30985         22  0.00%  0.00%  0.00%   0 Compute load avg 
+ PID Runtime(ms)   Invoked      uSecs   5Sec   1Min   5Min TTY Process
+  17       20664      2582       8003  0.00%  0.00%  0.00%   0 Per-minute Jobs  
+  18           0         3          0  0.00%  0.00%  0.00%   0 AggMgr Process   
+  19           0         2          0  0.00%  0.00%  0.00%   0 Calhoun Storm Co 
+  20       11536   3872664          2  0.24%  0.16%  0.05%   0 Calhoun LED Proc 
+  21      616264    308619       1996  0.32%  0.39%  0.40%   0 Calhoun Statisti 
+  22         156    774625          0  0.00%  0.00%  0.00%   0 HMATM Learn proc 
+  23          24         3       8000  0.00%  0.00%  0.00%   0 CalhounPM        
+  24         936    774633          1  0.08%  0.00%  0.00%   0 Link Status Proc 
+  25           0         1          0  0.00%  0.00%  0.00%   0 CalhounInsIpopti 
+  26        8920     21919        406  0.00%  0.00%  0.00%   0 CDP Protocol     
+  27        2296      7127        322  0.48%  0.40%  0.13%   0 IP Input         
+  28        8348     21356        390  0.00%  0.00%  0.00%   0 DTP Protocol     
+  29         324     15494         20  0.00%  0.00%  0.00%   0 Ethchnl          
+  30          32      1020         31  0.00%  0.00%  0.00%   0 VLAN Manager     
+  31           0         2          0  0.00%  0.00%  0.00%   0 PI MATM Aging Pr 
+  32           0         7          0  0.00%  0.00%  0.00%   0 VMATM Callback   
+  33      152076    484514        313  0.08%  0.08%  0.06%   0 Spanning Tree    
+  34          16    154931          0  0.00%  0.00%  0.00%   0 UDLD             
+          
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;echo&gt;show proc cpu&lt;/echo&gt;
+   &lt;prompt&gt;Cisco2940&amp;gt;&lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="Summary">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>CPU utilization for five seconds:\\s</regex>
+                            <start>0</start>
+                            <end>34</end>
+                        </item>
+                        <item name="five_seconds">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>34</start>
+                            <end>35</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>%/\\d+%; one minute:\\s</regex>
+                            <start>35</start>
+                            <end>53</end>
+                        </item>
+                        <item name="one_minute">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>53</start>
+                            <end>54</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>%; five minutes:\\s</regex>
+                            <start>54</start>
+                            <end>71</end>
+                        </item>
+                        <item name="five_minutes">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>71</start>
+                            <end>72</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>%</regex>
+                            <start>72</start>
+                            <end>73</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>CPU utilization for five seconds: 8%/1%; one minute: 7%; five minutes: 2%</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+            </regexMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner> PID Runtime(ms)   Invoked      uSecs   5Sec   1Min   5Min TTY Process </banner>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="PID">
+                            <width>4</width>
+                        </item>
+                        <item name="Runtime">
+                            <width>12</width>
+                        </item>
+                        <item name="Invoked">
+                            <width>10</width>
+                        </item>
+                        <item name="uSecs">
+                            <width>11</width>
+                        </item>
+                        <item name="x5Sec">
+                            <width>7</width>
+                        </item>
+                        <item name="x1Min">
+                            <width>7</width>
+                        </item>
+                        <item name="x5Min">
+                            <width>7</width>
+                        </item>
+                        <item name="TTY">
+                            <width>4</width>
+                        </item>
+                        <item name="Process">
+                            <width>0</width>
+                            <translateValues>false</translateValues>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="show proc cpu">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

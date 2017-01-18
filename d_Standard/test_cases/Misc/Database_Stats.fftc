@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <owner>jjohnson</owner>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="61a1553a-9cc4-4750-a0b0-0c982b0ee898" action="open" session="Centralized_Database">
+                    <command>
+                        <body>project://d_Standard/session_profiles/iTestDB.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="4068970b-b0f6-43bc-b578-68733588860e" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                    <command>
+                        <body>SELECT id,start,endTime,testCase,result FROM testreport WHERE result = &quot;Pass&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                </item>
+                <item guid="3d5b3428-0218-4cb3-a5e2-68d36869ef03" action="comment">
+                    <command>
+                        <body>Ge the test count on a daily basis for the past 365 days</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ac8996bf-1ce0-4107-ad42-cc187d408098" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                            <command>
+                                <body>select date(enddate) as d, count(id) 
+from testreport 
+where datediff(now(), enddate) &lt;= 365 
+group by d
+order by enddate;
+</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e26af7b5-2830-4dfb-bc87-122ec2dc7c37" action="comment">
+                    <command>
+                        <body>Test count roll up by month</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a355e94f-4047-4edb-ab5b-67b520c6a651" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                            <command>
+                                <body>select monthname(enddate) as m, count(id) 
+from testreport 
+where datediff(now(), enddate) &lt;= 365 
+group by m
+order by enddate;
+</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>data</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                        <item guid="dbea1c42-241b-4a9c-9966-af2b90257fc1" action="foreach">
+                            <command>
+                                <body>i [query data m()]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="4b0cc8f5-6a28-459f-87b7-beca7b87eb98" action="eval">
+                                    <command>
+                                        <body>puts [query data count_id_(&apos;$i&apos;)]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="chart_as_bar">
+                                                    <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingBarPropertyGroup" chartName="barchart1" yAxisLabel="Number of Tests" category="Month" series="$i">
+                                                        <title>Number of Tests by Month</title>
+                                                        <expression>$value</expression>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="841df344-3f93-46df-bc4e-fbe33153f6de" action="comment">
+                    <command>
+                        <body>Avg execution time, by testCase, within the past year</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e81b0b56-e9f2-4016-85a5-1e813f60bb25" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                            <command>
+                                <body>select testCase, avg(unix_timestamp(enddate) - unix_timestamp(startdate)) as avg_execution_time 
+from testreport 
+where datediff(now(), enddate) &lt;= 365 
+group by testCase;
+</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1d9e036a-01cc-49c4-b5b6-bb4748e095e4" action="comment">
+                    <command>
+                        <body>Avg execution time, rolled up by month</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a446d1b1-4025-4bef-bb33-b4741b2529f6" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                            <command>
+                                <body>select monthname(enddate) as m, avg(unix_timestamp(enddate) - unix_timestamp(startdate)) as avg_execution_time 
+from testreport 
+where datediff(now(), enddate) &lt;= 365 
+group by m
+order by enddate;
+</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>ave_time_by_month</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                        <item guid="bfa11544-2724-4f48-a7ea-a5c6f998bbce" action="foreach">
+                            <command>
+                                <body>i [query ave_time_by_month m()]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="579026ae-10f0-4c9c-973c-dd4fce8e563b" action="eval">
+                                    <command>
+                                        <body>puts [query ave_time_by_month avg_execution_time(&apos;$i&apos;)]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="chart_as_bar">
+                                                    <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingBarPropertyGroup" chartName="barchart2" yAxisLabel="Ave Execution Time" category="Month" series="$i" rotate="false">
+                                                        <title>Ave Execution Time By Month</title>
+                                                        <expression>$value</expression>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e0eb013a-376e-4a28-9ab7-7c701e65415d" action="comment">
+                    <command>
+                        <body>Avg execution time, rolled up by day</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="019f95e5-6ad0-4654-adff-3f8b660b3126" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                            <command>
+                                <body>select date(enddate) as d, avg(unix_timestamp(enddate) - unix_timestamp(startdate)) as avg_execution_time 
+from testreport 
+where datediff(now(), enddate) &lt;= 365 
+group by d
+order by enddate;
+</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="92d30caf-76f3-4b17-84dd-64cc3ab3ac5d" action="comment">
+                    <command>
+                        <body>Passed test counts, rolled up by day</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d80fae05-cf90-4d74-96c7-43a41b9f62d2" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                            <command>
+                                <body>select date(enddate) d, count(id) passed 
+from testreport 
+where datediff(now(), enddate) &lt;= 365 and result = &apos;pass&apos; 
+group by d
+order by enddate;
+</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="65a13cbb-55fb-451d-b94f-64db9360e496" action="comment">
+                    <command>
+                        <body>Passed test counts, rolled up by month</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="47d43db3-6012-4e98-badb-3bc39897f0b3" action="execute" session="Centralized_Database" normalOffset="5.433" estimatedStepExecutionTime="0.188">
+                            <command>
+                                <body>select monthname(enddate) m,count(id) passed
+from testreport 
+where datediff(now(), enddate) &lt;= 365 and result = &apos;pass&apos; 
+group by m
+order by enddate;
+</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>passed_test_counts_by_month</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                        <item guid="521ba6e7-849d-4b50-9a92-c77030731a21" action="foreach">
+                            <command>
+                                <body>i [query passed_test_counts_by_month m()]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="b4780cb2-a407-42d1-a76c-a2b228b6285d" action="eval">
+                                    <command>
+                                        <body>puts [query passed_test_counts_by_month passed(&apos;$i&apos;)]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="chart_as_pie">
+                                                    <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingPiePropertyGroup" chartName="piechart1" useLegend="true" category="$i">
+                                                        <title>Passed Tests By Month</title>
+                                                        <expression>$value</expression>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

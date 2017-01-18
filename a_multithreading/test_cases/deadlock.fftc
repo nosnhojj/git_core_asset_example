@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<testCase version="4.0.2.52893">
+    <execution renderCommentsIntoIssues="true"/>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="b1b84136-7b23-4f94-a037-81d5396aea80" action="comment" async="true">
+                    <threadName>Thread_A</threadName>
+                    <command>
+                        <body>Thread A</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b13f7d43-1caa-4bb7-b65a-a95e0553a07c" action="lock">
+                            <command>
+                                <body>Lock_X</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="9490da3f-4dd5-4901-9d14-14f8a85efb35" action="sleep">
+                                    <command>
+                                        <body>1</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="d0aeda54-7c32-4435-917b-1cb197447d81" action="lock">
+                                    <command>
+                                        <body>Lock_Y</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d82ae95c-d0b0-4e54-8e7e-e4d214147033" action="comment" async="true">
+                    <threadName>Thread_B</threadName>
+                    <command>
+                        <body>Thread B</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bd600ab7-79dc-4fc2-a1c6-4b0f4f13c2c3" action="lock">
+                            <command>
+                                <body>Lock_Y</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="7ed604a5-e838-4247-b4e2-0cb11335a37e" action="sleep">
+                                    <command>
+                                        <body>1</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="8483b795-88aa-4928-a8d4-e48744221580" action="lock">
+                                    <command>
+                                        <body>Lock_X</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

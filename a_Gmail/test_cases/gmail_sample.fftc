@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="dc42bae6-c2c1-40cd-a12d-7f09615c0325" action="open" session="t1">
+                    <command>
+                        <body>project://a_Gmail/session_profiles/gmail.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="38e63ff8-033b-4dba-8d10-bf65fa281cb3" action="from" session="t1" normalOffset="20.291">
+                    <command>
+                        <body>nosnhojj@gmail.com</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b7dbfbc4-6d51-4f79-9093-b1d56df4cb55" action="to" session="t1" normalOffset="0.001">
+                    <command>
+                        <body>jeff.johnson@spirent.com</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="27dc5794-ca22-4718-a924-1294d959f9e5" action="subject" session="t1" normalOffset="0.05">
+                    <command>
+                        <body>Testing Email</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="0fda04a8-1f98-4d36-bfd8-09f9de1f3790" action="writeLine" session="t1" normalOffset="0.001">
+                    <command>
+                        <body>This is a test of iTest Email.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="862b06de-5d81-4f75-a8c6-dbd423670e9a" action="send" session="t1" normalOffset="0.021">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="82f57955-e652-459d-ad82-2b8e9bff5feb" action="close" session="t1" normalOffset="2.321">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

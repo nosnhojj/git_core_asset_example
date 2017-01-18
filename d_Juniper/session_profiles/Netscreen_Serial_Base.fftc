@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<testCase version="4.2.0.65456">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="Netscreen_Serial_Base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="4b9ae13c-5dde-4699-bb0f-e9be31c996b6" action="comment">
+                    <command>
+                        <body>Quickcall Library for the Juniper Netscreen</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="login" isPublic="true">
+            <steps>
+                <item guid="fc6fb626-ecd1-470a-a3e0-89693eee3845" action="command" session="$session">
+                    <command>
+                        <body>netscreen</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0c24bcab-fbf5-48f6-92c1-19e67848216a" action="command" session="$session">
+                    <command>
+                        <body>netscreen</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.3.0.71664">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>disp port</body>
+                </command>
+            </action>
+            <responseBody>Defined Ports:
+sim1 01.01.01
+sim1 01.01.02
+sim1 01.01.03
+sim1 01.01.04
+sim1 01.01.05
+sim1 01.01.06
+sim1 01.01.07
+sim1 01.01.08
+sim1 01.01.09
+sim1 01.01.10
+sim1 01.01.11
+sim1 01.01.12
+sim1 01.01.13
+sim1 01.01.14
+sim1 01.01.15
+sim1 01.01.16
+sim1 01.01.17
+sim1 01.01.18
+sim1 01.01.19
+sim1 01.01.20
+sim1 01.01.21
+sim1 01.01.22
+sim1 01.01.23
+sim1 01.01.24
+sim1 01.01.25
+sim1 01.01.26
+sim1 01.01.27
+sim1 01.01.28
+sim1 01.01.29
+sim1 01.01.30
+sim1 01.01.31
+sim1 01.01.32
+sim1 01.01.33
+sim1 01.01.34
+sim1 01.01.35
+sim1 01.01.36
+sim1 01.01.37
+sim1 01.01.38
+sim1 01.01.39
+sim1 01.01.40
+sim1 01.01.41
+sim1 01.01.42
+sim1 01.01.43
+sim1 01.01.44
+sim1 01.01.45
+sim1 01.01.46
+sim1 01.01.47
+sim1 01.01.48
+sim1 01.02.01
+sim1 01.02.02
+sim1 01.02.03
+sim1 01.02.04
+sim1 01.02.05
+sim1 01.02.06
+sim1 01.02.07
+sim1 01.02.08
+sim1 01.02.09
+sim1 01.02.10
+sim1 01.02.11
+sim1 01.02.12
+sim1 01.02.13
+sim1 01.02.14
+sim1 01.02.15
+sim1 01.02.16
+sim1 01.02.17
+sim1 01.02.18
+sim1 01.02.19
+sim1 01.02.20
+sim1 01.02.21
+sim1 01.02.22
+sim1 01.02.23
+sim1 01.02.24
+sim1 01.02.25
+sim1 01.02.26
+sim1 01.02.27
+sim1 01.02.28
+sim1 01.02.29
+sim1 01.02.30
+sim1 01.02.31
+sim1 01.02.32
+sim1 01.02.33
+sim1 01.02.34
+sim1 01.02.35
+sim1 01.02.36
+sim1 01.02.37
+sim1 01.02.38
+sim1 01.02.39
+sim1 01.02.40
+sim1 01.02.41
+sim1 01.02.42
+sim1 01.02.43
+sim1 01.02.44
+sim1 01.02.45
+sim1 01.02.46
+sim1 01.02.47
+sim1 01.02.48
+sim1 01.03.01
+sim1 01.03.02
+sim1 01.03.03
+sim1 01.03.04
+sim1 01.03.05
+sim1 01.03.06
+sim1 01.03.07
+sim1 01.03.08
+sim1 01.03.09
+sim1 01.03.10
+sim1 01.03.11
+sim1 01.03.12
+sim1 01.03.13
+sim1 01.03.14
+sim1 01.03.15
+sim1 01.03.16
+sim1 01.03.17
+sim1 01.03.18
+sim1 01.03.19
+sim1 01.03.20
+sim1 01.03.21
+sim1 01.03.22
+sim1 01.03.23
+sim1 01.03.24
+sim1 01.03.25
+sim1 01.03.26
+sim1 01.03.27
+sim1 01.03.28
+sim1 01.03.29
+sim1 01.03.30
+sim1 01.03.31
+sim1 01.03.32
+sim1 01.03.33
+sim1 01.03.34
+sim1 01.03.35
+sim1 01.03.36
+sim1 01.03.37
+sim1 01.03.38
+sim1 01.03.39
+sim1 01.03.40
+sim1 01.03.41
+sim1 01.03.42
+sim1 01.03.43
+sim1 01.03.44
+sim1 01.03.45
+sim1 01.03.46
+sim1 01.03.47
+sim1 01.03.48
+sim2 01.01.01
+sim2 01.01.02
+sim2 01.01.03
+sim2 01.01.04
+sim2 01.01.05
+sim2 01.01.06
+sim2 01.01.07
+sim2 01.01.08
+sim2 01.01.09
+sim2 01.01.10
+sim2 01.01.11
+sim2 01.01.12
+sim2 01.01.13
+sim2 01.01.14
+sim2 01.01.15
+sim2 01.01.16
+sim2 01.01.17
+sim2 01.01.18
+sim2 01.01.19
+sim2 01.01.20
+sim2 01.01.21
+sim2 01.01.22
+sim2 01.01.23
+sim2 01.01.24
+sim2 01.01.25
+sim2 01.01.26
+sim2 01.01.27
+sim2 01.01.28
+sim2 01.01.29
+sim2 01.01.30
+sim2 01.01.31
+sim2 01.01.32
+sim2 01.01.33
+sim2 01.01.34
+sim2 01.01.35
+sim2 01.01.36
+sim2 01.01.37
+sim2 01.01.38
+sim2 01.01.39
+sim2 01.01.40
+sim2 01.01.41
+sim2 01.01.42
+sim2 01.01.43
+sim2 01.01.44
+sim2 01.01.45
+sim2 01.01.46
+sim2 01.01.47
+sim2 01.01.48
+sim2 01.02.01
+sim2 01.02.02
+sim2 01.02.03
+sim2 01.02.04
+sim2 01.02.05
+sim2 01.02.06
+sim2 01.02.07
+sim2 01.02.08
+sim2 01.02.09
+sim2 01.02.10
+sim2 01.02.11
+sim2 01.02.12
+sim2 01.02.13
+sim2 01.02.14
+sim2 01.02.15
+sim2 01.02.16
+sim2 01.02.17
+sim2 01.02.18
+sim2 01.02.19
+sim2 01.02.20
+sim2 01.02.21
+sim2 01.02.22
+sim2 01.02.23
+sim2 01.02.24
+sim2 01.02.25
+sim2 01.02.26
+sim2 01.02.27
+sim2 01.02.28
+sim2 01.02.29
+sim2 01.02.30
+sim2 01.02.31
+sim2 01.02.32
+sim2 01.02.33
+sim2 01.02.34
+sim2 01.02.35
+sim2 01.02.36
+sim2 01.02.37
+sim2 01.02.38
+sim2 01.02.39
+sim2 01.02.40
+sim2 01.02.41
+sim2 01.02.42
+sim2 01.02.43
+sim2 01.02.44
+sim2 01.02.45
+sim2 01.02.46
+sim2 01.02.47
+sim2 01.02.48
+sim2 01.03.01
+sim2 01.03.02
+sim2 01.03.03
+sim2 01.03.04
+sim2 01.03.05
+sim2 01.03.06
+sim2 01.03.07
+sim2 01.03.08
+sim2 01.03.09
+sim2 01.03.10
+sim2 01.03.11
+sim2 01.03.12
+sim2 01.03.13
+sim2 01.03.14
+sim2 01.03.15
+sim2 01.03.16
+sim2 01.03.17
+sim2 01.03.18
+sim2 01.03.19
+sim2 01.03.20
+sim2 01.03.21
+sim2 01.03.22
+sim2 01.03.23
+sim2 01.03.24
+sim2 01.03.25
+sim2 01.03.26
+sim2 01.03.27
+sim2 01.03.28
+sim2 01.03.29
+sim2 01.03.30
+sim2 01.03.31
+sim2 01.03.32
+sim2 01.03.33
+sim2 01.03.34
+sim2 01.03.35
+sim2 01.03.36
+sim2 01.03.37
+sim2 01.03.38
+sim2 01.03.39
+sim2 01.03.40
+sim2 01.03.41
+sim2 01.03.42
+sim2 01.03.43
+sim2 01.03.44
+sim2 01.03.45
+sim2 01.03.46
+sim2 01.03.47
+sim2 01.03.48
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+        &lt;prompt&gt;=&amp;gt; &lt;/prompt&gt;
+        &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+        &lt;echo&gt;disp port&lt;/echo&gt;
+        &lt;idleTime&gt;0.201&lt;/idleTime&gt;
+        &lt;contentType&gt;text&lt;/contentType&gt;
+        &lt;terminator&gt;SLASH_R_SLASH_N&lt;/terminator&gt;
+    &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="chassis_name">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>4</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s+</regex>
+                            <start>4</start>
+                            <end>5</end>
+                        </item>
+                        <item name="group0">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>5</start>
+                            <end>7</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\.</regex>
+                            <start>7</start>
+                            <end>8</end>
+                        </item>
+                        <item name="group1">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>8</start>
+                            <end>10</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\.</regex>
+                            <start>10</start>
+                            <end>11</end>
+                        </item>
+                        <item name="group2">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>11</start>
+                            <end>13</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>sim1 01.01.01</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="disp* port">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

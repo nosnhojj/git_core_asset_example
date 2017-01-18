@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<testCase version="4.2.0.65456">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="903ce800-a643-4e3e-8f73-a1eb9d54755e" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; 20} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0526c2d9-fc07-4b00-8be0-31c8628940f6" action="eval">
+                            <command>
+                                <body>set A [expr [math.int [expr [math.rand]*40]]+1 ]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="0285f180-5a39-4a62-9b79-21e1f40d7743" action="eval">
+                            <command>
+                                <body>set B [expr [math.int [expr [math.rand]*40]]+1 ]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="99533b37-a3c8-481e-9f1d-f96b1b19b1f6" action="comment" skip="true">
+                            <command>
+                                <body>This is a TIME SERIES Chart for both A and B</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="Time Series" series="Series A">
+                                                <title>Example of a Time Series Chart</title>
+                                                <yValue>$A</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="Time Series" series="Series B">
+                                                <title>Example of a Time Series Chart</title>
+                                                <yValue>$B</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="b4368ac8-e5db-469e-9b22-89021466cdf8" action="comment">
+                            <command>
+                                <body>This is an XY Chart for plotting A vs B</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="XY_Series" style="LINE" xAxisLabel="Loop Index" yAxisLabel="Random Values" series="Series A">
+                                                <title>Example of an XY Chart</title>
+                                                <xValue>$i</xValue>
+                                                <yValue>$A</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="XY_Series" style="LINE" xAxisLabel="Loop Index" yAxisLabel="Random Values" series="Series B">
+                                                <title>Example of an XY Chart</title>
+                                                <xValue>$i</xValue>
+                                                <yValue>$B</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

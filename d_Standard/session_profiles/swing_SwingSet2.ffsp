@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.java.swing</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.java.swing.properties.SwingSessionProperties">
+        <jarPath inherit="false">C:\\\\Swing Demo\\\\SwingSet2.jar</jarPath>
+        <stepProperties>
+            <capabilityPropertyGroup type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+            <stepTargetProperties type="com.fnfr.svt.applications.java.swing.properties.StepTargetProperties"/>
+        </stepProperties>
+    </sessionProperties>
+</SessionTemplate>

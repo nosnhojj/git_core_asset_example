@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://d_MRV/topologies/mrv.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="18a0dcbf-43f5-47c2-86ec-e50e43b21dc8" action="comment">
+                    <command>
+                        <body>Open up the MRV and log in.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f8c03966-e941-4154-a053-bc4c17318fc9" action="open" session="MRV">
+                            <command>
+                                <body>device:MRV#serial</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                    <completionProperties>
+                                        <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                                    </completionProperties>
+                                </stepProperties>
+                                <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="554e2084-31c1-43cc-8452-890103569f48" action="login" session="MRV">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="bb0669d2-e745-457e-9eb0-e5d4af588962" action="comment">
+                    <command>
+                        <body>To map ports, you need to be in the terminal configuration mode</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4daaebc2-5ce6-475e-ba06-7e7a1d0286bf" action="command" session="MRV" normalOffset="73.399" estimatedStepExecutionTime="0.157">
+                            <command>
+                                <body>configure terminal</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="3.204" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d55d2d82-21cc-4e6c-b7ac-0abc673a2cea" action="comment">
+                    <command>
+                        <body>Take a look at what&apos;s around</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="800ceea7-2c46-4ec3-9713-252ac4051c8e" action="command" session="MRV" normalOffset="11.595" estimatedStepExecutionTime="0.281">
+                            <command>
+                                <body>show chassis</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.203" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="72b96063-3d99-478a-bd21-3804e10212dc" action="command" session="MRV" estimatedStepExecutionTime="0.25">
+                            <command>
+                                <body>chassis 1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="3ccd72bb-8c86-438c-b38c-af3fcd247390" action="command" session="MRV" normalOffset="2.938" estimatedStepExecutionTime="1.281">
+                            <command>
+                                <body>show</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="1de021b3-94a7-4939-be19-606f253bb118" action="command" session="MRV" normalOffset="8.485" estimatedStepExecutionTime="0.125">
+                            <command>
+                                <body>slot 1.1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="fd76018e-f5f2-4b9e-b005-42bfbf85babd" action="command" session="MRV" normalOffset="1.702" estimatedStepExecutionTime="1.751">
+                            <command>
+                                <body>show</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a0eaec51-8cf3-491a-9a08-3c92a88efe28" action="command" session="MRV" normalOffset="37.004" estimatedStepExecutionTime="0.235">
+                            <command>
+                                <body>port 1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a3103ceb-42c6-45c8-a73d-63d089351ee6" action="command" session="MRV" normalOffset="0.687" estimatedStepExecutionTime="1.719">
+                            <command>
+                                <body>show</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="aa0a1341-0337-4bb4-8d07-2c88ac39ea76" action="comment">
+                            <command>
+                                <body>This exit takes us back to configure terminal</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="f6bcd351-a0f5-4504-9423-d0cccc6dda9c" action="command" session="MRV" normalOffset="114.545" estimatedStepExecutionTime="0.203">
+                                    <command>
+                                        <body>exit</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8ec5d585-c7b8-491d-9144-56495b0d6e7c" action="comment">
+                    <command>
+                        <body>Set up 10 pairs on the slot 1</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a51ab2c2-79fa-43b2-bc11-84d2a3fe482d" action="for">
+                            <command>
+                                <body>{set i 1} {$i &lt; 10} {set i [expr $i+2]}</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="a80ba61a-064f-4d1b-b8a9-e5d805941c50" action="command" session="MRV" estimatedStepExecutionTime="0.281">
+                                    <command>
+                                        <body>map 1.1.$i with 1.1.[expr $i+1]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="6b037662-2d5d-4cd1-93d8-6f693d64daf2" action="comment">
+                            <command>
+                                <body>Now show the mapping</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="e05e61ec-60a8-4484-8438-0eb6255bebb9" action="showMapForSlot" session="MRV">
+                                    <command>
+                                        <body>-slot 1.1</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1e47a689-224e-48ff-812f-7a38cfca6805" action="comment">
+                    <command>
+                        <body>Now unmap all ports</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bd588c0b-ba00-4902-bda7-e0cbd35a404f" action="comment">
+                            <command>
+                                <body>Clear all in one shot</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="6ad252cc-bc64-49d1-b005-4f2bf772e89d" action="clearAllPorts" session="MRV">
+                                    <command>
+                                        <body>-slot 1.1</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="64e802e2-6e1a-4665-a77d-473bfef20fc7" action="comment" skip="true">
+                            <command>
+                                <body>Clear them one at a time</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="fd15528b-426b-4912-9f9f-edc12da55637" action="comment">
+                                    <command>
+                                        <body>To clear the ports individually, you must be at the configure terminal level.</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="2e02b73e-86ac-404a-b4f6-13cb625c61f0" action="for">
+                                    <command>
+                                        <body>{set i 1} {$i &lt; 10} {set i [expr $i+2]}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="727a68f3-94c7-4f1f-925d-f67a22b4eb94" action="command" session="MRV" estimatedStepExecutionTime="0.281">
+                                            <command>
+                                                <body>map 1.1.$i not-to 1.1.[expr $i+1]</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="b4bb66d4-62d7-4695-a9cc-2a274b3b4041" action="comment">
+                            <command>
+                                <body>Show them cleared.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="2eb24cb7-480c-4cbc-85cf-cf6c20a2cebc" action="showMapForSlot" session="MRV">
+                                    <command>
+                                        <body>-slot 1.1</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="625e3732-6ee2-4a3a-98ca-350304f6ef81" action="comment">
+                    <command>
+                        <body>The logout command ensures we are completely logged out regardless of the level we&apos;ve logged into.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ff1f97d0-bdc1-4716-9c6a-b47fb0b9876b" action="logout" session="MRV">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

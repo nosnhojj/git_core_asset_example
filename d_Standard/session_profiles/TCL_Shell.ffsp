@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.tclsh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties">
+        <tclProperties>
+            <interpreterLocation inherit="false">C:/Tcl/bin/tclsh85.exe</interpreterLocation>
+            <interpreterLibraryPath inherit="false">C:/Tcl/lib
+</interpreterLibraryPath>
+        </tclProperties>
+    </sessionProperties>
+</SessionTemplate>

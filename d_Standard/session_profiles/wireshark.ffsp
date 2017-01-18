@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.2.1.67445">
+    <baseApplication>com.fnfr.svt.applications.wireshark</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.wireshark.WiresharkSessionProperties">
+        <interfaceName inherit="false">Intel*</interfaceName>
+        <captureFilter inherit="false" defaultValue=""/>
+    </sessionProperties>
+    <nickName>Wireshark</nickName>
+</SessionTemplate>

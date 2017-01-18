@@ -1,0 +1,600 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>For address family: IPv4 Unicast
+BGP table version is 3449, local router ID is 10.20.20.16
+Status codes: s suppressed, d damped, h history, * valid, &gt; best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 10.6.1.0/24      192.168.150.17                         0 13979 13979 64606 i
+*&gt; 10.6.6.1/32      192.168.150.17                         0 13979 13979 64606 i
+*&gt; 10.7.7.1/32      192.168.150.17                         0 13979 13979 i
+*&gt; 10.8.1.0/24      192.168.150.17                         0 13979 13979 ?
+*&gt; 10.8.8.1/32      192.168.150.17                         0 13979 13979 i
+*&gt; 10.8.21.0/24     192.168.150.17                         0 13979 13979 ?
+*&gt; 10.10.12.1/32    192.168.150.17                         0 13979 13979 ?
+*&gt; 10.10.14.1/32    192.168.150.17                         0 13979 13979 ?
+*&gt; 10.10.100.1/32   192.168.150.17                         0 13979 13979 i
+*&gt; 10.10.101.1/32   192.168.150.17                         0 13979 13979 i
+*&gt; 10.10.102.1/32   192.168.150.17                         0 13979 13979 i
+*&gt; 10.10.103.1/32   192.168.150.17                         0 13979 13979 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 10.13.13.1/32    192.168.150.17                         0 13979 13979 64606 i
+*&gt; 10.17.17.30/32   192.168.150.17                         0 13979 13979 i
+*&gt; 10.20.20.1/32    192.168.150.17                         0 13979 13979 64606 ?
+*&gt; 10.20.88.0/30    192.168.150.17                         0 13979 13979 64606 ?
+*&gt; 10.20.88.2/32    192.168.150.17                         0 13979 13979 64606 ?
+*&gt; 10.21.1.0/24     192.168.150.17                         0 13979 13979 i
+*&gt; 10.21.21.1/32    192.168.150.17                         0 13979 13979 i
+*&gt; 10.32.32.1/32    192.168.150.17                         0 13979 13979 i
+*&gt; 10.33.33.1/32    192.168.150.17                         0 13979 13979 i
+*&gt; 12.12.12.1/32    192.168.150.17                         0 13979 13979 ?
+*&gt; 12.12.12.2/32    192.168.150.17                         0 13979 13979 ?
+*&gt; 12.12.14.0/24    192.168.150.17                         0 13979 13979 ?
+*&gt; 17.17.30.0/24    192.168.150.17                         0 13979 13979 i
+*&gt; 26.26.30.0/24    192.168.150.17                         0 13979 13979 i
+*&gt; 30.30.1.1/32     192.168.150.17                         0 13979 13979 i
+*&gt; 30.30.30.1/32    192.168.150.17                         0 13979 13979 i
+*&gt; 172.31.224.35/32 192.168.150.17                         0 13979 ?
+*&gt; 192.168.7.0      192.168.150.17                         0 13979 13979 i
+*&gt; 192.168.32.0     192.168.150.17                         0 13979 13979 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 192.168.65.65/32 192.168.150.17                         0 13979 13979 ?
+*&gt; 192.168.150.4/30 192.168.150.17                         0 13979 i
+*&gt; 192.168.150.8/30 192.168.150.17                         0 13979 i
+*&gt; 192.168.150.12/30
+                    192.168.150.17                         0 13979 i
+r&gt; 192.168.150.16/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.20/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.24/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.28/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.44/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.48/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.56/30
+                    192.168.150.17                         0 13979 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 192.168.150.60/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.64/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.72/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.76/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.80/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.84/30
+                    192.168.150.17                         0 13979 i
+*&gt; 192.168.150.88/30
+                    192.168.150.17                         0 13979 i
+
+For address family: IPv6 Unicast
+BGP table version is 3381, local router ID is 10.20.20.16
+Status codes: s suppressed, d damped, h history, * valid, &gt; best, i - internal,
+              r RIB-failure, S Stale
+Origin codes: i - IGP, e - EGP, ? - incomplete
+
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; A11:11:11::/64   2001:506:14:2::1
+                                                           0 13979 13979 64606 ?
+*&gt; 2001:506:14:1::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:2::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:3::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:4::/64
+   Network          Next Hop            Metric LocPrf Weight Path
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:5::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:9::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:A::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:10::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:12::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:13::/64
+                    2001:506:14:2::1
+   Network          Next Hop            Metric LocPrf Weight Path
+                                                           0 13979 i
+*&gt; 2001:506:14:14::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:16::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:17::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:18::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:19::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:506:14:1A06::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 64606 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 2001:506:14:1A08::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:506:14:1A09::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:506:14:1A13::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 64606 i
+*&gt; 2001:506:14:1A20::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 64606 ?
+*&gt; 2001:506:14:1A21::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:330::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:700::/64
+   Network          Next Hop            Metric LocPrf Weight Path
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1000::/56
+                    ::                       0         32768 i
+*&gt; 2001:1890:8400:1010::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1111::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1122::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 ?
+*&gt; 2001:1890:8400:1130::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1131::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 2001:1890:8400:1132::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1133::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1144::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 ?
+*&gt; 2001:1890:8400:1212::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1313::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:1411::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 ?
+*&gt; 2001:1890:8400:1412::/64
+   Network          Next Hop            Metric LocPrf Weight Path
+                    2001:506:14:2::1
+                                                           0 13979 13979 ?
+*&gt; 2001:1890:8400:1414::/64
+                    2001:506:14:2::1
+                                                           0 13979 13979 ?
+*&gt; 2001:1890:8400:1600::/56
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:8400:2020:2016::/64
+                    ::                       0         32768 i
+*&gt; 2001:1890:8E00:C::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:1890:8E00:F::/64
+                    2001:506:14:2::1
+                                                           0 13979 i
+*&gt; 2001:1890:FF32:1111::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+   Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 2001:1890:FF33:1111::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; 2001:1890:FFF7:1111::1/128
+                    2001:506:14:2::1
+                                                           0 13979 13979 i
+*&gt; B201:8:8::/64    2001:506:14:2::1
+                                                           0 13979 13979 ?
+*&gt; B201:21:21::/64  2001:506:14:2::1
+                                                           0 13979 13979 ?
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="table">
+                        <minOccurrences>0</minOccurrences>
+                        <maxOccurences>0</maxOccurences>
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="For" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="address" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="family" parser="Word"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="for_address_family" representativeValue="value" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="BGP" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="table" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="version" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="is" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="BGP_table_version" representativeValue="3449" parser="Number" isVariable="true"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="local" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="router" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="ID" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="is" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="local_router_ID" representativeValue="10.20.20.16" parser="IPv4Address" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="Status" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="codes" parser="Word"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="s" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="suppressed" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="d" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="damped" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="h" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="history" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="*" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="valid" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="&gt;" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="best" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="i" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="-" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="internal" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="              " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="r" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="RIB" parser="Word"/>
+                                            <item representativeValue="-" parser="Punctuation"/>
+                                            <item representativeValue="failure" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="S" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Stale" parser="Word"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="Origin" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="codes" parser="Word"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="i" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="-" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="IGP" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="e" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="-" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="EGP" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="?" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="-" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="incomplete" parser="Word"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Network" parser="Word"/>
+                                            <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Next" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Hop" parser="Word"/>
+                                            <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Metric" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="LocPrf" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Weight" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Path" parser="Word"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="lines">
+                                <minOccurrences>0</minOccurrences>
+                                <nodes>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="line_header">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Network" parser="Word"/>
+                                                    <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Next" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Hop" parser="Word"/>
+                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Metric" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="LocPrf" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Weight" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Path" parser="Word"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="line1">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="*" parser="Punctuation" isWildcard="true"/>
+                                                    <item representativeValue="&gt;" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="network" representativeValue="10.6.1.0" parser="IPv4Address" isVariable="true"/>
+                                                    <item representativeValue="/" parser="Punctuation" isOptional="true"/>
+                                                    <item name="network_mask" representativeValue="24" parser="Number" isOptional="true" isVariable="true"/>
+                                                    <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                    <item name="next_hop" representativeValue="192.168.150.17" parser="IPv4Address" isVariable="true"/>
+                                                    <item representativeValue="                         " parser="Whitespace" isVariable="true"/>
+                                                    <item name="weight" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                    <item name="path" representativeValue="path" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="line2">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="*" parser="Punctuation" isWildcard="true"/>
+                                                    <item representativeValue="&gt;" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="network" representativeValue="192.168.150.12" parser="IPv4Address" isVariable="true"/>
+                                                    <item representativeValue="/" parser="Punctuation" isOptional="true"/>
+                                                    <item name="network_mask" representativeValue="30" parser="Number" isOptional="true" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="                    " parser="Whitespace" isVariable="true"/>
+                                                    <item name="next_hop" representativeValue="192.168.150.17" parser="IPv4Address" isVariable="true"/>
+                                                    <item representativeValue="                         " parser="Whitespace" isVariable="true"/>
+                                                    <item name="weight" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="path" representativeValue="path" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="line3">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="*" parser="Punctuation" isWildcard="true"/>
+                                                    <item representativeValue="&gt;" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="network" representativeValue="network" parser="Word" isVariable="true" isWildcard="true"/>
+                                                    <item representativeValue="/" parser="Punctuation" isOptional="true"/>
+                                                    <item name="network_mask" representativeValue="64" parser="Number" isOptional="true" isVariable="true"/>
+                                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                                    <item name="next_hop" representativeValue="nexthop" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="                                                           " parser="Whitespace" isVariable="true"/>
+                                                    <item name="weight" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="path" representativeValue="path" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="line4">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="*" parser="Punctuation" isWildcard="true"/>
+                                                    <item representativeValue="&gt;" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="network" representativeValue="network" parser="Word" isVariable="true" isWildcard="true"/>
+                                                    <item representativeValue="/" parser="Punctuation" isOptional="true"/>
+                                                    <item name="network_mask" representativeValue="64" parser="Number" isOptional="true" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Network" parser="Word"/>
+                                                    <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Next" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Hop" parser="Word"/>
+                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Metric" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="LocPrf" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Weight" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Path" parser="Word"/>
+                                                </tokens>
+                                                <isOptional>true</isOptional>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="                    " parser="Whitespace" isVariable="true"/>
+                                                    <item name="next_hop" representativeValue="nexthop" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Network" parser="Word"/>
+                                                    <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Next" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Hop" parser="Word"/>
+                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Metric" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="LocPrf" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Weight" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Path" parser="Word"/>
+                                                </tokens>
+                                                <isOptional>true</isOptional>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="                                                           " parser="Whitespace" isVariable="true"/>
+                                                    <item name="weight" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="path" representativeValue="path" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="line5">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="*" parser="Punctuation" isWildcard="true"/>
+                                                    <item representativeValue="&gt;" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="network" representativeValue="network" parser="Word" isVariable="true" isWildcard="true"/>
+                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                    <item name="network_mask" representativeValue="56" parser="Number" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="                    " parser="Whitespace" isVariable="true"/>
+                                                    <item name="next_hop" representativeValue="nexthop" parser="Word" isVariable="true" isWildcard="true"/>
+                                                    <item representativeValue="                       " parser="Whitespace" isVariable="true"/>
+                                                    <item name="weight" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="         " parser="Whitespace" isVariable="true"/>
+                                                    <item name="path" representativeValue="path" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                </nodes>
+                                <isOrderedList>false</isOrderedList>
+                            </item>
+                        </nodes>
+                        <isOrderedList>false</isOrderedList>
+                    </item>
+                </nodes>
+                <isOrderedList>false</isOrderedList>
+            </BlockMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* ip bgp all">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

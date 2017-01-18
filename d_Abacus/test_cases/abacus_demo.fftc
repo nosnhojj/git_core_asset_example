@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="f30fd7fb-73c9-47e2-b2b0-d351398f1eb1" action="open" session="abacus5000">
+                    <command>
+                        <body>project://d_Abacus/session_profiles/abacus5000.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="178e51d6-62f0-4449-8442-ebe61e564848" action="connect" session="abacus5000" normalOffset="8.328" estimatedStepExecutionTime="17.984">
+                    <command>
+                        <body>-ip_address 10.44.12.12</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fe2cde8f-7d82-4a92-b71e-2e45eb2184ce" action="loadConfig" session="abacus5000" normalOffset="16.123" estimatedStepExecutionTime="9.86">
+                    <command>
+                        <body>-env_file myDemo_SIP.env</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0828c490-5c62-461b-a975-779f7e211dc0" action="testStart" session="abacus5000" normalOffset="3.343" estimatedStepExecutionTime="14.329">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="09801141-6d9f-4e70-83a8-1706c8132c83" action="testStop" session="abacus5000" normalOffset="78.078" estimatedStepExecutionTime="3.718">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c3fd97e3-fff6-4e74-9288-9ea7b48d81d9" action="getResults" session="abacus5000" normalOffset="4.422" estimatedStepExecutionTime="0.875">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>errors()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>[lsearch {&quot;No dial tone&quot;} $value] &lt; 0</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>{auto_message_true}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>{auto_message_false}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="be441f8a-9fbf-4c29-9850-b9e80306ff68" action="disconnect" session="abacus5000" normalOffset="4.796" estimatedStepExecutionTime="10.281">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="80f73796-82e5-460e-b406-6839f56d0b7b" action="close" session="abacus5000" normalOffset="3.047">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

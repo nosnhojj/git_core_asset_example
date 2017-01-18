@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <rendering tclNamespace="my_namespace" testCaseId="ID001" testCaseName="&lt;test case General - Script Rendering - Test case name&gt;"/>
+        <documentation>&lt;test case General - Documentation&gt;</documentation>
+        <notes>&lt;test case General - Notes&gt;
+(These can be multi-line.)</notes>
+    </general>
+    <execution estimatedExecutionTime="3">
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <AETest pt:description="These parameters are used in the Tcl script header">
+                        <author>&lt;test case parameter: AETest/author&gt;</author>
+                        <knownBugs>&lt;test case parameter: AETest/knownBugs&gt;</knownBugs>
+                        <passFailCriteria>&lt;test case parameter: AETest/passFailCriteria&gt;</passFailCriteria>
+                        <purpose>&lt;test case parameter: AETest/purpose&gt;</purpose>
+                        <references>&lt;test case parameter: AETest/references&gt;</references>
+                        <sampleUsage>&lt;test case parameter: AETest/sampleUsage&gt;</sampleUsage>
+                        <synopsis>&lt;test case parameter: AETest/synopsis&gt;</synopsis>
+                        <topology>&lt;test case parameter: AETest/topology&gt;</topology>
+                    </AETest>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <description>The main procedure is not rendered</description>
+            <steps>
+                <item guid="8d3b9a8c-7582-498e-adb5-659211b39a5a" action="comment">
+                    <command>
+                        <body>Open a command window and execute the test</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2c8e156e-702b-4141-92e4-ce13d943af19" action="open" session="s1">
+                            <command>
+                                <body>device:host</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="69700166-0057-4ac0-b480-0c56d0c11f87" action="command" session="s1">
+                            <command>
+                                <body>itestcli -r c:\\test_reports -t HTML -w &quot;c:\\iTest 3.4 Workspaces\\Demo&quot; project://Standard/test_cases/myPingTest_snmp.fftc
+</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Execution_Status()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>execution_status</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^Test Report:(\\S+)$</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>test_report</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5ef10b68-63bc-4b0b-8f5f-bc2469559d16" action="comment">
+                    <command>
+                        <body>Email the results to the user</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2d31a84c-f08b-43df-981f-2c0dc0484332" action="open" session="email">
+                            <command>
+                                <body>project://d_Email/session_profiles/Personal_Email.ffsp</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="bbcee2aa-16af-4d71-8da1-64d00939693a" action="from" session="email">
+                            <command>
+                                <body>nosnhojj@bellsouth.net</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1aca935b-062d-406a-bd07-ff3aca58e7c3" action="to" session="email">
+                            <command>
+                                <body>jjohnson@fanfaresoftware.com</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d27991d7-ac46-4f59-8d99-506d7b308a9d" action="subject" session="email">
+                            <command>
+                                <body>Your Test Case Status:  $execution_status</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="4662f41a-1e69-4988-a560-232b1ca5f0bb" action="attach" session="email">
+                            <command>
+                                <body>$test_report</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="537b7741-33d1-4f65-b936-e105ee8e6464" action="send" session="email">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

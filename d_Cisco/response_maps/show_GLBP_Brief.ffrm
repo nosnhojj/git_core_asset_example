@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>Interface   Grp  Fwd Pri State    Address         Active router   Standby router
+Gi0/1       10   -   100 Standby  172.18.125.250  172.18.125.2    local
+Gi0/1       10   1   -   Listen   0007.b400.0a01  172.18.125.2    -
+Gi0/1       10   2   -   Active   0007.b400.0a02  local           -
+Gi0/1       20   -   100 Active   FE80::7:B4FF:FE00:1400
+                                                  local           FE80::21D:E5FF:FE35:F161
+Gi0/1       20   1   -   Active   0007.b400.1401  local           -
+Gi0/1       20   2   -   Listen   0007.b400.1402  FE80::21D:E5FF:FE35:F161
+                                                                  -
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+        <item name="sample2">
+            <responseBody>Interface   Grp  Fwd Pri State    Address         Active router   Standby router
+Gi0/1       10   -   100 Standby  172.18.125.250  172.18.125.2    local
+Gi0/1       10   1   -   Listen   0007.b400.0a01  172.18.125.2    -
+Gi0/1       10   2   -   Active   0007.b400.0a02  local           -
+Gi0/1       20   -   100 Active   FE80::7:B4FF:FE00:1400
+                                                  local           FE80::21D:E5FF:FE35:F161
+Gi0/1       20   1   -   Active   0007.b400.1401  local           -
+Gi0/1       20   2   -   Listen   0007.b400.1402  FE80::21D:E5FF:FE35:F161
+                                                                  -
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample2</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern2">
+                    <groups>
+                        <item name="Interface">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>9</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s+</regex>
+                            <start>9</start>
+                            <end>16</end>
+                        </item>
+                        <item name="Grp">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>16</start>
+                            <end>18</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+</regex>
+                            <start>18</start>
+                            <end>21</end>
+                        </item>
+                        <item name="Fwd">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>21</start>
+                            <end>22</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+</regex>
+                            <start>22</start>
+                            <end>25</end>
+                        </item>
+                        <item name="Pri">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>28</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\s+</regex>
+                            <start>28</start>
+                            <end>29</end>
+                        </item>
+                        <item name="State">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>29</start>
+                            <end>36</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+</regex>
+                            <start>36</start>
+                            <end>38</end>
+                        </item>
+                        <item name="Address">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>38</start>
+                            <end>45</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\s+</regex>
+                            <start>45</start>
+                            <end>47</end>
+                        </item>
+                        <item name="Active_Router">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>47</start>
+                            <end>59</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\s+</regex>
+                            <start>59</start>
+                            <end>63</end>
+                        </item>
+                        <item name="Standby_Router">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>63</start>
+                            <end>76</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>interface       10   1   100 Standby  address  activeRouter    standbyRouter</sampleMatch>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* glbp brief">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

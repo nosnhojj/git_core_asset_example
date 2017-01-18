@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.4.0.75339">
+    <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties"/>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Cisco/</formMapLibrary>
+    <sessionClassTestCase inherit="false">Cisco2940_Web_Quickcalls.fftc</sessionClassTestCase>
+    <nickName>Cisco2940_web</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <captureProperties>
+                <commandBreakChars inherit="false">
+                    <item>[char Ctrl-C]</item>
+                </commandBreakChars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="prompt1">
+                    <Content>[fanfare@fflinux1 ~]$</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+        <ipAddress inherit="false">fflinux1.fnfr.com</ipAddress>
+        <user inherit="false">fanfare</user>
+        <password inherit="false">/k0EmzmSuV4=</password>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://a_multithreading/</responseLibrary>
+    <nickName>fflinux</nickName>
+</SessionTemplate>

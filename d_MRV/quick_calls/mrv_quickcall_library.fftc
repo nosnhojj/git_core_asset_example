@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+        <sessionClass includeTestCase="true" sessionType="project://d_MRV/session_profiles/mrv.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c174bf5e-0978-4925-917a-70c4bdb882ea" action="call">
+                    <command>
+                        <body>login</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e33d540c-4929-45dc-a5cb-56e85492d3fc" action="call">
+                    <command>
+                        <body>configureIP</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="login" isPublic="true">
+            <steps>
+                <item guid="2ee924df-e113-4fc5-964c-8670db7c63e6" action="command" session="$session" estimatedStepExecutionTime="0.14">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d6aea292-d873-464e-9f6c-6fae78e6de3b" action="command" session="$session" normalOffset="2.219" estimatedStepExecutionTime="0.187">
+                    <command>
+                        <body>admin</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="88837507-f585-48f0-be9b-e2c627141dbb" action="command" session="$session" normalOffset="1.235" estimatedStepExecutionTime="0.594">
+                    <command>
+                        <body masked="true">iRyLc4KQj80=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="configureIP" isPublic="true">
+            <description>Set the IP Address and Default Gateway for the MRV device</description>
+            <steps>
+                <item guid="229c22da-e346-40eb-adbc-a186550c0fb5" action="command" session="$session" estimatedStepExecutionTime="0.234">
+                    <command>
+                        <body>configure terminal</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="98469bed-e4ba-4cf7-887b-c9ec254f6b55" action="command" session="$session" normalOffset="10.127" estimatedStepExecutionTime="0.282">
+                    <command>
+                        <body>ip interface $ipAddress</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b1c22135-ded3-466b-b41d-013a00a62962" action="command" session="$session" normalOffset="10.907" estimatedStepExecutionTime="0.313">
+                    <command>
+                        <body>ip default-gateway $gateway</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e7d9743f-295a-401a-9060-227d3f669c07" action="command" session="$session" normalOffset="4.11" estimatedStepExecutionTime="0.297">
+                    <command>
+                        <body>ip telnet-server</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4a78ad9a-6a58-4a62-ab3a-a22b9d2407c9" action="command" session="$session" normalOffset="4.361" estimatedStepExecutionTime="0.437">
+                    <command>
+                        <body>ip interface  update</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fdffcca2-3312-4be7-b1a3-5a40b3c58968" action="command" session="$session" normalOffset="4.61" estimatedStepExecutionTime="0.203">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Jeff Johnson</author>
+            <version>1.0</version>
+            <multilineDescription>This quickcall will set the IP Address and Default Gateway for the MRV device.  The IP Address should be provided in the format of &lt;ipaddress&gt;/&lt;ipmask&gt;.  For example, 192.168.1.200/24.</multilineDescription>
+            <arguments>
+                <item name="ipAddress">
+                    <description>Format:\t&lt;IPv4 Address&gt;/&lt;mask&gt;
+Example:\t192.168.1.200/24</description>
+                    <defaultValue>192.168.1.200/24</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="gateway">
+                    <description>Format:\t&lt;IPv4 Address&gt;
+Example:\t192.168.1.200</description>
+                    <defaultValue>192.168.1.254</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="logout" isPublic="true">
+            <steps>
+                <item guid="86468d36-72a8-4ae2-b56a-9a179b2eaeec" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>prompt()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value eq &quot;fiberdriver login: &quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>Successfully Logged Out</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                    <message>Prompt ($value) found.  Trying again to log out</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="RepeatStep">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" delayBetweenRepeats="0.5"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+        <item name="clearAllPorts" isPublic="true">
+            <description>Clear all of the ports for a given slot</description>
+            <steps>
+                <item guid="fc8c0803-efb7-46e8-9dff-b6071dd6e0f6" action="command" session="$session">
+                    <command>
+                        <body>slot $slot</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="1088d5da-513b-4aef-84d4-e79d0107eff6" action="command" session="$session">
+                    <command>
+                        <body>map clear-all</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="2832cee5-106e-4178-9003-4dab3121fe5d" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <author>Jeff Johnson</author>
+            <version>1.0</version>
+            <multilineDescription>This quickcall clears all of the ports for a given slot.  The slot number should be in the form of &quot;&lt;chassis&gt;.&lt;slot&gt;&quot;.  For example, to clear all the ports in slot 1, the argument should be &quot;1.1&quot;.</multilineDescription>
+            <arguments>
+                <item name="slot">
+                    <description>Format:\t&lt;chassis&gt;.&lt;slot&gt;
+Example:\t1.1</description>
+                    <defaultValue>1.1</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="showMapForSlot" isPublic="true">
+            <description>Show the port mapping for a given slot</description>
+            <steps>
+                <item guid="fd0f6b3d-c1e5-4f8d-9533-61f42863d62d" action="command" session="$session">
+                    <command>
+                        <body>slot $slot</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="868c267b-aecb-44ae-bff0-497245ac5d4f" action="sleep">
+                    <command>
+                        <body>3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="e3f01c63-c62b-4c05-ab90-453bb53fa7da" action="command" session="$session">
+                    <command>
+                        <body>show map</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>show_map_resp</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="27407ba5-2ab5-433e-93e4-c73f8a0f8336" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="4b860534-c055-458d-bdac-4a05fcdb19e8" action="return">
+                    <command>
+                        <body>[response show_map_resp]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <author>Jeff Johnson</author>
+            <version>1.0</version>
+            <multilineDescription>This quickcall clears all of the ports for a given slot.  The slot number should be in the form of &quot;&lt;chassis&gt;.&lt;slot&gt;&quot;.  For example, to clear all the ports in slot 1, the argument should be &quot;1.1&quot;.</multilineDescription>
+            <arguments>
+                <item name="slot">
+                    <description>Format:\t&lt;chassis&gt;.&lt;slot&gt;
+Example:\t1.1</description>
+                    <defaultValue>1.1</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

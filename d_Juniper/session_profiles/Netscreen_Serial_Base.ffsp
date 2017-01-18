@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.itest.application.serial</baseApplication>
+    <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties">
+        <portName inherit="false">COM8</portName>
+        <terminal>
+            <colorProperties>
+                <scheme inherit="false">Black Background</scheme>
+            </colorProperties>
+            <prompts merge="true">
+                <item name="login">
+                    <Content>login:</Content>
+                </item>
+                <item name="password">
+                    <Content>password:</Content>
+                </item>
+                <item name="normal" MatchMethod="WILDCARD">
+                    <Content>*-&gt;</Content>
+                </item>
+            </prompts>
+        </terminal>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Juniper/</responseLibrary>
+    <sessionClassTestCase inherit="false">Netscreen_Serial_Base.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.0.0.49128">
+    <sampleDictionary>
+        <item name="sample2">
+            <action actionType="call">
+                <command>
+                    <body>IPTV_Unicast -session [param SESSION_NAME] -db [param VQA_DB_NAME] -serverIP 70.110.95.110</body>
+                </command>
+            </action>
+            <responseBody>Metrics for the IPTV Unicast Call
+MDI_Min_DF;MDI_Max_DF;MDI_Min_MLR;MDI_Max_MLR
+0.0;167.1875;0;28;
+
+Metrics for the IPTV Unicast User
+MDI_Min_DF;MDI_Max_DF;MDI_Ave_DF;MDI_Min_MLR;MDI_Max_MLR;MDI_Ave_MLR
+0.0;167.1875;0;28;
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="call">
+                    <banner>MDI_Min_DF;MDI_Max_DF;MDI_Min_MLR;MDI_Max_MLR</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>;</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="MDI_Min_DF">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MDI_Max_DF">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MDI_Min_MLR">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MDI_Max_MLR">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="col1"/>
+                    </columns>
+                </item>
+                <item name="user">
+                    <banner>MDI_Min_DF;MDI_Max_DF;MDI_Ave_DF;MDI_Min_MLR;MDI_Max_MLR;MDI_Ave_MLR</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>;</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="MDI_Min_DF">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MDI_Max_DF">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MDI_Ave_DF">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="MDI_Min_MLR">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                        <item name="col1"/>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="call" includeInLibrary="false"/>
+</ResponseMap>

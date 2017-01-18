@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.2.2.68987">
+    <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+        <baseUrl inherit="false">http://www.google.com</baseUrl>
+    </sessionProperties>
+</SessionTemplate>

@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <execution>
+        <parameters version="4.4.0.75339">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <loop_limit>25</loop_limit>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="b3015703-a6a4-4655-ab76-b9cddce61ba2" action="call" async="true">
+                    <threadName>stream_1</threadName>
+                    <command>
+                        <body>Data_Stream_1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4fa88c75-0dcc-41ed-8a1c-23da9b386167" action="call" async="true">
+                    <threadName>stream_2</threadName>
+                    <command>
+                        <body>Data_Stream_2</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a60d6773-ccde-48a4-a04b-79b506312abf" action="call" async="true">
+                    <threadName>stream_3</threadName>
+                    <command>
+                        <body>Data_Stream_3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="84214789-d5a3-4c13-85d9-ec14e57bb758" action="waitthread">
+                    <command>
+                        <body>stream_*</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="Data_Stream_1">
+            <steps>
+                <item guid="76cadaf7-1aa6-4587-b5bf-a8e0364fe630" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; [param loop_limit]} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0fd4d508-01e9-4d4b-9c80-1c937b4a84da" action="comment">
+                            <command>
+                                <body>Graph the data</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="xychart1" series="Stream 1">
+                                                <yValue>[math.sin [expr $i*10]]</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="38a7d8b1-03bb-4c66-9c9b-6be44617c32c" action="sleep">
+                            <command>
+                                <body>1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="Data_Stream_2">
+            <steps>
+                <item guid="f28628d2-ffb2-4d22-b92b-577a7b04966c" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; [param loop_limit]} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bea61ca0-f9fc-4dc7-b4cc-0909aa8c0c4f" action="comment">
+                            <command>
+                                <body>Graph the data</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="xychart1" series="Stream 2">
+                                                <yValue>[math.cos [expr $i*10]]</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="41882391-c342-4137-9c81-074c54bfecda" action="sleep">
+                            <command>
+                                <body>1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="Data_Stream_3">
+            <steps>
+                <item guid="3208039a-e0ed-4e53-886e-7c11ab4c9764" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; [param loop_limit]} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7426987f-3d8f-477a-8fc4-2605af4d7469" action="comment">
+                            <command>
+                                <body>Graph the data</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="xychart1" series="Stream 3">
+                                                <yValue>[math.cos [expr $i*5]]</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="0cfae92c-da5c-4bd1-8600-4da30b8b9b0f" action="sleep">
+                            <command>
+                                <body>1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

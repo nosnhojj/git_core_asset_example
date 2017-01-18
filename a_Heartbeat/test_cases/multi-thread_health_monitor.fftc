@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+    </general>
+    <execution>
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <PING_MAX>12</PING_MAX>
+                    <UPPER_BOUNDARY>75</UPPER_BOUNDARY>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://a_Heartbeat/topologies/Heartbeat.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="55351ad2-efe3-4a68-976a-053322f1df17" action="comment">
+                    <command>
+                        <body>Open Sessions</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1541257c-f662-4da2-b783-6678101f3aa5" action="open" session="DUT_CLI">
+                            <command>
+                                <body>device:DUT#CLI</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="da9d027b-3c39-4e4c-809e-0b6ead569514" action="command" session="DUT_CLI" normalOffset="7.297" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="64dab8cd-8455-46f9-9664-d02b579fe65b" action="open" session="DUT_SNMP" normalOffset="49.703" acceleratedOffset="2">
+                            <command>
+                                <body>device:DUT#SNMP</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="09d84373-887e-495c-bf7a-f33ce025f962" action="open" session="PC" normalOffset="28.984">
+                            <command>
+                                <body>device:host</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c7b72228-5d81-44c2-bba1-347e0919f489" action="comment">
+                    <command>
+                        <body>Start the Health Monitor in the Background</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3fc57f93-6f55-4e8c-8682-74f1657c588a" action="call" async="true" isBackgroundThread="true">
+                            <threadName>hb_monitor</threadName>
+                            <command>
+                                <body>health_monitor -session DUT_SNMP</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b476994d-c2b4-4202-8147-42152874a28f" action="comment">
+                    <command>
+                        <body>Initialize Starting Point</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="825dfb09-d54e-44ba-9261-3ecad3cb36cd" action="command" session="DUT_CLI" normalOffset="23.969" estimatedStepExecutionTime="268.406">
+                            <command>
+                                <body>show ip traffic</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>icmp_rcvd_echo()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>init_icmp_echo</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="268.344" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="5f155033-d041-4d19-ac10-b217213c034e" action="walk" session="DUT_SNMP" normalOffset="9.686" estimatedStepExecutionTime="0.094">
+                            <command>
+                                <body>MIB-2::icmp</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>icmpInEchos()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>init_icmp_InEcho</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c91f9136-f513-4c4a-86e3-ddb64db0fde1" action="comment">
+                    <command>
+                        <body>Generate some traffic</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="97d91f46-89ad-47c4-bfa0-e4bb737047f5" action="for">
+                            <command>
+                                <body>{set x 1} {$x &lt;= 20} {incr x}</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="f16e59e1-8687-41c8-87b7-4a770dbc057e" action="comment">
+                                    <command>
+                                        <body>Randomly Define the Ping Count</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="3ecf2a38-f425-466e-af32-638293159a8f" action="eval">
+                                            <command>
+                                                <body>set my_ping_count [expr [math.int [expr [math.rand]*[param PING_MAX]]]+1 ]</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="2e0e47c6-d458-4e94-8b12-65b8ba743872" action="comment">
+                                    <command>
+                                        <body>Ping the DUT</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="c3b52fbc-27cc-49da-b756-54bea7b09cca" action="ping" session="PC" normalOffset="10.218" estimatedStepExecutionTime="3.094">
+                                            <command>
+                                                <body>-ping_count $my_ping_count -host [testbed DUT ipAddress]</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="none">
+                                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="message">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                                <message>Ping Step $x:  Number of Pings Sent:  $my_ping_count</message>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="b7d8c9eb-9b00-4905-bad1-36d4188eaa51" action="comment">
+                                    <command>
+                                        <body>Test The Ping Count</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="ce9fcf32-d8b2-4c62-8444-e445fe43f756" action="command" session="DUT_CLI" normalOffset="33.795" estimatedStepExecutionTime="1.563">
+                                            <command>
+                                                <body>show ip traffic</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>icmp_rcvd_echo()</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="assert">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                <expression>$value == $init_icmp_echo + $my_ping_count</expression>
+                                                                <actionsWhenTrue>
+                                                                    <item actionId="DeclareExecutionIssue">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                            <message>Ping Step $x:  The total ICMP ping count is: $value</message>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                    </item>
+                                                                </actionsWhenTrue>
+                                                                <actionsWhenFalse>
+                                                                    <item actionId="DeclareExecutionIssue">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                            <message>Ping Step $x:  Unexpected Ping Count &apos;&apos;{value}&apos;&apos;.  Expected &quot;[expr $init_icmp_echo + $my_ping_count]&quot;</message>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                </actionsWhenFalse>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>icmp_rcvd_echo()</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>init_icmp_echo</storageLocation>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        </item>
+                                        <item guid="1f1915a7-c52f-4ed0-ad10-befa8b74cd34" action="walk" session="DUT_SNMP" normalOffset="13.78" estimatedStepExecutionTime="0.047">
+                                            <command>
+                                                <body>MIB-2::icmp</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>icmpInEchos()</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="assert">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                <expression>$value == $init_icmp_InEcho + $my_ping_count</expression>
+                                                                <actionsWhenTrue>
+                                                                    <item actionId="DeclareExecutionIssue">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                            <message>Ping Step $x:  The total SNMP MIB ping count is: $value</message>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                </actionsWhenTrue>
+                                                                <actionsWhenFalse>
+                                                                    <item actionId="DeclareExecutionIssue">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                                            <message>Ping Step $x:  Unexpected Ping Count &apos;&apos;{value}&apos;&apos;.  Expected &quot;[expr $init_icmp_InEcho + $my_ping_count]&quot;</message>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                </actionsWhenFalse>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>icmpInEchos()</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>init_icmp_InEcho</storageLocation>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="66be14f0-f3d1-43da-9c8b-ef15aec1d71b" action="comment">
+                    <command>
+                        <body>Stop the Heartbeat Monitor</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5fa09b25-e46f-4d86-8ea7-0644034837b6" action="killthread">
+                            <command>
+                                <body>hb_monitor</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.KillThreadPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5ff79255-53b7-44ae-ae38-a0a55d120991" action="comment">
+                    <command>
+                        <body>Close Sessions</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b0fbfec6-605c-41cc-ab2b-c24184e07d94" action="close" session="DUT_SNMP" normalOffset="66.858">
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="0daf2eac-75c9-419b-b941-3b388790c45a" action="close" session="DUT_CLI" normalOffset="34.938">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="c3b51b71-d724-4fa5-a98a-604c3f64beb5" action="close" session="PC" normalOffset="1.703">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="health_monitor" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.snmp">
+            <steps>
+                <item guid="b556dd99-bf67-4103-8dac-db0d9019ee77" action="comment" skip="true">
+                    <command>
+                        <body>Open DB</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="53e4f5a5-ebe5-409c-94a3-f5f25b3fd522" action="open" session="s1">
+                            <command>
+                                <body>device:MySQL</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2bb62f8a-8340-4530-9357-78a2a6fa18a8" action="comment">
+                    <command>
+                        <body>Open CSV File</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="66d29185-f67c-4709-8da5-cf5c3138ed91" action="writeFile">
+                            <command>
+                                <body>myData.csv &quot;Timestamp,CPUTotal1min,CPUTotal5sec,Test Report ID&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup">
+                                <appendMode>Overwrite</appendMode>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6031a52f-1691-429d-9461-1dcf2de84368" action="comment">
+                    <command>
+                        <body>Check the CPU Utilization Every Second</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="43c39a5c-1864-4e35-bd3b-36b4160a6137" action="for">
+                            <command>
+                                <body>{set i 1} {$i &lt; 60} {incr i}</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="5503e7ea-8b07-4a70-baae-025c6533e821" action="walk" session="$session" estimatedStepExecutionTime="0.046">
+                                    <command>
+                                        <body>.iso.org.dod.internet.private.enterprises.cisco.ciscoMgmt.ciscoProcessMIB.ciscoProcessMIBObjects.cpmCPU</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>cpmCPUTotal1min()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value &lt;= &quot;[param UPPER_BOUNDARY]&quot;</expression>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>The one minute CPU Utilization is: $value% which is lower than upper boundary of [param UPPER_BOUNDARY]%</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>cpmCPUTotal5sec()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="chart_as_xy">
+                                                    <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="xychart1" series="Five Second CPU Utilization">
+                                                        <title>Health Chart</title>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>cpmCPUTotal1min()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="chart_as_xy">
+                                                    <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="xychart1" series="One Minute CPU Utilization">
+                                                        <title>Health Chart</title>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                        <storeResponseAt>snmpWalkData</storeResponseAt>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="a8dd710c-b37a-471c-b3c1-748ca5bd87a5" action="comment">
+                                    <command>
+                                        <body>Record this in the CSV File</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="037bbcea-b2d5-4235-96d3-b99339506980" action="writeFile">
+                                            <command>
+                                                <body>myData.csv &quot;[info timestamp &quot;yyyy-MM-dd HH:mm:ss&quot;],[query snmpWalkData cpmCPUTotal1min()],[query snmpWalkData cpmCPUTotal5sec()],[info testReportID]&quot;</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="e58ac3ad-efea-41d6-81e9-5e934aa3ca1f" action="comment">
+                                    <command>
+                                        <body>Record this in the DB</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="df031daa-435f-433a-ab5a-76e5d06a75f4" action="execute" session="s1" skip="true">
+                                            <command>
+                                                <body>INSERT
+INTO heartbeat (time, Total_one_minute, Total_five_second, testcase_id)
+VALUES (&apos;[info timestamp &quot;yyyy-MM-dd HH:mm:ss&quot;]&apos;, [query snmpWalkData cpmCPUTotal1min()], [query snmpWalkData cpmCPUTotal5sec()], [info testReport id]);</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="d185f5bf-8248-4044-81cf-336ab46bd21a" action="sleep">
+                                    <command>
+                                        <body>1</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

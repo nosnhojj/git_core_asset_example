@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.4.0.75339">
+    <baseApplication>com.fnfr.itest.application.serial</baseApplication>
+    <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties">
+        <portName inherit="false">COM6</portName>
+        <terminal>
+            <prompts merge="true">
+                <item name="password" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+                <item name="confirm" MatchMethod="WILDCARD">
+                    <Content>*[confirm]</Content>
+                </item>
+                <item name="normal" MatchMethod="WILDCARD">
+                    <Content>*&gt;</Content>
+                </item>
+                <item name="privileged" MatchMethod="WILDCARD">
+                    <Content>*#</Content>
+                </item>
+                <item name="more" TypeOfPrompt="MORE">
+                    <Content>--More--</Content>
+                </item>
+                <item name="configuration" MatchMethod="WILDCARD">
+                    <Content>*(config)#</Content>
+                </item>
+                <item name="prompt1">
+                    <Content>Destination filename [startup-config]?</Content>
+                </item>
+                <item name="prompt2">
+                    <Content>Destination filename [startup_config]?</Content>
+                </item>
+                <item name="prompt3">
+                    <Content>System configuration has been modified. Save? [yes/no]:</Content>
+                </item>
+                <item name="prompt4">
+                    <Content>Address or name of remote host []?</Content>
+                </item>
+                <item name="prompt5">
+                    <Content>Destination filename [c7200-confg]?</Content>
+                </item>
+                <item name="prompt6">
+                    <Content>Destination filename [cisco2940-confg]?</Content>
+                </item>
+                <item name="prompt7">
+                    <Content>Destination filename [running-config]?</Content>
+                </item>
+            </prompts>
+        </terminal>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <sessionClassTestCase inherit="false">CiscoIOS_Serial_Quickcalls.fftc</sessionClassTestCase>
+    <initializationProcedure inherit="false">serialWakeup</initializationProcedure>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>PIM Neighbor Table
+Mode: B - Bidir Capable, DR - Designated Router, N - Default DR Priority,
+      S - State Refresh Capable
+Neighbor        Interface              Uptime/Expires   Ver     DR
+Address                                                         Priority/Mode
+192.1.33.11     GigabitEthernet2/1     1d11h/00:00:02   v2      N / DR
+192.1.34.12     GigabitEthernet2/1     1d11h/00:00:02   v2      N / DR
+192.104.20.56   Serial4/1/0/1:0.104    1d11h/00:00:02   v2      1 / S
+192.105.20.58   Serial4/1/0/2:0.105    1d00h/00:01:31   v2      1 / S
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <startingLineNumber>5</startingLineNumber>
+                    <footerStructure>End</footerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <columns>
+                        <item name="neighbor_address">
+                            <width>16</width>
+                        </item>
+                        <item name="interface">
+                            <width>23</width>
+                        </item>
+                        <item name="uptime_expires">
+                            <width>17</width>
+                        </item>
+                        <item name="version">
+                            <width>8</width>
+                        </item>
+                        <item name="priority_mode">
+                            <width>9</width>
+                            <spillover>Extend</spillover>
+                        </item>
+                    </columns>
+                    <autoUpdateNames>false</autoUpdateNames>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* ip pim nei*">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="uptime">
+            <description>Returns the uptime string from the uptime_expires column</description>
+            <queryFormatString>fn:substring-before(.//row[{0}]/uptime_expires,&quot;/&quot;)</queryFormatString>
+            <arguments>
+                <item name="rowNumber">
+                    <defaultvalue>4</defaultvalue>
+                    <valuesQuery>.//row</valuesQuery>
+                    <interpretAs>ItemCount</interpretAs>
+                </item>
+            </arguments>
+        </item>
+        <item name="expires">
+            <description>Returns the list of expiration times from the uptime_expires column</description>
+            <queryFormatString>fn:substring-after(.//row[{0}]/uptime_expires,&quot;/&quot;)</queryFormatString>
+            <arguments>
+                <item name="rowNumber">
+                    <defaultvalue>4</defaultvalue>
+                    <valuesQuery>.//row</valuesQuery>
+                    <interpretAs>ItemCount</interpretAs>
+                </item>
+            </arguments>
+        </item>
+        <item name="priority">
+            <description>Returns the list of priorities from the priority_mode column</description>
+            <queryFormatString>fn:substring-before(.//row[{0}]/priority_mode,&quot;/&quot;)</queryFormatString>
+            <arguments>
+                <item name="rowNumber">
+                    <defaultvalue>4</defaultvalue>
+                    <valuesQuery>.//row</valuesQuery>
+                    <interpretAs>ItemCount</interpretAs>
+                </item>
+            </arguments>
+        </item>
+        <item name="mode">
+            <queryFormatString>fn:substring-after(.//row[{0}]/priority_mode,&quot;/&quot;)</queryFormatString>
+            <arguments>
+                <item name="rowNumber">
+                    <defaultvalue>4</defaultvalue>
+                    <valuesQuery>.//row</valuesQuery>
+                    <interpretAs>ItemCount</interpretAs>
+                </item>
+            </arguments>
+        </item>
+    </aliases>
+</ResponseMap>

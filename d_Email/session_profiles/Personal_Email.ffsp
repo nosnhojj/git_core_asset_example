@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.2.57660">
+    <baseApplication>com.fnfr.svt.applications.mail</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
+        <smtpUrl inherit="false">smtp.att.yahoo.com</smtpUrl>
+        <portID inherit="false">465</portID>
+        <smtpUser inherit="false">nosnhojj@bellsouth.net</smtpUser>
+        <smtpPassword inherit="false" masked="true">RnAyyWZAkkMJor6ZZIWzzg==</smtpPassword>
+        <from inherit="false">nosnhojj@bellsouth.net</from>
+        <ssl inherit="false">true</ssl>
+    </sessionProperties>
+    <nickName>Personal_Email</nickName>
+</SessionTemplate>

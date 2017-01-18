@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<testCase version="5.3.0.338ed32">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+    </general>
+    <execution estimatedExecutionTime="5" autoUpdateExecutionTime="false"/>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="71e73c12-ee30-4481-be5a-a3e3d1da60f5" action="comment">
+                    <command>
+                        <body>This test case illustrates how to wait for multiple threads to complete</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="03897b49-9879-4800-9e5d-6d7067c7a53e" action="comment">
+                    <command>
+                        <body>The global variable &apos;status&apos; is use to monitor the state of the threads.  When a thread is to be launched</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="9c23ebc1-23bd-490f-96ff-a0c4a2065c75" action="comment">
+                    <command>
+                        <body>the bit value of &apos;status&apos; corresponding to threadID is set to 1.  The status variable is then queried</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0e2c6604-d103-41e1-a326-61df1b05edc7" action="comment">
+                    <command>
+                        <body>until it is equal to 0, that is no bits are set.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2f75436d-9258-4fad-9f88-54c50818d595" action="eval">
+                    <command>
+                        <body>gset status 0</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="cb958b8b-4e5c-487b-ad53-ac07ac32bb58" action="comment">
+                    <command>
+                        <body>Valid threadIDs are 0..30 without duplicates</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="754616b7-b118-4da5-ae87-8dca388938c2" action="foreach">
+                    <command>
+                        <body>threadID {3 7 11 15}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2bc872e3-63b7-4a75-af6f-c73525daca79" action="comment">
+                            <command>
+                                <body>Bubba Jeff</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="5cb17a4c-6b56-45f3-a272-563888907f61" action="eval">
+                                    <command>
+                                        <body>gset status [expr [gget status] ^ [expr 1 &lt;&lt; $threadID]]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="1f17277d-9a23-43d4-bf16-0a152a7998a2" action="comment" async="true">
+                            <command>
+                                <body>Launch the following steps as a new thread</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="b6e86a54-44a3-4c0a-a90e-9f87c62a0fc6" action="comment">
+                                    <command>
+                                        <body>Call a procedure that completes after a random amount of time</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="51c8495d-32f1-4af1-9770-09c16a9a315a" action="call">
+                                            <command>
+                                                <body>variable_time_procedure -threadNumber $threadID</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="2b740ca3-51bf-401f-807d-b4b04e9020f4" action="comment">
+                                    <command>
+                                        <body>Set status bit number $threadID to 0 to indicate that the thread has completed</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="8eda7774-e218-4c42-9225-a251a1c8f788" action="eval">
+                                            <command>
+                                                <body>gset status [expr [gget status] ^ [expr 1 &lt;&lt; $threadID]]</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="e41aafd9-64b7-43fa-b551-313103f37578" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="043fc778-ca6a-42db-8942-28632bed38f0" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="b5f19277-fc9a-40c4-9588-2346d5248e00" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="e4938e05-e2fe-4882-b15a-ed0ad2d90477" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="322cfc78-cd90-4e3a-83e3-455a72c8c6a7" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="60625253-4a8b-46b6-93c1-5f8315e146fc" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="ebbcea2d-d76b-4925-8a35-6dd9cb55d24a" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="8efd8137-12de-4cf2-afb8-8741b4603709" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="e48dd7ff-15fb-41cf-87f7-779084e3cfdd" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="6b2e7de7-4376-41d3-970c-ccf0d47a6954" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="13a30b0b-0d51-4b49-a99a-5966f93cefe1" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="a89839c5-cfe6-4621-936e-873bf11790a3" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="fb62ce0b-e4cc-4e7a-9e73-8b9ddf478d09" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="4f756ea4-31f8-496b-94e7-7f11cd78d0f5" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="b8fd6859-851a-438c-bcee-b1234a67b472" action="comment">
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6ac6759b-4798-4a2a-b029-f9835358a85c" action="comment">
+                    <command>
+                        <body>Examine the status variable repeatedly until it is equal to 0, that is no bits are set</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b94800aa-be59-4d81-9101-3566d355bb52" action="eval" skip="true">
+                            <command>
+                                <body>puts [gget status]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>group1()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;0&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>All processes complete</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>Waiting for processes to complete, status = [tcl format %#08x &quot;$value&quot;]</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="15"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="5eef7443-ae2b-41e1-9bd7-c5aa9f5f95ef" action="scriptEval">
+                            <command>
+                                <body>format &quot;%#010x&quot; [gget status]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>group1()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;0&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>All processes complete</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                            <message>Waiting for processes to complete, status = $value</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup" maxRepeatCount="15"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="variable_time_procedure" isPublic="true">
+            <steps>
+                <item guid="a16c1c7d-9dd1-4625-987c-e45c14f3573b" action="comment">
+                    <command>
+                        <body>Sleep for a random amount of time between 0 and 10 seconds</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="20001516-7487-4c95-812a-a14aac9a47a0" action="scriptEval">
+                            <command>
+                                <body>expr [expr rand()]*10</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>group1()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Processing time of thread $threadNumber = [query . group1()] seconds</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>sleepTime</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="a59aa65d-4eb2-4077-9436-d3ee87ddab75" action="sleep">
+                            <command>
+                                <body>[query sleepTime group1()]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="threadNumber">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

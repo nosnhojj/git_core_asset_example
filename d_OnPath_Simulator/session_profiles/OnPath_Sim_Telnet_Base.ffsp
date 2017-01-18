@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">192.168.1.79 </ipAddress>
+        <port inherit="false">53058</port>
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="prompt1">
+                    <Content>=&gt;</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_OnPath_Simulator/</responseLibrary>
+    <sessionClassTestCase inherit="false">OnPath_Sim_Telnet_Quickcalls.fftc</sessionClassTestCase>
+</SessionTemplate>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.0.0.77059">
+    <baseApplication>com.fnfr.svt.applications.tclsh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties">
+        <tclProperties>
+            <initScript inherit="false"># Load the Calnex supplied interface file
+source &quot;C:/Program Files (x86)/Calnex/Paragon-X/paragon.tcl&quot;</initScript>
+        </tclProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Calnex/</responseLibrary>
+    <sessionClassTestCase inherit="false">calnex_tcl_quickcalls.fftc</sessionClassTestCase>
+    <nickName>calnex</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

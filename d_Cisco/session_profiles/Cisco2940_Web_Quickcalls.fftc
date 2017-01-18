@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="Cisco2940_Web_Base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="71bfb28d-bd01-4089-9561-96aa8fc45920" action="open" session="s1">
+                    <command>
+                        <body>Cisco2940_Web_Base.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="dc9968e5-7f19-4452-a888-97c17a3797ec" action="goIpTraffic" session="s1">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+                <item guid="c0b83dff-a942-4226-8f72-955ee0aea67e" action="goHome" session="s1">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="goHome" isPublic="true">
+            <steps>
+                <item guid="0021648d-fe23-48be-9851-3875e3f82929" action="go" session="$session">
+                    <command>
+                        <body>http://[profile $session document/sessionProperties/baseUrl]/</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+            </steps>
+            <multilineDescription>Go directly to the homepage</multilineDescription>
+        </item>
+        <item name="goIpTraffic" isPublic="true">
+            <steps>
+                <item guid="5a1559a7-e928-48f4-8dd6-2398717be977" action="go" session="$session">
+                    <command>
+                        <body>http://[profile $session document/sessionProperties/baseUrl]/level/15/exec/-/show/ip/traffic</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+            </steps>
+            <multilineDescription>Go to the URL to display the &quot;show ip traffic&quot; results</multilineDescription>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,678 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action>
+                <command>
+                    <body>sh dialer</body>
+                </command>
+            </action>
+            <responseBody>BRI0/2/0 - dialer type = ISDN
+
+Dial String      Successes   Failures    Last DNIS   Last status
+0 incoming call(s) have been screened.
+0 incoming call(s) rejected for callback.
+
+BRI0/2/0:1 - dialer type = ISDN
+Idle timer (120 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (15 secs)
+Dialer state is shutdown
+
+BRI0/2/0:2 - dialer type = ISDN
+Idle timer (120 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (15 secs)
+Dialer state is shutdown
+
+Serial1/0:0 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:1 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:2 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:3 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:4 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:5 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:6 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:7 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:8 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:9 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:10 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:11 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+          
+Serial1/0:12 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:13 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:14 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:15 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:16 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:17 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:18 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:19 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:20 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:21 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:22 - dialer type = ISDN
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Dialer state is idle
+
+Serial1/0:23 - dialer type = ISDN
+Rotary group 1, priority = 0
+0 incoming call(s) have been screened.
+0 incoming call(s) rejected for callback.
+
+Di1 - dialer type = IN-BAND SYNC NO-PARITY
+Load threshold for dialing additional calls is 1
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Number of active calls = 0
+
+Dial String      Successes   Failures    Last DNIS   Last status
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="header">
+                    <groups>
+                        <item name="dialer">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>8</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s- dialer type =\\s</regex>
+                            <start>8</start>
+                            <end>25</end>
+                        </item>
+                        <item name="dialer_type">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>29</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+Dial String\\s+Successes\\s+Failures\\s+Last DNIS\\s+Last status\\s+</regex>
+                            <start>29</start>
+                            <end>96</end>
+                        </item>
+                        <item name="screened_incoming_calls">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>96</start>
+                            <end>97</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\sincoming call\\(s\\) have been screened\\.\\s+</regex>
+                            <start>97</start>
+                            <end>135</end>
+                        </item>
+                        <item name="rejected_for_callback_incoming_calls">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>135</start>
+                            <end>136</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\sincoming call\\(s\\) rejected for callback\\.</regex>
+                            <start>136</start>
+                            <end>176</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>BRI0/2/0 - dialer type = ISDN
+
+Dial String      Successes   Failures    Last DNIS   Last status
+0 incoming call(s) have been screened.
+0 incoming call(s) rejected for callback.</sampleMatch>
+                </item>
+                <item name="digital">
+                    <groups>
+                        <item name="dial_string">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <key>true</key>
+                            <start>0</start>
+                            <end>8</end>
+                            <suggestions>
+                                <item name=".{8}">exactly 8 of any character</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>:</regex>
+                            <start>8</start>
+                            <end>9</end>
+                        </item>
+                        <item name="subaddress">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>9</start>
+                            <end>10</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s- dialer type =\\s</regex>
+                            <start>10</start>
+                            <end>27</end>
+                        </item>
+                        <item name="dialer_type">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>27</start>
+                            <end>31</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+Idle timer \\(</regex>
+                            <start>31</start>
+                            <end>44</end>
+                        </item>
+                        <item name="idle_timer">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>44</start>
+                            <end>47</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\ssecs\\), Fast idle timer \\(</regex>
+                            <start>47</start>
+                            <end>72</end>
+                        </item>
+                        <item name="fast_idle_timer">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>72</start>
+                            <end>74</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\ssecs\\)\\s+Wait for carrier \\(</regex>
+                            <start>74</start>
+                            <end>99</end>
+                        </item>
+                        <item name="wait_for_carrier">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>99</start>
+                            <end>101</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\ssecs\\), Re-enable \\(</regex>
+                            <start>101</start>
+                            <end>120</end>
+                        </item>
+                        <item name="re_enable">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>120</start>
+                            <end>122</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\ssecs\\)\\s+Dialer state is\\s</regex>
+                            <start>122</start>
+                            <end>145</end>
+                        </item>
+                        <item name="dialer_state">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>145</start>
+                            <end>153</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>BRI0/2/0:1 - dialer type = ISDN
+Idle timer (120 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (15 secs)
+Dialer state is shutdown</sampleMatch>
+                </item>
+                <item name="rotary">
+                    <groups>
+                        <item name="dial_string">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>9</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".{9}">exactly 9 of any character</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>:</regex>
+                            <start>9</start>
+                            <end>10</end>
+                        </item>
+                        <item name="subaddress">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>10</start>
+                            <end>12</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s- dialer type =\\s</regex>
+                            <start>12</start>
+                            <end>29</end>
+                        </item>
+                        <item name="dialer_type">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>29</start>
+                            <end>33</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+Rotary group\\s</regex>
+                            <start>33</start>
+                            <end>47</end>
+                        </item>
+                        <item name="rotary_group">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>47</start>
+                            <end>48</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>, priority =\\s</regex>
+                            <start>48</start>
+                            <end>61</end>
+                        </item>
+                        <item name="priority">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>61</start>
+                            <end>62</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+</regex>
+                            <start>62</start>
+                            <end>63</end>
+                        </item>
+                        <item name="screened_incoming_calls_rotary">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>63</start>
+                            <end>64</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\sincoming call\\(s\\) have been screened\\.\\s+</regex>
+                            <start>64</start>
+                            <end>102</end>
+                        </item>
+                        <item name="rejected_for_callback_incoming_calls_rotary">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>102</start>
+                            <end>103</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\sincoming call\\(s\\) rejected for callback\\.</regex>
+                            <start>103</start>
+                            <end>143</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Serial1/0:23 - dialer type = ISDN
+Rotary group 1, priority = 0
+0 incoming call(s) have been screened.
+0 incoming call(s) rejected for callback.</sampleMatch>
+                </item>
+                <item name="sync">
+                    <groups>
+                        <item name="dial_string">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>3</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s- dialer type =\\s</regex>
+                            <start>3</start>
+                            <end>20</end>
+                        </item>
+                        <item name="dialer_type">
+                            <regex>\\D+</regex>
+                            <named>true</named>
+                            <start>20</start>
+                            <end>42</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name=".{22}">exactly 22 of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+Load threshold for dialing additional calls is\\s</regex>
+                            <start>42</start>
+                            <end>90</end>
+                        </item>
+                        <item name="load_threshold_for_dialing_additional_calls">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>90</start>
+                            <end>91</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+Idle timer \\(</regex>
+                            <start>91</start>
+                            <end>104</end>
+                        </item>
+                        <item name="idle_timer">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>104</start>
+                            <end>107</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\ssecs\\), Fast idle timer \\(</regex>
+                            <start>107</start>
+                            <end>132</end>
+                        </item>
+                        <item name="fast_idle_timer">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>132</start>
+                            <end>134</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\ssecs\\)\\s+Wait for carrier \\(</regex>
+                            <start>134</start>
+                            <end>159</end>
+                        </item>
+                        <item name="wait_for_carrier">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>159</start>
+                            <end>161</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\ssecs\\), Re-enable \\(</regex>
+                            <start>161</start>
+                            <end>180</end>
+                        </item>
+                        <item name="re_enable">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>180</start>
+                            <end>182</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\ssecs\\)\\s+Number of active calls =\\s</regex>
+                            <start>182</start>
+                            <end>214</end>
+                        </item>
+                        <item name="number_of_active_calls">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>214</start>
+                            <end>215</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name=".+">one or more of any character</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Di1 - dialer type = IN-BAND SYNC NO-PARITY
+Load threshold for dialing additional calls is 1
+Idle timer (300 secs), Fast idle timer (20 secs)
+Wait for carrier (30 secs), Re-enable (10 secs)
+Number of active calls = 0</sampleMatch>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* dialer">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

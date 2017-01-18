@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <owner>jjohnson</owner>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="ba1f81a0-4ad3-428d-a428-ca8f0639925e" action="open" session="DUT">
+                    <command>
+                        <body>project://a_CRLF/session_profiles/Clark_DUT.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="c5dbd3e4-1ab9-45fc-bb6e-4279aff1f15f" action="command" session="DUT" normalOffset="3.01" estimatedStepExecutionTime="0.973">
+                    <command>
+                        <body>show version\\r\\n</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <lineTerminator inherit="false" defaultValue=""/>
+                        <completionProperties expectedIdleTime="0.942" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="8c488ef1-8f5b-4578-a813-8781d5ca5192" action="command" session="DUT" normalOffset="3.01" estimatedStepExecutionTime="0.973">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.942" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="39431713-a9be-4535-9caf-c07c57b2e4bd" action="command" session="DUT" normalOffset="3.01" estimatedStepExecutionTime="0.973">
+                    <command>
+                        <body>show arp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.942" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="e66f7bda-e621-4575-af58-3a37443dad5f" action="close" session="DUT" normalOffset="0.103">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

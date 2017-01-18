@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://a_TBML_Links/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="1dfda8d4-dab0-428a-9b5b-d88104167366" action="comment">
+                    <command>
+                        <body>Find the endpoints of the link</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="607eaaf6-ccdd-49cb-adac-b63856c228e2" action="eval">
+                            <command>
+                                <body>puts [tbml endpoint -name ethernet1]</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>endpoints</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7d91722a-c29b-4858-ad7f-1a1c6ac6626b" action="comment">
+                    <command>
+                        <body>Find the physical port name of the first port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a07a9450-47c9-4dd6-9b6f-6715aa3c88ce" action="eval">
+                            <command>
+                                <body>puts [tbml property -id [lindex [response endpoints] 0] phy_port_name]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="36ec8c95-2c73-41b7-9224-c870f7da2301" action="comment">
+                    <command>
+                        <body>Find the name of the device for the first port</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a23eb47a-9f9c-4d09-b30f-acc004a7b5bd" action="comment">
+                            <command>
+                                <body>First get the resource ID of the port</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="af471999-885e-41be-8e22-9d49e0fd76d4" action="eval">
+                                    <command>
+                                        <body>puts [tbml parentList -id [lindex [response endpoints] 0] ]</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>resourceId</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="6a09dd2a-90f5-4ef4-b963-94fcd37ad325" action="comment">
+                            <command>
+                                <body>Then get the device name</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="5a441337-8510-4bd7-b0d3-50c92eb55656" action="eval">
+                                    <command>
+                                        <body>puts [tbml property -id $resourceId name]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="f2d7cac9-0af2-4f47-a5d6-ae2fd65e21a7" action="comment">
+                    <command>
+                        <body>Find my neighbor</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a5b59a4d-0dcb-4ce4-bda6-0b9b29c2fde5" action="eval">
+                            <command>
+                                <body>puts [tbml remoteEndpoint -name &quot;DUT port1&quot;]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.itest.application.serial</baseApplication>
+    <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties">
+        <portName inherit="false">COM1</portName>
+        <baudRate inherit="false">38400</baudRate>
+        <terminal>
+            <captureProperties>
+                <commandCompletionchars inherit="false">
+                    <item>?</item>
+                </commandCompletionchars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="login">
+                    <Content>fiberdriver login:</Content>
+                </item>
+                <item name="password" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+                <item name="normal">
+                    <Content>fiberdriver#</Content>
+                </item>
+                <item name="config">
+                    <Content>fiberdriver(config)#</Content>
+                </item>
+                <item name="chassis" MatchMethod="WILDCARD">
+                    <Content>fiberdriver(chassis/*)#</Content>
+                </item>
+                <item name="slot" MatchMethod="WILDCARD">
+                    <Content>fiberdriver(slot/*)#</Content>
+                </item>
+                <item name="port" MatchMethod="WILDCARD">
+                    <Content>fiberdriver(port/*)#</Content>
+                </item>
+                <item name="more" TypeOfPrompt="MORE">
+                    <Content>--More--</Content>
+                </item>
+            </prompts>
+        </terminal>
+    </sessionProperties>
+    <sessionClassTestCase inherit="false">project://d_MRV/quick_calls/mrv_quickcall_library.fftc</sessionClassTestCase>
+    <nickName>MRV</nickName>
+    <initializationProcedure inherit="false">login</initializationProcedure>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

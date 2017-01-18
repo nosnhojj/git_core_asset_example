@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">ffcisco1.fnfr.com</ipAddress>
+    </sessionProperties>
+    <parameters version="6.0.0.18638fa">
+        <parameters escape="true">
+            <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                <DUT_ip_addr pt:description="IP Address for DUT">ffcisco1.fnfr.com</DUT_ip_addr>
+            </parameters>
+        </parameters>
+    </parameters>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <nickName>ffcisco1_telnet</nickName>
+    <baseProfile>project://d_Cisco/session_profiles/CiscoIOS_Telnet_Base.ffsp</baseProfile>
+    <standalone>false</standalone>
+</SessionTemplate>

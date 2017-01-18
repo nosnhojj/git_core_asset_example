@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.3.1.73463">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="prompt1">
+                    <Content>root@changeling-hypervisor:~#</Content>
+                </item>
+                <item name="prompt2" MatchMethod="WILDCARD">
+                    <Content>root@*:root#</Content>
+                </item>
+                <item name="prompt3">
+                    <Content>admin&gt;</Content>
+                </item>
+                <item name="prompt4">
+                    <Content>admin&gt;&gt;</Content>
+                </item>
+                <item name="prompt5" TypeOfPrompt="MORE">
+                    <Content>Are you sure you want to continue connecting (yes/no)?</Content>
+                    <MoreNextCommand>yes</MoreNextCommand>
+                </item>
+                <item name="prompt6" TypeOfPrompt="PASSWORD">
+                    <Content>root@nfs&apos;s password:</Content>
+                </item>
+                <item name="prompt7">
+                    <Content>root@nfs:~#</Content>
+                </item>
+                <item name="prompt8" TypeOfPrompt="MORE">
+                    <Content>Please type &apos;yes&apos; or &apos;no&apos;:</Content>
+                    <MoreNextCommand>yes</MoreNextCommand>
+                </item>
+            </prompts>
+        </TerminalProperties>
+        <ipAddress inherit="false">$chassis_ip</ipAddress>
+        <user inherit="false">$user</user>
+        <password inherit="false">ltkYn/vjOLM=</password>
+    </sessionProperties>
+</SessionTemplate>

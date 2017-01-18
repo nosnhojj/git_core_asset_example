@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.2.0.65456">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>tasklist /FI &quot;IMAGENAME eq iTest.exe&quot;</body>
+                </command>
+            </action>
+            <responseBody>
+Image Name                     PID Session Name        Session#    Mem Usage
+========================= ======== ================ =========== ============
+iTest.exe                    32600 Console                    1    253,720 K
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;prompt&gt;C:\\\\&amp;gt;&lt;/prompt&gt;
+    &lt;echo&gt;tasklist /FI &amp;quot;IMAGENAME eq iTest.exe&amp;quot;&lt;/echo&gt;
+    &lt;promptName&gt;defaultPrompt&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.6</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <banner>Image Name                     PID Session Name        Session#    Mem Usage</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Image_Name">
+                            <isKey>true</isKey>
+                            <width>26</width>
+                        </item>
+                        <item name="PID">
+                            <width>9</width>
+                        </item>
+                        <item name="Session_Name">
+                            <width>17</width>
+                        </item>
+                        <item name="Session_num">
+                            <width>12</width>
+                        </item>
+                        <item name="Mem_Usage">
+                            <width>0</width>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="tasklist *">
+        <application>
+            <item>com.fnfr.svt.applications.cmd</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="Mem_Usage_by_Image_Name">
+            <queryFormatString>translate(mapped/Tabular/table1/table/row[Image_Name=&apos;{0}&apos;]/Mem_Usage,&quot;, K&quot;,&quot;&quot;)</queryFormatString>
+            <arguments>
+                <item name="Image_Name">
+                    <defaultvalue>iTest.exe</defaultvalue>
+                    <valuesQuery>mapped/Tabular/table1/table/row/Image_Name</valuesQuery>
+                    <interpretAs>SampleValues</interpretAs>
+                </item>
+            </arguments>
+            <source>Mapping</source>
+        </item>
+    </aliases>
+</ResponseMap>

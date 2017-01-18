@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_multithreading/topologies/multithreading_topo.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="4735ad44-abf9-4a56-8df7-4c646df962d8" action="comment">
+                    <command>
+                        <body>Open Device</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c53c9a2b-eac1-42e6-beb0-61360471af19" action="open" session="s1">
+                            <command>
+                                <body>device:laptop</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5578efae-ccf7-4a91-b0d3-3d00dea4d728" action="comment">
+                    <command>
+                        <body>Start Threads</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d102e0cd-d658-4f5b-bcad-08480bf4166c" action="call" async="true">
+                            <threadName>DoPing</threadName>
+                            <command>
+                                <body>DoPing</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="63b59cba-48cd-4c54-9e15-147b0dcb0094" action="call" async="true">
+                            <threadName>DoDir</threadName>
+                            <command>
+                                <body>DoDir</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="5623709f-eee0-4ddc-8fb6-b16eeb076710" action="waitthread">
+                            <command>
+                                <body>DoPing DoDir</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c24637cd-9625-40fe-9e20-a41c8748c245" action="comment">
+                    <command>
+                        <body>Close Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="58596655-a370-4909-992f-75bb8022b17b" action="close" session="s1">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="d80ff2e0-e456-4efd-bd6a-6df05bc4d2d2" action="exit">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="DoPing">
+            <steps>
+                <item guid="a7648fd1-3a66-4f20-a646-47157221798a" action="lock">
+                    <command>
+                        <body>sessionLock</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b8afaab5-011d-482c-9e51-dc7f9d43e4e1" action="command" session="s1">
+                            <command>
+                                <body>ping www.fanfaresoftware.com</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Doing ping</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Received()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>{value} pings received</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="ping_count">
+                    <defaultValue>5</defaultValue>
+                </item>
+                <item name="host">
+                    <defaultValue>localhost</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="DoDir">
+            <steps>
+                <item guid="50856392-93f2-43ae-bd4c-f55f39161655" action="lock">
+                    <command>
+                        <body>sessionLock</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0600e16a-fdc9-460a-adf4-97b52d41b05e" action="command" session="s1">
+                            <command>
+                                <body>dir &quot;[info workspacePath]&quot;</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Doing dir</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>count(col1_all())</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>{value} files and directories found</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

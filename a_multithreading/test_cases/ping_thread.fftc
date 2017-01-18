@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://a_multithreading/topologies/multithreading_topo.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="bed8ec79-f1e8-4439-9e98-a2bef72ee992" action="comment">
+                    <command>
+                        <body>Open DUT and ping device</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4f4de795-180e-4f0f-b6d0-f22b2d986a17" action="open" session="DUT">
+                            <command>
+                                <body>device:ffcisco1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="d42d4b72-3465-4218-9d7e-053710b7d26c" action="open" session="pinger">
+                            <command>
+                                <body>device:fflinux1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                    <completionProperties expectedIdleTime="0.125" expectedIdleTime.inherit="false"/>
+                                </stepProperties>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5c34a42c-c87d-4a70-a010-6d39b8dfa76f" action="comment">
+                    <command>
+                        <body>Check initial ping count of DUT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="56479a9b-0ef5-491e-81ee-663958593d0f" action="command" session="DUT" normalOffset="18.08" estimatedStepExecutionTime="1.406">
+                            <command>
+                                <body>show ip traffic </body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>rx_echo()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>init_ping</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="1.188" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e48b6a21-9269-4d8c-bb82-c2cf3c6b941d" action="comment">
+                    <command>
+                        <body>Continuously ping the DUT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="55a83474-529f-4909-baa8-9fb3fe37775a" action="command" session="pinger" async="true" isBackgroundThread="true" normalOffset="19.75" estimatedStepExecutionTime="0.407">
+                            <command>
+                                <body>ping ffcisco1.fnfr.com</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="1.359" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0d28542e-d237-486d-b410-51adb5987bd6" action="comment">
+                    <command>
+                        <body>Repeatedly check pings received; stop when 5 have been counted</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="aae52d5e-086e-4af7-88f6-1c0444d7e1c8" action="command" session="DUT" normalOffset="18.08" estimatedStepExecutionTime="1.406">
+                            <command>
+                                <body>show ip traffic </body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>rx_echo()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value &gt;= $init_ping + 5</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>At least 5 pings were received</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>[expr $value - $init_ping] pings received; checking again</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="1.188" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2f78b342-d41b-4955-b0e1-0dc0b30949db" action="comment">
+                    <command>
+                        <body>Close DUT and ping device</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dcb7962b-8351-486e-8a1c-5b263ce65ff0" action="close" session="pinger" normalOffset="8.905">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="75c8f334-687c-4875-b992-d45859858d16" action="close" session="DUT" normalOffset="0.109">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

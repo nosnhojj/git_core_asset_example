@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>netstat -es</body>
+                </command>
+            </action>
+            <responseBody>Interface Statistics
+
+                           Received            Sent
+
+Bytes                    2866303670      2377787658
+Unicast packets            13159543        14713555
+Non-unicast packets          894159          925570
+Discards                          0               0
+Errors                            0               0
+Unknown protocols                 0
+
+IPv4 Statistics
+
+  Packets Received                   = 15674824
+  Received Header Errors             = 0
+  Received Address Errors            = 494822
+  Datagrams Forwarded                = 0
+  Unknown Protocols Received         = 0
+  Received Packets Discarded         = 445
+  Received Packets Delivered         = 15672201
+  Output Requests                    = 17771615
+  Routing Discards                   = 0
+  Discarded Output Packets           = 2
+  Output Packet No Route             = 3
+  Reassembly Required                = 3891
+  Reassembly Successful              = 1733
+  Reassembly Failures                = 0
+  Datagrams Successfully Fragmented  = 423
+  Datagrams Failing Fragmentation    = 0
+  Fragments Created                  = 846
+
+ICMPv4 Statistics
+
+                            Received    Sent
+  Messages                  34162       792564    
+  Errors                    0           0         
+  Destination Unreachable   3387        1459      
+  Time Exceeded             9           0         
+  Parameter Problems        0           0         
+  Source Quenches           0           0         
+  Redirects                 0           0         
+  Echos                     3762        787334    
+  Echo Replies              27004       3762      
+  Timestamps                0           0         
+  Timestamp Replies         0           0         
+  Address Masks             0           0         
+  Address Mask Replies      0           0         
+
+TCP Statistics for IPv4
+
+  Active Opens                        = 521586
+  Passive Opens                       = 2158
+  Failed Connection Attempts          = 495461
+  Reset Connections                   = 14220
+  Current Connections                 = 107
+  Segments Received                   = 9120313
+  Segments Sent                       = 10526720
+  Segments Retransmitted              = 129037
+
+UDP Statistics for IPv4
+
+  Datagrams Received    = 6160874
+  No Ports              = 724931
+  Receive Errors        = 2065
+  Datagrams Sent        = 6319276
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;prompt&gt;C:\\Program Files\\Fanfare\\iTest 4.0&amp;gt;&lt;/prompt&gt;
+   &lt;echo&gt;netstat -es&lt;/echo&gt;
+   &lt;promptName&gt;defaultPrompt&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.6</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="Interface_Statistics">
+                    <additionalBannerLineCount>3</additionalBannerLineCount>
+                    <banner>Interface Statistics</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Stat">
+                            <isKey>true</isKey>
+                            <width>19</width>
+                        </item>
+                        <item name="Received">
+                            <width>16</width>
+                        </item>
+                        <item name="Sent">
+                            <width>16</width>
+                        </item>
+                    </columns>
+                </item>
+                <item name="IPv4_Statistics">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <banner>IPv4 Statistics</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>=</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Stat">
+                            <isKey>true</isKey>
+                        </item>
+                        <item name="Value"/>
+                    </columns>
+                </item>
+                <item name="ICMPv4_Statistics">
+                    <additionalBannerLineCount>2</additionalBannerLineCount>
+                    <banner>ICMPv4 Statistics</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Stat">
+                            <isKey>true</isKey>
+                            <width>28</width>
+                        </item>
+                        <item name="Received">
+                            <width>12</width>
+                        </item>
+                        <item name="Sent">
+                            <width>10</width>
+                        </item>
+                    </columns>
+                </item>
+                <item name="TCP_Stats_IPv4">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <banner>TCP Statistics for IPv4</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>=</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Stat">
+                            <isKey>true</isKey>
+                        </item>
+                        <item name="Value"/>
+                    </columns>
+                </item>
+                <item name="UDP_Stat_IPv4">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <banner>UDP Statistics for IPv4</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>=</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Stat">
+                            <isKey>true</isKey>
+                        </item>
+                        <item name="Value"/>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="netstat -es">
+        <application>
+            <item>com.fnfr.svt.applications.cmd</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.wireshark</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.wireshark.WiresharkSessionProperties">
+        <interfaceName inherit="false">*Wireless*</interfaceName>
+        <captureFilter inherit="false">host 71.131.155.234</captureFilter>
+    </sessionProperties>
+    <nickName>Wireshark</nickName>
+</SessionTemplate>

@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<testCase version="4.1.4.63326">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="0d88927b-066b-43d0-9324-7d0b8570afd3" action="open" session="t1">
+                    <command>
+                        <body>/session_profiles/sql_world_db.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" databaseType.inherit="false"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2b4e197f-fa0b-49db-85fd-22e0ba74c82c" action="execute" session="t1" normalOffset="5.985" estimatedStepExecutionTime="0.359">
+                    <command>
+                        <body>SELECT * FROM COUNTRY</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>recordNumber()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>num_records</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                </item>
+                <item guid="cdf8b531-4ca8-4cc9-9173-b5453d78b381" action="execute" session="t1" normalOffset="3.718" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>SELECT * FROM COUNTRY</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>value(&quot;Name&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>country</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>value(&quot;Population&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="message">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                        <message>The population of $country is {value}.</message>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties" fetchSingleRecord="true" fetchSingleRecord.inherit="false" useKeyColumn="false" useKeyColumn.inherit="false"/>
+                </item>
+                <item guid="b7a3382e-6b86-449b-9b78-5f04e49fe9c0" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; $num_records-1} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="13eaa278-b311-4e36-970e-7047ad68b61d" action="next" session="t1">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>value(&quot;Name&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>country</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>value(&quot;Population&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>The population of $country is {value}.</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties" fetchSingleRecord="true" fetchSingleRecord.inherit="false"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a6af527b-2b66-4057-a2fb-242ced889f4b" action="close" session="t1" normalOffset="1.421">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <qualityCenterTestInfo domain="FANFARE" project="DEMO">
+        <testLocation>Subject\\Demo\\NickL\\Batch Publish\\sql_testcase</testLocation>
+        <testInstanceLocation>Root\\NickL\\Batch Publish\\Batch_publish_test_set\\[1]sql_testcase</testInstanceLocation>
+    </qualityCenterTestInfo>
+</testCase>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+        <baseUrl inherit="false">192.168.1.33</baseUrl>
+        <stepProperties>
+            <stepCredentialProperties>
+                <stepPassword inherit="false">/k0EmzmSuV4=</stepPassword>
+            </stepCredentialProperties>
+        </stepProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <formMapLibrary inherit="false">project://d_Cisco/</formMapLibrary>
+    <nickName>Cisco2940_web</nickName>
+</SessionTemplate>

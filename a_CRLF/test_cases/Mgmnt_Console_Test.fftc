@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <general>
+        <owner>jjohnson</owner>
+    </general>
+    <testbed>project://Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="12ba28e6-7763-4f40-8557-e80ed4875262" action="open" session="DUT">
+                    <command>
+                        <body>device:DUT#Management_Console</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                            <completionProperties>
+                                <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                            </completionProperties>
+                        </stepProperties>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="0c0ed1cc-35f4-48ae-9055-9189347ed26a" action="login" session="DUT" normalOffset="0.088" estimatedStepExecutionTime="2.363">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ed63bbac-1aee-41ee-8bd6-bb88c8b2e01e" action="command" session="DUT" normalOffset="3.53" estimatedStepExecutionTime="1.552">
+                    <command>
+                        <body>show version\\r\\n</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <lineTerminator inherit="false">NONE</lineTerminator>
+                        <completionProperties expectedIdleTime="0.748" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="0ce3a745-117f-4cee-87ff-717c119e72ad" action="command" session="DUT" normalOffset="0.419" estimatedStepExecutionTime="0.04">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3c965c10-c7c7-4321-bb80-62008576b749" action="command" session="DUT" normalOffset="2.58" estimatedStepExecutionTime="0.093">
+                    <command>
+                        <body>show arp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.42" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="3ace5176-c6a6-471d-9208-a942d5f71bea" action="command" session="DUT" normalOffset="3.484" estimatedStepExecutionTime="0.056">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="2918dce5-5088-4838-bc2f-675e9cea9f4e" action="close" session="DUT" normalOffset="2.443">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties>
+                            <completeWhen inherit="false">IDLE</completeWhen>
+                        </completionProperties>
+                    </applicationProperties>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

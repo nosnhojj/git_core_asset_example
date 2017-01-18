@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="5c834b04-3c57-4a43-a46a-8051d6d784b5" action="open" session="s1">
+                    <command>
+                        <body>project://a_TCL_Window/session_profiles/myTCL.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="21f7e2c2-5b0f-44b9-980f-52da0a55b4e7" action="eval">
+                    <command>
+                        <body>set question &quot;Are you sure?&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7a4d7d7c-9ef4-41fe-952b-a35b399a6243" action="command" session="s1">
+                    <command>
+                        <body>package require Tk
+wm withdraw .
+set answer \\[tk_messageBox -message \\&quot;$question\\&quot;  -icon question -type yesnocancel -detail &quot;Select \\\\&quot;Yes\\\\&quot; to make the application exit&quot;\\]
+switch -- \\$answer {
+    yes { puts &quot;Yes&quot;}
+    no  { puts &quot;No&quot;}
+    cancel { puts &quot;Maybe&quot;}
+}</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>stdout()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>[string toupper $value] eq [string toupper &quot;Yes&quot;]</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>The user is sure.</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>The user is not sure.</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

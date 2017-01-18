@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<testCase version="4.1.4.63326">
+    <execution estimatedExecutionTime="1"/>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="7f7e9a0a-8cf5-43f6-9cca-45b39bea0706" action="comment">
+                    <command>
+                        <body>Example:  Convert variables between interpreters using the same variable name.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9b8a926b-de8c-4ac4-a9a5-809753bc9b89" action="comment">
+                            <command>
+                                <body>Set iTest variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="762758d5-7151-472a-8f60-10e9eb64b389" action="eval">
+                                    <command>
+                                        <body>set itestvar &quot;itest&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="ee6ba336-47f9-448a-b3f7-a742c31c0db7" action="comment">
+                            <command>
+                                <body>Set TCL variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="27d0b154-51e6-40e6-87dd-0f9c503015ca" action="scriptEval">
+                                    <command>
+                                        <body>set scriptvar &quot;script&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="a0eb7ff7-f7a6-4da3-a8b4-c9016465798a" action="comment">
+                            <command>
+                                <body>Convert TCL variable to an iTest variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="60a7c8d3-6552-4c52-817a-1b93d6b27eec" action="scriptGet">
+                                    <command>
+                                        <body>scriptvar {$scriptvar}</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="59606995-1172-4120-81e1-823373e192d2" action="comment">
+                            <command>
+                                <body>Convert iTest variable to a TCL variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="96d2d202-d357-494d-af46-eba833145ed0" action="scriptSet">
+                                    <command>
+                                        <body>itestvar $itestvar</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptSetProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="9dd4fca6-e2ff-4b47-97cc-9c22e449d941" action="comment">
+                            <command>
+                                <body>Display the newly set iTest variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="c9069d87-3601-4663-866c-7d568ba6a768" action="eval">
+                                    <command>
+                                        <body>puts $scriptvar</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="a3585895-9557-4494-b6e8-cfeff4054f51" action="comment">
+                            <command>
+                                <body>Display the newly set TCL variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="3e63603a-8e69-4253-8ec4-be094906bb79" action="scriptEval">
+                                    <command>
+                                        <body>puts $itestvar</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="bafadef0-c667-40ef-a194-c5ba412b0afb" action="comment">
+                    <command>
+                        <body>Example:  Convert variables between interpreters using a different variable name.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ece101dc-e6dc-4dfc-a399-5e16a9b544cd" action="comment">
+                            <command>
+                                <body>Set iTest variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="45092168-827e-40f5-83f0-ba25c3197a42" action="eval">
+                                    <command>
+                                        <body>set itestvar &quot;itest&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="12f99eb2-aad6-4b9c-a1e2-33cd9a89b7a5" action="comment">
+                            <command>
+                                <body>Set TCL variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="413c25aa-de72-48a5-b737-891c917c0c18" action="scriptEval">
+                                    <command>
+                                        <body>set scriptvar &quot;script&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="d55ab88d-3613-474d-97dc-24bfbe847dd7" action="comment">
+                            <command>
+                                <body>Convert TCL variable to an iTest variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="d2b521a1-c7c8-4bc3-878c-daf76b93b3c2" action="scriptGet">
+                                    <command>
+                                        <body>newscriptvar {$scriptvar}</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="9ad0b9d7-048b-44d8-bbc4-a5c1e465d61b" action="comment">
+                            <command>
+                                <body>Convert iTest variable to a TCL variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="560a247d-6ab8-431e-9cc8-968137bbcedb" action="scriptSet">
+                                    <command>
+                                        <body>newitestvar $itestvar</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptSetProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="1d10fb18-039d-4ea1-a97d-10ecd56fe145" action="comment">
+                            <command>
+                                <body>Display the newly set iTest variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="91475d17-3b3a-4375-b484-a12fbe8ac150" action="eval">
+                                    <command>
+                                        <body>puts $newscriptvar</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="4328c3c3-b86b-49a6-a655-a3644465e620" action="comment">
+                            <command>
+                                <body>Display the newly set TCL variable.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="9f030823-55af-41c1-a8a8-5563505794f5" action="scriptEval">
+                                    <command>
+                                        <body>puts $newitestvar</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

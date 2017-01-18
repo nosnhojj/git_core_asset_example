@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.tclsh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties">
+        <tclProperties>
+            <useGlobalInterpreter inherit="false">true</useGlobalInterpreter>
+            <interpreterLocation inherit="false">C:/Tcl/bin/tclsh.exe</interpreterLocation>
+            <interpreterUseLIBPATH inherit="false">false</interpreterUseLIBPATH>
+            <initScript inherit="false" defaultValue=""/>
+        </tclProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Abacus/</responseLibrary>
+    <sessionClassTestCase inherit="false">abacus5000.fftc</sessionClassTestCase>
+    <nickName>abacus5000</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://d_Standard/topologies/local.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="09302f40-4df4-4745-aca9-59ad4610b1bd" action="open" session="Telnet">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="4276e74a-8b6f-4835-b804-ffd1cac8c81f" action="command" session="Telnet" normalOffset="4.641">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e8e57604-5670-453d-82ff-8914f6fbffc0" action="command" session="Telnet" normalOffset="4.281">
+                    <command>
+                        <body>ena</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="aa984a39-21ed-404c-a6c9-c43c7242cd93" action="command" session="Telnet" normalOffset="3.968">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="ce5e1d52-7624-4487-baac-b6bb0f7b11b5" action="command" session="Telnet" normalOffset="113.032" estimatedStepExecutionTime="0.015">
+                    <command>
+                        <body>conf t           </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6247a0d5-c0fb-4d55-ba97-ae52a1090f5b" action="command" session="Telnet" normalOffset="8.453" estimatedStepExecutionTime="0.015">
+                    <command>
+                        <body>no spanning-tree vlan 1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6ef6dbdd-14fe-40c2-bcdb-fdef5bb26d02" action="command" session="Telnet" normalOffset="148.939" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e0409c66-2668-4a3f-8060-85a5d39124a0" action="command" session="Telnet">
+                    <command>
+                        <body>show running-config</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="contains">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                        <searchString>no spanning-tree vlan 1</searchString>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == 1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>Spanning Tree Disabled</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>Could not determine if Spanning Tree Disabled</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="acd99f30-2dcf-46c8-80de-56f83ecc392e" action="command" session="Telnet" normalOffset="1.858">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="43c6a38f-ea13-4110-b178-ae87e9dd1225" action="close" session="Telnet" normalOffset="0.141">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

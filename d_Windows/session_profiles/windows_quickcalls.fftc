@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<testCase version="5.0.0.77059">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="windows_base.ffsp"/>
+    </general>
+    <execution>
+        <parameters version="5.0.0.77059">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <width pt:description="Width of a line in the command window">120</width>
+                    <lines pt:description="Number of lines in a command window">60</lines>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="cc9db7bf-ebe4-4e23-bae5-043932de6967" action="comment">
+                    <command>
+                        <body>Windows Quickcall Library</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2fc001a2-f859-497b-bdb5-848d9b9adc46" action="open" session="s1">
+                    <command>
+                        <body>windows_base.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="41108ae3-146a-4816-be59-d8198851a370" action="configure" session="s1">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b67d3a2e-7337-4c26-bc9a-d2cbf0c69cef" action="ping" session="s1" skip="true">
+                    <command>
+                        <body>-ping_count 3 -host localhost</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d30d07de-9ac4-42bb-b027-365d5e0ff852" action="getLaptopIPAddress" session="s1">
+                    <command>
+                        <body>-adapter &quot;Local Area Connection&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="22b201f2-bc8f-49a1-bd56-2ba62d641bf5" action="getLaptopIPAddress" session="s1">
+                    <command>
+                        <body>-adapter &quot;Loopback 2&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0fbc9910-0f62-4536-a75e-11d0ff40abf6" action="startNTAFProxy" session="s1" skip="true">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="configure" isPublic="true">
+            <steps>
+                <item guid="9e8c4ade-3516-4810-8695-b32cbed3c2db" action="command" session="$session">
+                    <command>
+                        <body>mode [param width],[param lines]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="9b5e9dc2-cc76-4862-bb32-1a7963b30496" action="command" session="$session">
+                    <command>
+                        <body>PROMPT $N:\\$G</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <multilineDescription>This quickcall configures the command prompt for use by test cases.</multilineDescription>
+        </item>
+        <item name="getLaptopIPAddress" isPublic="true">
+            <steps>
+                <item guid="7f303a44-a521-475b-a59c-606e3f411c0b" action="command" session="$session">
+                    <command>
+                        <body>ipconfig</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query sub="true">media_state_by_adapter(&quot;$adapter&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == &quot;&quot;</expression>
+                                        <actionOnMultiple>True if any true</actionOnMultiple>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                    <message>$adapter not found</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="Eval">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                    <statement>set hostIp 1.1.1.1</statement>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="SkipRemainingRules">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query sub="true">ipv4_address_by_adapter(&quot;$adapter&quot;)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>hostIp</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e2d24682-c447-490e-ac3c-34f6b894bbe2" action="return">
+                    <command>
+                        <body>$hostIp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="adapter">
+                    <defaultValue>Local Area Connection</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="ping" isPublic="true">
+            <steps>
+                <item guid="482191a3-ed2b-4ea1-8f88-0d9685f9697d" action="command" session="$session">
+                    <command>
+                        <body>ping -n $ping_count $host</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Percent_Loss()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                        <storeResponseAt>ping_response</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c20457fb-b704-498b-bbd0-9ac887510c79" action="return" skip="true">
+                    <command>
+                        <body>[response ping_response]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="946a203f-72e3-40d5-a36f-3e170c3e2688" action="write">
+                    <command>
+                        <body>Percentage Loss:  $var1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>This routine will generate a ping.  The user inputs are the destination IPv4 address and the number of pings to send.</multilineDescription>
+            <arguments>
+                <item name="ping_count"/>
+                <item name="host">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="startNTAFProxy" isPublic="true">
+            <steps>
+                <item guid="4878c68d-edc6-44ee-8c8c-b99a3991f543" action="command" session="$session" estimatedStepExecutionTime="0.01">
+                    <command>
+                        <body>cd ntaf</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0f97cfc2-979d-4393-80c0-dab291689d48" action="command" session="$session" normalOffset="8.341" estimatedStepExecutionTime="22.296">
+                    <command>
+                        <body>NtafProxy.bat</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="contains">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                        <searchString>Unable to connect and login</searchString>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == 1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                    <message>Unable to Start NTAF Proxy</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="Eval">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                    <statement>set status FAILURE</statement>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                    <message>NTAF Proxy Started</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="Eval">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                    <statement>set status SUCCESS</statement>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7361a7e0-9d0f-496f-94b8-31f07f805abd" action="return">
+                    <command>
+                        <body>$status</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

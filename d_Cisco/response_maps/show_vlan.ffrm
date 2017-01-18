@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <customParsers>
+        <item name="portName">
+            <groupName>ifname</groupName>
+            <regexString>(?&lt;ifname&gt;\\w+\\d/\\d)</regexString>
+        </item>
+    </customParsers>
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show vlan</body>
+                </command>
+            </action>
+            <responseBody>
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4, Fa0/5, Fa0/6, Fa0/7, Fa0/8, Gi0/1
+31   VLAN0031                         active    
+100  VLAN0100                         active    
+101  VLAN0101                         active    
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0   
+31   enet  100031     1500  -      -      -        -    -        0      0   
+100  enet  100100     1500  -      -      -        -    -        0      0   
+101  enet  100101     1500  -      -      -        -    -        0      0   
+1002 fddi  101002     1500  -      -      -        -    -        0      0   
+1003 tr    101003     1500  -      -      -        -    -        0      0   
+1004 fdnet 101004     1500  -      -      -        ieee -        0      0   
+1005 trnet 101005     1500  -      -      -        ibm  -        0      0   
+
+Remote SPAN VLANs
+------------------------------------------------------------------------------
+
+
+Primary Secondary Type              Ports
+------- --------- ----------------- ------------------------------------------
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure&gt;
+   &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+      &lt;prompt&gt;Cisco2940#&lt;/prompt&gt;
+      &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+      &lt;echo&gt;show vlan&lt;/echo&gt;
+      &lt;idleTime&gt;0.25&lt;/idleTime&gt;
+      &lt;contentType&gt;text&lt;/contentType&gt;
+      &lt;terminator&gt;SLASH_R_SLASH_N&lt;/terminator&gt;
+   &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="General">
+                    <additionalBannerLineCount>2</additionalBannerLineCount>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="VLAN">
+                            <isKey>true</isKey>
+                        </item>
+                        <item name="Name"/>
+                        <item name="Status"/>
+                        <item name="Ports">
+                            <parseCellContents>true</parseCellContents>
+                        </item>
+                    </columns>
+                </item>
+                <item name="table2">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <banner>VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="VLAN"/>
+                        <item name="Type"/>
+                        <item name="SAID"/>
+                        <item name="MTU"/>
+                        <item name="Parent"/>
+                        <item name="RingNo"/>
+                        <item name="BridgeNo"/>
+                        <item name="Stp"/>
+                        <item name="BrdgMode"/>
+                        <item name="Trans1"/>
+                        <item name="Trans2"/>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* vlan">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

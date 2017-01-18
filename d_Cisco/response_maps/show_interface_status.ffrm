@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show interface status</body>
+                </command>
+            </action>
+            <responseBody>
+Port      Name               Status       Vlan       Duplex  Speed Type
+Fa0/1     port1              connected    1          a-full  a-100 10/100BaseTX
+Fa0/2     port2              notconnect   1            auto   auto 10/100BaseTX
+Fa0/3     port3              connected    trunk      a-full  a-100 10/100BaseTX
+Fa0/4     port4              notconnect   1            auto   auto 10/100BaseTX
+Fa0/5     port5              connected    trunk      a-full  a-100 10/100BaseTX
+Fa0/6     port6              notconnect   1            auto   auto 10/100BaseTX
+Fa0/7     port7              notconnect   1            auto   auto 10/100BaseTX
+Fa0/8     port8              notconnect   1            auto   auto 10/100BaseTX
+Gi0/1     port9              notconnect   1            auto   auto 10/100/1000BaseTX
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;echo&gt;show interface status&lt;/echo&gt;
+   &lt;prompt&gt;Cisco2940#&lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner>Port      Name               Status       Vlan       Duplex  Speed Type</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Port">
+                            <width>10</width>
+                        </item>
+                        <item name="Name">
+                            <width>19</width>
+                        </item>
+                        <item name="Status">
+                            <width>13</width>
+                        </item>
+                        <item name="Vlan">
+                            <width>8</width>
+                        </item>
+                        <item name="Duplex">
+                            <width>11</width>
+                        </item>
+                        <item name="Speed">
+                            <width>5</width>
+                        </item>
+                        <item name="Type">
+                            <width>0</width>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* int* status">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

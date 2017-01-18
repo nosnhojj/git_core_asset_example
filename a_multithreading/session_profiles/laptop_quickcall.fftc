@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<testCase version="4.0.2.52893">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+        <sessionClass includeTestCase="true" sessionType="laptop_base.ffsp"/>
+    </general>
+    <execution>
+        <parameters version="4.0.2.52893">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <width pt:description="Width of a line in the command window">120</width>
+                    <lines pt:description="Number of lines in a command window">60</lines>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="5111bbd9-0803-49a1-bce1-c8ca0c365afc" action="open" session="s1">
+                    <command>
+                        <body>laptop_base.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="ec9745f2-d399-4ab9-99b1-77de6d5d17fe" action="configure" session="s1">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="bbede6ac-276b-49fc-996a-0ea5547a0df6" action="ping" session="s1">
+                    <command>
+                        <body>-ping_count 3 -host localhost</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="configure" isPublic="true">
+            <steps>
+                <item guid="5064ef74-b46d-4a68-940e-fc7637179a16" action="command" session="$session">
+                    <command>
+                        <body>mode [param width],[param lines]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="7d1b29ff-a291-4cd8-b7a9-fdd3f738e43e" action="command" session="$session">
+                    <command>
+                        <body>PROMPT $N:\\$G</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <multilineDescription>This quickcall configures the command prompt for use by test cases.</multilineDescription>
+        </item>
+        <item name="ping" isPublic="true">
+            <steps>
+                <item guid="ec345498-ad6c-4ce6-94b2-3eb22d026bee" action="command" session="$session">
+                    <command>
+                        <body>ping -n $ping_count $host</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>Percent_Loss()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                        <storeResponseAt>ping_response</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="306a7584-15bb-42e6-8b89-c1c10db2420f" action="return" skip="true">
+                    <command>
+                        <body>[response ping_response]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="401ae947-9cac-4356-b79e-83fd989085ab" action="write">
+                    <command>
+                        <body>Percentage Loss:  $var1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>This routine will generate a ping.  The user inputs are the destination IPv4 address and the number of pings to send.</multilineDescription>
+            <arguments>
+                <item name="ping_count"/>
+                <item name="host">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

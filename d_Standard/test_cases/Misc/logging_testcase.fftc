@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="9ab39e35-5ecb-4a90-b163-4080004e7f97" action="comment">
+                    <command>
+                        <body>Open Telnet Session and get to privileged mode.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dcd9b5b6-7567-4223-aa8e-aff3998fffc9" action="open" session="DUT_Telnet">
+                            <command>
+                                <body>device:DUT#CLI</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="a768dabf-8c5c-4db7-b2f3-8c38d149e040" action="command" session="DUT_Telnet" normalOffset="1.641">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a60ce3a3-d9ac-4aa8-af29-baaa46575882" action="command" session="DUT_Telnet" normalOffset="8.437">
+                            <command>
+                                <body>ena</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.484" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="61d0d647-3176-465b-b61a-1f08628d9ee4" action="command" session="DUT_Telnet" normalOffset="1.031">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="73965b45-0e25-4ae4-816c-b8342bcd19fd" action="comment">
+                    <command>
+                        <body>Configure Terminal Logging</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="248ed25a-3505-4a5c-bade-8202eb55affa" action="command" session="DUT_Telnet" normalOffset="9.953" estimatedStepExecutionTime="0.047">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.375" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2d20fade-f079-4b5d-8071-ebf52b5514c0" action="command" session="DUT_Telnet" normalOffset="128.125" estimatedStepExecutionTime="0.047">
+                            <command>
+                                <body>logging buffered 4096</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.578" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2ee72063-5fba-41f8-9b43-b3ab7837f516" action="command" session="DUT_Telnet" normalOffset="34.312" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="f4c23244-3539-487c-8931-ce417738c3b8" action="command" session="DUT_Telnet" normalOffset="5.202" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>terminal monitor </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="b8b8f958-4ed6-429b-b2a2-81f980265e1e" action="command" session="DUT_Telnet" normalOffset="3.671" estimatedStepExecutionTime="7.484">
+                            <command>
+                                <body>show running-config </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="4.078" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="039861c0-0e95-410b-a716-abe005b7072c" action="comment">
+                    <command>
+                        <body>Turn on Logging</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f80466e7-f79a-49a1-b9b7-c1fb1787f3f7" action="command" session="DUT_Telnet" normalOffset="9.953" estimatedStepExecutionTime="0.047">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.375" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="b7cf1502-95e5-4342-ba21-4b1838a4555e" action="command" session="DUT_Telnet" normalOffset="39.547" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>logging on      </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.453" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="a4f40f20-861c-4015-a8f6-249f541ccfa4" action="command" session="DUT_Telnet" normalOffset="2.702" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.391" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="241c1be6-3bfb-4aec-bbe0-900fa49cd282" action="comment">
+                    <command>
+                        <body>Generate Something to Cause Log Messages to Appear</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1c3e178a-3aeb-43f4-9cc4-12c17084afc6" action="command" session="DUT_Telnet" normalOffset="5" estimatedStepExecutionTime="0.625">
+                            <command>
+                                <body>show logging</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.563" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <performResponseMapping>false</performResponseMapping>
+                            <responseFilterList merge="true">
+                                <item name="ResponseFilterList1" patternType="REGEX" filterAction="EXC_LINES_CONTAINING">
+                                    <pattern>: %\\S+:</pattern>
+                                </item>
+                            </responseFilterList>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e39acce9-2a1c-4024-9e62-3265c5711c95" action="comment">
+                    <command>
+                        <body>Turn off Logging</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8a594181-aeb1-4769-98be-71fa8bd1f07f" action="command" session="DUT_Telnet" normalOffset="2.344" estimatedStepExecutionTime="0.016">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.359" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="cdb306fe-7972-403c-8581-028ba319becb" action="command" session="DUT_Telnet" normalOffset="5" estimatedStepExecutionTime="0.625">
+                            <command>
+                                <body>no logging on</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.563" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="9f2e41ce-b869-45ac-9af1-dc460f223038" action="command" session="DUT_Telnet" normalOffset="9.625" estimatedStepExecutionTime="2.016">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.875" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="d3747d95-74dd-4c4a-a2fd-d99e3291afa3" action="command" session="DUT_Telnet">
+                            <command>
+                                <body>show running-config</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="674fd46f-befb-4e27-8f39-9aa915f2746f" action="comment">
+                    <command>
+                        <body>Close Session</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fd5a12c2-f875-4d4b-8efa-5d8dcbe1012b" action="command" session="DUT_Telnet" normalOffset="5.952">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="2f5b2c8d-32af-4840-9ef7-592d9c5ffc1d" action="close" session="DUT_Telnet" normalOffset="0.139">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<testCase version="4.3.0.71664">
+    <execution renderCommentsIntoIssues="true"/>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="69720d2b-d04c-4fca-9e80-645d33f7cd23" action="comment">
+                    <command>
+                        <body>Use this test to set up the environment for the test suite</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7fc2534c-dc36-4c93-95fb-70cad5ba6759" action="writeFile">
+                    <command>
+                        <body>./information.txt &quot;Start Time:  [info timestamp &quot;yyyy-MM-dd HH:mm:ss&quot;]&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup">
+                        <appendMode>Overwrite</appendMode>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

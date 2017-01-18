@@ -1,0 +1,393 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action>
+                <command>
+                    <body>sh isdn status</body>
+                </command>
+            </action>
+            <responseBody>Global ISDN Switchtype = basic-5ess
+ISDN Serial1/0:23 interface
+\\tdsl 0, interface ISDN Switchtype = primary-4ess
+    Layer 1 Status:
+\\tACTIVE
+    Layer 2 Status:
+\\tTEI = 0, Ces = 1, SAPI = 0, State = MULTIPLE_FRAME_ESTABLISHED
+    Layer 3 Status:
+\\t0 Active Layer 3 Call(s)
+    Active dsl 0 CCBs = 0
+    The Free Channel Mask:  0x807FFFFF
+    Number of L2 Discards = 0, L2 Session ID = 0
+ISDN BRI0/2/0 interface
+\\tdsl 4, interface ISDN Switchtype = basic-5ess
+    Layer 1 Status:
+\\tSHUTDOWN
+    Layer 2 Status:
+\\tLayer 2 NOT Activated
+\\tTEI Not Assigned, ces = 1, state = 1(terminal down)
+\\t    spid1 configured, no LDN, spid1 NOT sent, spid1 NOT valid
+\\tTEI Not Assigned, ces = 2, state = 1(terminal down)
+\\t    spid2 configured, no LDN, spid2 NOT sent, spid2 NOT valid
+    Layer 3 Status:
+\\t0 Active Layer 3 Call(s)
+    Active dsl 4 CCBs = 0
+    The Free Channel Mask:  0x00000000
+    Total Allocated ISDN CCBs = 0
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                        <lines>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="Global" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="ISDN" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Switchtype" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="=" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Global_ISDN_Switchtype" representativeValue="isdnSwitchType" parser="Word" isVariable="true" isWildcard="true"/>
+                                </tokens>
+                            </item>
+                        </lines>
+                    </item>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="ISDN_Interface">
+                        <maxOccurences>0</maxOccurences>
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="ISDN" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="ISDN_IF" representativeValue="isdnIF" parser="Word" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="interface" parser="Word"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="\\" parser="Punctuation"/>
+                                            <item representativeValue="tdsl" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="tdsl" representativeValue="0" parser="Number" isVariable="true"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="interface" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="ISDN" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Switchtype" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Switchtype" representativeValue="switchType" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Layer_1_Status">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Layer" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="1" parser="Number" isVariable="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Status" parser="Word"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="\\" parser="Punctuation"/>
+                                            <item name="layer_1_status" representativeValue="tACTIVE" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Layer_2_status">
+                                <nodes>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Layer" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="2" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Status" parser="Word"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="status">
+                                        <minOccurrences>0</minOccurrences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="\\" parser="Punctuation"/>
+                                                    <item representativeValue="tLayer" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="2" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="layer_2_status" representativeValue="status" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="data">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="\\" parser="Punctuation"/>
+                                                    <item representativeValue="tTEI" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="TEI" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Ces" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="Ces" representativeValue="1" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="SAPI" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="SAPI" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="State" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="State" representativeValue="state" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item/>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="data_not_assigned">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="\\" parser="Punctuation"/>
+                                                    <item representativeValue="tTEI" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="TEI" representativeValue="state" parser="Word" isVariable="true" isWildcard="true"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="ces" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="ces" representativeValue="1" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="state" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="state" representativeValue="1" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                    <item representativeValue="terminal" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="down" parser="Word"/>
+                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="\\" parser="Punctuation"/>
+                                                    <item representativeValue="t" parser="Word"/>
+                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="spid" parser="Word"/>
+                                                    <item representativeValue="1" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="configured" parser="Word"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="no" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="LDN" parser="Word"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="spid" parser="Word"/>
+                                                    <item representativeValue="1" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="NOT" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="sent" parser="Word"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="spid" parser="Word"/>
+                                                    <item representativeValue="1" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="NOT" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="valid" parser="Word"/>
+                                                </tokens>
+                                            </item>
+                                            <item/>
+                                        </lines>
+                                    </item>
+                                </nodes>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Layer_3_Status">
+                                <nodes>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Layer" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="3" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Status" parser="Word"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="data">
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="\\" parser="Punctuation"/>
+                                                    <item representativeValue="t" parser="Word"/>
+                                                    <item representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Active" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Layer" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="Active_Layer" representativeValue="3" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Call" parser="Word"/>
+                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                    <item representativeValue="s" parser="Word"/>
+                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Active" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="dsl" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="Active_dsl" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="CCBs" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="Active_dsl_CCBs" representativeValue="0" parser="Number" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="The" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Free" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Channel" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Mask" parser="Word"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                                    <item name="Free_Channel_Mask" representativeValue="0x807FFFFF" parser="HexNumber" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Number" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="of" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="L" parser="Word"/>
+                                                    <item representativeValue="2" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Discards" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="Number_of_L2_Discards" representativeValue="0" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="," parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="L" parser="Word"/>
+                                                    <item representativeValue="2" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Session" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="ID" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="L2_Session_ID" representativeValue="0" parser="Number" isVariable="true"/>
+                                                </tokens>
+                                                <isOptional>true</isOptional>
+                                            </item>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Total" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Allocated" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="ISDN" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="CCBs" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="0" parser="Number" isVariable="true"/>
+                                                </tokens>
+                                                <isOptional>true</isOptional>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                </nodes>
+                            </item>
+                        </nodes>
+                    </item>
+                </nodes>
+            </BlockMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* isdn status">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

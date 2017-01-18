@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>GigabitEthernet0/1 - Group 11 (version 2)
+  State is Active
+    2 state changes, last state change 00:14:54
+  Virtual IP address is 172.18.125.200
+  Active virtual MAC address is 0000.0c9f.f00b
+    Local virtual MAC address is 0000.0c9f.f00b (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 2.040 secs
+  Preemption enabled
+  Active router is local
+  Standby router is 172.18.125.2, priority 100 (expires in 8.140 sec)
+  Priority 105 (configured 105)
+    Track interface Serial0/0/1:0.106 state Up decrement 10
+  Group name is &quot;hsrp-Gi0/1-11&quot; (default)
+GigabitEthernet0/1 - Group 12 (version 2)
+  State is Standby
+    4 state changes, last state change 00:00:47
+  Virtual IP address is 172.18.125.201
+  Active virtual MAC address is 0000.0c9f.f00c
+    Local virtual MAC address is 0000.0c9f.f00c (v2 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 0.136 secs
+  Preemption enabled
+  Active router is 172.18.125.2, priority 105 (expires in 9.216 sec)
+    MAC address is 001d.e535.f161
+  Standby router is local
+  Priority 100 (default 100)
+    Track interface Serial0/0/1:0.106 state Up decrement 10
+  Group name is &quot;hsrp-Gi0/1-12&quot; (default)
+GigabitEthernet0/1 - Group 21 (version 2)
+  State is Active
+    2 state changes, last state change 00:14:54
+  Virtual IP address is FE80::5:73FF:FEA0:15
+  Active virtual MAC address is 0005.73a0.0015
+    Local virtual MAC address is 0005.73a0.0015 (v2 IPv6 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 2.160 secs
+  Preemption enabled
+  Active router is local
+  Standby router is FE80::21D:E5FF:FE35:F161, priority 100 (expires in 8.136 sec)
+  Priority 105 (configured 105)
+    Track interface Serial0/0/1:0.106 state Up decrement 10
+  Group name is &quot;hsrp-Gi0/1-21&quot; (default)
+GigabitEthernet0/1 - Group 22 (version 2)
+  State is Standby
+    4 state changes, last state change 00:00:50
+  Virtual IP address is FE80::5:73FF:FEA0:16
+  Active virtual MAC address is 0005.73a0.0016
+    Local virtual MAC address is 0005.73a0.0016 (v2 IPv6 default)
+  Hello time 3 sec, hold time 10 sec
+    Next hello sent in 0.332 secs
+  Preemption enabled
+  Active router is FE80::21D:E5FF:FE35:F161, priority 105 (expires in 9.212 sec)
+    MAC address is 001d.e535.f161
+  Standby router is local
+  Priority 100 (default 100)
+    Track interface Serial0/0/1:0.106 state Up decrement 10
+  Group name is &quot;hsrp-Gi0/1-22&quot; (default)
+
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="interface_type1">
+                        <maxOccurences>0</maxOccurences>
+                        <lines>
+                            <item>
+                                <tokens>
+                                    <item name="interface" representativeValue="interface" parser="Word" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Group" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="interface_Group" representativeValue="11" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="(" parser="Punctuation"/>
+                                    <item representativeValue="version" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="interface_Group_version" representativeValue="2" parser="Number" isVariable="true"/>
+                                    <item representativeValue=")" parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="State" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="State" representativeValue="Active" parser="Word" isVariable="true" isWildcard="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                    <item name="state_changes" representativeValue="2" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="state" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="changes" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="last" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="state" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="change" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="last_state_change" representativeValue="00:14:54" parser="Timespan" isVariable="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Virtual" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="IP" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="address" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Virtual_IP_address" representativeValue="172.18.125.200" parser="IPv4Address" isVariable="true" isWildcard="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Active" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="virtual" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MAC" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="address" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Active_virtual_MAC_address" representativeValue="0000.0c9f.f00b" parser="MacAddress" isVariable="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Local" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="virtual" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MAC" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="address" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Local_virtual_MAC_address" representativeValue="0000.0c9f.f00b" parser="MacAddress" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="(" parser="Punctuation"/>
+                                    <item representativeValue="v" parser="Word"/>
+                                    <item representativeValue="2" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="local_virtual_MAC_address_type" representativeValue="default" parser="Word" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue=")" parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Hello" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="time" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Hello_time" representativeValue="3" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="sec" parser="Word"/>
+                                    <item representativeValue="," parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="hold" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="time" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="hold_time" representativeValue="10" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="sec" parser="Word"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Next" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="hello" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="sent" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="in" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Next_hello_sent_in" representativeValue="2.040" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="secs" parser="Word"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Preemption" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Preemption" representativeValue="enabled" parser="Word" isVariable="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Active" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="router" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Active_router" representativeValue="172.18.125.2" parser="IPv4Address" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue="," parser="Punctuation" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="priority" parser="Word" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item name="active_router_priority" representativeValue="105" parser="Number" isOptional="true" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="(" parser="Punctuation" isOptional="true"/>
+                                    <item representativeValue="expires" parser="Word" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="in" parser="Word" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item name="active_router_expires" representativeValue="9.216" parser="Number" isOptional="true" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="sec" parser="Word" isOptional="true"/>
+                                    <item representativeValue=")" parser="Punctuation" isOptional="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="MAC" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="address" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="active_router_MAC_address" representativeValue="001d.e535.f161" parser="MacAddress" isVariable="true"/>
+                                </tokens>
+                                <isOptional>true</isOptional>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Standby" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="router" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Standby_router" representativeValue="172.18.125.2" parser="IPv4Address" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue="," parser="Punctuation" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="priority" parser="Word" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item name="priority" representativeValue="100" parser="Number" isOptional="true" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="(" parser="Punctuation" isOptional="true"/>
+                                    <item representativeValue="expires" parser="Word" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="in" parser="Word" isOptional="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item name="priority_expires_in" representativeValue="8.140" parser="Number" isOptional="true" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                    <item representativeValue="sec" parser="Word" isOptional="true"/>
+                                    <item representativeValue=")" parser="Punctuation" isOptional="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Priority" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Priority" representativeValue="105" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="(" parser="Punctuation"/>
+                                    <item name="Priority_setting" representativeValue="configured" parser="Word" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Priority_configured" representativeValue="105" parser="Number" isVariable="true"/>
+                                    <item representativeValue=")" parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Track" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="interface" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Track_interface" representativeValue="interface" parser="Word" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="state" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Track_interface_state" representativeValue="Up" parser="Word" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="decrement" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Track_interface_decrement" representativeValue="10" parser="Number" isVariable="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Group" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="name" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="is" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="&quot;" parser="Punctuation"/>
+                                    <item name="Group_name" representativeValue="name" parser="Base64" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue="&quot;" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="(" parser="Punctuation" isOptional="true"/>
+                                    <item representativeValue="default" parser="Word" isOptional="true"/>
+                                    <item representativeValue=")" parser="Punctuation" isOptional="true"/>
+                                </tokens>
+                            </item>
+                            <item/>
+                        </lines>
+                    </item>
+                </nodes>
+            </BlockMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* stand*">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name>Cisco7600</name>
+    <description>Demonstration topology using the simulated C7600</description>
+    <property name="author">jjohnson</property>
+    <property name="dateCreated">2010-04-05T12:55:42.837-04:00</property>
+    <property name="dateModified">2017-01-18T12:20:30.583-05:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">6.0.0.18638fa</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="f525f891-4402-4995-850e-cea995d51e35" id="resource_0" type="switch">
+        <boundary height="157" width="193" x="372" y="168"/>
+        <property name="iconURI">project://d_Cisco/images/C7200.jpg</property>
+        <property name="name">DUT</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="CLI" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                <ipAddress inherit="false">192.168.3.33</ipAddress>
+              </sessionProperties>
+              <baseProfile>project://d_Cisco/session_profiles/Cisco7200_Telnet_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="SNMP" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.snmp</baseApplication>
+              <sessionProperties ipAddress="192.168.3.33" ipAddress.inherit="false" type="com.fnfr.svt.applications.snmp.documents.DeviceProperties" writeCommunity="XNPb4mBlgB8=" writeCommunity.inherit="false" writeCommunity.masked="true"/>
+              <baseProfile>project://d_Cisco/session_profiles/CiscoIOS_SNMP.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Syslog" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.syslog</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.syslog.SyslogSessionProperties"/>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Management_Console" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                <port inherit="false">2105</port>
+              </sessionProperties>
+              <baseProfile>project://d_Cisco/session_profiles/Cisco7200_Management_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Web" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
+              <sessionProperties browserURL="192.168.3.33" browserURL.inherit="false" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject">
+                <credentials password="/k0EmzmSuV4=" password.inherit="false" password.masked="true" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumCredentialsProperties"/>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="01b05314-df51-4063-9c41-0b7addcd43f7" id="port1" type="port">
+          <property name="name">port1</property>
+        </resource>
+      </resource>
+      <resource guid="3e23c528-5f5b-4838-8a68-571273bf255e" id="resource_2" type="host">
+        <boundary height="80" width="63" x="204" y="192"/>
+        <property name="iconURI">project://Windows/images/windows.bmp</property>
+        <property name="name">host</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="laptop" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <baseProfile>project://Windows/session_profiles/windows_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="project://a_Gmail/session_profiles/gmail.ffsp" name="gmail" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.mail</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties"/>
+              <baseProfile>project://a_Gmail/session_profiles/gmail.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Firefox" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
+              <sessionProperties browserURL="https://www.google.com" browserURL.inherit="false" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject"/>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="IEIE" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
+              <sessionProperties browserURL="https://www.google.com" browserURL.inherit="false" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject">
+                <replay transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionReplayProperties">
+                  <browser browserPath="file:/C:/Program%20Files%20(x86)/Internet%20Explorer/iexplore.exe" browserPath.inherit="false" browserType="InternetExplorer" browserType.inherit="false" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionBrowserProperties"/>
+                </replay>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Chrome" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
+              <sessionProperties browserURL="https://www.google.com" browserURL.inherit="false" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject">
+                <replay transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionReplayProperties">
+                  <browser browserPath="file:/C:/Program%20Files%20(x86)/Google/Chrome/Application/chrome.exe" browserPath.inherit="false" browserType="Chrome" browserType.inherit="false" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionBrowserProperties"/>
+                </replay>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="73b2303c-d4cc-44f4-91b5-3c9390157579" id="resource_2_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+      </resource>
+      <resource guid="259515b0-4f6d-47f2-abff-035a2d400259" id="resource_4" type="server">
+        <boundary height="62" width="48" x="204" y="84"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">MySQL</property>
+        <extensions namespace="com.fnfr.itest.session" type="com.fnfr.itest.session">
+          <session baseSessionProfile="project://d_Database/session_profiles/heartbeat_db.ffsp" name="Database_Client" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.tools.database</baseApplication>
+              <sessionProperties databaseName="heartbeat_db" databaseName.inherit="false" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject"/>
+              <baseProfile>project://d_Database/session_profiles/heartbeat_db.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet1</property>
+        <endpoint id="port1"/>
+        <endpoint id="resource_2_0"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

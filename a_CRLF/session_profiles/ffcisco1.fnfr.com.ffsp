@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">ffcisco1.fnfr.com</ipAddress>
+    </sessionProperties>
+    <baseProfile>CiscoIOS_Telnet_Base.ffsp</baseProfile>
+    <standalone>false</standalone>
+</SessionTemplate>

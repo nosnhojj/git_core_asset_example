@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+<testCase version="4.3.0.71664">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+    </general>
+    <execution>
+        <parameters version="4.3.0.71664">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <STC_HOME>C:\\Program Files (x86)\\Spirent Communications\\Spirent TestCenter 4.33\\Spirent TestCenter Application</STC_HOME>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="9ff8376e-e96c-4ddc-a5a4-1bae9e51cc0b" action="comment">
+                    <command>
+                        <body>Procedure Library for the RFC 2544 Project</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="createResultsReport" isPublic="true">
+            <steps>
+                <item guid="536c9c2d-a3ce-404e-874e-65c13ca716cf" action="comment">
+                    <command>
+                        <body>Test the document types</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$results_format == &quot;HTML&quot; || $results_format == &quot;PDF&quot; || $results_format == &quot;CSV&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Information">
+                                                    <message>Creating $results_format Report</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>results_format &quot;$results_format&quot; is of unknown type</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="ExitProcedure">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExitProcedurePropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1095f885-3394-4b82-bd60-8418f7a9aa95" action="comment">
+                    <command>
+                        <body>Open the host</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3f78e467-06d7-40aa-9e2d-7710faa6b307" action="open" session="laptop" normalOffset="405.119">
+                            <command>
+                                <body>project://Windows/session_profiles/windows_base.ffsp</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="505382a5-4592-4118-8324-bc3ef4b367fd" action="comment">
+                    <command>
+                        <body>Determine the results folder and input file</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e0175ac4-faae-4134-a7e1-f81094f365c7" action="command" session="laptop" normalOffset="41.207" estimatedStepExecutionTime="0.002">
+                            <command>
+                                <body>cd [regsub -all &quot;\\/&quot; $results_folder &quot;\\\\\\\\&quot;]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.334" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="2a5df9eb-5b40-4ba3-826c-a9538c324311" action="command" session="laptop" normalOffset="3.401" estimatedStepExecutionTime="0.008">
+                            <command>
+                                <body>dir /O-D</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>filename(1)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>results_folder</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.572" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <responseMap>project://RFC2544_Adtran/response_maps/dir.ffrm</responseMap>
+                            <responseFilterList merge="true">
+                                <item name="remove_dot_directories" patternType="CASE_INSENSITIVE" filterAction="EXC_LINES_CONTAINING">
+                                    <pattern>&lt;DIR&gt;          .</pattern>
+                                </item>
+                            </responseFilterList>
+                        </item>
+                        <item guid="464e78da-5a4d-4798-b04b-47a48ff1c072" action="command" session="laptop" normalOffset="20.915" estimatedStepExecutionTime="0.006">
+                            <command>
+                                <body>cd $results_folder</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.935" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="fd8efa18-64e2-4f80-bb0a-306f52a40ae2" action="command" session="laptop" normalOffset="1.506" estimatedStepExecutionTime="0.006">
+                            <command>
+                                <body>dir /O-D</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>filename(1)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>results_folder_2</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.127" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <responseFilterList merge="true">
+                                <item name="remove_dot_directories" patternType="CASE_INSENSITIVE" filterAction="EXC_LINES_CONTAINING">
+                                    <pattern>&lt;DIR&gt;          .</pattern>
+                                </item>
+                            </responseFilterList>
+                        </item>
+                        <item guid="1591ac5b-a16e-48f5-b65c-71711363ecd3" action="command" session="laptop">
+                            <command>
+                                <body>cd $results_folder_2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="da5298a1-49db-408c-9c7d-cb94071068e2" action="command" session="laptop" normalOffset="1.506" estimatedStepExecutionTime="0.006">
+                            <command>
+                                <body>dir /O-D</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>filename(1)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>results_folder_2</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.127" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <responseFilterList merge="true">
+                                <item name="remove_dot_directories" patternType="CASE_INSENSITIVE" filterAction="EXC_LINES_CONTAINING">
+                                    <pattern>&lt;DIR&gt;          .</pattern>
+                                </item>
+                            </responseFilterList>
+                        </item>
+                        <item guid="c37d2053-67bd-43af-95cc-5d13f0a2c7c9" action="command" session="laptop">
+                            <command>
+                                <body>cd $results_folder_2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="5a45b579-1fdc-40cc-a148-b98812d2aa92" action="command" session="laptop">
+                            <command>
+                                <body>dir *summary*</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>filename(1)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>summary_db</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="48e0f126-7b9f-4119-be4d-380da0907f64" action="command" session="laptop">
+                            <command>
+                                <body>chdir</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>chdir_results</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="31b85300-2d6b-4660-94db-f2ea6934cbf0" action="eval">
+                            <command>
+                                <body>set results_dir [response chdir_results]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4511e7c1-f2f6-4d74-be83-ecb5d1159582" action="comment">
+                    <command>
+                        <body>Create the final Report</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2f78c5b9-6596-48f4-b4c3-36dcde57209a" action="command" session="laptop">
+                            <command>
+                                <body>cd &quot;[param STC_HOME]\\\\Results Reporter&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="cebf6083-39b0-484c-9b49-c8a80876d911" action="command" session="laptop">
+                            <command>
+                                <body>chdir</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="e1b5ba23-4233-4a9c-b549-fdcfc64c1613" action="comment">
+                            <command>
+                                <body>Create a PDF Version</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="004906c5-f01d-4835-b58f-5a4620020728" action="if">
+                                    <command>
+                                        <body>$results_format == &quot;PDF&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="9460e10e-c092-41be-a0c3-12d0f7edda08" action="then">
+                                            <nestedSteps>
+                                                <item guid="a1f2b733-dd06-486b-b4f9-02383a6a4fc8" action="command" session="laptop">
+                                                    <command>
+                                                        <body>.\\\\ResultsReporterCLI.bat -o &quot;$results_dir\\\\$summary_db&quot; -f pdf -d &quot;$results_dir\\\\$results_doc.pdf&quot; -t &quot;templates\\\\$report_template&quot;</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="ae47edd8-3e43-40f0-a97a-82e3d63c4c0a" action="comment">
+                            <command>
+                                <body>Create an HTML Version</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="0a679af6-48aa-4900-b807-d6aab0acacd9" action="if">
+                                    <command>
+                                        <body>$results_format == &quot;HTML&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="28b2a454-8b1c-48f8-9eea-e70f643aa41e" action="then">
+                                            <nestedSteps>
+                                                <item guid="e28279ab-4f40-457c-bd1c-23b0ec64a592" action="comment">
+                                                    <command>
+                                                        <body>Create an HTML version</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="05a0e385-414b-49cb-8800-f3f8e28cc58c" action="command" session="laptop">
+                                                            <command>
+                                                                <body>.\\\\ResultsReporterCLI.bat -o &quot;$results_dir\\\\$summary_db&quot; -f html -d &quot;$results_dir\\\\$results_doc.html&quot; -t &quot;templates\\\\$report_template&quot;</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="96d9bd5c-8693-4d37-a95b-165bad5e28b2" action="comment">
+                            <command>
+                                <body>Create an CSV Version</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="e8a81f33-a861-418c-87c0-421b65418de9" action="if">
+                                    <command>
+                                        <body>$results_format == &quot;CSV&quot;</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="28d06b7d-9d14-471d-bc0c-48740f3ae03e" action="then">
+                                            <nestedSteps>
+                                                <item guid="28f415aa-0877-4aeb-96ce-4739cb028c18" action="comment">
+                                                    <command>
+                                                        <body>Create an CSV version</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="624e37b1-5477-4532-88c6-2c7cde5a5fc6" action="command" session="laptop">
+                                                            <command>
+                                                                <body>.\\\\ResultsReporterCLI.bat -o &quot;$results_dir\\\\$summary_db&quot; -f csv -d &quot;$results_dir\\\\$results_doc.csv&quot; -t &quot;templates\\\\$report_template&quot;</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fb110235-b2ae-46c1-a796-5e5e351b60e0" action="comment">
+                    <command>
+                        <body>Close host</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c4481d0b-46e4-40a2-bf1a-54bc29bec6b8" action="command" session="laptop" normalOffset="13.244">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="755e57c7-fdf4-439b-af95-696b76e8e98b" action="close" session="laptop" normalOffset="0.07">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="963e984d-37b8-46e4-90e7-9eb8a6f9c625" action="return">
+                            <command>
+                                <body>$results_dir\\\\$results_doc.html</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="results_format">
+                    <description>Defines the format for the Results file.  Acceptable formats are:
+    HTML
+    PDF
+
+Returns:  File name and location on success, FAILED otherwise</description>
+                    <defaultValue>HTML</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="results_doc">
+                    <description>The filename for the results file.</description>
+                    <defaultValue>RFC_2544_Results</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="report_template">
+                    <description>The template to use to create the report.</description>
+                    <defaultValue>Rfc2544ThroughputStats.rtp</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="results_folder">
+                    <defaultValue>c:/temp</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

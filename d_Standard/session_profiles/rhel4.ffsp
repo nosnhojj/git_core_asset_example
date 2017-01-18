@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">192.168.1.103</ipAddress>
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="login">
+                    <Content>login:</Content>
+                </item>
+                <item name="password" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+                <item name="normal" MatchMethod="WILDCARD">
+                    <Content>[*]$</Content>
+                </item>
+                <item name="super_user" MatchMethod="WILDCARD">
+                    <Content>[*]#</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <nickName>rhel4</nickName>
+</SessionTemplate>

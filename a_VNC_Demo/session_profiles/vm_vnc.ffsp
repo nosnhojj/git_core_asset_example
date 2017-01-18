@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.2.0.65456">
+    <baseApplication>com.fnfr.itest.applications.vnc</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.vnc" transferableType="com.fnfr.itest.applications.vnc.properties.VncSessionProperties" ipAddress="192.168.1.73" ipAddress.inherit="false" password.masked="true" password="X6xeX/mkBjEJor6ZZIWzzg==" password.inherit="false">
+        <advanced transferableToolId="com.fnfr.itest.applications.vnc" transferableType="com.fnfr.itest.applications.vnc.properties.AdvancedVncProperties" doubleBuffer="true" doubleBuffer.inherit="false"/>
+    </sessionProperties>
+    <nickName>VNC</nickName>
+</SessionTemplate>

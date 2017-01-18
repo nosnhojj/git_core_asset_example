@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<FormMap version="4.1.4.63326">
+    <samplesList>
+        <item name="formsample1">
+            <structure escape="true">
+                <WebDocument>
+                    <Document doctype="BaseDocument" id="BaseWebDocument" parent="" target="" url="http://192.168.1.33/level/15/exec/-/show/ip/traffic">
+                        <HTML>
+                            <HEAD>
+                                <TITLE>Cisco2940 /level/15/exec/-/show/ip/traffic</TITLE>
+                            </HEAD>
+                            <BODY>
+                                <H1>Cisco2940</H1>
+                                <PRE>
+                                    <HR/>
+                                    <FORM action="/level/15/exec/-/show/ip/traffic" method="post">
+                                        <DT>
+                                            <INPUT type="submit" value="Command"/>
+                                            <INPUT name="command" size="60" type="text"/>
+                                            <INPUT name="command_url" type="hidden" value="/level/15/exec/-"/>
+                                        </DT>
+                                        <H4>Output</H4>
+                                        <H5>Command base-URL was: /level/15/exec/-
+Complete URL was: /level/15/exec/-/show/ip/traffic 
+Command was:  show ip traffic </H5>
+                                        <PRE>
+                                            <HR/>
+                                            <DL>
+IP statistics:
+  Rcvd:  260493 total, 260312 local destination
+         0 format errors, 0 checksum errors, 0 bad hop count
+         0 unknown protocol, 181 not a gateway
+         0 security failures, 0 bad options, 120010 with options
+  Opts:  0 end, 0 nop, 0 basic security, 0 loose source route
+         0 timestamp, 0 extended security, 0 record route
+         0 stream ID, 0 strict source route, 120010 alert, 0 cipso
+         0 other
+  Frags: 0 reassembled, 0 timeouts, 0 couldn&apos;t reassemble
+         0 fragmented, 0 couldn&apos;t fragment
+  Bcast: 117143 received, 3 sent
+  Mcast: 0 received, 0 sent
+  Sent:  147874 generated, 0 forwarded
+  Drop:  718 encapsulation failed, 0 unresolved, 0 no adjacency
+         0 no route, 0 unicast RPF, 0 forced drop
+  Drop:  0 packets with source IP address zero
+
+ICMP statistics:
+  Rcvd: 0 format errors, 0 checksum errors, 0 redirects, 0 unreachable
+        4093 echo, 0 echo reply, 0 mask requests, 0 mask replies, 0 quench
+        0 parameter, 0 timestamp, 0 info request, 0 other
+        0 irdp solicitations, 0 irdp advertisements
+  Sent: 0 redirects, 21625 unreachable, 0 echo, 4093 echo reply
+        0 mask requests, 0 mask replies, 0 quench, 0 timestamp
+        0 info reply, 0 time exceeded, 0 parameter problem
+        0 irdp solicitations, 0 irdp advertisements
+
+UDP statistics:
+  Rcvd: 142768 total, 0 checksum errors, 138763 no port
+  Sent: 12066 total, 0 forwarded broadcasts
+
+TCP statistics:
+  Rcvd: 113451 total, 0 checksum errors, 47 no port
+  Sent: 110107 total
+
+ARP statistics:
+  Rcvd: 7925266 requests, 121 replies, 0 reverse, 0 other
+  Sent: 145 requests, 232375 replies (0 proxy), 0 reverse</DL>
+                                            <HR/>
+                                            <PRE>command completed.
+
+                                
+                                                
+                                                
+                                                
+                                                
+                                                <HR/>
+                                            </PRE>
+                                            <HR/>
+                                            <PRE>##</PRE>
+                                        </PRE>
+                                    </FORM>
+                                </PRE>
+                            </BODY>
+                        </HTML>
+                    </Document>
+                </WebDocument>
+            </structure>
+        </item>
+    </samplesList>
+    <targets>
+        <item name="IP_statistics">
+            <queryFormatString>//DL</queryFormatString>
+        </item>
+    </targets>
+</FormMap>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.snmp</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties">
+        <ipAddress inherit="false">ffcisco1.fnfr.com</ipAddress>
+    </sessionProperties>
+    <parameters version="4.1.4.63326">
+        <parameters escape="true">
+            <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                <DUT_ip_addr>ffcisco1.fnfr.com</DUT_ip_addr>
+            </parameters>
+        </parameters>
+    </parameters>
+    <nickName>ffcisco1_snmp</nickName>
+</SessionTemplate>

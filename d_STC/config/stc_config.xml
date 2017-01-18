@@ -1,0 +1,43 @@
+<stc_config name="for_test_1">
+  <chassis_ip>10.81.99.86</chassis_ip>
+  <port name="port1">1:1</port>
+  <port name="port2">1:2</port>
+  <host name="host1">
+    <under_port>port1</under_port>
+    <mac>00.11.22.33.44.55</mac>
+    <vlan>100</vlan>
+    <ip>1.2.3.4</ip>
+    <gw>1.2.3.3</gw>
+    <prefix>23</prefix>
+  </host>
+  <host name="host2">
+    <under_port>port2</under_port>
+    <mac>66.11.22.33.44.55</mac>
+    <vlan>100</vlan>
+    <ip>1.2.3.3</ip>
+    <gw>1.2.3.4</gw>
+    <subnet>24</subnet>
+  </host>
+  <stream name="stream_A_to_B">
+    <under_port>port1</under_port>
+    <src_host>host1</src_host>
+    <dst_host>host2</dst_host>
+    <encap>tcp</encap>
+    <src_port>100</src_port>
+    <dst_port>100 200 500</dst_port>
+    <length>128</length>
+    <rate>100</rate>
+    <rate_unit>percent</rate_unit>
+  </stream>
+  <stream name="stream_B_to_A">
+    <under_port>port2</under_port>
+    <src_host>host2</src_host>
+    <dst_host>host1</dst_host>
+    <encap>tcp</encap>
+    <src_port>100</src_port>
+    <dst_port>100 200 500</dst_port>
+    <length>128</length>
+    <rate>100</rate>
+    <rate_unit>percent</rate_unit>
+  </stream>
+</stc_config>

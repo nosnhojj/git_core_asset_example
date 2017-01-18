@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="a579abf2-12ee-4f0c-b783-220361165472" action="readFile" useResponseMapLibraryApplicability="false">
+                    <command>
+                        <body>STC_CLI_Data.txt</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>stc_data</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.ReadFilePropertyGroup"/>
+                    <responseMap>project://a_Charting/response_maps/STC_CLI_Data.ffrm</responseMap>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="3d146632-72e5-4182-b9cd-fa24bda70cb4" action="foreach">
+                    <command>
+                        <body>i [query stc_data frame_size()]</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3382cd75-59b8-401d-a935-83f548b8314f" action="comment">
+                            <command>
+                                <body>Chart the Frame Size and Bit Rate</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="chart_as_xy">
+                                            <ruleProperties type="com.fnfr.svt.execution.charting.processors.ChartUsingXYPropertyGroup" chartName="chart_1" style="LINE" xAxisLabel="Frame Size" yAxisLabel="Bit Rate" series="Bit Rate">
+                                                <title>Bit Rate By Frame Size</title>
+                                                <xValue>$i</xValue>
+                                                <yValue>[query stc_data bitrate_by_frame_size($i)]</yValue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

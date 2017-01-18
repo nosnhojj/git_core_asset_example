@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<testCase version="4.0.2.52893">
+    <execution renderCommentsIntoIssues="true"/>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c9dcac6f-c289-4782-8f50-d70307999d74" action="foreach">
+                    <command>
+                        <body>device_name {device1 device2 device3 device4}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="875f8201-e598-4d9e-b330-03fe9464a0e3" action="call" async="true">
+                            <threadName>$device_name</threadName>
+                            <command>
+                                <body>configure_device -DUT $device_name</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d1ceee3e-a5db-45ea-b1f8-d8abf0d81fbc" action="comment">
+                    <command>
+                        <body>Waiting for device configuration to complete</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2e9e914f-17e8-43d5-893e-367674212545" action="waitthread">
+                            <command>
+                                <body>device*</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>All devices configured</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="98c90de2-bf19-4030-adb9-5b7a8bb61a32" action="comment">
+                    <command>
+                        <body>Continuing test</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="configure_device">
+            <steps>
+                <item guid="61248092-a041-465d-97c3-e7834ef5f577" action="comment">
+                    <command>
+                        <body>Configure device $DUT</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a517e245-34b2-449c-aede-f7fb99928f3b" action="sleep">
+                            <command>
+                                <body>[expr [math.rand] * 3]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>$DUT configuration complete</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="DUT"/>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

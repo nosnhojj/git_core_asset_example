@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<ResponseMap version="5.0.0.77059">
+    <sampleDictionary>
+        <item name="sample4">
+            <action actionType="eval">
+                <command>
+                    <body>set display &quot;${display}${drv_result}&quot;</body>
+                </command>
+            </action>
+            <responseBody>StreamBlock.Name StreamBlock.FrameConfig.ipv4:IPv4.1.sourceAddr StreamBlock.FrameConfig.ipv4:IPv4.1.destAddr StreamBlock.FrameConfig.ipv6:IPv6.1.sourceAddr StreamBlock.FrameConfig.ipv6:IPv6.1.destAddr StreamBlock.TxFrameCount StreamBlock.RxFrameCount StreamBlock.TxFrameRate StreamBlock.RxSigFrameRate StreamBlock.DuplicateFrameCount StreamBlock.DroppedFrameCount StreamBlock.DroppedFramePercent StreamBlock.Frameloss StreamBlock.DroppedFrameDuration StreamBlock.FrameLossDuration StreamBlock.MinLatency StreamBlock.MaxLatency StreamBlock.AvgLatency StreamBlock.IsExpected
+stream1 192.85.1.4 193.85.1.4 0 0 0 0 0 0 0 0 N/A 0 0.0 0.0 0.0 0.0 0 1 0 215517.24137931 0.0 0 65536 65536
+stream2 192.85.1.4 193.85.1.4 0 0 0 0 0 0 0 0 N/A 0 0.0 0.0 0.0 0.0 0 1 0 215517.24137931 0.0 0 65537 65537
+stream3 193.85.1.4 192.85.1.4 0 0 0 0 0 0 0 0 N/A 0 0.0 0.0 0.0 0.0 0 1 0 8445.945945946 0.0 0 131072 131072
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <startingLineNumber>1</startingLineNumber>
+                    <banner>StreamBlock.Name Port.Name StreamBlock.ActualRxPortName StreamBlock.FrameConfig.ipv4:IPv4.1.sourceAddr StreamBlock.FrameConfig.ipv4:IPv4.1.destAddr StreamBlock.TxFrameCount StreamBlock.RxSigFrameCount StreamBlock.TxFrameRate StreamBlock.RxSigFrameRate StreamBlock.DuplicateFrameCount StreamBlock.DroppedFrameCount StreamBlock.DroppedFramePercent StreamBlock.DroppedFrameDuration StreamBlock.FrameLossDuration StreamBlock.MinLatency StreamBlock.MaxLatency StreamBlock.AvgLatency StreamBlock.IsExpectedstream1 {port1/my/you //3/1} {port2/him/her //3/2} 192.85.1.4 193.85.1.4 0 0 0 0 0 0 N/A 0.0 0.0 0.0 0.0 0 1 215517.24137931 0 0.0 65536 65536</banner>
+                    <minOccurences>0</minOccurences>
+                    <columns>
+                        <item name="stream_name"/>
+                        <item name="ipv4_source"/>
+                        <item name="ipv4_dest"/>
+                        <item name="ipv6_source"/>
+                        <item name="ipv6_dest"/>
+                        <item name="tx_count"/>
+                        <item name="rx_count"/>
+                        <item name="tx_rate"/>
+                        <item name="rx_rate"/>
+                        <item name="dup_count"/>
+                        <item name="drop_count"/>
+                        <item name="drop_percent"/>
+                        <item name="frame_loss"/>
+                        <item name="drop_duration"/>
+                        <item name="loss_duration"/>
+                        <item name="min_latency"/>
+                        <item name="max_latency"/>
+                        <item name="avg_latency"/>
+                        <item name="is_expected"/>
+                        <item name="junk"/>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="eval" command="set display &quot;${display}${drv_result}&quot;"/>
+</ResponseMap>

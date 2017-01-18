@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="CiscoIOS_Serial_Base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="40b1f6f1-632c-4f3f-a09d-9ccbca7d1f74" action="open" session="C2940">
+                    <command>
+                        <body>CiscoIOS_Serial_Base.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                            <completionProperties>
+                                <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                                <waitForFirstCharBeforeIdle inherit="false">false</waitForFirstCharBeforeIdle>
+                            </completionProperties>
+                        </stepProperties>
+                        <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ef37f853-d3d2-4aa7-a72c-4487f45f6097" action="serialWakeup" session="C2940">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="69355220-ed11-48f3-8203-1cc7569581ac" action="disablePort" session="C2940">
+                    <command>
+                        <body>-port &quot;FastEthernet 0/1&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="9446b80f-d4aa-48a2-9390-d0f304552a93" action="enablePort" session="C2940">
+                    <command>
+                        <body>-port &quot;FastEthernet 0/1&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="14e78864-4d29-4b22-a096-7fe8d1988114" action="foreach">
+                    <command>
+                        <body>i {1 2 3 4}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9740a64a-3db0-4a31-8675-02258f707ebe" action="assignVlan" session="C2940">
+                            <command>
+                                <body>-port &quot;FastEthernet 0/$i&quot; -vlan 1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="aa45e6c3-b6c8-4221-b234-608c947ed19e" action="foreach">
+                    <command>
+                        <body>i {5 6 7 8}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7dfc1d69-cfe0-4b7b-ad5c-881386ade1b6" action="assignVlan" session="C2940">
+                            <command>
+                                <body>-port &quot;FastEthernet 0/$i&quot; -vlan 2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="91b68276-38d9-4c15-aee0-99128a21a67d" action="logout" session="C2940">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="doit" isPublic="true">
+            <steps>
+                <item guid="35670f64-aa1b-40ee-9d8c-b79b7a434cfe" action="return">
+                    <command>
+                        <body>&quot;This is the snmp session&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="login" isPublic="true">
+            <steps>
+                <item guid="470cd2e4-6ab9-4172-bd26-cd578c5477c0" action="comment">
+                    <command>
+                        <body>Dummy login session</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="serialWakeup" isPublic="true">
+            <steps>
+                <item guid="8881334f-4f8c-455a-9409-2a94e6f50abd" action="command" session="$session" estimatedStepExecutionTime="1.016">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>count(//prompt)</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == 1</expression>
+                                        <actionsWhenFalse>
+                                            <item actionId="RepeatStep">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <lineTerminator inherit="false">SLASH_R</lineTerminator>
+                        <completionProperties>
+                            <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                            <waitForFirstCharBeforeIdle inherit="false">false</waitForFirstCharBeforeIdle>
+                            <completionTime inherit="false">1</completionTime>
+                        </completionProperties>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="enable" isPublic="true">
+            <steps>
+                <item guid="e0cc1153-d603-4e13-a74a-6c99c5a44083" action="command" session="$session">
+                    <postProcessing>
+                        <storeResponseAt>step</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d47af45e-4ffe-4ba4-9991-eb2321ba7527" action="if">
+                    <command>
+                        <body>[query step promptName()] == &quot;unprivileged&quot;</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="04409a20-9226-4b12-81b5-726ce81c3f7a" action="then">
+                            <nestedSteps>
+                                <item guid="b022ca74-410d-4513-a73f-4d5bc570d3b2" action="command" session="$session" estimatedStepExecutionTime="0.172">
+                                    <command>
+                                        <body>enable</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.594" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="5ca6da53-4b11-4c33-8b5a-576e2292b0cc" action="command" session="$session" normalOffset="1.578" estimatedStepExecutionTime="0.235">
+                                    <command>
+                                        <body masked="true">/k0EmzmSuV4=</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.204" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="df79aca6-c8fc-49ff-992e-b216879474ed" action="else">
+                            <nestedSteps>
+                                <item guid="ad04dedc-d627-4975-84e1-13a458094a7d" action="comment">
+                                    <command>
+                                        <body>Insert steps here for when the expression evaluates to false</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="none">
+                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Already in priviledged mode</message>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="assignVlan" isPublic="true">
+            <steps>
+                <item guid="79636ecf-e1e0-454a-8790-b869bed46a3b" action="enable" session="$session">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="da877338-94f4-4590-a8e4-04e0c9ce494a" action="command" session="$session">
+                    <command>
+                        <body>configure terminal</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0fc372bc-df9e-40f2-bc28-f8a9de12b5aa" action="command" session="$session">
+                    <command>
+                        <body>interface $port</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="dcc3d0d3-2c5f-4711-9f06-166c6343b5df" action="command" session="$session">
+                    <command>
+                        <body>switchport access vlan $vlan</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="92259e99-e2c6-496e-a3ef-f6408d356cd8" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c5d7339d-390c-4bad-9a98-af2cc7292cc5" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="762cf74f-a47b-4cd2-bf7d-39f9c877d4a1" action="command" session="$session">
+                    <command>
+                        <body>show vlan id $vlan</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="port">
+                    <description>FastEthernet 0/1
+:::
+FastEthernet 0/8
+GigabitEthernet 0/1</description>
+                    <defaultValue>FastEthernet 0/1</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="vlan">
+                    <defaultValue>1</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="enablePort" isPublic="true">
+            <steps>
+                <item guid="7fa6b6a3-3a4d-4d71-99b0-50477d00ac14" action="enable" session="$session">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="95dc4f39-7c61-42f6-b673-14a550c2223f" action="command" session="$session">
+                    <command>
+                        <body>configure terminal</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e99ec853-870a-4905-ae76-40e45bf1b858" action="command" session="$session">
+                    <command>
+                        <body>interface $port</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0c4e5c97-d862-49d7-a496-8d474970da1e" action="command" session="$session">
+                    <command>
+                        <body>no shutdown</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="45afb32f-dd33-4e89-938b-061a9d97249a" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="2bdea798-0063-4e29-b372-e6a6ae08a595" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="f38918df-1c05-4d5d-b13b-7b8d370ff30c" action="command" session="$session">
+                    <command>
+                        <body>show interfaces $port</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="port">
+                    <description>FastEthernet 0/1
+:::
+FastEthernet 0/8
+GigabitEthernet 0/1</description>
+                    <defaultValue>FastEthernet 0/1</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="disablePort" isPublic="true">
+            <steps>
+                <item guid="a75c0ccc-7769-4f7e-8173-75fba8f8fb01" action="enable" session="$session">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="cba45e1a-d632-42e1-9d79-5cfc21cafa5e" action="command" session="$session">
+                    <command>
+                        <body>configure terminal</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="80e50535-6bfa-4466-8ab0-e86c36ebb543" action="command" session="$session">
+                    <command>
+                        <body>interface $port</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="91c4b87f-4112-4371-a36a-ebce1df61233" action="command" session="$session">
+                    <command>
+                        <body>shutdown</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="dc9051e2-0728-450e-bbe7-eb14c67b96df" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="f102a207-a5e2-4cdd-a482-fa89ddfb5149" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="551956f1-b988-4034-91ae-f77aaccc6c0a" action="command" session="$session">
+                    <command>
+                        <body>show interfaces $port</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="port">
+                    <description>FastEthernet 0/1
+:::
+FastEthernet 0/8
+GigabitEthernet 0/1</description>
+                    <defaultValue>FastEthernet 0/1</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="logout" isPublic="true">
+            <steps>
+                <item guid="96eebc44-a517-4c47-8d77-24708a93f024" action="command" session="$session">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties>
+                            <completeWhen inherit="false">AUTO_OR_IDLE</completeWhen>
+                            <waitForFirstCharBeforeIdle inherit="false">false</waitForFirstCharBeforeIdle>
+                        </completionProperties>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.syslog</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.syslog.SyslogSessionProperties"/>
+    <nickName>syslog</nickName>
+</SessionTemplate>

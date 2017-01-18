@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.itest.application.serial</baseApplication>
+    <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties">
+        <portName inherit="false">COM1</portName>
+        <terminal>
+            <captureProperties>
+                <commandCompletionchars inherit="false">
+                    <item>?</item>
+                    <item>[char TAB]</item>
+                </commandCompletionchars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="unpriv" MatchMethod="WILDCARD">
+                    <Content>Cisco*&gt;</Content>
+                </item>
+                <item name="password" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+                <item name="priv" MatchMethod="WILDCARD">
+                    <Content>Cisco*#</Content>
+                </item>
+                <item name="configure" MatchMethod="WILDCARD">
+                    <Content>Cisco*(config)#</Content>
+                </item>
+                <item name="configure_interface">
+                    <Content>Cisco*(config-if)#</Content>
+                </item>
+                <item name="more" TypeOfPrompt="MORE">
+                    <Content>--More--</Content>
+                </item>
+                <item name="confirm_copy" TypeOfPrompt="MORE">
+                    <Content>Destination filename [startup-config]?</Content>
+                    <MoreNextCommand>\\r\\n</MoreNextCommand>
+                </item>
+            </prompts>
+        </terminal>
+    </sessionProperties>
+    <nickName>Cisco2940_COM1</nickName>
+</SessionTemplate>

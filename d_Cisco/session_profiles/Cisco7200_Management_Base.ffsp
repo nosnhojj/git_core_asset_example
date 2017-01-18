@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.4.0.75339">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">127.0.0.1</ipAddress>
+        <port inherit="false">2100</port>
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="management">
+                    <Content>Press ENTER to get the prompt.</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <parameters version="4.4.0.75339">
+        <parameters escape="true">
+            <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                <ipAddr>192.168.100.33</ipAddr>
+            </parameters>
+        </parameters>
+    </parameters>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <sessionClassTestCase inherit="false">Cisco7200_Management_Quickcalls.fftc</sessionClassTestCase>
+    <nickName>Cisco2940_Telnet</nickName>
+    <baseProfile>CiscoIOS_Telnet_Base.ffsp</baseProfile>
+    <standalone>false</standalone>
+    <initializationProcedure inherit="false">login</initializationProcedure>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<testCase version="4.1.4.63326">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="57d663ed-9281-4ff4-95fb-c0ccd8333cd7" action="for">
+                    <command>
+                        <body>{set dec_val 127} {$dec_val &lt; 140} {incr dec_val}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="44443ffe-8ad0-4b33-8ecd-f28fa7c91cbe" action="comment">
+                            <command>
+                                <body>The call to &quot;next_hex_value&quot; procedure has a single argument ($dec_val)</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="a35b408f-387f-4b38-bf37-bba9968e3a13" action="call">
+                            <command>
+                                <body>convert_dec_to_hex $dec_val</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^\\S+$</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>hex_val</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Message: &apos;$hex_val&apos;</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="bee65220-9f54-490f-878f-3a9939eb34ee" action="comment">
+                            <command>
+                                <body>The call to &quot;next_hex_value&quot; procedure returns a value stored in $hex_val</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="7d43d7a3-9ae2-4986-b84e-37eeea742193" action="comment">
+                            <command>
+                                <body>command usage would be: &quot;tpmc Ethernet 13/2/0 setmac 00-00-$hex_val&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="convert_dec_to_hex">
+            <steps>
+                <item guid="8e03575e-8480-415b-a943-dc44e5bdf13d" action="scriptSet">
+                    <command>
+                        <body>initial ${arg[1]}</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptSetProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a903756c-1f39-42bb-8180-66de6cce4c76" action="scriptEval">
+                    <command>
+                        <body>set t_hex_val [format %x $initial]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8e13f6ab-4345-4a03-a7f7-0970fbdfe1fe" action="scriptGet">
+                    <command>
+                        <body>i {$t_hex_val}</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b86c4aa6-f88f-4915-8914-c4d3b5bdbabf" action="if">
+                    <command>
+                        <body>${arg[1]} &lt; 16</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2321054c-dc42-4a1f-9258-d50316b71493" action="then">
+                            <nestedSteps>
+                                <item guid="f9c02419-0dba-44d3-a6e2-2956aecd603d" action="comment">
+                                    <command>
+                                        <body>if the hex value is a single digit (e.g. &quot;A&quot;) then make it &quot;0A&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="48b07b1e-d521-486b-91d5-5ab722308000" action="return">
+                                    <command>
+                                        <body>[concat 0$i]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ee606087-6548-43a1-b124-d4f7ca0cc54c" action="return">
+                    <command>
+                        <body>$i</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

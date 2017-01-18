@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution>
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <ENTITLEMENT_ID>22e8-c8c4-1329-4f1e-2e06-eff</ENTITLEMENT_ID>
+                    <MAC>08:00:27:8B:DE:59</MAC>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="0b74e45e-d508-4798-9c56-9ce0f0f831db" action="comment">
+                    <command>
+                        <body>Log into License Generator</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="877268ef-15c8-42ba-b145-47bd2fd6899a" action="eval" target="&lt;target&gt;">
+                            <command>
+                                <body>set mac [regsub -all &quot;\\:&quot; [param MAC] &quot;&quot;]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="52030c38-9f93-44d1-b284-8028bd479144" action="open" session="LicenseGenerator">
+                            <command>
+                                <body>project://a_iTestLicense/session_profiles/LicenseGenerator.ffsp</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="a877f75e-98bb-4875-91e0-128cdd42da54" action="setText" session="LicenseGenerator" target="name=username" normalOffset="16.995">
+                            <command>
+                                <body>[param ENTITLEMENT_ID]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        </item>
+                        <item guid="c7a8f008-57e7-4f68-a25f-aa9b1a34bf0c" action="click" session="LicenseGenerator" target="//INPUT[@value=&apos;Login&apos;]" normalOffset="0.079" estimatedStepExecutionTime="0.736">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e1a188d1-2dfb-4c2a-b98b-8ba9ce961470" action="comment">
+                    <command>
+                        <body>Create the License</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="74f0b9cc-c9d5-46d5-8c3d-6cffcd88be29" action="click" session="LicenseGenerator" target="name=selectedObjects" normalOffset="2.591">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="b1af01d2-2e30-423a-ad94-8a93fff515a7" action="click" session="LicenseGenerator" target="id=Portal_activatables_Activate" normalOffset="0.958" estimatedStepExecutionTime="0.607">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="741f93e5-2735-4583-8742-54606f7ad815" action="click" session="LicenseGenerator" target="id=Portal_BACommonAttrs_Next" normalOffset="3.881" estimatedStepExecutionTime="0.524">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="e9f9bbd6-9405-4bff-a855-9af11a8b9493" action="click" session="LicenseGenerator" target="id=batchActivationConfigureHosts_Delete" normalOffset="2.667">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="58fafa9a-12d3-4ff3-8907-08fb0e03a3d9" action="selectWindow" session="LicenseGenerator">
+                            <command>
+                                <body>createlicenseHostwin</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        </item>
+                        <item guid="b0472fb6-9ed6-4185-bd9b-4a0bed10282c" action="setText" session="LicenseGenerator" target="name=nodeLockedTextValue(nodeLockedText_1)" normalOffset="6.928">
+                            <command>
+                                <body>$mac</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        </item>
+                        <item guid="884a4adc-a242-4388-ba71-8001e1808b46" action="click" session="LicenseGenerator" target="id=SelectOrg_OK" normalOffset="0.077">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="f71ada07-4615-480a-b758-1ac8d2720971" action="selectWindow" session="LicenseGenerator" normalOffset="1.606">
+                            <command>
+                                <body>MainWindow</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        </item>
+                        <item guid="f614bb36-8545-4592-a596-74516c846442" action="closeWindow" session="LicenseGenerator" normalOffset="0.002">
+                            <command>
+                                <body>createlicenseHostwin</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        </item>
+                        <item guid="f65e0f9b-0145-46a7-8668-247604ce6ae7" action="click" session="LicenseGenerator" target="name=toDeleteNlHosts" normalOffset="1.854">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="c8535164-3d95-46a0-bbcc-dc9032d0afbd" action="click" session="LicenseGenerator" target="id=BAConfigHosts_Generate" normalOffset="1.495" estimatedStepExecutionTime="2.467">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="468ef53d-d5af-42de-8862-9f03048bee80" action="comment">
+                    <command>
+                        <body>Download the License</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="97588b89-4f7d-482e-bda0-623701cdf3aa" action="click" session="LicenseGenerator" target="name=selectedObjects" normalOffset="1.965">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="8c1c892b-6ed2-4ecd-b4e8-6f8d5b38378c" action="setFilePath" session="LicenseGenerator" normalOffset="4.507">
+                            <command>
+                                <body>C:\\\\Users\\\\[info user]\\\\Desktop\\\\LicenseFile_${mac}.lic</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        </item>
+                        <item guid="84f69bcb-28d8-4dc2-83e2-ae2b305ddf4e" action="click" session="LicenseGenerator" target="id=licenseSummaryLanding_SaveToFile" normalOffset="1.512" estimatedStepExecutionTime="0.309">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="18f2f320-bcce-4542-9318-005395b05d85" action="click" session="LicenseGenerator" target="id=LicenseSummary_Complete" normalOffset="3.04" estimatedStepExecutionTime="0.412">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5c260da1-a1b4-40d5-9fe0-4d6537b323e6" action="comment">
+                    <command>
+                        <body>Logout</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="371523ec-60b8-4f00-9567-ae4289a5dd4d" action="click" session="LicenseGenerator" target="id=Portal_Header_Logout_Link" normalOffset="2.276" estimatedStepExecutionTime="0.357">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                        </item>
+                        <item guid="0b19e17c-e89b-4f14-a317-c39f953f69e2" action="close" session="LicenseGenerator" normalOffset="1.486">
+                            <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.2.0.65456">
+    <baseApplication>com.fnfr.itest.tools.database</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" ipAddress="localhost" ipAddress.inherit="false" port="33306" port.inherit="false" databaseName="heartbeat_db" databaseName.inherit="false" user="root" user.inherit="false" password.masked="true" password="X6xeX/mkBjEJor6ZZIWzzg==" password.inherit="false">
+        <statementTemplates transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseStatementTemplates">
+            <definitions inherit="false" sub="true">show_all:SELECT * FROM heartbeat;
+tables:show tables;</definitions>
+        </statementTemplates>
+    </sessionProperties>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

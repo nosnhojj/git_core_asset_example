@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>IPv6 Routing Table - 52 entries
+Codes: C - Connected, L - Local, S - Static, R - RIP, B - BGP
+       U - Per-user Static route
+       I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary
+       O - OSPF intra, OI - OSPF inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+       D - EIGRP, EX - EIGRP external
+B   A11:11:11::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:1::/64 [20/0]
+     via 2001:506:14:2::1
+C   2001:506:14:2::/64 [0/0]
+     via ::, Multilink1
+L   2001:506:14:2::2/128 [0/0]
+     via ::, Multilink1
+B   2001:506:14:3::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:4::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:5::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:9::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:A::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:10::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:12::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:13::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:14::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:16::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:17::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:18::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:19::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:1A06::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:1A08::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:1A09::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:1A13::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:1A20::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:506:14:1A21::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:330::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:700::/64 [20/0]
+     via 2001:506:14:2::1
+C   2001:1890:8400:1000::/56 [0/0]
+     via ::, GigabitEthernet0/1
+L   2001:1890:8400:1000::1/128 [0/0]
+     via ::, GigabitEthernet0/1
+B   2001:1890:8400:1010::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1111::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1122::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1130::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1131::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1132::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1133::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1144::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1212::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1313::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1411::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1412::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1414::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8400:1600::/56 [20/0]
+     via 2001:506:14:2::1
+C   2001:1890:8400:2020::/64 [0/0]
+     via ::, Loopback0
+L   2001:1890:8400:2020:2016::1/128 [0/0]
+     via ::, Loopback0
+B   2001:1890:8E00:C::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:8E00:F::/64 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:FF32:1111::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:FF33:1111::1/128 [20/0]
+     via 2001:506:14:2::1
+B   2001:1890:FFF7:1111::1/128 [20/0]
+     via 2001:506:14:2::1
+B   B201:8:8::/64 [20/0]
+     via 2001:506:14:2::1
+B   B201:21:21::/64 [20/0]
+     via 2001:506:14:2::1
+L   FE80::/10 [0/0]
+     via ::, Null0
+L   FF00::/8 [0/0]
+     via ::, Null0
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="row_without_inside">
+                    <groups>
+                        <item name="code">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>1</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s \\s</regex>
+                            <start>1</start>
+                            <end>4</end>
+                        </item>
+                        <item name="ipv6_address">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>4</start>
+                            <end>15</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{11}">exactly 11 of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>/</regex>
+                            <start>15</start>
+                            <end>16</end>
+                        </item>
+                        <item name="bit_prefix">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>16</start>
+                            <end>18</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s\\[</regex>
+                            <start>18</start>
+                            <end>20</end>
+                        </item>
+                        <item name="distand_to_source">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>20</start>
+                            <end>22</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>/</regex>
+                            <start>22</start>
+                            <end>23</end>
+                        </item>
+                        <item name="route_metric">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>23</start>
+                            <end>24</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>]\\s+via\\s</regex>
+                            <start>24</start>
+                            <end>35</end>
+                        </item>
+                        <item name="via">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>35</start>
+                            <end>51</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>B   A11:11:11::/64 [20/0]
+     via 2001:506:14:2::1</sampleMatch>
+                    <optional>true</optional>
+                </item>
+                <item name="row_with_inside">
+                    <groups>
+                        <item name="code">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>1</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s \\s</regex>
+                            <start>1</start>
+                            <end>4</end>
+                        </item>
+                        <item name="ipv6_address">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>4</start>
+                            <end>25</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{21}">exactly 21 of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>/</regex>
+                            <start>25</start>
+                            <end>26</end>
+                        </item>
+                        <item name="bit_prefix">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>26</start>
+                            <end>28</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s\\[</regex>
+                            <start>28</start>
+                            <end>30</end>
+                        </item>
+                        <item name="distand_to_source">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>30</start>
+                            <end>31</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>/</regex>
+                            <start>31</start>
+                            <end>32</end>
+                        </item>
+                        <item name="route_metric">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>32</start>
+                            <end>33</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>]\\s+via\\s</regex>
+                            <start>33</start>
+                            <end>44</end>
+                        </item>
+                        <item name="via">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>44</start>
+                            <end>46</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{2}">exactly 2 of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>,\\s</regex>
+                            <start>46</start>
+                            <end>48</end>
+                        </item>
+                        <item name="interface_for_next_router">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>48</start>
+                            <end>58</end>
+                            <suggestions>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>C   2001:1890:8400:1000::/56 [0/0]
+     via ::, nextRouter</sampleMatch>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* ipv6 route">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="route_count">
+            <queryFormatString>fn:count(.//ipv6_address)</queryFormatString>
+        </item>
+    </aliases>
+</ResponseMap>

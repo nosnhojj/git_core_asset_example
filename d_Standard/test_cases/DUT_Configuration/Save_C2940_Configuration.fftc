@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <testbed>project://d_Standard/topologies/local.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="92e7794e-ab65-456f-b435-45250b2d9d95" action="open" session="DUT">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="610f1a87-29c4-44e4-abf2-5e1f50aaebc5" action="login" session="DUT" normalOffset="0.251" estimatedStepExecutionTime="0.361">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6c98429a-8e65-4a41-950f-6b8af796b28b" action="command" session="DUT" normalOffset="10.78" estimatedStepExecutionTime="0.015">
+                    <command>
+                        <body>copy run tftp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.702" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="f300c985-495f-442f-92c2-24ac60b1c545" action="command" session="DUT" normalOffset="4.003" estimatedStepExecutionTime="0.016">
+                    <command>
+                        <body>192.168.1.84</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.796" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="ff704a9e-c81d-4e8d-b4a7-44aa97725733" action="command" session="DUT" normalOffset="0.769" estimatedStepExecutionTime="31.994">
+                    <command>
+                        <body>cisco2940-config-[info timestamp yyyyMMdd]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="8.0" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="7902a56e-b534-4053-bbbd-5ae19365f234" action="command" session="DUT" normalOffset="4.791">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e231d10b-8055-4ca0-92d5-034066c142e8" action="close" session="DUT" normalOffset="0.095">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

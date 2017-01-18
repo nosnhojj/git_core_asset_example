@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<testCase version="4.2.0.65456">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="linux_ssh_base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="8516604d-e7af-48ae-a7b4-622cf70a3757" action="comment">
+                    <command>
+                        <body>Quickcalls for SSH Sessions on Linux</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="ping" isPublic="true">
+            <steps>
+                <item guid="55b76a6d-76ff-48f8-a860-a3bce22e8028" action="call">
+                    <command>
+                        <body>Linux_Quickcalls.fftc#ping -session $session -host $host -ping_count $ping_count</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>myResponse</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="43aa24fb-1abe-4aee-9b0d-8acc13b321ba" action="write">
+                    <command>
+                        <body>[response myResponse]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <multilineDescription>This routine will generate a ping.  The user inputs are the destination IPv4 address and the number of pings to send.</multilineDescription>
+            <arguments>
+                <item name="ping_count"/>
+                <item name="host">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

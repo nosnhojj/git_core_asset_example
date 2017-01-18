@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.2.1.67445">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>ipconfig</body>
+                </command>
+            </action>
+            <responseBody>
+Windows IP Configuration
+
+
+Ethernet adapter Loopback:
+
+   Connection-specific DNS Suffix  . : 
+   IPv4 Address. . . . . . . . . . . : 192.168.100.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Local Area Connection 2:
+
+   Connection-specific DNS Suffix  . : spirentcom.com
+   Link-local IPv6 Address . . . . . : fe80::55ca:1ac6:72cb:d5d0%21
+   IPv4 Address. . . . . . . . . . . : 10.6.3.124
+   Subnet Mask . . . . . . . . . . . : 255.0.0.0
+   Default Gateway . . . . . . . . . : 
+
+Wireless LAN adapter Wireless Network Connection:
+
+   Connection-specific DNS Suffix  . : gateway.2wire.net
+   Link-local IPv6 Address . . . . . : fe80::c477:2ffd:f252:a567%14
+   IPv4 Address. . . . . . . . . . . : 192.168.1.85
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.1.254
+
+Ethernet adapter Local Area Connection:
+
+   Connection-specific DNS Suffix  . : gateway.2wire.net
+   Link-local IPv6 Address . . . . . : fe80::908f:3b0b:8f9b:3e6e%13
+   IPv4 Address. . . . . . . . . . . : 192.168.1.84
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.1.254
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+Tunnel adapter isatap.gateway.2wire.net:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : gateway.2wire.net
+
+Tunnel adapter isatap.{CB726D1A-9E40-4AC2-88CF-74DA99D9C936}:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+Tunnel adapter Teredo Tunneling Pseudo-Interface:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+Tunnel adapter isatap.spirentcom.com:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : spirentcom.com
+
+Tunnel adapter isatap.{9D55351E-1521-46C9-86A5-C0BB05E98FCE}:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : 
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+                    
+    &lt;prompt&gt;C:\\\\Program Files (x86)\\\\Fanfare\\\\iTest 4.1&amp;gt;&lt;/prompt&gt;
+
+                        &lt;echo&gt;ipconfig&lt;/echo&gt;
+
+                        &lt;promptName&gt;defaultPrompt&lt;/promptName&gt;
+
+                    
+                    
+                &lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.2</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                        <lines>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="Windows" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="IP" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Configuration" parser="Word"/>
+                                </tokens>
+                            </item>
+                        </lines>
+                    </item>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="interface">
+                        <maxOccurences>0</maxOccurences>
+                        <lines>
+                            <item>
+                                <tokens>
+                                    <item name="adapter_type" representativeValue="Ethernet" parser="Word" isOptional="true" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="adapter" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="adapter" representativeValue="Loopback" parser="Word" isVariable="true" isWildcard="true"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                </tokens>
+                            </item>
+                            <item/>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Media" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="State" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Media_State" representativeValue="Media" parser="Word" isVariable="true" isWildcard="true"/>
+                                </tokens>
+                                <isOptional>true</isOptional>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Connection" parser="Word"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue="specific" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="DNS" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Suffix" parser="Word"/>
+                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Connection_specific_DNS_Suffix" representativeValue="spirent" parser="Word" isOptional="true" isVariable="true" isWildcard="true"/>
+                                </tokens>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Link" parser="Word"/>
+                                    <item representativeValue="-" parser="Punctuation"/>
+                                    <item representativeValue="local" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="IPv" parser="Word"/>
+                                    <item representativeValue="6" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Address" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Link_local_IPv6_Address" representativeValue="fe80::55ca:1ac6:72cb:d5d0" parser="IPv6Address" isVariable="true"/>
+                                    <item representativeValue="%" parser="Punctuation"/>
+                                    <item representativeValue="21" parser="Number" isVariable="true"/>
+                                </tokens>
+                                <isOptional>true</isOptional>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="IPv" parser="Word"/>
+                                    <item representativeValue="4" parser="Number" isVariable="true"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Address" parser="Word"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="IPv4_Address" representativeValue="192.168.100.1" parser="IPv4Address" isVariable="true"/>
+                                </tokens>
+                                <isOptional>true</isOptional>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Subnet" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Mask" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Subnet_Mask" representativeValue="255.255.255.0" parser="IPv4Address" isVariable="true"/>
+                                </tokens>
+                                <isOptional>true</isOptional>
+                            </item>
+                            <item>
+                                <tokens>
+                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Default" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="Gateway" parser="Word"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue="." parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item representativeValue=":" parser="Punctuation"/>
+                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                    <item name="Default_Gateway" representativeValue="1.1.1.1" parser="IPv4Address" isOptional="true" isVariable="true"/>
+                                </tokens>
+                                <isOptional>true</isOptional>
+                            </item>
+                            <item>
+                                <isOptional>true</isOptional>
+                            </item>
+                        </lines>
+                    </item>
+                </nodes>
+            </BlockMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="ipconfig" priority="40">
+        <application>
+            <item>com.fnfr.svt.applications.cmd</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="ipv4_address_by_adapter">
+            <description>Return the IPv4 Address given the Adapter Name</description>
+            <queryFormatString>//interface[adapter = &apos;{0}&apos;]/IPv4_Address</queryFormatString>
+            <arguments>
+                <item name="adapter">
+                    <valuesQuery>//adapter</valuesQuery>
+                    <interpretAs>SampleValues</interpretAs>
+                </item>
+            </arguments>
+        </item>
+        <item name="media_state_by_adapter">
+            <queryFormatString>//interface[adapter = &apos;{0}&apos;]/Media_State</queryFormatString>
+            <arguments>
+                <item name="argument0">
+                    <valuesQuery>//adapter</valuesQuery>
+                    <interpretAs>SampleValues</interpretAs>
+                </item>
+            </arguments>
+        </item>
+    </aliases>
+</ResponseMap>

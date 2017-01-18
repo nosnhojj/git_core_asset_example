@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.0.0.50154">
+    <baseApplication>com.fnfr.itest.tools.database</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties" databaseType="Sqlite" databaseType.inherit="false" databaseName="//C:/iTest 4.0 Workspace/Demo/VQA_Access/database_files/vqa.db" databaseName.inherit="false">
+        <statementTemplates transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseStatementTemplates">
+            <definitions inherit="false" sub="true">IPTV_Multicast_User_Metrics:SELECT MIN(AVG_DF_USER), MAX(AVG_DF_USER), AVG(AVG_DF_USER), MIN(AVG_MLR_USER), MAX(AVG_MLR_USER), AVG(AVG_MLR_USER) FROM (SELECT &quot;Stream ID&quot;, avg(&quot;MDI Average Delay Factor&quot;) AS AVG_DF_USER, avg(&quot;MDI Average MLR&quot;) AS AVG_MLR_USER from brief_stats_view where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;MULTICAST&apos; GROUP BY &quot;Stream ID&quot;);
+
+IPTV_Multicase_Consolidated:SELECT MIN(&quot;MDI Minimum Delay Factor&quot;) , MAX(&quot;MDI Maximum Delay Factor&quot;), MIN(&quot;MDI Minimum MLR&quot;) , MAX(&quot;MDI Maximum MLR&quot;) from brief_stats_view  where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;MULTICAST&apos;;
+
+VOIP_Service_Call_Metrics:SELECT MIN(&quot;MOS-LQ&quot;) , MAX(&quot;MOS-LQ&quot;) , AVG(&quot;MOS-LQ&quot;) , MIN(&quot;MOS-CQ&quot;) , MAX(&quot;MOS-CQ&quot;) , AVG(&quot;MOS-CQ&quot;) from brief_stats_view where &quot;Stream Type&quot; = &apos;VOICE&apos;;
+
+VOIP_Service_User_Metrics:SELECT MIN(MOS_LQ_AVG), MAX(MOS_LQ_AVG), MIN(MOS_CQ_AVG), MAX(MOS_CQ_AVG) FROM (SELECT &quot;Stream ID&quot;, AVG(&quot;MOS-LQ&quot;) AS  MOS_LQ_AVG, AVG(&quot;MOS-CQ&quot;) AS MOS_CQ_AVG  from brief_stats_view where &quot;Stream Type&quot; = &apos;VOICE&apos; GROUP BY &quot;Stream ID&quot;);
+
+Dump_Brief_Status_View:SELECT * from brief_stats_view;
+
+Dumpt_Brief_Status:SELECT * from brief_stats;</definitions>
+        </statementTemplates>
+    </sessionProperties>
+</SessionTemplate>

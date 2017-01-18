@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution>
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <KEEP_TIME_DAYS>15</KEEP_TIME_DAYS>
+                    <TABLE_NAME>testreport</TABLE_NAME>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="fc603046-0c86-48c1-99ed-44f021d00bbc" action="open" session="iTestDB">
+                    <command>
+                        <body>project://a_Test_Report_Database/session_profiles/iTestDB.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.DatabaseSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="bde0ecfb-d0fe-4781-9f1e-ab245d77c4e7" action="comment">
+                    <command>
+                        <body>Determine the maximum start date in the test report.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f9603022-dcf8-4426-9819-537e60bcd46c" action="execute" session="iTestDB" normalOffset="13.101" estimatedStepExecutionTime="0.03">
+                            <command>
+                                <body>select max(start) from [param TABLE_NAME]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>max_start_()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>max_start</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="dfd0a192-3035-41be-a4f8-f12071e9f3ba" action="comment">
+                    <command>
+                        <body>Determine the target date in microseconds</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1d5a02a4-2962-4366-b4a6-8a3051d8e899" action="eval">
+                            <command>
+                                <body>set microseconds [expr $max_start-[param KEEP_TIME_DAYS]*24*60*60*1000]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d8d4f9c9-6ed8-47f4-9ccc-b3a65f4d0522" action="comment">
+                    <command>
+                        <body>We need to loop through all the records and delete them one at a time so as to not</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="56e4d485-9628-46dc-ae03-162f20d345de" action="comment">
+                    <command>
+                        <body>hang up the DB Server.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="361b6848-c874-4695-aff4-2700df5f3994" action="comment">
+                    <command>
+                        <body>Determine how many test reports to delete</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="52f81e55-facd-4b56-8c38-6fb9dca8668f" action="execute" session="iTestDB" normalOffset="13.101" estimatedStepExecutionTime="0.03">
+                            <command>
+                                <body>SELECT count(id) from [param TABLE_NAME] where start &lt; $microseconds AND candelete = 1</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>success()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;true&quot;</expression>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Something bad happened.  We&apos;re outa here!!</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="ExitExecution">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>count_id_()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>test_report_count</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>count_id_()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Deleting {value} Test Reports</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>execResponse</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="488d85eb-bc50-449e-9eac-7c79a6f24de6" action="comment">
+                    <command>
+                        <body>Loop one at a time to delete the test reports so we don&apos;t hang up the server</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a7855ff3-553e-4d74-877b-c1c3cfd92be2" action="for">
+                            <command>
+                                <body>{set i 0} {$i &lt; $test_report_count} {incr i}</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="2508cefb-439f-4c2a-9400-b3631e31a3d1" action="comment">
+                                    <command>
+                                        <body>Determine test report to delete</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="1657f6a8-5a31-4e91-ae0c-4d30ab52be75" action="execute" session="iTestDB" normalOffset="13.101" estimatedStepExecutionTime="0.03">
+                                            <command>
+                                                <body>SELECT id from [param TABLE_NAME] where start &lt; $microseconds AND candelete = 1</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>success()</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="assert">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                <expression>$value == &quot;true&quot;</expression>
+                                                                <actionsWhenFalse>
+                                                                    <item actionId="DeclareExecutionIssue">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                            <message>Something bad happened.  We&apos;re outa here!!</message>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                    <item actionId="FailTest">
+                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                    </item>
+                                                                    <item actionId="ExitExecution">
+                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                    </item>
+                                                                    <item actionId="SkipRemainingRules">
+                                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                    </item>
+                                                                </actionsWhenFalse>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>value(&quot;id&quot;)</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="store">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                                <storageLocation>test_report_id</storageLocation>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>value(&quot;id&quot;)</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="message">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                                <message>Delete Test Report ID {value}</message>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties" fetchSingleRecord="true" fetchSingleRecord.inherit="false"/>
+                                        </item>
+                                        <item guid="1f6f003d-3c66-410b-9bfa-f79986300404" action="comment">
+                                            <command>
+                                                <body>Delete the steps</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="cd70525b-4833-46ee-921a-c49a3f9cefe7" action="execute" session="iTestDB">
+                                                    <command>
+                                                        <body>DELETE from reportitem where reportid=$test_report_id</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="0de31d30-7946-4fb4-a1d0-647684a67a45" action="comment">
+                                            <command>
+                                                <body>Delete the execution issues</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="7f082956-6ded-483f-bebb-fca9ec13fa5b" action="execute" session="iTestDB">
+                                                    <command>
+                                                        <body>DELETE from executionissue where reportid=$test_report_id</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="77fcec04-2169-46e9-ba54-6f5238d6f06a" action="comment">
+                                            <command>
+                                                <body>Delete the reports</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="32026be7-aa21-443c-8381-f88ddfe5daa8" action="execute" session="iTestDB">
+                                                    <command>
+                                                        <body>DELETE from [param TABLE_NAME] where id=$test_report_id</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4e9d7501-f879-4290-8743-f3b8e2c10980" action="comment">
+                    <command>
+                        <body>Now reclaim the space saved from the deletion</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ac03d452-07b6-40ca-a5a6-f487b975384b" action="execute" session="iTestDB" estimatedStepExecutionTime="0.28">
+                            <command>
+                                <body>show table status</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query sub="true">Data_length(&quot;[param TABLE_NAME]&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>initial_data_length</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>show_table_status_response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                        <item guid="3136a322-6631-4ce9-8646-1dad3cc937ee" action="foreach">
+                            <command>
+                                <body>db_table [query show_table_status_response Name()]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="1b9b2258-4d71-43d6-a70d-30e17ebb0cbe" action="execute" session="iTestDB" estimatedStepExecutionTime="0.68">
+                                    <command>
+                                        <body>alter table $db_table engine=&apos;InnoDB&apos;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="5d9278a7-e5b0-468a-af4a-84744438b9e7" action="execute" session="iTestDB" estimatedStepExecutionTime="0.03">
+                            <command>
+                                <body>show table status</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query sub="true">Data_length(&quot;[param TABLE_NAME]&quot;)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Reduced size by [expr $initial_data_length - [query . Data_length(&quot;[param TABLE_NAME]&quot;)]]</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.tools.database" transferableType="com.fnfr.itest.tools.database.ExecuteRequestProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="76fa4cea-e31c-4bd9-92a0-4fb71277da08" action="close" session="iTestDB" normalOffset="68.389">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

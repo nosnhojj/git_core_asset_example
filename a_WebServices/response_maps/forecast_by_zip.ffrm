@@ -1,0 +1,426 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <responseStructure>text/xml</responseStructure>
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="WeatherSoap/GetCityForecastByZIP" description="27613">
+                <command>
+                    <body>27613</body>
+                </command>
+            </action>
+            <responseBody>&lt;soap:Envelope xmlns:soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+  &lt;soap:Body&gt;
+    &lt;GetCityForecastByZIPResponse xmlns=&quot;http://ws.cdyne.com/WeatherWS/&quot;&gt;
+      &lt;GetCityForecastByZIPResult&gt;
+        &lt;Success&gt;true&lt;/Success&gt;
+        &lt;ResponseText&gt;City Found&lt;/ResponseText&gt;
+        &lt;State&gt;NC&lt;/State&gt;
+        &lt;City&gt;Raleigh&lt;/City&gt;
+        &lt;WeatherStationCity&gt;Bunn&lt;/WeatherStationCity&gt;
+        &lt;ForecastResult&gt;
+          &lt;Forecast&gt;
+            &lt;Date&gt;2012-04-12T00:00:00&lt;/Date&gt;
+            &lt;WeatherID&gt;4&lt;/WeatherID&gt;
+            &lt;Desciption&gt;Sunny&lt;/Desciption&gt;
+            &lt;Temperatures&gt;
+              &lt;MorningLow/&gt;
+              &lt;DaytimeHigh&gt;53&lt;/DaytimeHigh&gt;
+            &lt;/Temperatures&gt;
+            &lt;ProbabilityOfPrecipiation&gt;
+              &lt;Nighttime/&gt;
+              &lt;Daytime&gt;00&lt;/Daytime&gt;
+            &lt;/ProbabilityOfPrecipiation&gt;
+          &lt;/Forecast&gt;
+          &lt;Forecast&gt;
+            &lt;Date&gt;2012-04-13T00:00:00&lt;/Date&gt;
+            &lt;WeatherID&gt;4&lt;/WeatherID&gt;
+            &lt;Desciption&gt;Sunny&lt;/Desciption&gt;
+            &lt;Temperatures&gt;
+              &lt;MorningLow&gt;29&lt;/MorningLow&gt;
+              &lt;DaytimeHigh&gt;58&lt;/DaytimeHigh&gt;
+            &lt;/Temperatures&gt;
+            &lt;ProbabilityOfPrecipiation&gt;
+              &lt;Nighttime&gt;00&lt;/Nighttime&gt;
+              &lt;Daytime&gt;00&lt;/Daytime&gt;
+            &lt;/ProbabilityOfPrecipiation&gt;
+          &lt;/Forecast&gt;
+          &lt;Forecast&gt;
+            &lt;Date&gt;2012-04-14T00:00:00&lt;/Date&gt;
+            &lt;WeatherID&gt;2&lt;/WeatherID&gt;
+            &lt;Desciption&gt;Partly Cloudy&lt;/Desciption&gt;
+            &lt;Temperatures&gt;
+              &lt;MorningLow&gt;37&lt;/MorningLow&gt;
+              &lt;DaytimeHigh&gt;65&lt;/DaytimeHigh&gt;
+            &lt;/Temperatures&gt;
+            &lt;ProbabilityOfPrecipiation&gt;
+              &lt;Nighttime&gt;10&lt;/Nighttime&gt;
+              &lt;Daytime&gt;10&lt;/Daytime&gt;
+            &lt;/ProbabilityOfPrecipiation&gt;
+          &lt;/Forecast&gt;
+          &lt;Forecast&gt;
+            &lt;Date&gt;2012-04-15T00:00:00&lt;/Date&gt;
+            &lt;WeatherID&gt;4&lt;/WeatherID&gt;
+            &lt;Desciption&gt;Sunny&lt;/Desciption&gt;
+            &lt;Temperatures&gt;
+              &lt;MorningLow&gt;47&lt;/MorningLow&gt;
+              &lt;DaytimeHigh&gt;71&lt;/DaytimeHigh&gt;
+            &lt;/Temperatures&gt;
+            &lt;ProbabilityOfPrecipiation&gt;
+              &lt;Nighttime&gt;10&lt;/Nighttime&gt;
+              &lt;Daytime&gt;10&lt;/Daytime&gt;
+            &lt;/ProbabilityOfPrecipiation&gt;
+          &lt;/Forecast&gt;
+          &lt;Forecast&gt;
+            &lt;Date&gt;2012-04-16T00:00:00&lt;/Date&gt;
+            &lt;WeatherID&gt;4&lt;/WeatherID&gt;
+            &lt;Desciption&gt;Sunny&lt;/Desciption&gt;
+            &lt;Temperatures&gt;
+              &lt;MorningLow&gt;51&lt;/MorningLow&gt;
+              &lt;DaytimeHigh&gt;78&lt;/DaytimeHigh&gt;
+            &lt;/Temperatures&gt;
+            &lt;ProbabilityOfPrecipiation&gt;
+              &lt;Nighttime&gt;10&lt;/Nighttime&gt;
+              &lt;Daytime&gt;10&lt;/Daytime&gt;
+            &lt;/ProbabilityOfPrecipiation&gt;
+          &lt;/Forecast&gt;
+          &lt;Forecast&gt;
+            &lt;Date&gt;2012-04-17T00:00:00&lt;/Date&gt;
+            &lt;WeatherID&gt;2&lt;/WeatherID&gt;
+            &lt;Desciption&gt;Partly Cloudy&lt;/Desciption&gt;
+            &lt;Temperatures&gt;
+              &lt;MorningLow&gt;57&lt;/MorningLow&gt;
+              &lt;DaytimeHigh&gt;78&lt;/DaytimeHigh&gt;
+            &lt;/Temperatures&gt;
+            &lt;ProbabilityOfPrecipiation&gt;
+              &lt;Nighttime&gt;10&lt;/Nighttime&gt;
+              &lt;Daytime&gt;20&lt;/Daytime&gt;
+            &lt;/ProbabilityOfPrecipiation&gt;
+          &lt;/Forecast&gt;
+          &lt;Forecast&gt;
+            &lt;Date&gt;2012-04-18T00:00:00&lt;/Date&gt;
+            &lt;WeatherID&gt;6&lt;/WeatherID&gt;
+            &lt;Desciption&gt;Showers&lt;/Desciption&gt;
+            &lt;Temperatures&gt;
+              &lt;MorningLow&gt;55&lt;/MorningLow&gt;
+              &lt;DaytimeHigh&gt;73&lt;/DaytimeHigh&gt;
+            &lt;/Temperatures&gt;
+            &lt;ProbabilityOfPrecipiation&gt;
+              &lt;Nighttime&gt;30&lt;/Nighttime&gt;
+              &lt;Daytime&gt;50&lt;/Daytime&gt;
+            &lt;/ProbabilityOfPrecipiation&gt;
+          &lt;/Forecast&gt;
+        &lt;/ForecastResult&gt;
+      &lt;/GetCityForecastByZIPResult&gt;
+    &lt;/GetCityForecastByZIPResponse&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;responseHTTPHeaders map:nodetype=&quot;token&quot;&gt;
+        &lt;X_AspNet_Version map:nodetype=&quot;token&quot;&gt;2.0.50727&lt;/X_AspNet_Version&gt;
+        &lt;Date map:nodetype=&quot;token&quot;&gt;12 Apr 2012 20:15:54 GMT&lt;/Date&gt;
+        &lt;Content_Length map:nodetype=&quot;token&quot;&gt;2624&lt;/Content_Length&gt;
+        &lt;Expires map:nodetype=&quot;token&quot;&gt;-1&lt;/Expires&gt;
+        &lt;Content_Type map:nodetype=&quot;token&quot;&gt;text/xml; charset=utf-8&lt;/Content_Type&gt;
+        &lt;X_Powered_By map:nodetype=&quot;token&quot;&gt;ASP.NET&lt;/X_Powered_By&gt;
+        &lt;Server map:nodetype=&quot;token&quot;&gt;Microsoft-IIS/7.5&lt;/Server&gt;
+        &lt;Pragma map:nodetype=&quot;token&quot;&gt;no-cache&lt;/Pragma&gt;
+        &lt;Cache_Control map:nodetype=&quot;token&quot;&gt;no-cache&lt;/Cache_Control&gt;
+    &lt;/responseHTTPHeaders&gt;
+    &lt;responseRawText map:nodetype=&quot;token&quot;&gt;&amp;lt;soap:Envelope xmlns:soap=&amp;quot;http://schemas.xmlsoap.org/soap/envelope/&amp;quot; xmlns:xsd=&amp;quot;http://www.w3.org/2001/XMLSchema&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&amp;gt;
+  &amp;lt;soap:Body&amp;gt;
+    &amp;lt;GetCityForecastByZIPResponse xmlns=&amp;quot;http://ws.cdyne.com/WeatherWS/&amp;quot;&amp;gt;
+      &amp;lt;GetCityForecastByZIPResult&amp;gt;
+        &amp;lt;Success&amp;gt;true&amp;lt;/Success&amp;gt;
+        &amp;lt;ResponseText&amp;gt;City Found&amp;lt;/ResponseText&amp;gt;
+        &amp;lt;State&amp;gt;NC&amp;lt;/State&amp;gt;
+        &amp;lt;City&amp;gt;Raleigh&amp;lt;/City&amp;gt;
+        &amp;lt;WeatherStationCity&amp;gt;Bunn&amp;lt;/WeatherStationCity&amp;gt;
+        &amp;lt;ForecastResult&amp;gt;
+          &amp;lt;Forecast&amp;gt;
+            &amp;lt;Date&amp;gt;2012-04-12T00:00:00&amp;lt;/Date&amp;gt;
+            &amp;lt;WeatherID&amp;gt;4&amp;lt;/WeatherID&amp;gt;
+            &amp;lt;Desciption&amp;gt;Sunny&amp;lt;/Desciption&amp;gt;
+            &amp;lt;Temperatures&amp;gt;
+              &amp;lt;MorningLow/&amp;gt;
+              &amp;lt;DaytimeHigh&amp;gt;53&amp;lt;/DaytimeHigh&amp;gt;
+            &amp;lt;/Temperatures&amp;gt;
+            &amp;lt;ProbabilityOfPrecipiation&amp;gt;
+              &amp;lt;Nighttime/&amp;gt;
+              &amp;lt;Daytime&amp;gt;00&amp;lt;/Daytime&amp;gt;
+            &amp;lt;/ProbabilityOfPrecipiation&amp;gt;
+          &amp;lt;/Forecast&amp;gt;
+          &amp;lt;Forecast&amp;gt;
+            &amp;lt;Date&amp;gt;2012-04-13T00:00:00&amp;lt;/Date&amp;gt;
+            &amp;lt;WeatherID&amp;gt;4&amp;lt;/WeatherID&amp;gt;
+            &amp;lt;Desciption&amp;gt;Sunny&amp;lt;/Desciption&amp;gt;
+            &amp;lt;Temperatures&amp;gt;
+              &amp;lt;MorningLow&amp;gt;29&amp;lt;/MorningLow&amp;gt;
+              &amp;lt;DaytimeHigh&amp;gt;58&amp;lt;/DaytimeHigh&amp;gt;
+            &amp;lt;/Temperatures&amp;gt;
+            &amp;lt;ProbabilityOfPrecipiation&amp;gt;
+              &amp;lt;Nighttime&amp;gt;00&amp;lt;/Nighttime&amp;gt;
+              &amp;lt;Daytime&amp;gt;00&amp;lt;/Daytime&amp;gt;
+            &amp;lt;/ProbabilityOfPrecipiation&amp;gt;
+          &amp;lt;/Forecast&amp;gt;
+          &amp;lt;Forecast&amp;gt;
+            &amp;lt;Date&amp;gt;2012-04-14T00:00:00&amp;lt;/Date&amp;gt;
+            &amp;lt;WeatherID&amp;gt;2&amp;lt;/WeatherID&amp;gt;
+            &amp;lt;Desciption&amp;gt;Partly Cloudy&amp;lt;/Desciption&amp;gt;
+            &amp;lt;Temperatures&amp;gt;
+              &amp;lt;MorningLow&amp;gt;37&amp;lt;/MorningLow&amp;gt;
+              &amp;lt;DaytimeHigh&amp;gt;65&amp;lt;/DaytimeHigh&amp;gt;
+            &amp;lt;/Temperatures&amp;gt;
+            &amp;lt;ProbabilityOfPrecipiation&amp;gt;
+              &amp;lt;Nighttime&amp;gt;10&amp;lt;/Nighttime&amp;gt;
+              &amp;lt;Daytime&amp;gt;10&amp;lt;/Daytime&amp;gt;
+            &amp;lt;/ProbabilityOfPrecipiation&amp;gt;
+          &amp;lt;/Forecast&amp;gt;
+          &amp;lt;Forecast&amp;gt;
+            &amp;lt;Date&amp;gt;2012-04-15T00:00:00&amp;lt;/Date&amp;gt;
+            &amp;lt;WeatherID&amp;gt;4&amp;lt;/WeatherID&amp;gt;
+            &amp;lt;Desciption&amp;gt;Sunny&amp;lt;/Desciption&amp;gt;
+            &amp;lt;Temperatures&amp;gt;
+              &amp;lt;MorningLow&amp;gt;47&amp;lt;/MorningLow&amp;gt;
+              &amp;lt;DaytimeHigh&amp;gt;71&amp;lt;/DaytimeHigh&amp;gt;
+            &amp;lt;/Temperatures&amp;gt;
+            &amp;lt;ProbabilityOfPrecipiation&amp;gt;
+              &amp;lt;Nighttime&amp;gt;10&amp;lt;/Nighttime&amp;gt;
+              &amp;lt;Daytime&amp;gt;10&amp;lt;/Daytime&amp;gt;
+            &amp;lt;/ProbabilityOfPrecipiation&amp;gt;
+          &amp;lt;/Forecast&amp;gt;
+          &amp;lt;Forecast&amp;gt;
+            &amp;lt;Date&amp;gt;2012-04-16T00:00:00&amp;lt;/Date&amp;gt;
+            &amp;lt;WeatherID&amp;gt;4&amp;lt;/WeatherID&amp;gt;
+            &amp;lt;Desciption&amp;gt;Sunny&amp;lt;/Desciption&amp;gt;
+            &amp;lt;Temperatures&amp;gt;
+              &amp;lt;MorningLow&amp;gt;51&amp;lt;/MorningLow&amp;gt;
+              &amp;lt;DaytimeHigh&amp;gt;78&amp;lt;/DaytimeHigh&amp;gt;
+            &amp;lt;/Temperatures&amp;gt;
+            &amp;lt;ProbabilityOfPrecipiation&amp;gt;
+              &amp;lt;Nighttime&amp;gt;10&amp;lt;/Nighttime&amp;gt;
+              &amp;lt;Daytime&amp;gt;10&amp;lt;/Daytime&amp;gt;
+            &amp;lt;/ProbabilityOfPrecipiation&amp;gt;
+          &amp;lt;/Forecast&amp;gt;
+          &amp;lt;Forecast&amp;gt;
+            &amp;lt;Date&amp;gt;2012-04-17T00:00:00&amp;lt;/Date&amp;gt;
+            &amp;lt;WeatherID&amp;gt;2&amp;lt;/WeatherID&amp;gt;
+            &amp;lt;Desciption&amp;gt;Partly Cloudy&amp;lt;/Desciption&amp;gt;
+            &amp;lt;Temperatures&amp;gt;
+              &amp;lt;MorningLow&amp;gt;57&amp;lt;/MorningLow&amp;gt;
+              &amp;lt;DaytimeHigh&amp;gt;78&amp;lt;/DaytimeHigh&amp;gt;
+            &amp;lt;/Temperatures&amp;gt;
+            &amp;lt;ProbabilityOfPrecipiation&amp;gt;
+              &amp;lt;Nighttime&amp;gt;10&amp;lt;/Nighttime&amp;gt;
+              &amp;lt;Daytime&amp;gt;20&amp;lt;/Daytime&amp;gt;
+            &amp;lt;/ProbabilityOfPrecipiation&amp;gt;
+          &amp;lt;/Forecast&amp;gt;
+          &amp;lt;Forecast&amp;gt;
+            &amp;lt;Date&amp;gt;2012-04-18T00:00:00&amp;lt;/Date&amp;gt;
+            &amp;lt;WeatherID&amp;gt;6&amp;lt;/WeatherID&amp;gt;
+            &amp;lt;Desciption&amp;gt;Showers&amp;lt;/Desciption&amp;gt;
+            &amp;lt;Temperatures&amp;gt;
+              &amp;lt;MorningLow&amp;gt;55&amp;lt;/MorningLow&amp;gt;
+              &amp;lt;DaytimeHigh&amp;gt;73&amp;lt;/DaytimeHigh&amp;gt;
+            &amp;lt;/Temperatures&amp;gt;
+            &amp;lt;ProbabilityOfPrecipiation&amp;gt;
+              &amp;lt;Nighttime&amp;gt;30&amp;lt;/Nighttime&amp;gt;
+              &amp;lt;Daytime&amp;gt;50&amp;lt;/Daytime&amp;gt;
+            &amp;lt;/ProbabilityOfPrecipiation&amp;gt;
+          &amp;lt;/Forecast&amp;gt;
+        &amp;lt;/ForecastResult&amp;gt;
+      &amp;lt;/GetCityForecastByZIPResult&amp;gt;
+    &amp;lt;/GetCityForecastByZIPResponse&amp;gt;
+  &amp;lt;/soap:Body&amp;gt;
+&amp;lt;/soap:Envelope&amp;gt;
+&lt;/responseRawText&gt;
+    &lt;responseRawXML map:nodetype=&quot;token&quot;&gt;
+        &lt;Envelope map:nodetype=&quot;token&quot; soap=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+            &lt;Body map:nodetype=&quot;token&quot;&gt;
+                &lt;GetCityForecastByZIPResponse map:nodetype=&quot;token&quot; xmlns=&quot;http://ws.cdyne.com/WeatherWS/&quot;&gt;
+                    &lt;GetCityForecastByZIPResult map:nodetype=&quot;token&quot;&gt;
+                        &lt;Success map:nodetype=&quot;token&quot;/&gt;
+                        &lt;ResponseText map:nodetype=&quot;token&quot;/&gt;
+                        &lt;State map:nodetype=&quot;token&quot;/&gt;
+                        &lt;City map:nodetype=&quot;token&quot;/&gt;
+                        &lt;WeatherStationCity map:nodetype=&quot;token&quot;/&gt;
+                        &lt;ForecastResult map:nodetype=&quot;token&quot;&gt;
+                            &lt;Forecast map:nodetype=&quot;token&quot;&gt;
+                                &lt;Date map:nodetype=&quot;token&quot;/&gt;
+                                &lt;WeatherID map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Desciption map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Temperatures map:nodetype=&quot;token&quot;&gt;
+                                    &lt;MorningLow map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;DaytimeHigh map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/Temperatures&gt;
+                                &lt;ProbabilityOfPrecipiation map:nodetype=&quot;token&quot;&gt;
+                                    &lt;Nighttime map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;Daytime map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/ProbabilityOfPrecipiation&gt;
+                            &lt;/Forecast&gt;
+                            &lt;Forecast map:nodetype=&quot;token&quot;&gt;
+                                &lt;Date map:nodetype=&quot;token&quot;/&gt;
+                                &lt;WeatherID map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Desciption map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Temperatures map:nodetype=&quot;token&quot;&gt;
+                                    &lt;MorningLow map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;DaytimeHigh map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/Temperatures&gt;
+                                &lt;ProbabilityOfPrecipiation map:nodetype=&quot;token&quot;&gt;
+                                    &lt;Nighttime map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;Daytime map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/ProbabilityOfPrecipiation&gt;
+                            &lt;/Forecast&gt;
+                            &lt;Forecast map:nodetype=&quot;token&quot;&gt;
+                                &lt;Date map:nodetype=&quot;token&quot;/&gt;
+                                &lt;WeatherID map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Desciption map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Temperatures map:nodetype=&quot;token&quot;&gt;
+                                    &lt;MorningLow map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;DaytimeHigh map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/Temperatures&gt;
+                                &lt;ProbabilityOfPrecipiation map:nodetype=&quot;token&quot;&gt;
+                                    &lt;Nighttime map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;Daytime map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/ProbabilityOfPrecipiation&gt;
+                            &lt;/Forecast&gt;
+                            &lt;Forecast map:nodetype=&quot;token&quot;&gt;
+                                &lt;Date map:nodetype=&quot;token&quot;/&gt;
+                                &lt;WeatherID map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Desciption map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Temperatures map:nodetype=&quot;token&quot;&gt;
+                                    &lt;MorningLow map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;DaytimeHigh map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/Temperatures&gt;
+                                &lt;ProbabilityOfPrecipiation map:nodetype=&quot;token&quot;&gt;
+                                    &lt;Nighttime map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;Daytime map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/ProbabilityOfPrecipiation&gt;
+                            &lt;/Forecast&gt;
+                            &lt;Forecast map:nodetype=&quot;token&quot;&gt;
+                                &lt;Date map:nodetype=&quot;token&quot;/&gt;
+                                &lt;WeatherID map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Desciption map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Temperatures map:nodetype=&quot;token&quot;&gt;
+                                    &lt;MorningLow map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;DaytimeHigh map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/Temperatures&gt;
+                                &lt;ProbabilityOfPrecipiation map:nodetype=&quot;token&quot;&gt;
+                                    &lt;Nighttime map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;Daytime map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/ProbabilityOfPrecipiation&gt;
+                            &lt;/Forecast&gt;
+                            &lt;Forecast map:nodetype=&quot;token&quot;&gt;
+                                &lt;Date map:nodetype=&quot;token&quot;/&gt;
+                                &lt;WeatherID map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Desciption map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Temperatures map:nodetype=&quot;token&quot;&gt;
+                                    &lt;MorningLow map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;DaytimeHigh map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/Temperatures&gt;
+                                &lt;ProbabilityOfPrecipiation map:nodetype=&quot;token&quot;&gt;
+                                    &lt;Nighttime map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;Daytime map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/ProbabilityOfPrecipiation&gt;
+                            &lt;/Forecast&gt;
+                            &lt;Forecast map:nodetype=&quot;token&quot;&gt;
+                                &lt;Date map:nodetype=&quot;token&quot;/&gt;
+                                &lt;WeatherID map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Desciption map:nodetype=&quot;token&quot;/&gt;
+                                &lt;Temperatures map:nodetype=&quot;token&quot;&gt;
+                                    &lt;MorningLow map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;DaytimeHigh map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/Temperatures&gt;
+                                &lt;ProbabilityOfPrecipiation map:nodetype=&quot;token&quot;&gt;
+                                    &lt;Nighttime map:nodetype=&quot;token&quot;/&gt;
+                                    &lt;Daytime map:nodetype=&quot;token&quot;/&gt;
+                                &lt;/ProbabilityOfPrecipiation&gt;
+                            &lt;/Forecast&gt;
+                        &lt;/ForecastResult&gt;
+                    &lt;/GetCityForecastByZIPResult&gt;
+                &lt;/GetCityForecastByZIPResponse&gt;
+            &lt;/Body&gt;
+        &lt;/Envelope&gt;
+    &lt;/responseRawXML&gt;
+&lt;/structure&gt;
+</structuredData>
+            <duration>0.2</duration>
+        </item>
+    </sampleDictionary>
+    <applicabilityProperties actionType="WeatherSoap/GetCityForecastByZIP" command="*">
+        <application>
+            <item>com.fnfr.itest.applications.webservices</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="num_of_days_forcast">
+            <queryFormatString>count(//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast/Date)</queryFormatString>
+        </item>
+        <item name="Forecast_City">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/City</queryFormatString>
+        </item>
+        <item name="Forcast_State">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/State</queryFormatString>
+        </item>
+        <item name="Forcast_Date">
+            <description>Date of the forecast</description>
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast[{0}]/Date</queryFormatString>
+            <arguments>
+                <item name="day">
+                    <defaultvalue>1</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+        <item name="Morning_Low_by_Day">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast[{0}]/Temperatures/MorningLow</queryFormatString>
+            <arguments>
+                <item name="day">
+                    <defaultvalue>1</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+        <item name="Daytime_High_by_Day">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast[{0}]/Temperatures/DaytimeHigh</queryFormatString>
+            <arguments>
+                <item name="day">
+                    <defaultvalue>1</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+        <item name="Nighttime_Precip_by_Day">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast[{0}]/ProbabilityOfPrecipiation/Nighttime</queryFormatString>
+            <arguments>
+                <item name="day">
+                    <defaultvalue>1</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+        <item name="Daytime_Precip_by_Day">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast[{0}]/ProbabilityOfPrecipiation/Daytime</queryFormatString>
+            <arguments>
+                <item name="day">
+                    <defaultvalue>1</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+        <item name="MorningLows">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast/Temperatures/MorningLow</queryFormatString>
+        </item>
+        <item name="Daytime_Highs">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast/Temperatures/DaytimeHigh</queryFormatString>
+        </item>
+        <item name="Date_of_Freezing_Temp">
+            <queryFormatString>substring-before(//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast[Temperatures/MorningLow &lt; 32]/Date, &quot;T&quot;)</queryFormatString>
+        </item>
+        <item name="Description_by_Day">
+            <queryFormatString>//GetCityForecastByZIPResponse/GetCityForecastByZIPResult[Success != &quot;&quot;]/ForecastResult/Forecast[{0}]/Desciption</queryFormatString>
+            <arguments>
+                <item name="day">
+                    <defaultvalue>1</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+    </aliases>
+</ResponseMap>

@@ -1,0 +1,1048 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>ipconfig</body>
+                </command>
+            </action>
+            <responseBody>
+Windows IP Configuration
+
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+        Connection-specific DNS Suffix  . : 
+        IP Address. . . . . . . . . . . . : 192.168.244.1
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Local Area Connection:
+
+        Media State . . . . . . . . . . . : Media disconnected
+
+Ethernet adapter Wireless Network Connection:
+
+        Connection-specific DNS Suffix  . : 
+        IP Address. . . . . . . . . . . . : 10.2.14.178
+        Subnet Mask . . . . . . . . . . . : 255.255.252.0
+        Default Gateway . . . . . . . . . : 10.2.12.1
+
+PPP adapter Fanfare VPN:
+
+        Connection-specific DNS Suffix  . : fnfr.com
+        IP Address. . . . . . . . . . . . : 10.155.0.172
+        Subnet Mask . . . . . . . . . . . : 255.255.255.255
+        Default Gateway . . . . . . . . . : 10.155.0.172
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;echo&gt;ipconfig&lt;/echo&gt;
+   &lt;prompt&gt;C:\\Program Files\\Fanfare\\iTest Team 3.1&amp;gt;&lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+        <item name="sample2">
+            <responseBody>
+Windows IP Configuration
+
+        Host Name . . . . . . . . . . . . : RMT-TERDELY
+        Primary Dns Suffix  . . . . . . . : fnfr.com
+        Node Type . . . . . . . . . . . . : Hybrid
+        IP Routing Enabled. . . . . . . . : No
+        WINS Proxy Enabled. . . . . . . . : No
+        DNS Suffix Search List. . . . . . : fnfr.com
+                                            fnfr.com
+
+Ethernet adapter Local Area Connection:
+
+        Connection-specific DNS Suffix  . : 
+        Description . . . . . . . . . . . : Broadcom NetXtreme 57xx Gigabit Controller
+        Physical Address. . . . . . . . . : 00-18-8B-C4-64-54
+        Dhcp Enabled. . . . . . . . . . . : No
+        IP Address. . . . . . . . . . . . : 20.155.20.20
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Wireless Network Connection:
+
+        Media State . . . . . . . . . . . : Media disconnected
+        Description . . . . . . . . . . . : Intel(R) PRO/Wireless 3945ABG Network Connection
+        Physical Address. . . . . . . . . : 00-19-D2-CA-7E-46
+
+PPP adapter NationalAccess - BroadbandAccess:
+
+        Connection-specific DNS Suffix  . : 
+        Description . . . . . . . . . . . : WAN (PPP/SLIP) Interface
+        Physical Address. . . . . . . . . : 00-53-45-00-00-00
+        Dhcp Enabled. . . . . . . . . . . : No
+        IP Address. . . . . . . . . . . . : 70.220.194.99
+        Subnet Mask . . . . . . . . . . . : 255.255.255.255
+        Default Gateway . . . . . . . . . : 70.220.194.99
+        DNS Servers . . . . . . . . . . . : 69.78.96.14
+                                            66.174.95.44
+        NetBIOS over Tcpip. . . . . . . . : Disabled
+
+PPP adapter FanfareVPN:
+
+        Connection-specific DNS Suffix  . : fnfr.com
+        Description . . . . . . . . . . . : WAN (PPP/SLIP) Interface
+        Physical Address. . . . . . . . . : 00-53-45-00-00-00
+        Dhcp Enabled. . . . . . . . . . . : No
+        IP Address. . . . . . . . . . . . : 10.155.0.131
+        Subnet Mask . . . . . . . . . . . : 255.255.255.255
+        Default Gateway . . . . . . . . . : 10.155.0.131
+        DNS Servers . . . . . . . . . . . : 10.155.0.10
+                                            10.155.0.14
+                                            10.155.0.10
+                                            10.155.0.14
+        Primary WINS Server . . . . . . . : 10.155.0.10
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+        <item name="sample3">
+            <action actionType="command">
+                <command>
+                    <body>ipconfig</body>
+                </command>
+            </action>
+            <responseBody>
+Windows IP Configuration
+
+
+Ethernet adapter VMware Network Adapter VMnet8:
+
+        Connection-specific DNS Suffix  . : 
+        IP Address. . . . . . . . . . . . : 192.168.30.1
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 
+
+Ethernet adapter VMware Network Adapter VMnet1:
+
+        Connection-specific DNS Suffix  . : 
+        IP Address. . . . . . . . . . . . : 192.168.85.1
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Local Area Connection:
+
+        Connection-specific DNS Suffix  . : 
+        Autoconfiguration IP Address. . . : 192.168.2.100
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 
+
+Ethernet adapter Wireless Network Connection:
+
+        Connection-specific DNS Suffix  . : gateway.2wire.net
+        IP Address. . . . . . . . . . . . : 192.168.1.69
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 192.168.1.254
+
+Ethernet adapter Local Area Connection 2:
+
+        Connection-specific DNS Suffix  . : fnfr.com
+        IP Address. . . . . . . . . . . . : 10.154.1.103
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+      &lt;prompt&gt;C:\\Program Files\\Fanfare\\iTest 3.4&amp;gt;&lt;/prompt&gt;
+      &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+      &lt;echo&gt;ipconfig&lt;/echo&gt;
+      &lt;idleTime&gt;0.281&lt;/idleTime&gt;
+      &lt;contentType&gt;text&lt;/contentType&gt;
+      &lt;terminator&gt;SLASH_R&lt;/terminator&gt;
+   &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample2</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="windows_configuration">
+                        <minOccurrences>0</minOccurrences>
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="basic">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="Windows" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="IP" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Configuration" parser="Word"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                    <item/>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Host" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Name" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Host_Name" representativeValue="hostname" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Primary" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Dns" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Suffix" parser="Word"/>
+                                            <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Primary_Dns_Suffix" representativeValue="dnsSuffix" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Node" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Type" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Node_Type" representativeValue="Hybrid" parser="Word" isVariable="true"/>
+                                        </tokens>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="IP" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Routing" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Enabled" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="IP_Routing_Enabled" representativeValue="No" parser="Word" isVariable="true"/>
+                                        </tokens>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="WINS" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Proxy" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Enabled" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="WINS_Proxy_Enabled" representativeValue="No" parser="Word" isVariable="true"/>
+                                        </tokens>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="DNS">
+                                <minOccurrences>0</minOccurrences>
+                                <nodes>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="initial">
+                                        <minOccurrences>0</minOccurrences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="DNS" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Suffix" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Search" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="List" parser="Word"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="DNS_Suffix_Search_List" representativeValue="hostname" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="additional">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="                                            " parser="Whitespace" isVariable="true"/>
+                                                    <item name="DNS_Suffix_Search_List" representativeValue="hostname" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                </nodes>
+                            </item>
+                        </nodes>
+                        <isOrderedList>false</isOrderedList>
+                    </item>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="adapter">
+                        <minOccurrences>0</minOccurrences>
+                        <maxOccurences>0</maxOccurences>
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item name="adapter_type" representativeValue="Ethernet" parser="Word" isVariable="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="adapter" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="adapter_name" representativeValue="name" parser="Word" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="connection">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Connection" parser="Word"/>
+                                            <item representativeValue="-" parser="Punctuation"/>
+                                            <item representativeValue="specific" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="DNS" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Suffix" parser="Word"/>
+                                            <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="DNS_Suffix" representativeValue="name" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="autoconfiguration">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Autoconfiguration" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="IP" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Address" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="IP_Address" representativeValue="192.168.2.100" parser="IPv4Address" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="description">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Description" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Description" representativeValue="description" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="physical_address">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Physical" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Address" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Physical_Address" representativeValue="00-18-8B-C4-64-DA" parser="MacAddress" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="dhcp_enabled">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Dhcp" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Enabled" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Dhcp_Enabled" representativeValue="Yes" parser="Word" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="autoconf_enabled">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Autoconfiguration" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Enabled" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Autoconfiguration_Enabled" representativeValue="Yes" parser="Word" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="ip_address">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="IP" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Address" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="IP_Address" representativeValue="192.168.1.100" parser="IPv4Address" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="subnet_mask">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Subnet" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Mask" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Subnet_Mask" representativeValue="255.255.255.0" parser="IPv4Address" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="default_gateway">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Default" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Gateway" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Default_Gateway" representativeValue="192.168.1.254" parser="IPv4Address" isOptional="true" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="dhcp_server">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="DHCP" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Server" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="DHCP_Server" representativeValue="192.168.1.254" parser="IPv4Address" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="dns_servers">
+                                <minOccurrences>0</minOccurrences>
+                                <maxOccurences>0</maxOccurences>
+                                <nodes>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="header">
+                                        <minOccurrences>0</minOccurrences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="DNS" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Servers" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="DNS_Servers" representativeValue="10.155.0.10" parser="IPv4Address" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item/>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="additions">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="                                            " parser="Whitespace" isVariable="true"/>
+                                                    <item name="DNS_Servers" representativeValue="10.155.0.14" parser="IPv4Address" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                            <item/>
+                                        </lines>
+                                    </item>
+                                </nodes>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="lease_obtained">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Lease" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Obtained" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Lease_Obtained" representativeValue="leaseobtained" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="lease_expires">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Lease" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Expires" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Lease_Expires" representativeValue="leaseExpires" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="media_state">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Media" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="State" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Media_State" representativeValue="state" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="primary_wins_server">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Primary" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="WINS" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Server" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Primary_WINS_Server" representativeValue="10.155.0.10" parser="IPv4Address" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="NetBIOS">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="NetBIOS" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="over" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Tcpip" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="status" representativeValue="Disabled" parser="Word" isVariable="true"/>
+                                        </tokens>
+                                    </item>
+                                    <item/>
+                                </lines>
+                            </item>
+                        </nodes>
+                        <isOrderedList>false</isOrderedList>
+                    </item>
+                </nodes>
+                <isOrderedList>false</isOrderedList>
+            </BlockMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="ipconfig*">
+        <application>
+            <item>com.fnfr.svt.applications.cmd</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="ip_address_by_adapter_name">
+            <queryFormatString>mapped/Block/Body/container/adapter[header/adapter_name=&apos;{0}&apos;]/*/IP_Address</queryFormatString>
+            <arguments>
+                <item name="name">
+                    <defaultvalue>1.1.1.1</defaultvalue>
+                    <valuesQuery>mapped/Block/Body/container/adapter/header/adapter_name</valuesQuery>
+                    <interpretAs>SampleValues</interpretAs>
+                </item>
+            </arguments>
+        </item>
+    </aliases>
+</ResponseMap>

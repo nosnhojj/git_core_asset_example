@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="CiscoIOS_Telnet_Base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="98d5e48c-bba4-48d7-a119-895a8fc9b68d" action="comment">
+                    <command>
+                        <body>Cisco IOS Telnet Quickcalls</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="connect" isPublic="true">
+            <steps>
+                <item guid="cce68b51-dd2f-45ff-86df-91c958639f90" action="command" session="$session" normalOffset="3.074" estimatedStepExecutionTime="0.109">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+        <item name="disconnect" isPublic="true">
+            <steps>
+                <item guid="025337a5-8344-411c-94d7-ec446f15e213" action="command" session="$session" normalOffset="9.328" estimatedStepExecutionTime="0.389">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <promptProperties>
+                            <stepPrompts>
+                                <item name="prompt1">
+                                    <Content>Press RETURN to get started.</Content>
+                                </item>
+                            </stepPrompts>
+                        </promptProperties>
+                        <completionProperties>
+                            <promptExtraction inherit="false">ANYWHERE</promptExtraction>
+                        </completionProperties>
+                    </applicationProperties>
+                </item>
+            </steps>
+        </item>
+        <item name="setHostname" isPublic="true">
+            <steps>
+                <item guid="fe175437-d2ce-40d3-8c00-d36e58bc5cd1" action="command" session="$session">
+                    <command>
+                        <body>conf t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="234bf711-9411-40e9-a58b-c952b1c30dce" action="command" session="$session">
+                    <command>
+                        <body>hostname $name</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="name">
+                    <description>Hostname of the Cisco DUT
+</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="showIPTraffic" isPublic="true">
+            <steps>
+                <item guid="f373c2ee-177a-440b-8c08-a477061905f0" action="command" session="$session" normalOffset="31.88" estimatedStepExecutionTime="2.405">
+                    <command>
+                        <body>show ip traffic</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>myResponse</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.024" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="e4426c57-be5f-4f23-a3ca-ac31cb57aa31" action="return">
+                    <command>
+                        <body>[response myResponse]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="enableSSH" isPublic="true">
+            <steps>
+                <item guid="1b5df3c9-c569-4a54-baee-14d85fe9f01e" action="command" session="$session">
+                    <command>
+                        <body>conf t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6ea85b23-7cb3-4b02-b353-455d756f5654" action="command" session="$session" normalOffset="12.869" estimatedStepExecutionTime="0.042">
+                    <command>
+                        <body>aaa new-model</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="5.13" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2c1c02a1-cb90-4fe0-a06f-667e8717a22e" action="command" session="$session" estimatedStepExecutionTime="0.032">
+                    <command>
+                        <body>username $username password 0 $password</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="9e325f13-dbf0-4b94-8d08-69d84dfeeec0" action="command" session="$session" normalOffset="16.197" estimatedStepExecutionTime="0.042">
+                    <command>
+                        <body>ip domain-name $domain-name</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.1" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="38d4f9d9-424c-43c0-b6f8-c4827fa89d83" action="command" session="$session" normalOffset="8.412" estimatedStepExecutionTime="0.052">
+                    <command>
+                        <body>crypto key generate rsa</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.48" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c4e567c5-25a5-46a0-841f-97fa3e6904b1" action="command" session="$session" normalOffset="1.63" estimatedStepExecutionTime="0.512">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.482" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d276d331-8f67-4a85-a54d-826f74625a7d" action="command" session="$session" normalOffset="10.831" estimatedStepExecutionTime="0.02">
+                    <command>
+                        <body>ip ssh time-out 60</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.22" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a9806738-956d-4b49-bd38-fe2779ca5dda" action="command" session="$session" normalOffset="5.664" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>ip ssh authentication-retries 2</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.33" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="adc89c16-8b18-43cc-be2e-e3cb3d4322b5" action="command" session="$session" normalOffset="4.918" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>line vty 0 4</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.25" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a710699b-8d52-412c-8d2e-1e2e847b6cd8" action="command" session="$session" normalOffset="10.395" estimatedStepExecutionTime="0.05">
+                    <command>
+                        <body>end</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="4.11" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="domain_name">
+                    <description>Hostname of the Router/Switch</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="username">
+                    <description>Username for logging in</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="password">
+                    <description>Password for username.</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

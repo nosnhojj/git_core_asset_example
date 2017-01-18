@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<testCase version="4.2.1.67445">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="calnex_tcl_base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="7dc769f5-a7e1-4d05-b675-723f93692bfc" action="comment">
+                    <command>
+                        <body>Quickcall Library for the Calnex Attero impairment.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

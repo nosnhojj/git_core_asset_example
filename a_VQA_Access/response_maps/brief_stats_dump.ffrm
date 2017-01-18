@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.0.0.49128">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>values(*)                  = stream_id sample_time mdi_avg_df mdi_min_df mdi_max_df mdi_avg_alc mdi_min_alc mdi_max_alc mos_a min_mos_a max_mos_a absolute_mos_v absolute_min_mos_v absolute_max_mos_v rfactor_lq rfactor_cq mos_lq mos_cq utc_time
+values(absolute_max_mos_v) = 4.73046875
+values(absolute_min_mos_v) = 4.73046875
+values(absolute_mos_v)     = 4.73046875
+values(max_mos_a)          = 
+values(mdi_avg_alc)        = 0
+values(mdi_avg_df)         = 16.8359375
+values(mdi_max_alc)        = 0
+values(mdi_max_df)         = 35.05859375
+values(mdi_min_alc)        = 0
+values(mdi_min_df)         = 7.6328125
+values(min_mos_a)          = 
+values(mos_a)              = 
+values(mos_cq)             = 
+values(mos_lq)             = 
+values(rfactor_cq)         = 
+values(rfactor_lq)         = 
+values(sample_time)        = 36
+values(stream_id)          = 1
+values(utc_time)           = 2009/07/28 21:49:14 
+
+values(*)                  = stream_id sample_time mdi_avg_df mdi_min_df mdi_max_df mdi_avg_alc mdi_min_alc mdi_max_alc mos_a min_mos_a max_mos_a absolute_mos_v absolute_min_mos_v absolute_max_mos_v rfactor_lq rfactor_cq mos_lq mos_cq utc_time
+values(absolute_max_mos_v) = 4.73046875
+values(absolute_min_mos_v) = 4.73046875
+values(absolute_mos_v)     = 4.73046875
+values(max_mos_a)          = 
+values(mdi_avg_alc)        = 0
+values(mdi_avg_df)         = 7.73828125
+values(mdi_max_alc)        = 0
+values(mdi_max_df)         = 9.21875
+values(mdi_min_alc)        = 0
+values(mdi_min_df)         = 6.7265625
+values(min_mos_a)          = 
+values(mos_a)              = 
+values(mos_cq)             = 
+values(mos_lq)             = 
+values(rfactor_cq)         = 
+values(rfactor_lq)         = 
+values(sample_time)        = 40
+values(stream_id)          = 1
+values(utc_time)           = 2009/07/28 21:49:18 
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+        <item name="sample2">
+            <responseBody>*                  = stream_id sample_time mdi_avg_df mdi_min_df mdi_max_df mdi_avg_alc mdi_min_alc mdi_max_alc mos_a min_mos_a max_mos_a absolute_mos_v absolute_min_mos_v absolute_max_mos_v rfactor_lq rfactor_cq mos_lq mos_cq utc_time
+absolute_max_mos_v = 4.73046875
+absolute_min_mos_v = 4.73046875
+absolute_mos_v     = 4.73046875
+max_mos_a          = 
+mdi_avg_alc        = 0
+mdi_avg_df         = 16.8359375
+mdi_max_alc        = 0
+mdi_max_df         = 35.05859375
+mdi_min_alc        = 0
+mdi_min_df         = 7.6328125
+min_mos_a          = 
+mos_a              = 
+mos_cq             = 
+mos_lq             = 
+rfactor_cq         = 
+rfactor_lq         = 
+sample_time        = 36
+stream_id          = 1
+utc_time           = 2009/07/28 21:49:14 
+
+*                  = stream_id sample_time mdi_avg_df mdi_min_df mdi_max_df mdi_avg_alc mdi_min_alc mdi_max_alc mos_a min_mos_a max_mos_a absolute_mos_v absolute_min_mos_v absolute_max_mos_v rfactor_lq rfactor_cq mos_lq mos_cq utc_time
+absolute_max_mos_v = 4.73046875
+absolute_min_mos_v = 4.73046875
+absolute_mos_v     = 4.73046875
+max_mos_a          = 
+mdi_avg_alc        = 0
+mdi_avg_df         = 7.73828125
+mdi_max_alc        = 0
+mdi_max_df         = 9.21875
+mdi_min_alc        = 0
+mdi_min_df         = 6.7265625
+min_mos_a          = 
+mos_a              = 
+mos_cq             = 
+mos_lq             = 
+rfactor_cq         = 
+rfactor_lq         = 
+sample_time        = 40
+stream_id          = 1
+utc_time           = 2009/07/28 21:49:18 </responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner>*  = stream_id sample_time mdi_avg_df mdi_min_df mdi_max_df mdi_avg_alc mdi_min_alc mdi_max_alc mos_a min_mos_a max_mos_a absolute_mos_v absolute_min_mos_v absolute_max_mos_v rfactor_lq rfactor_cq mos_lq mos_cq utc_time</banner>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <customDelimiter>=</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <columns>
+                        <item name="entry"/>
+                        <item name="value">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="call" command="Dump_Brief_Stats" matchType="Regex"/>
+    <responseFilters>
+        <item name="RemoveValue">
+            <pattern>values(</pattern>
+        </item>
+        <item name="RemoveParenthesis">
+            <pattern>)</pattern>
+        </item>
+    </responseFilters>
+    <aliases>
+        <item name="get_value_by_streamId_metric">
+            <queryFormatString>//table[row/entry=&apos;stream_id&apos; and row/value=&apos;{0}&apos;]/row[entry=&apos;{1}&apos;]/value</queryFormatString>
+            <arguments>
+                <item name="streamId">
+                    <defaultvalue>1</defaultvalue>
+                </item>
+                <item name="metric">
+                    <defaultvalue>mdi_avg_df</defaultvalue>
+                </item>
+            </arguments>
+        </item>
+    </aliases>
+</ResponseMap>

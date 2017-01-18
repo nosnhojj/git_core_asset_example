@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.3.1.73463">
+    <baseApplication>com.fnfr.svt.applications.mail</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties">
+        <smtpUrl inherit="false">outbound.cisco.com</smtpUrl>
+        <portID inherit="false" defaultValue=""/>
+        <smtpUser inherit="false">haidchan</smtpUser>
+        <smtpPassword inherit="false" masked="true">oBx4UEZl3HZ8tzczCaMmaA==</smtpPassword>
+        <from inherit="false">spirent1@spirent.com</from>
+        <ssl inherit="false" defaultValue=""/>
+        <tls inherit="false" defaultValue=""/>
+    </sessionProperties>
+    <nickName>mail</nickName>
+</SessionTemplate>

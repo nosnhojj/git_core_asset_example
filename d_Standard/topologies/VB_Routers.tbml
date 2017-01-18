@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name></name>
+    <description></description>
+    <property name="dateModified">2017-01-18T12:20:05.275-05:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">6.0.0.18638fa</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="417c9fdc-7f05-4d30-bf0d-9bda9ed26cfe" id="resource_0" type="C7200_">
+        <boundary height="99" width="197" x="48" y="180"/>
+        <property name="iconURI">project://Cisco/images/C7200.jpg</property>
+        <property name="name">DUT</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://d_Cisco/session_profiles/Cisco7200_Telnet_Base.ffsp" name="DUT_TELNET" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                <ipAddress inherit="false">192.168.56.2</ipAddress>
+              </sessionProperties>
+              <baseProfile>project://d_Cisco/session_profiles/Cisco7200_Telnet_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="DUT_WEB" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+                <baseUrl inherit="false">192.168.56.2</baseUrl>
+                <stepProperties>
+                  <stepCredentialProperties>
+                    <stepPassword inherit="false">/k0EmzmSuV4=</stepPassword>
+                  </stepCredentialProperties>
+                </stepProperties>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="DUT_SNMP" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.snmp</baseApplication>
+              <sessionProperties ipAddress="192.168.56.2" ipAddress.inherit="false" type="com.fnfr.svt.applications.snmp.documents.DeviceProperties" writeCommunity="XNPb4mBlgB8=" writeCommunity.inherit="false" writeCommunity.masked="true"/>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Syslog" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.syslog</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.syslog.SyslogSessionProperties"/>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="01b05314-df51-4063-9c41-0b7addcd43f7" id="resource_0_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="08089716-f208-4f84-b22e-85976a42b877" id="resource_0_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+      </resource>
+      <resource guid="e6ddf8a1-a1e7-4c5e-a55f-091e8b6abfdf" id="resource_1" type="host">
+        <boundary height="80" width="63" x="432" y="384"/>
+        <property name="iconURI">project://Windows/images/windows.bmp</property>
+        <property name="name">host</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="laptop" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <baseProfile>project://Windows/session_profiles/windows_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="73b2303c-d4cc-44f4-91b5-3c9390157579" id="resource_1_1" type="port">
+          <property name="name">Wired_Ethernet</property>
+        </resource>
+      </resource>
+      <resource guid="bf9caaae-6b7b-47b9-bb4d-038b7143c8e4" id="resource_2" type="network">
+        <boundary height="62" width="60" x="432" y="204"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/cloud_32.gif</property>
+        <property name="name">network1</property>
+        <resource guid="1aa58898-71c9-42d5-b38e-4bf80187fcbb" id="resource_2_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="7adc24ac-95f3-464d-b542-1a482afba552" id="resource_2_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+        <resource guid="de1bbee5-649e-44e5-9603-1d40957c10f0" id="resource_2_2" type="port">
+          <property name="name">port3</property>
+        </resource>
+      </resource>
+      <resource guid="066eb5a2-00cb-47c0-a3d8-8b0dcad828d1" id="resource_3" type="C7200_">
+        <boundary height="99" width="197" x="696" y="168"/>
+        <property name="iconURI">project://Cisco/images/C7200.jpg</property>
+        <property name="name">DUT2</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://d_Cisco/session_profiles/Cisco7200_Telnet_Base.ffsp" name="DUT_TELNET" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                <ipAddress inherit="false">192.168.57.2</ipAddress>
+              </sessionProperties>
+              <baseProfile>project://d_Cisco/session_profiles/Cisco7200_Telnet_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="DUT_WEB" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+                <baseUrl inherit="false">192.168.57.2</baseUrl>
+                <stepProperties>
+                  <stepCredentialProperties>
+                    <stepPassword inherit="false">/k0EmzmSuV4=</stepPassword>
+                  </stepCredentialProperties>
+                </stepProperties>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="DUT_SNMP" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.snmp</baseApplication>
+              <sessionProperties ipAddress="192.168.57.2" ipAddress.inherit="false" type="com.fnfr.svt.applications.snmp.documents.DeviceProperties" writeCommunity="XNPb4mBlgB8=" writeCommunity.inherit="false" writeCommunity.masked="true"/>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Syslog" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.syslog</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.syslog.SyslogSessionProperties"/>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="01b05314-df51-4063-9c41-0b7addcd43f7" id="resource_3_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet1</property>
+        <endpoint id="resource_0_0"/>
+        <endpoint id="resource_2_0"/>
+      </link>
+      <link id="link_1">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet2</property>
+        <endpoint id="resource_3_0"/>
+        <endpoint id="resource_2_1"/>
+      </link>
+      <link id="link_2">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet3</property>
+        <endpoint id="resource_2_2"/>
+        <endpoint id="resource_1_1"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer>
+      <label height="40" width="72" x="276" y="192">
+        <content>192.168.56.2</content>
+      </label>
+      <label height="40" width="72" x="564" y="192">
+        <content>192.168.57.2</content>
+      </label>
+    </layer>
+  </illustration>
+</tbml>

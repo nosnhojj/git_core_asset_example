@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<testCase version="4.1.4.63326">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="37c38960-6e71-42a9-a626-76ba94c533d7" action="eval">
+                    <command>
+                        <body>set time [clock format [clock clicks]]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e55091a1-f607-4a52-b1a1-303565c8db4b" action="eval">
+                    <command>
+                        <body>regsub -all {\\s} $time &quot;_&quot; filename</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4c224326-b5dd-413a-a1e9-cc45d48e9991" action="eval">
+                    <command>
+                        <body>puts $filename.txt</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fdf1e7af-d2ed-43ef-9d2c-580788c40025" action="comment">
+                    <command>
+                        <body>See http://www.tcl.tk/man/tcl/tutorial/Tcl41.html for help on format</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a2989f00-0df3-4d92-a67b-4e8bba8a2391" action="eval">
+                    <command>
+                        <body>set time [clock format [clock scan now] -format {%b_%Y_%H%M}]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6f5eda92-bdaa-4961-ad16-51ce24762286" action="eval">
+                    <command>
+                        <body>puts $time.txt</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

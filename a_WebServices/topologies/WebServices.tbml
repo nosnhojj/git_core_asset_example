@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name></name>
+    <description></description>
+    <property name="dateModified">2017-01-18T14:11:34.774-05:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">6.0.0.18638fa</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="4fd6180e-7e12-4cba-b615-cbdc63f44ee7" id="resource_0" type="station">
+        <boundary height="62" width="55" x="462" y="213"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/BaseStation_32.gif</property>
+        <property name="name">Weather</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://a_WebServices/session_profiles/WeatherForecast.ffsp" name="Web_Services" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.itest.applications.webservices</baseApplication>
+              <sessionProperties transferableToolId="com.fnfr.itest.applications.webservices" transferableType="com.fnfr.itest.applications.webservices.properties.wsdl.WSDLSessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject"/>
+              <baseProfile>project://a_WebServices/session_profiles/WeatherForecast.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+      </resource>
+    </resources>
+    <connectivity/>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

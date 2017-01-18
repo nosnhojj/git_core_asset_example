@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.1.0.77511">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">192.168.1.33</ipAddress>
+    </sessionProperties>
+    <parameters version="5.1.0.77511">
+        <parameters escape="true">
+            <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                <ipAddr>192.168.1.33</ipAddr>
+            </parameters>
+        </parameters>
+    </parameters>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <sessionClassTestCase inherit="false">Cisco2940_Telnet_Quickcalls.fftc</sessionClassTestCase>
+    <nickName>Cisco2940_Telnet</nickName>
+    <baseProfile>CiscoIOS_Telnet_Base.ffsp</baseProfile>
+    <standalone>false</standalone>
+    <initializationProcedure inherit="false">login</initializationProcedure>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

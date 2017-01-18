@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<testCase version="4.3.0.71664">
+    <general>
+        <isProcedureLibrary>true</isProcedureLibrary>
+    </general>
+    <procedures>
+        <item name="main" isPublic="true">
+            <steps>
+                <item guid="a6176263-4ae6-4b19-9949-f40c48a7aab2" action="open" session="mail">
+                    <command>
+                        <body>email.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.mail.MailSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="3daad78b-11a6-43c9-b573-952b53c8cb3d" action="from" session="mail" normalOffset="39.407">
+                    <command>
+                        <body>$from</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="77491df5-1e92-4a69-9d98-b50fed0ffd8a" action="to" session="mail">
+                    <command>
+                        <body>$to</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2b68c63e-3c33-45eb-a2e6-c1cfa9d33ea6" action="subject" session="mail">
+                    <command>
+                        <body>$subject</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="92d6d677-7ed0-4ba9-bdf7-62a0357ae77c" action="writeLine" session="mail" normalOffset="0.015">
+                    <command>
+                        <body>$body</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b74854e0-1e26-41f0-a5b2-9e0804948572" action="attach" session="mail" skip="true">
+                    <command>
+                        <body>$attach2</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="de5aff98-adc1-4534-876e-43e9d4fbed7b" action="attach" session="mail">
+                    <command>
+                        <body>$attach1</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="15923328-4201-4b3e-b6a1-020ecce5be6f" action="send" session="mail" normalOffset="0.016">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f836497d-1b62-4f6a-b69c-e6399d85c384" action="close" session="mail" normalOffset="9.436">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="from"/>
+                <item name="to"/>
+                <item name="subject"/>
+                <item name="attach1"/>
+                <item name="attach2"/>
+                <item name="body"/>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

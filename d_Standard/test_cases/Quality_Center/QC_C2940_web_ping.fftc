@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution estimatedExecutionTime="15">
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <ping_count pt:datatype="INTEGER">5</ping_count>
+                    <dut_ip>192.168.1.33</dut_ip>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="6a7c1c04-8575-46e0-adea-4cd755f01fc2" action="open" session="Cisco2940_web">
+                    <command>
+                        <body>project://d_Standard/session_profiles/Cisco2940_web.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="e714b8d7-1059-4dd4-9458-b18a0810e376" action="open" session="laptop">
+                    <command>
+                        <body>project://d_Standard/session_profiles/laptop.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="0474fb78-2f9a-4be1-a49c-cbf0bfe63269" action="showTable" session="Cisco2940_web" context="form_maps/Cisco2940_Home" target="Summary_Table()" normalOffset="3.703">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ShowTableProperties"/>
+                </item>
+                <item guid="cbdc039f-4f9e-46d1-bccf-0e5c1d26d7ba" action="snapshot" session="Cisco2940_web">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+                <item guid="ca547b6e-25dd-49e7-a406-290840b393bc" action="go" session="Cisco2940_web" normalOffset="7.11" estimatedStepExecutionTime="0.531">
+                    <command>
+                        <body>http://192.168.1.33/exec/-/show/ip/traffic</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+                <item guid="7bcfd9ae-c5b2-4499-8e7c-9cd9f79fdb33" action="getInnerText" session="Cisco2940_web" context="form_maps/Cisco2940_show_ip_traffic" target="IP_statistics()">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>rcvd_echo()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>initial_ping_count</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                    <responseMap>project://Cisco/show_ip_traffic_web.ffrm</responseMap>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Step 1">
+                        <description>Retrieve the current number of pings</description>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="35e15c70-b525-45b4-a91a-b25d10c04ed8" action="command" session="laptop" normalOffset="7.454" estimatedStepExecutionTime="2.125">
+                    <command>
+                        <body>ping -n [param ping_count] [param dut_ip]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="1f1500d2-1219-498e-86ea-e27c4de3dc40" action="command" session="laptop" normalOffset="1.735">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="76382f76-eabc-4b47-81d6-84b3977864e1" action="refresh" session="Cisco2940_web">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+                <item guid="5198f5e5-66d3-4c36-be4a-887760a7b532" action="snapshot" session="Cisco2940_web">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+                <item guid="29cd0a2a-82e2-47e9-9a3f-5c90a49ea110" action="getInnerText" session="Cisco2940_web" context="form_maps/Cisco2940_show_ip_traffic" target="IP_statistics()">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>rcvd_echo()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == $initial_ping_count + [param ping_count]</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>Ping Count: $value</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>Ping Count: $value;  Expected [expr $initial_ping_count+[param ping_count]]</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                    <responseMap>project://Base/response_maps/show_ip_traffic_web.ffrm</responseMap>
+                    <qualityCenterStepInfo associateWithDesignStep="true" stepName="Step 2">
+                        <description>Validate ping count</description>
+                        <expectedResult>current number of pings plus the ping count</expectedResult>
+                    </qualityCenterStepInfo>
+                </item>
+                <item guid="eeeae201-7770-4ad8-b8dd-25d78e48a277" action="close" session="laptop" normalOffset="0.016">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c25bd059-3dde-4d82-b192-3e3c9a9df217" action="close" session="Cisco2940_web" normalOffset="1.609">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <qualityCenterTestInfo domain="FANFARE" project="MANUALTEST">
+        <testLocation>Subject\\jjohnson\\Web_Ping_Test</testLocation>
+        <testInstanceLocation>Root\\jjohnson\\Web_Ping_Test\\[1]Web_Ping_Test</testInstanceLocation>
+    </qualityCenterTestInfo>
+</testCase>

@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.0.2.52893">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show ip traffic </body>
+                </command>
+            </action>
+            <responseBody>IP statistics:
+  Rcvd:  1570000 total, 1568791 local destination
+         0 format errors, 0 checksum errors, 230 bad hop count
+         3 unknown protocol, 0 not a gateway
+         0 security failures, 0 bad options, 58 with options
+  Opts:  0 end, 0 nop, 0 basic security, 0 loose source route
+         0 timestamp, 0 extended security, 0 record route
+         0 stream ID, 0 strict source route, 58 alert, 0 cipso, 0 ump
+         0 other
+  Frags: 78 reassembled, 1 timeouts, 0 couldn&apos;t reassemble
+         78 fragmented, 156 fragments, 0 couldn&apos;t fragment
+  Bcast: 71073 received, 1 sent
+  Mcast: 0 received, 0 sent
+  Sent:  1479653 generated, 410 forwarded
+  Drop:  0 encapsulation failed, 0 unresolved, 0 no adjacency
+         0 no route, 0 unicast RPF, 0 forced drop
+         0 options denied
+  Drop:  0 packets with source IP address zero
+  Drop:  91 packets with internal loop back IP address
+
+ICMP statistics:
+  Rcvd: 0 format errors, 0 checksum errors, 0 redirects, 288 unreachable
+        5316 echo, 427 echo reply, 0 mask requests, 0 mask replies, 0 quench
+        0 parameter, 0 timestamp, 0 info request, 0 other
+        0 irdp solicitations, 0 irdp advertisements
+  Sent: 0 redirects, 0 unreachable, 1303 echo, 5316 echo reply
+        0 mask requests, 0 mask replies, 0 quench, 0 timestamp
+        0 info reply, 1 time exceeded, 0 parameter problem
+        0 irdp solicitations, 0 irdp advertisements
+
+TCP statistics:
+  Rcvd: 1488459 total, 19 checksum errors, 1898 no port
+  Sent: 1470246 total
+
+PIMv2 statistics: Sent/Received
+  Total: 0/0, 0 checksum errors, 0 format errors
+  Registers: 0/0 (0 non-rp, 0 non-sm-group), Register Stops: 0/0,  Hellos: 0/0
+  Join/Prunes: 0/0, Asserts: 0/0, grafts: 0/0
+  Bootstraps: 0/0, Candidate_RP_Advertisements: 0/0
+  Queue drops: 0
+  State-Refresh: 0/0
+
+IGMP statistics: Sent/Received
+  Total: 4/0, Format errors: 0/0, Checksum errors: 0/0
+  Host Queries: 0/0, Host Reports: 0/0, Host Leaves: 0/0 
+  DVMRP: 4/0, PIM: 0/0
+  Queue drops: 0
+
+UDP statistics:
+  Rcvd: 74187 total, 0 checksum errors, 71763 no port
+  Sent: 2728 total, 0 forwarded broadcasts
+
+ARP statistics:
+  Rcvd: 594683 requests, 12 replies, 0 reverse, 0 other
+  Sent: 11 requests, 30582 replies (0 proxy), 0 reverse</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+      &lt;prompt&gt;ffcisco1&amp;gt;&lt;/prompt&gt;
+      &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+      &lt;echo/&gt;
+      &lt;idleTime&gt;1.188&lt;/idleTime&gt;
+      &lt;contentType&gt;text&lt;/contentType&gt;
+      &lt;terminator&gt;SLASH_R&lt;/terminator&gt;
+   &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>ICMP statistics:\\s+Rcvd:\\s+\\d+\\s+format errors,\\s+\\d+\\s+checksum errors,\\s+\\d+\\s+redirects,\\s+\\d+\\s+unreachable\\s+</regex>
+                            <start>0</start>
+                            <end>98</end>
+                        </item>
+                        <item name="rx_echo">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>98</start>
+                            <end>102</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+echo,\\s+</regex>
+                            <start>102</start>
+                            <end>109</end>
+                        </item>
+                        <item name="rx_echo_reply">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>109</start>
+                            <end>112</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+echo reply,\\s+\\d+\\s+mask requests,\\s+\\d+\\s+mask replies,\\s+\\d+\\s+quench\\s+\\d+\\s+parameter,\\s+\\d+\\s+timestamp,\\s+\\d+\\s+info request,\\s+\\d+\\s+other\\s+\\d+\\s+irdp solicitations,\\s+\\d+\\s+irdp advertisements\\s+Sent:\\s+\\d+\\s+redirects,\\s+\\d+\\s+unreachable,\\s+</regex>
+                            <start>112</start>
+                            <end>313</end>
+                        </item>
+                        <item name="tx_echo">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>313</start>
+                            <end>317</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\s+echo,\\s+</regex>
+                            <start>317</start>
+                            <end>324</end>
+                        </item>
+                        <item name="tx_echo_reply">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>324</start>
+                            <end>328</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+echo reply\\s+\\d+\\s+mask requests,\\s+\\d+\\s+mask replies,\\s+\\d+\\s+quench,\\s+\\d+\\s+timestamp\\s+\\d+\\s+info reply,\\s+\\d+\\s+time exceeded,\\s+\\d+\\s+parameter problem\\s+\\d+\\s+irdp solicitations,\\s+\\d+\\s+irdp advertisements</regex>
+                            <start>328</start>
+                            <end>513</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>ICMP statistics:
+  Rcvd: 0 format errors, 0 checksum errors, 0 redirects, 288 unreachable
+        5316 echo, 427 echo reply, 0 mask requests, 0 mask replies, 0 quench
+        0 parameter, 0 timestamp, 0 info request, 0 other
+        0 irdp solicitations, 0 irdp advertisements
+  Sent: 0 redirects, 0 unreachable, 1303 echo, 5316 echo reply
+        0 mask requests, 0 mask replies, 0 quench, 0 timestamp
+        0 info reply, 1 time exceeded, 0 parameter problem
+        0 irdp solicitations, 0 irdp advertisements</sampleMatch>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="show ip traffic">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

@@ -1,0 +1,774 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution>
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <hostIpAddr>192.168.1.84</hostIpAddr>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="ace04a91-60da-4f89-82d0-de493e9dfa86" action="comment">
+                    <command>
+                        <body>This test shows how to set up and capture an SNMP Trap</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="81228824-080d-4cae-bae7-559a53a3f970" action="comment">
+                    <command>
+                        <body>For this test, the DUT will be instructed to throw a trap whenever a &quot;conf t; end&quot; is performed</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7153d1ce-f4c2-406a-8cc0-6d868b94ea8e" action="comment">
+                    <command>
+                        <body>It&apos;s important to note that &quot;conf t&quot; and &quot;end&quot; will both throw a trap.  The &quot;listTraps&quot; is used</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1f7c34af-ed08-4f9a-9112-313d281f7f52" action="comment">
+                    <command>
+                        <body>to ensure that the queue is empty.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fbebd167-c939-4c2e-80d6-1087edd2babb" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a6d23496-e8b5-476d-bf52-6a02c791e9aa" action="comment">
+                    <command>
+                        <body>Open up the SNMP Session and Telnet Session</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3c431c9e-cb46-4f75-ac7b-5651beafb8af" action="open" session="cisco2940_traps">
+                            <command>
+                                <body>device:DUT#SNMP</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="bf2ea3ad-3491-4ddd-86ae-14614b204df4" action="open" session="Cisco2940_Telnet">
+                            <command>
+                                <body>device:DUT#CLI</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="ce6b9ef7-4e52-4ab1-b8f9-81598f583e93" action="command" session="Cisco2940_Telnet" normalOffset="2.081" estimatedStepExecutionTime="0.015">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="85f58e55-9848-4085-8ad9-b4a425544889" action="command" session="Cisco2940_Telnet" normalOffset="0.735" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>ena</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="35ee9e9e-21ec-4084-b0e4-5aaeb32813af" action="command" session="Cisco2940_Telnet" normalOffset="1.783" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="5da24fb1-43eb-40b5-8be7-6167c82ac2c1" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>show version</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4ee929bd-f118-4613-a43c-fc124daa488f" action="comment">
+                    <command>
+                        <body>Initialize SNMP Server to throw configuration traps</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4867ee2c-6798-45ab-abcd-ab20b93eb444" action="command" session="Cisco2940_Telnet" normalOffset="1.393" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="3e625913-1998-4261-b50e-d6aba5c16f4f" action="call">
+                            <command>
+                                <body>disableTraps </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="588f118f-1185-4980-8419-fb36491c8c54" action="command" session="Cisco2940_Telnet" normalOffset="16.471" estimatedStepExecutionTime="0.109">
+                            <command>
+                                <body>snmp-server community public RO</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="ba473312-1c35-4a27-93c8-0cd6ec2d4ffb" action="command" session="Cisco2940_Telnet" normalOffset="11.873" estimatedStepExecutionTime="0.078">
+                            <command>
+                                <body>snmp-server community fanfare RW</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="8b0d98fb-6786-49e5-809b-ae6010b2c591" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>snmp-server enable trap config</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="0c961bb7-4948-405a-9917-22132d834de7" action="command" session="Cisco2940_Telnet" skip="true" normalOffset="7.147" estimatedStepExecutionTime="0.094">
+                            <command>
+                                <body>snmp-server host [info hostIp] public</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="4ac6a33e-07f4-414f-b7e5-6222783841ca" action="comment">
+                            <command>
+                                <body>Get Host IP Address</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="a3d34ea2-0453-4a55-99bc-5519128c95a8" action="open" session="host">
+                                    <command>
+                                        <body>device:host</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="68559b3b-ec67-4244-9855-c1b4f31eeae1" action="getLaptopIPAddress" session="host">
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>hostIp</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="79bf1119-a0e2-492f-a0d0-b6a924b7b11c" action="close" session="host">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="8310b163-aec9-48b9-820b-2714de123954" action="command" session="Cisco2940_Telnet" normalOffset="7.147" estimatedStepExecutionTime="0.094">
+                            <command>
+                                <body>snmp-server host $hostIp public</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="cd6da296-6b01-47a5-b34f-22728fb5da8b" action="command" session="Cisco2940_Telnet" normalOffset="42.838" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="df3190b9-c4fe-48da-a449-08525d31dce8" action="comment">
+                    <command>
+                        <body>Verify configuration is set up properly</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c7dc008c-3142-4fef-8963-edd7a3ff2edd" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>show running-config</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^snmp-server community public RO$</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;snmp-server community public RO&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Public Community Defined</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Public Community Not Defined</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^snmp-server enable traps config$</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;snmp-server enable traps config&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Configuration Traps Enabled</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Configuation Traps Not Enabled</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^snmp-server host\\s(\\S+)\\spublic\\s$</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == $hostIp</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>SNMP Server host configured</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>SNMP Host not configured.  Host is &apos;&apos;{value}&apos;&apos;.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8521dbdd-1fcb-4f92-961f-05482939a7fa" action="comment">
+                    <command>
+                        <body>Throw a trap in parallel</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2fe938f3-66af-4017-ab51-275b514befe5" action="call" async="true">
+                            <command>
+                                <body>throwTrap </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="74b43ea4-525e-4b02-b97f-aa1aad9f809d" action="comment">
+                    <command>
+                        <body>Make sure to flush the queue first</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="2775b1a9-e66c-40e9-ae76-c23f2ce69f43" action="listTraps" session="cisco2940_traps">
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties">
+                                <TrapsProperties>
+                                    <useReceivedTrapsForWait inherit="false">false</useReceivedTrapsForWait>
+                                </TrapsProperties>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="766ea433-5a4c-4c5a-b8a3-a41da58d1c82" action="comment">
+                    <command>
+                        <body>Now wait for the trap we&apos;re expecting</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a012977a-b0e5-427a-b9d5-30ea82493236" action="waitForTrap" session="cisco2940_traps">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>Source()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [profile Cisco2940_Telnet ipAddr]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Trap Received From DUT</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Value &apos;&apos;{value}&apos;&apos; is inconsistent with &apos;&apos;{assertion}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TrapOID()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;.1.3.6.1.4.1.9.9.43.2&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>config Trap detected</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown SNMP Trap OID &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties">
+                                <TrapsProperties>
+                                    <useReceivedTrapsForWait inherit="false">false</useReceivedTrapsForWait>
+                                </TrapsProperties>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6ad2979d-0951-4085-b4df-385dbc7870b8" action="comment">
+                    <command>
+                        <body>Turn off Traps</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e6233f5e-f16e-4e98-bb04-7d94f1f09ee1" action="command" session="Cisco2940_Telnet" normalOffset="1.393" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="43e10292-6ca0-4a5c-8c16-54de01e968c4" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>no snmp-server enable trap config</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="2b7f645b-cd09-4603-8188-945bf8898547" action="command" session="Cisco2940_Telnet" normalOffset="7.147" estimatedStepExecutionTime="0.094">
+                            <command>
+                                <body>no snmp-server host [param hostIpAddr] public</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="b4235e32-4620-4300-8046-2806bbab1b30" action="command" session="Cisco2940_Telnet" normalOffset="42.838" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d716fbae-07da-4367-abaa-c5d4e437a145" action="comment">
+                    <command>
+                        <body>Verify everythings off</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ad819c20-4f6c-4686-a8e2-4032534c8845" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>show running-config</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^snmp-server enable traps config$</regex>
+                                                <declareNoMatchIssue>false</declareNoMatchIssue>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;snmp-server enable traps config&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Configuration Traps Remain Enabled</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Configuation Traps Disabled</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^snmp-server host\\s(\\S+)\\spublic\\s$</regex>
+                                                <declareNoMatchIssue>false</declareNoMatchIssue>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [profile Cisco2940_Telnet ipAddr]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>SNMP Server host configured</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>SNMP Host not configured.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="ec015b6c-aef2-49b2-88a6-72bcd862bba9" action="comment">
+                    <command>
+                        <body>Close up shop</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="34aef5d3-4ed3-4a2c-b13b-e12957c85e9a" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="d16fd8b5-e91a-445c-90c7-d59147c144af" action="close" session="Cisco2940_Telnet" normalOffset="0.094">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="74167462-41ce-43be-96c6-3f7576fb695f" action="close" session="cisco2940_traps">
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="throwTrap">
+            <steps>
+                <item guid="7632c3f3-cb05-4d6b-a015-24c4f6d276e6" action="open" session="DUT_2">
+                    <command>
+                        <body>device:DUT#CLI</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="4babd075-a8b3-4e0f-9235-68225fcff1da" action="command" session="DUT_2">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="86d1650a-9eb7-46cb-b176-04b32fc9f5f8" action="command" session="DUT_2">
+                    <command>
+                        <body>ena</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="a7f152ef-1c23-4982-8c3f-ab3dd98b2bd2" action="command" session="DUT_2">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0563440a-6e5a-462f-8ae3-bd0de822aaff" action="sleep">
+                    <command>
+                        <body>5</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b107e0c9-eecc-4b3e-8da9-3e0359aea293" action="command" session="DUT_2">
+                    <command>
+                        <body>conf t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="5feadc78-9f86-412a-832f-f6bb809b25f6" action="command" session="DUT_2">
+                    <command>
+                        <body>end</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="98c30920-c7dc-47df-9cd3-068262779300" action="command" session="DUT_2">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="a164eda0-809f-44fc-8b39-70f036a192b1" action="close" session="DUT_2">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+        <item name="disableTraps">
+            <steps>
+                <item guid="926c6281-2e06-4204-a6f5-6ca22023518e" action="command" session="Cisco2940_Telnet" estimatedStepExecutionTime="0.156">
+                    <command>
+                        <body>snmp-server community public RO</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0aa91479-8e3e-43ea-a777-ef03762b9789" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.172">
+                    <command>
+                        <body>snmp-server community fanfare RW</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="59c409ed-51b1-4f0e-bbe6-2afe1fbfdcc5" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server contact Jeff Johnson</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b9594248-e877-4c72-b009-2fb4bbe75f2c" action="command" session="Cisco2940_Telnet" normalOffset="0.171" estimatedStepExecutionTime="0.203">
+                    <command>
+                        <body>no snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3c4a5d6e-6b92-46be-ad5c-098ac4aa4dfe" action="command" session="Cisco2940_Telnet" normalOffset="0.234" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps config</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="2129c365-9c5f-4057-a1fe-c39612a41503" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps entity</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="c3149378-6c77-4194-ac51-bd9ee9e9de79" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.156">
+                    <command>
+                        <body>no snmp-server enable traps flash insertion removal</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e97954c5-37e4-4fce-bb91-64b7511ca671" action="command" session="Cisco2940_Telnet" normalOffset="0.11" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps bridge</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="366c9b28-acea-4e8e-b4fa-e7777fc22bdc" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps stpx</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="36e8c293-ab16-440c-bb14-653d6cde605d" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps rtr</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="4415f5fa-45aa-4885-b349-0742646ab74f" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps port-security </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="281a0861-7967-4d03-a067-df358491f889" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps vtp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="f161b076-e6b5-4c21-a76e-dba019535b49" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>no snmp-server enable traps vlancreate</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="7a926f76-0e62-4de1-a509-9ff54493f6b0" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps vlandelete</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="3960400b-7ca1-4066-b81f-1c4a33572783" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>no snmp-server enable traps MAC-Notification</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6fcb0e6c-3242-4bc0-9bdf-0e7fcbbe221f" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps envmon</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="fd56bcb2-6ebb-4379-9304-e5463bb1704a" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps cluster</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="03bacc32-f38a-4bc7-a264-e23e495c08e7" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps copy-config</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="9ba11702-ac9f-47be-92e2-73ca5aa6ef7c" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps syslog</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b092c797-625c-4772-ad1b-f30d173ebf0d" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps hsrp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0742dc86-033f-4bb9-8048-42c01749bb80" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>no snmp-server enable traps vlan-membership</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="dbd341f0-d58d-466f-93bb-5b46fd40d8cc" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

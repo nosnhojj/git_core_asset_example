@@ -1,0 +1,1307 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution>
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <hostIpAddr>192.168.2.184</hostIpAddr>
+                    <PORT_1>FastEthernet0/3</PORT_1>
+                    <PORT_2>FastEthernet0/5</PORT_2>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c12c4487-5f3b-4156-bab4-2e5f41cfd98c" action="comment">
+                    <command>
+                        <body>This test shows how to set up and capture an SNMP linkdown/linkup Traps</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="57c1a901-8f8a-450c-abe0-714798017c50" action="comment">
+                    <command>
+                        <body>For this test, you will need a crossover cable plugged into two ports on the switch.  For this example</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="50b54eae-45e3-4a38-9771-fdbe7272870b" action="comment">
+                    <command>
+                        <body>the crossover cable is plugged into ports 3 &amp; 5.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="bbc56585-9dce-450d-8ab8-166706ab4a6b" action="comment">
+                    <command>
+                        <body>The test will take down the port in parameter PORT_1.  A check to see that PORT_1 was taken</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8cc4d7bc-395c-477d-bf5b-7987913524fd" action="comment">
+                    <command>
+                        <body>administratively and that PORT_2 went down due to loss of carrier will be performed.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1685d612-faa8-431e-abb1-c12eab7e34a0" action="comment">
+                    <command>
+                        <body>Next, PORT_1 will be restarted and both ports will be checked via the trap to ensure they are</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="f2372b0b-abf3-4509-af02-ae178c6bd9d0" action="comment">
+                    <command>
+                        <body>back online.</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="16e97734-edfe-4230-8999-55904acbcc54" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6e783969-8d44-489b-be7c-cab7383bd6ee" action="comment">
+                    <command>
+                        <body>Open up the SNMP Session and Telnet Session</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="5d7a312d-6e58-44d0-b202-2352203cdcc0" action="open" session="cisco2940_traps">
+                            <command>
+                                <body>device:DUT#SNMP</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="1bff3e73-b5fb-409d-a191-3079dc84aa56" action="open" session="Cisco2940_Telnet">
+                            <command>
+                                <body>device:DUT#CLI</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="3c419834-2b33-4b41-b085-1ac27de05f5f" action="command" session="Cisco2940_Telnet" normalOffset="2.081" estimatedStepExecutionTime="0.015">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="41385a19-12e2-4771-ae61-7954b1ffebe0" action="command" session="Cisco2940_Telnet" normalOffset="0.735" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>ena</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="b56a310f-7db9-41a0-9f14-100eb9667295" action="command" session="Cisco2940_Telnet" normalOffset="1.783" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="44ec28ab-56ca-4f4d-8def-d283dd30b234" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>show version</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2587239e-a0f1-4885-a98f-aaf90451206c" action="comment">
+                    <command>
+                        <body>Enable the linkdown trap and send them to you machine</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="cb01cbb9-1b4d-4e0a-9334-cea9da91d874" action="command" session="Cisco2940_Telnet" normalOffset="1.393" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>config t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="007460e1-3b79-48d6-8f52-4a9613b7c67f" action="call">
+                            <command>
+                                <body>disableTraps </body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="aef896c7-a8f5-4da7-ae6a-5496be914e18" action="command" session="Cisco2940_Telnet" normalOffset="16.471" estimatedStepExecutionTime="0.109">
+                            <command>
+                                <body>snmp-server community public RO</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a39a9c5e-f4ce-4856-902f-b61500982529" action="command" session="Cisco2940_Telnet" normalOffset="11.873" estimatedStepExecutionTime="0.078">
+                            <command>
+                                <body>snmp-server community fanfare RW</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="b9b598fa-8b7e-4247-9ad5-ba7d7a313111" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>snmp-server enable trap snmp linkdown linkup</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="0fae5bdf-3014-43fd-b6dc-1b952681630e" action="comment">
+                            <command>
+                                <body>Determine the host address</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="74186fcc-5b4f-4822-96db-909dcef68dd8" action="open" session="laptop">
+                                    <command>
+                                        <body>device:host</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="2ea71873-0b58-4462-b0f7-31e430b2d281" action="getLaptopIPAddress" session="laptop">
+                                    <command>
+                                        <body>-adapter &quot;Local Area Connection&quot;</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>group1()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>hostIp</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="ada59448-b009-4eaf-8d30-eb9fce571c5f" action="close" session="laptop">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="6fcc8720-b34f-4beb-a5c4-a41e218971c9" action="command" session="Cisco2940_Telnet" normalOffset="7.147" estimatedStepExecutionTime="0.094">
+                            <command>
+                                <body>snmp-server host $hostIp public</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="659077d0-4dc7-42da-b548-db82349e0952" action="command" session="Cisco2940_Telnet" normalOffset="42.838" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="320fd135-639a-4458-84b7-fe6f5b0db7aa" action="comment">
+                    <command>
+                        <body>Verify eveything is down</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3ca1d443-14da-4fc7-aa2d-013dcb40fd93" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>show running-config</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="92cab76b-a305-4a1e-b4e6-919c4c6c871f" action="comment">
+                    <command>
+                        <body>Make sure to flush the queue first</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7460e3b8-f23f-47a8-a443-79ba98cff363" action="listTraps" session="cisco2940_traps">
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties">
+                                <TrapsProperties>
+                                    <useReceivedTrapsForWait inherit="false" defaultValue=""/>
+                                </TrapsProperties>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1e89ee69-012c-4403-8050-e257d0273efd" action="comment">
+                    <command>
+                        <body>Shutdown PORT_1</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="86227b64-9013-4cfb-b34c-9a2319a80c54" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="d01bb672-7526-437a-a578-af06b8a55c02" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>int [param PORT_1]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="5a6a5596-1f2a-4987-a8cc-82d1b3e14b87" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>shutdown</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="123758cc-c6fc-408d-a237-c093b7ea739d" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="826b199e-0cf9-40e6-96b8-fcf8be0092f5" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="f3c33c4f-446a-4781-8542-629ef7d04c8c" action="comment">
+                    <command>
+                        <body>Let&apos;s try this with waitForTrap</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b4444ffd-cdfe-412b-95eb-2ceaf4a4545d" action="waitForTrap" session="cisco2940_traps">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Testing Links Up</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TrapOID()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;.1.3.6.1.4.1.9.1.540&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Found Cisco 2940 8TT Switch</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>OID &apos;&apos;{value}&apos;&apos; is not a Cisco 2940 8TT Switch</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>GenericType()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;linkDown&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Found Link Down Trap</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>Found &apos;&apos;{value}&apos;&apos; Trap</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//Variables/Var/Value)[2]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [param PORT_1]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Found Correct Port</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>Value &apos;&apos;{value}&apos;&apos; is not the correct port</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//Variables/Var/Value)[4]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;administratively down&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Link is down</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Link is not down.  Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0129aa62-5c99-4905-b5be-bc647cbba437" action="comment" skip="true">
+                    <command>
+                        <body>List the traps</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="fb17f2c8-6d09-410c-a41e-c2be546d5009" action="sleep">
+                            <command>
+                                <body>5</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b2177f29-d357-4201-b608-e38d803ab020" action="listTraps" session="cisco2940_traps">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Testing Links Down</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;0&apos;]/Variables/Var/Value)[2]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [param PORT_2]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Port 2 Trap</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Port &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>GenericType(0)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;linkDown&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Link is down</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Link Status -- Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;0&apos;]/Variables/Var/Value)[4]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;Lost Carrier&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Lost Carrier as expected</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Status -- Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;1&apos;]/Variables/Var/Value)[2]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [param PORT_1]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Port 1 Detected</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Port &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>GenericType(1)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;linkDown&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Link is down</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Link Status -- Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;1&apos;]/Variables/Var/Value)[4]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;administratively down&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Administratively Down as expected</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Value &apos;&apos;{value}&apos;&apos; is inconsistent with &apos;&apos;{assertion}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5e1e7068-0629-41e8-a901-37891ac002b5" action="comment">
+                    <command>
+                        <body>Restart PORT_1</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1ca2d1d6-d198-432d-98ff-f6da8bca0548" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a580706b-9bb5-447d-8963-212ab4d8a484" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>int [param PORT_1]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="20078977-7b4c-4a48-855a-87dba547c721" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>no shutdown</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="f9f78909-eff6-4448-8947-1d8504332501" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="c6daea2b-b90f-4fd4-bfa4-7e5724f5be07" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5c51d98e-fedb-4ec5-9496-d3b0a9a68174" action="comment">
+                    <command>
+                        <body>Let&apos;s try this with waitForTrap</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b4444ffd-cdfe-412b-95eb-2ceaf4a4545d" action="waitForTrap" session="cisco2940_traps">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Testing Links Up</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>TrapOID()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;.1.3.6.1.4.1.9.1.540&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Found Cisco 2940 8TT Switch</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>OID &apos;&apos;{value}&apos;&apos; is not a Cisco 2940 8TT Switch</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>GenericType()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;linkUp&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Found Link Up Trap</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>Found &apos;&apos;{value}&apos;&apos; Trap</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//Variables/Var/Value)[2]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [param PORT_1]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Found Correct Port</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                            <message>Value &apos;&apos;{value}&apos;&apos; is not the correct port</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="RepeatStep">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.RepeatStepPropertyGroup"/>
+                                                    </item>
+                                                    <item actionId="SkipRemainingRules">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//Variables/Var/Value)[4]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;up&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Link is up</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Link is not up.  Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e4e374a6-46bc-461c-b218-d2caabf6a287" action="comment" skip="true">
+                    <command>
+                        <body>List the startup traps</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e658a249-7e5d-4e21-b8d2-8aa94cc622de" action="sleep">
+                            <command>
+                                <body>5</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="71be4a3b-3419-4838-89d1-5b8262786946" action="listTraps" session="cisco2940_traps">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Testing Links Up</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;0&apos;]/Variables/Var/Value)[2]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [param PORT_1]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Port 2 Trap</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Port &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>GenericType(0)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;linkUp&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Trap Type is linkUp</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Trap Type -- Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;0&apos;]/Variables/Var/Value)[4]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;up&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Link is up as expected</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown status -- Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;1&apos;]/Variables/Var/Value)[2]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == [param PORT_2]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Port 1 Detected</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Port &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>GenericType(1)</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;linkUp&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Trap Type is linkUp</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknown Trap Type -- Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>(.//TrapList//Trap[ID = &apos;1&apos;]/Variables/Var/Value)[4]</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == &quot;up&quot;</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Link is up</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Unknow status -- Value &apos;&apos;{value}&apos;&apos;</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fa40240d-224a-4c77-b82f-8d1a0f0f7c3f" action="comment">
+                    <command>
+                        <body>Turn off traps</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="20f6fa24-2b48-454c-9c7a-608b97175c44" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>conf t</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="dcd5821c-2d1b-403e-b9a4-10379fc09d89" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>no snmp-server enable trap snmp linkdown linkup</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="7b45e6e7-ed48-47a1-aff4-a086255f40ca" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>no snmp-server host $hostIp public</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="3dc5f56d-3e3f-4b88-b2dd-36b398f8feff" action="command" session="Cisco2940_Telnet" normalOffset="70.69" estimatedStepExecutionTime="0.031">
+                    <command>
+                        <body>end</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="1bddf0a2-735b-4f1c-b968-592dde4d314b" action="comment">
+                    <command>
+                        <body>Close up shop</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="eee73c25-7941-4004-8e14-be3190935b00" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>show running-config</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="0518af79-6d76-4a32-8ff2-fb687a7dcbb0" action="command" session="Cisco2940_Telnet">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a0dbe900-c12a-453c-a3c6-8a005bdcb650" action="close" session="Cisco2940_Telnet" normalOffset="0.094">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="32327ff8-f9a7-4269-bf62-6fd375e475a2" action="close" session="cisco2940_traps">
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="disableTraps">
+            <steps>
+                <item guid="97c9ff7e-a4a2-465a-8832-77f1e3812ed0" action="command" session="Cisco2940_Telnet" estimatedStepExecutionTime="0.172">
+                    <command>
+                        <body>snmp-server community public RO</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="81703ebb-f520-4ae6-a30c-92de265dd54d" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.14">
+                    <command>
+                        <body>snmp-server community fanfare RW</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="081967a1-771b-45a9-82ce-f83369cec11c" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server contact Jeff Johnson</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="daa44615-9161-437b-8a50-59a4c7f35e8e" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.218">
+                    <command>
+                        <body>no snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="dec3e909-61d9-454c-ba4c-cb5f8b47aaa5" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps config</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e5ab7afd-5b87-460d-a81f-5ee379bd51b5" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps entity</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="bc07fecb-9788-4477-a823-807fb92e8186" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.547">
+                    <command>
+                        <body>no snmp-server enable traps flash insertion removal</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="771328a4-52cc-439a-8650-f52a2e3ad7dc" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps bridge</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6be0847e-b628-44ea-9e71-35e42c0f94d6" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps stpx</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e5a8bc2a-d691-48d1-b1c5-cdd0a3072627" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps rtr</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="cc96a0d4-9987-4119-bd7d-2b75a0a4686c" action="command" session="Cisco2940_Telnet" normalOffset="0.108" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>no snmp-server enable traps port-security </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="d7d24268-84f0-40d4-b01d-31ccd0ea2334" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps vtp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="303c9a84-08b9-4a31-ad34-e35e2be2dd7e" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps vlancreate</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e4129028-a4b9-405f-ade2-ca397794cecd" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps vlandelete</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="5f07d004-7cb2-40e5-8690-34996a23b698" action="command" session="Cisco2940_Telnet" normalOffset="0.109" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>no snmp-server enable traps MAC-Notification</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="530e2b50-1b7d-40ce-b0d6-6fb060f21738" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps envmon</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="b91c7b06-05e0-4224-9157-e14e10f6e4fc" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>no snmp-server enable traps cluster</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="bbfc4253-1c63-4875-8aa8-5207755ce081" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.109">
+                    <command>
+                        <body>no snmp-server enable traps copy-config</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e7390ff1-85d8-4eea-bf97-7d8bfcf5a0cc" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps syslog</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="473453cb-436a-4301-a9a4-753af1417db3" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.093">
+                    <command>
+                        <body>no snmp-server enable traps hsrp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="9d574134-d01c-429c-b62d-a5e7bb157b6d" action="command" session="Cisco2940_Telnet" normalOffset="0.124" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>no snmp-server enable traps vlan-membership</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="6e60d819-d4a8-479f-903c-0a9bf6f4bcfb" action="command" session="Cisco2940_Telnet" normalOffset="0.125" estimatedStepExecutionTime="0.078">
+                    <command>
+                        <body>no snmp-server enable traps</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

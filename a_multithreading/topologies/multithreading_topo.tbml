@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name></name>
+    <description></description>
+    <property name="dateModified">2017-01-18T12:04:27.265-05:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">6.0.0.18638fa</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="0df1889a-ea8b-46aa-b228-4d5c94abfb79" id="resource_0" type="pc">
+        <boundary height="61" width="45" x="144" y="204"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/pc_32.gif</property>
+        <property name="name">laptop</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://a_multithreading/session_profiles/laptop_base.ffsp" name="cmd" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <baseProfile>project://a_multithreading/session_profiles/laptop_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="4c576581-055e-4c7c-8cb9-4f561382d29c" id="resource_0_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+      </resource>
+      <resource guid="668dd91c-0b67-4764-ac51-1cbe6bbcb7cd" id="resource_1" type="router">
+        <boundary height="61" width="51" x="396" y="204"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/router_32.gif</property>
+        <property name="name">ffcisco1</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://a_multithreading/session_profiles/ffcisco1.ffsp" name="ssh" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+              <baseProfile>project://a_multithreading/session_profiles/ffcisco1.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="71a2e343-0f38-40c2-ae5f-096f49ef53e5" id="resource_1_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="83328d6b-07f2-4ffe-840e-f16abe8aa24c" id="resource_1_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+      </resource>
+      <resource guid="45b26541-e85c-48ad-92e4-3e9b48b9c1e2" id="resource_2" type="server">
+        <boundary height="61" width="49" x="516" y="204"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/server_32.gif</property>
+        <property name="name">fflinux1</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="project://a_multithreading/session_profiles/fflinux1.ffsp" name="ssh" provider="com.fnfr">
+            <sessionProfile version="6.0.0.18638fa">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+              <baseProfile>project://a_multithreading/session_profiles/fflinux1.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="e7c5477d-98b0-4f2c-aba8-7441f5ef8efe" id="resource_2_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+      </resource>
+      <resource guid="80288d01-6f44-4947-99f8-ad8fa8bb935d" id="resource_3" type="network">
+        <boundary height="61" width="63" x="264" y="204"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/cloud_32.gif</property>
+        <property name="name">Internet</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="1ef690bd-ee40-48a1-b94f-498de0e82be7" id="resource_3_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="e4ec941c-6e88-43b3-b17c-8a5d008643af" id="resource_3_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+        <resource guid="764216c1-1cc7-4f3d-8095-b7db1e0794bf" id="resource_3_2" type="port">
+          <property name="name">port3</property>
+        </resource>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet1</property>
+        <endpoint id="resource_0_0"/>
+        <endpoint id="resource_3_0"/>
+      </link>
+      <link id="link_2">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet3</property>
+        <endpoint id="resource_3_2"/>
+        <endpoint id="resource_1_0"/>
+      </link>
+      <link id="link_3">
+        <property name="type">ethernet</property>
+        <property name="name">ethernet4</property>
+        <endpoint id="resource_1_1"/>
+        <endpoint id="resource_2_0"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

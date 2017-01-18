@@ -1,0 +1,951 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution>
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <VQA_DB_FILENAME>c:/temp/vqa.db</VQA_DB_FILENAME>
+                    <VQA_DB_NAME>vqa</VQA_DB_NAME>
+                    <SESSION_NAME>VQA</SESSION_NAME>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="0cb985f3-c6b5-4d09-9ebf-3ea66d8c85a1" action="call">
+                    <command>
+                        <body>VQA_OPEN -session [param SESSION_NAME]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="52b87e51-a287-4a4a-a47a-7f6350921eee" action="call">
+                    <command>
+                        <body>IPTV_Multicast -session [param SESSION_NAME] -db [param VQA_DB_NAME]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="823b69c7-6cea-4ecf-9136-477d1fd9ecdd" action="call">
+                    <command>
+                        <body>IPTV_Unicast -session [param SESSION_NAME] -db [param VQA_DB_NAME] -serverIP 70.110.95.110</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b98d4cec-efb7-4b8b-90c1-dce190348b36" action="call">
+                    <command>
+                        <body>VoIP_Service -session [param SESSION_NAME] -db [param VQA_DB_NAME]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="9252d073-408f-46c0-80b6-26b830df68bb" action="call">
+                    <command>
+                        <body>ICC -session [param SESSION_NAME] -db [param VQA_DB_NAME] -ServerIP 70.110.95.110</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="f7181ab9-a8cd-48b0-8af3-3a91357861f1" action="call" skip="true">
+                    <command>
+                        <body>Dump_Brief_Stats_View -session [param SESSION_NAME] -db [param VQA_DB_NAME]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="accbbf23-dc72-4998-9a28-91a08ae82dbf" action="call" skip="true">
+                    <command>
+                        <body>Dump_Brief_Stats -session [param SESSION_NAME] -db [param VQA_DB_NAME]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0efd2be0-fb21-4893-896b-411e2365ca69" action="call">
+                    <command>
+                        <body>VQA_Close -session [param SESSION_NAME]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="VQA_OPEN" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="3d5c590a-0908-4227-a063-06ea6c3bf566" action="open" session="$session">
+                    <command>
+                        <body>project://a_VQA_Access/session_profiles/vqa.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.tclsh.TclshSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="61f0e132-60ae-40d0-a5d0-aa8a28254b08" action="command" session="$session" estimatedStepExecutionTime="0.078">
+                    <command>
+                        <body>package require sqlite3</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="20d4a460-e17b-4dcc-8b81-84c26bf9c43a" action="command" session="$session" estimatedStepExecutionTime="0.016">
+                    <command>
+                        <body>sqlite3 [param VQA_DB_NAME] [param VQA_DB_FILENAME]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="VQA_Close" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="39af923b-52fa-4e41-946a-58c530c81208" action="close" session="$session">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="IPTV_Multicast" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <responseMap>project://a_VQA_Access/response_maps/Video.ffrm</responseMap>
+            <steps>
+                <item guid="e87d286d-0def-4883-b50f-3b1df594b27d" action="comment">
+                    <command>
+                        <body>Metrics - For the Delay Factor,Media Loss Rate(Consolidated)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e09a9ac0-780a-4018-ac0a-011d217b9f13" action="comment">
+                    <command>
+                        <body>       a.MDI Minimum Delay Factor</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b084cfb4-42de-4544-9ad0-e991e326434b" action="comment">
+                    <command>
+                        <body>       b.MDI Maximum Delay Factor</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="83a02b99-614f-423b-9093-6693a80347c7" action="comment">
+                    <command>
+                        <body>       c.MDI Minimum MLR</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="cbb44473-588c-41fb-be02-8c64ed9c11af" action="comment">
+                    <command>
+                        <body>       d.MDI Maximum MLR</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dba48cde-cfc3-49e0-a24f-20dfdc6aec4c" action="command" session="$session" estimatedStepExecutionTime="0.078">
+                            <command>
+                                <body>$db eval {SELECT MIN(&quot;MDI Minimum Delay Factor&quot;) , MAX(&quot;MDI Maximum Delay Factor&quot;), MIN(&quot;MDI Minimum MLR&quot;) , MAX(&quot;MDI Maximum MLR&quot;) from brief_stats_view  where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;MULTICAST&apos;}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>MDI_Consolidated_Response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ca53f98a-71f8-4de0-a928-cd9748b0d739" action="write">
+                            <command>
+                                <body>Metrics for the IPTV Multicast Call\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f3b40156-ae9a-42d3-b58b-4737c545e69d" action="write">
+                            <command>
+                                <body>MDI_Min_DF;MDI_Max_DF;MDI_Min_MLR;MDI_Max_MLR\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="8bbdf8ed-b3b8-446e-8784-7ce7d5b48ef2" action="foreach">
+                            <command>
+                                <body>i [response MDI_Consolidated_Response]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="9ded13fb-6a3d-4cc2-b397-e30d44bfa6df" action="write">
+                                    <command>
+                                        <body>$i;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="c986a286-8c61-4207-ab9a-371cd1636b51" action="write">
+                            <command>
+                                <body>\\r\\n\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="66249b34-a2d6-4bb5-b077-69e101a2115b" action="comment">
+                    <command>
+                        <body>Metrics - For the User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="70a3b306-c324-4b46-80c2-4329a8903ea1" action="comment">
+                    <command>
+                        <body>       a.MDI Delay Factor of the Best User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="492091f8-8ed8-45ae-af16-bbfbcc7bfd32" action="comment">
+                    <command>
+                        <body>       b.MDI Delay Factor of the Worst User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="87de3b3a-c7cf-44dc-9d00-d97a6de7201d" action="comment">
+                    <command>
+                        <body>       c.MDI Delay Factor of the Average User </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4c33be82-039d-4b45-beda-8784f7f198ab" action="comment">
+                    <command>
+                        <body>       d.MDI-MLR for the Best User      </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="103f79c3-8b03-4154-9d49-69ae9fc67b6f" action="comment">
+                    <command>
+                        <body>       e.MDI-MLR for the Worst</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="63267131-50a2-4ca1-a453-2621b4670e93" action="comment">
+                    <command>
+                        <body>       f. MDI-MLR for the Average User </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="10049393-83cb-4770-a1a1-6509f6af7d65" action="command" session="$session" estimatedStepExecutionTime="0.078">
+                            <command>
+                                <body>$db eval {SELECT MIN(AVG_DF_USER), MAX(AVG_DF_USER), AVG(AVG_DF_USER), MIN(AVG_MLR_USER), MAX(AVG_MLR_USER), AVG(AVG_MLR_USER) FROM (SELECT &quot;Stream ID&quot;, avg(&quot;MDI Average Delay Factor&quot;) AS AVG_DF_USER, avg(&quot;MDI Average MLR&quot;) AS AVG_MLR_USER from brief_stats_view where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;MULTICAST&apos; GROUP BY &quot;Stream ID&quot;)}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>MDI_User_Response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="db58bbd4-3198-444a-af6a-17ac49515c99" action="write">
+                            <command>
+                                <body>Metrics for the IPTV Multicast User\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d11b8494-224d-4c33-91a7-493ba4fdde5f" action="write">
+                            <command>
+                                <body>MDI_Min_DF;MDI_Max_DF;MDI_Ave_DF;MDI_Min_MLR;MDI_Max_MLR;MDI_Ave_MLR\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1f6532c4-d87c-48bd-8fc4-7255c460a1b5" action="foreach">
+                            <command>
+                                <body>i [response MDI_Consolidated_Response]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="12204f90-fd1d-4230-a5ea-aa6c6d494308" action="write">
+                                    <command>
+                                        <body>$i;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="6ac692ff-b502-438d-9e7d-d7eb289156d9" action="write">
+                            <command>
+                                <body>\\r\\n\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="db">
+                    <defaultValue>vqa</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="IPTV_Unicast" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <responseMap>project://a_VQA_Access/response_maps/Video.ffrm</responseMap>
+            <steps>
+                <item guid="ca018a20-6a28-4153-a21a-590871a20de7" action="comment">
+                    <command>
+                        <body>Metrics - For the Delay Factor,Media Loss Rate(Consolidated)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e3cf2adc-8d7b-489f-8c45-0017e93ee302" action="comment">
+                    <command>
+                        <body>     a.MDI Minimum Delay Factor</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="78a2f1f0-b5ac-410b-9d81-f1ee62a90ea1" action="comment">
+                    <command>
+                        <body>     b.MDI Maximum Delay Factor</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e21c7cae-c5f1-48ba-bcee-f37e0d2e9b28" action="comment">
+                    <command>
+                        <body>     c.MDI Minimum MLR</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="444f93ab-fc00-4af1-8b4e-403e92895f11" action="comment">
+                    <command>
+                        <body>     d.MDI Maximum MLR</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="dc99d113-61b7-42e2-8c54-5edc7fb116d3" action="command" session="$session">
+                            <command>
+                                <body>$db eval {SELECT MIN(&quot;MDI Minimum Delay Factor&quot;) , MAX(&quot;MDI Maximum Delay Factor&quot;), MIN(&quot;MDI Minimum MLR&quot;) , MAX(&quot;MDI Maximum MLR&quot;) from brief_stats_view where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and &quot;Source IP&quot; = &apos;$serverIP&apos;}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>MDI_Consolidated_Response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="b4cb3f9a-350f-4965-bb1a-5e76f2f1f9c5" action="write">
+                            <command>
+                                <body>Metrics for the IPTV Unicast Call\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e8e3d9c0-17d6-4423-ab31-949bbb863c6c" action="write">
+                            <command>
+                                <body>MDI_Min_DF;MDI_Max_DF;MDI_Min_MLR;MDI_Max_MLR\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="d1a5969c-caae-4c8f-ba3f-9ad8a8d86176" action="foreach">
+                            <command>
+                                <body>i [response MDI_Consolidated_Response]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="272add22-88a2-4253-a568-f4b737150a6e" action="write">
+                                    <command>
+                                        <body>$i;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="b531f696-d483-446c-9860-b4ccda29cbaf" action="write">
+                            <command>
+                                <body>\\r\\n\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1f79949b-ed2c-4b06-8030-d53b5f75cd0a" action="comment">
+                    <command>
+                        <body>Metrics - For the User                  </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="eff0dcee-b982-4fca-9029-9d81a3c79ba7" action="comment">
+                    <command>
+                        <body>    a.MDI Delay Factor of the Best User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5a39494d-effd-4b13-8c5e-4b0e892fe916" action="comment">
+                    <command>
+                        <body>    b.MDI Delay Factor of the Worst User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="032466b1-79c9-4145-9c63-4c4dfd42c95e" action="comment">
+                    <command>
+                        <body>    c.MDI Delay Factor of the Average User </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1cf82875-ab32-43ea-929e-c4898b1b99f9" action="comment">
+                    <command>
+                        <body>    d.MDI-MLR for the Best User      </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5dda3225-f4ef-4117-a660-c297aa4e5de3" action="comment">
+                    <command>
+                        <body>    e.MDI-MLR for the Worst</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="470f4037-cdfd-46ed-bafd-dcf0ea76f017" action="comment">
+                    <command>
+                        <body>    f. MDI-MLR for the Average User </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7e8dc76c-8c25-4646-88a0-6810f1d0c287" action="command" session="$session">
+                            <command>
+                                <body>$db eval {SELECT MIN(AVG_DF_USER), MAX(AVG_DF_USER), AVG(AVG_DF_USER), MIN(AVG_MLR_USER), 
+      MAX(AVG_MLR_USER), AVG(AVG_MLR_USER) FROM (SELECT &quot;Stream ID&quot;, avg(&quot;MDI Average Delay Factor&quot;) AS AVG_DF_USER, 
+      avg(&quot;MDI Average MLR&quot;) AS AVG_MLR_USER from brief_stats_view 
+      where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and &quot;Source IP&quot; = &apos;$serverIP&apos; GROUP BY &quot;Stream ID&quot;)}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>MDI_User_Response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3860f032-216a-4a21-a1f6-93ce404f150a" action="write">
+                            <command>
+                                <body>Metrics for the IPTV Unicast User\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="e203978f-13dd-4ab3-a875-f4f55f79e8dc" action="write">
+                            <command>
+                                <body>MDI_Min_DF;MDI_Max_DF;MDI_Ave_DF;MDI_Min_MLR;MDI_Max_MLR;MDI_Ave_MLR\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="0aa96874-58d7-4fc2-8f5a-9641692647a1" action="foreach">
+                            <command>
+                                <body>i [response MDI_Consolidated_Response]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="fb235d27-8c7d-45a9-821b-8f0b7b57f16c" action="write">
+                                    <command>
+                                        <body>$i;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="518c5dce-9d36-4908-b8d5-33c9913a9676" action="write">
+                            <command>
+                                <body>\\r\\n\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="db">
+                    <defaultValue>vqa</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="serverIP">
+                    <defaultValue>70.110.95.110</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="VoIP_Service" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <responseMap>project://a_VQA_Access/response_maps/Voice.ffrm</responseMap>
+            <steps>
+                <item guid="dd80fab1-18d7-4311-8c5b-ad83f5a9a43c" action="comment">
+                    <command>
+                        <body>Metrics - For the Call</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2fd108fa-c139-4343-9f84-0ac29dfee22f" action="comment">
+                    <command>
+                        <body>        a.MoS-LQ for the Best Call</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="64b18b15-26e3-41a3-8f14-e956b3401d99" action="comment">
+                    <command>
+                        <body>        b.MoS-LQ for the Worst Call</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e0a839c2-a36c-4e76-963c-210bfae49e9f" action="comment">
+                    <command>
+                        <body>        c.MoS-LQ for the Average Call</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1503e995-5ba2-4cda-87a6-134aa934449e" action="comment">
+                    <command>
+                        <body>        d.MoS-CQ for the Best Call</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="0d4f5f9c-d468-4c9a-bef3-2cd227df7efe" action="comment">
+                    <command>
+                        <body>        e.MoS-CQ for the Worst Call</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="70b1a4e8-8452-4b87-ab40-7f6da7866e97" action="comment">
+                    <command>
+                        <body>        f. MoS-CQ for the Average Call      </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e369ae57-32ab-46a9-9e49-9678c121e087" action="command" session="$session">
+                            <command>
+                                <body>$db eval {SELECT MIN(&quot;MOS-LQ&quot;) , MAX(&quot;MOS-LQ&quot;) , AVG(&quot;MOS-LQ&quot;) , MIN(&quot;MOS-CQ&quot;) , MAX(&quot;MOS-CQ&quot;) , AVG(&quot;MOS-CQ&quot;) from brief_stats_view where &quot;Stream Type&quot; = &apos;VOICE&apos;}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>VoIP_Call_Response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="7939ef6c-cfed-48aa-bf44-5467728a2fb2" action="write">
+                            <command>
+                                <body>Metrics for the Call\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="efb58a91-1e2c-4c7d-9c2f-7898994add6e" action="write">
+                            <command>
+                                <body>MoS-LQ Best Call;MoS-LQ Worst Call;MoS-LQ Average Call;MoS-CQ Best Call;MoS-CLQ Worst Call;MoS-CQ Average Call\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="62f7cd6a-c010-4b73-8c1c-f6a805065f1c" action="foreach">
+                            <command>
+                                <body>i [response VoIP_Call_Response]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="8b36c77f-6559-4522-a30e-be9879fdb643" action="write">
+                                    <command>
+                                        <body>$i;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="5b909d40-fb3d-4a36-921f-a3d5222e4566" action="write">
+                            <command>
+                                <body>\\r\\n\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1c3d2d76-1f81-4b98-88c9-3496ce02ae9a" action="comment">
+                    <command>
+                        <body>Metrics - For the User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="957d53e0-0d99-4bdf-8808-cfc815db0d0e" action="comment">
+                    <command>
+                        <body>        a.MoS-LQ for the Best User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="dcc3ef46-943a-486d-849b-897cd6b71f42" action="comment">
+                    <command>
+                        <body>        b.MoS-LQ for the Worst User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4787505a-05cc-4b64-a973-7e238e16218e" action="comment">
+                    <command>
+                        <body>        c.MoS-CQ for the Best User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e31bd28d-e0b5-45fd-9c25-c276f0db817f" action="comment">
+                    <command>
+                        <body>        d.MoS-CQ for the Worst User</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6036f8ab-bedd-43f2-b3fe-5dc60beba21a" action="command" session="$session">
+                            <command>
+                                <body>$db eval {SELECT MIN(MOS_LQ_AVG), MAX(MOS_LQ_AVG), MIN(MOS_CQ_AVG), MAX(MOS_CQ_AVG) FROM (SELECT &quot;Stream ID&quot;, AVG(&quot;MOS-LQ&quot;) AS  MOS_LQ_AVG, AVG(&quot;MOS-CQ&quot;) AS MOS_CQ_AVG  from brief_stats_view where &quot;Stream Type&quot; = &apos;VOICE&apos; GROUP BY &quot;Stream ID&quot;)}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>VoIP_User_Response</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ac36b23f-b709-4dfd-999e-1e17755d2175" action="write">
+                            <command>
+                                <body>Metrics for the User\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="1220efd0-4f35-45ee-a7bb-62d7e07346e5" action="write">
+                            <command>
+                                <body>MoS-LQ Best Call;MoS-LQ Worst Call;MoS-CQ Best Call;MoS-CLQ Worst Call\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ee720e95-66ae-4fb3-a661-9b1dfd617cfd" action="foreach">
+                            <command>
+                                <body>i [response VoIP_User_Response]</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="84397031-6418-4491-afc8-03c6e96d1edc" action="write">
+                                    <command>
+                                        <body>$i;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="29d938bd-2948-431b-bb1b-8ed54a8bf2ad" action="write">
+                            <command>
+                                <body>\\r\\n\\r\\n</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="db">
+                    <defaultValue>vqa</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="ICC" isPublic="true" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <responseMap>project://a_VQA_Access/response_maps/Video.ffrm</responseMap>
+            <steps>
+                <item guid="afad512c-c4bd-48ba-8f2d-cd3f5ac787e4" action="comment">
+                    <command>
+                        <body>Metrics - For the Delay Factor,Media Loss Rate(Consolidated)</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="3c29937e-58f9-41d4-98fd-d7b00f13cae0" action="comment">
+                    <command>
+                        <body>      a.MDI Minimum Delay Factor</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4d4a475f-81b0-4975-ae42-5ff56acc3e54" action="comment">
+                    <command>
+                        <body>      b.MDI Maximum Delay Factor</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="83199a35-c56d-474f-83b7-97d23814a2e8" action="comment">
+                    <command>
+                        <body>      c.MDI Minimum MLR</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="63559ed0-7f9a-4766-aa4e-520f7f6e7892" action="comment">
+                    <command>
+                        <body>      d.MDI Maximum MLR</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c961128f-d930-40a6-bbeb-cbc06029e064" action="command" session="$session">
+                            <command>
+                                <body>$db eval {SELECT MIN(&quot;MDI Minimum Delay Factor&quot;) , MAX(&quot;MDI Maximum Delay Factor&quot;),
+        MIN(&quot;MDI Minimum MLR&quot;) , MAX(&quot;MDI Maximum MLR&quot;) from brief_stats_view 
+        where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and &quot;Source IP&quot; = &apos;$ServerIP&apos;}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>ICC_Call_Response</storeResponseAt>
+                            </postProcessing>
+                            <nestedSteps>
+                                <item guid="09544950-4d34-482b-a43e-936243eea368" action="write">
+                                    <command>
+                                        <body>Metrics for the Delay Factor,Media Loss Rate(Consolidated)\\r\\n</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="a1bec90d-cb08-46fe-bdc0-9d205f3cc1ef" action="write">
+                                    <command>
+                                        <body>MDI_Min_DF;MDI_Max_DF;MDI_Min_MLR;MDI_Max_MLR\\r\\n</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="701cb252-3328-4618-9bc2-016b28cadf91" action="foreach">
+                                    <command>
+                                        <body>i [response ICC_Call_Response]</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="de88848b-f1c8-4058-8869-7c2f631ca6aa" action="write">
+                                            <command>
+                                                <body>$i;</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="5b16b0c9-14af-4e74-91c8-4df7b940a061" action="write">
+                                    <command>
+                                        <body>\\r\\n\\r\\n</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="f58027f5-befb-4143-93c9-4063e29d17a7" action="comment">
+                    <command>
+                        <body>Metrics - For the User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1a766cf6-6022-4043-8213-b565c197eb45" action="comment">
+                    <command>
+                        <body>     a.MDI Delay Factor of the Best User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a8c9f76f-600e-40b5-be2d-053844d45ba7" action="comment">
+                    <command>
+                        <body>     b.MDI Delay Factor of the Worst User</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b40bf4f1-481a-4736-a17e-74d576fc9e27" action="comment">
+                    <command>
+                        <body>     c.MDI Delay Factor of the Average User </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c82c32e5-0b3a-449d-89c2-d5205966a966" action="comment">
+                    <command>
+                        <body>     d.MDI-MLR for the Best User      </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d77eb41e-8ddd-4dbc-bd06-4ae48c4220b7" action="comment">
+                    <command>
+                        <body>     e.MDI-MLR for the Worst</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6430503a-022c-4903-87b8-9676d9818124" action="comment">
+                    <command>
+                        <body>     f. MDI-MLR for the Average User </body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a4ef6638-9dff-4655-b9b6-f12caecba967" action="command" session="$session">
+                            <command>
+                                <body>$db eval {SELECT MIN(AVG_DF_USER), 
+                             MAX(AVG_DF_USER), 
+                             AVG(AVG_DF_USER),
+                             MIN(AVG_MLR_USER),
+                             MAX(AVG_MLR_USER), 
+                             AVG(AVG_MLR_USER) 
+                FROM ( 
+               SELECT &quot;Stream ID&quot;, 
+                             avg(&quot;MDI Average Delay Factor&quot;) 
+               AS AVG_DF_USER,
+                    AVG(&quot;MDI Average MLR&quot;)
+              AS AVG_MLR_USER 
+              from brief_stats_view 
+              where &quot;Stream Type&quot; = &apos;VIDEO&apos; and &quot;MCAST/UNICAST&quot; = &apos;UNICAST&apos; and &quot;Source IP&quot; = &apos;$ServerIP&apos; GROUP BY &quot;Stream ID&quot;)}</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>ICC_User_Response</storeResponseAt>
+                            </postProcessing>
+                            <nestedSteps>
+                                <item guid="87693f75-716a-4ea3-a0f7-a9ed715bb491" action="write">
+                                    <command>
+                                        <body>Metrics for the User\\r\\n</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="dde719dd-882b-4893-9759-23e602dbe6c2" action="write">
+                                    <command>
+                                        <body>MDI_Min_DF;MDI_Max_DF;MDI_Ave_DF;MDI_Min_MLR;MDI_Max_MLR;MDI_Ave_MLR\\r\\n</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="ee25e161-3ee3-484d-94fa-d4d4dee5b13b" action="foreach">
+                                    <command>
+                                        <body>i [response ICC_User_Response]</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="21745508-e424-42c1-a4bf-92900453d05c" action="write">
+                                            <command>
+                                                <body>$i;</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="a19d25ad-0a63-4e17-8739-d56da042701a" action="write">
+                                    <command>
+                                        <body>\\r\\n\\r\\n</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="db">
+                    <defaultValue>vqa</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="ServerIP">
+                    <defaultValue>70.110.95.110</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="Dump_Brief_Stats_View" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="e9aeffbb-fbe5-4420-a62b-9c79ae13abd2" action="command" session="$session" useResponseMapLibraryApplicability="false" useAutoMap="false">
+                    <command>
+                        <body>$db eval {SELECT * from brief_stats_view } values {
+parray values
+puts &quot;&quot;
+}</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <responseMap>project://a_VQA_Access/response_maps/brief_stats_view_dump.ffrm</responseMap>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="db">
+                    <defaultValue>vqa</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="Dump_Brief_Stats" defaultSessionProfile="application:com.fnfr.svt.applications.tclsh">
+            <steps>
+                <item guid="d228868e-31aa-43ad-9714-260d39019e28" action="command" session="$session" useResponseMapLibraryApplicability="false">
+                    <command>
+                        <body>$db eval {SELECT * from brief_stats } values {
+parray values
+puts &quot;&quot;
+}</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <responseMap>project://a_VQA_Access/response_maps/brief_stats_dump.ffrm</responseMap>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session">
+                    <defaultValue>VQA</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="db">
+                    <defaultValue>vqa</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name></name>
+    <description></description>
+    <property name="dateModified">2011-04-26T10:12:03.422-04:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">4.1.2.57560</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="41224721-993b-4709-9080-91726bb95b5b" id="resource_0" type="switch">
+        <boundary height="61" width="45" x="312" y="360"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/switch_32.gif</property>
+        <property name="name">dc1</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="IOS.ffsp" name="telnet" provider="com.fnfr">
+            <sessionProfile version="4.1.2.57660">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+              <baseProfile>IOS.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="485e8bb8-50a6-4d62-b529-9396ebaa4348" id="resource_0_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="b4f4c2da-1eca-4260-9012-5250b35ffa24" id="resource_0_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+        <resource guid="464feddc-811e-4208-b4a2-bd03eeff7653" id="resource_0_2" type="port">
+          <property name="name">port3</property>
+        </resource>
+      </resource>
+      <resource guid="1cef53a3-c73d-41d1-875c-1de4af211795" id="resource_1" type="">
+        <boundary height="61" width="64" x="300" y="144"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/Device_generic_32.gif</property>
+        <property name="name">ixnetwork</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="IxNetwork_mix_OSPF" provider="com.fnfr">
+            <sessionProfile version="4.1.2.57660">
+              <baseApplication>com.fnfr.svt.applications.ixia.ixnetwork</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ixia.ixnetwork.IxNetworkSessionProperties">
+                <demoModeProperties>
+                  <useDemoMode inherit="false">true</useDemoMode>
+                </demoModeProperties>
+                <chassis inherit="false">172.20.246.65</chassis>
+                <ports inherit="false">1:1,1:2,1:3</ports>
+                <configurationFile inherit="false">ospf-mix_mcastv4.ixncfg</configurationFile>
+                <forceOwnership inherit="false">true</forceOwnership>
+                <verifyChassis inherit="false">true</verifyChassis>
+                <startServer inherit="false">true</startServer>
+              </sessionProperties>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="93355493-20ac-4d3a-bb64-43dc768bc6e8" id="resource_1_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="7626136e-dbc0-4478-9c9a-7483d825d2f8" id="resource_1_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+        <resource guid="9381fb9b-adf3-4f34-9dcf-3c211e5687c1" id="resource_1_2" type="port">
+          <property name="name">port3</property>
+        </resource>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="name">link1</property>
+        <endpoint id="resource_0_0"/>
+        <endpoint id="resource_1_0"/>
+      </link>
+      <link id="link_1">
+        <property name="name">link2</property>
+        <endpoint id="resource_0_1"/>
+        <endpoint id="resource_1_1"/>
+      </link>
+      <link id="link_2">
+        <property name="name">link3</property>
+        <endpoint id="resource_0_2"/>
+        <endpoint id="resource_1_2"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

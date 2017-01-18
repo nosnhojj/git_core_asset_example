@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="b727b5c3-25fa-4496-88e9-85e26063e203" action="comment">
+                    <command>
+                        <body>write file</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="dddc9497-f047-432e-af2d-9f1c248ff97a" action="eval">
+                    <command>
+                        <body>set routerA(bgp) 10</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c583be4e-04b2-4ca8-a7af-2a57c91bcec0" action="eval">
+                    <command>
+                        <body>set routerA(ospf) 20</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e93e9aa3-fa12-4d9d-9411-7f573b3f2148" action="eval">
+                    <command>
+                        <body>puts &quot;[parray routerA]&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d214ac21-56d6-4b0e-8865-c484284ade02" action="readFile" useResponseMapLibraryApplicability="false">
+                    <command>
+                        <body>abcd.csv</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>abcd</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.ReadFilePropertyGroup"/>
+                    <responseMap>project://a_Alper/response_maps/abcd_csv.ffrm</responseMap>
+                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d3727337-3b38-4357-8cae-e19eb7debe93" action="foreach">
+                    <command>
+                        <body>device [query abcd x()]</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="3f186e6b-dab9-4db5-88da-caa37a105ae4" action="comment">
+                            <command>
+                                <body>Change all dashes to underscores</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="3e7c3908-abad-4826-9dd0-3b62a5b91125" action="eval">
+                                    <command>
+                                        <body>set device [xpathEval translate($device,&quot;-&quot;,&quot;_&quot;)]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="08467a4a-21d3-4c76-b258-e204c058ae01" action="eval">
+                            <command>
+                                <body>set router_${device}(ospf) 100</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="568ce3e8-9fb9-4b65-8548-5758409bda94" action="eval">
+                            <command>
+                                <body>set router_${device}(bgp) 200</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="e9393cb4-e264-4e31-ae9d-ecddc34e0a4f" action="eval">
+                            <command>
+                                <body>puts &quot;[parray router_$device]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.4.0.75339">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <TerminalProperties>
+            <captureProperties>
+                <commandBreakChars inherit="false">
+                    <item>[char CTRL-c]</item>
+                    <item>[char Ctrl-U]</item>
+                </commandBreakChars>
+                <commandCompletionchars inherit="false">
+                    <item>?</item>
+                    <item>[char TAB]</item>
+                </commandCompletionchars>
+            </captureProperties>
+            <prompts inherit="false">
+                <item name="password" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+                <item name="prompt8">
+                    <Content>Enter TEXT message.  End with the character &apos;^&apos;.</Content>
+                </item>
+                <item name="confirm" MatchMethod="WILDCARD">
+                    <Content>*[confirm]</Content>
+                </item>
+                <item name="normal" MatchMethod="WILDCARD">
+                    <Content>*&gt;</Content>
+                </item>
+                <item name="privileged" MatchMethod="WILDCARD">
+                    <Content>*#</Content>
+                </item>
+                <item name="more" TypeOfPrompt="MORE">
+                    <Content>--More--</Content>
+                </item>
+                <item name="configuration" MatchMethod="WILDCARD">
+                    <Content>*(config)#</Content>
+                </item>
+                <item name="prompt1">
+                    <Content>Destination filename [startup-config]?</Content>
+                </item>
+                <item name="prompt2">
+                    <Content>Destination filename [startup_config]?</Content>
+                </item>
+                <item name="prompt3">
+                    <Content>System configuration has been modified. Save? [yes/no]:</Content>
+                </item>
+                <item name="prompt4">
+                    <Content>Address or name of remote host []?</Content>
+                </item>
+                <item name="prompt5">
+                    <Content>Destination filename [c7200-confg]?</Content>
+                </item>
+                <item name="prompt6">
+                    <Content>Destination filename [cisco2940-confg]?</Content>
+                </item>
+                <item name="prompt7">
+                    <Content>Destination filename [running-config]?</Content>
+                </item>
+                <item name="prompt9">
+                    <Content>How many bits in the modulus [512]:</Content>
+                </item>
+                <item name="prompt10">
+                    <Content>Username:</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <parameters version="4.4.0.75339">
+        <parameters escape="true">
+            <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                <ipAddr>192.168.1.33</ipAddr>
+            </parameters>
+        </parameters>
+    </parameters>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <sessionClassTestCase inherit="false">CiscoIOS_Telnet_Quickcalls.fftc</sessionClassTestCase>
+    <nickName>Cisco2940_Telnet</nickName>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

@@ -1,0 +1,1321 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show version</body>
+                </command>
+            </action>
+            <responseBody>Cisco IOS Software, 7200 Software (C7200-IK9O3S-M), Version 12.4(12), RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2006 by Cisco Systems, Inc.
+Compiled Fri 17-Nov-06 18:25 by prod_rel_team
+
+ROM: ROMMON Emulation Microcode
+BOOTLDR: 7200 Software (C7200-IK9O3S-M), Version 12.4(12), RELEASE SOFTWARE (fc1)
+
+c7200_1 uptime is 5 minutes
+System returned to ROM by unknown reload cause - suspect boot_data[BOOT_COUNT] 0x0, BOOT_COUNT 0, BOOTDATA 19
+System image file is &quot;tftp://255.255.255.255/unknown&quot;
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+Cisco 7206VXR (NPE400) processor (revision A) with 245760K/16384K bytes of memory.
+Processor board ID 4294967295
+R7000 CPU at 150MHz, Implementation 39, Rev 2.1, 256KB L2 Cache
+6 slot VXR midplane, Version 2.1
+
+Last reset from power-on
+
+PCI bus mb0_mb1 (Slots 0, 1, 3 and 5) has a capacity of 600 bandwidth points.
+Current configuration on bus mb0_mb1 has a total of 400 bandwidth points. 
+This configuration is within the PCI bus capacity and is supported. 
+
+PCI bus mb2 (Slots 2, 4, 6) has a capacity of 600 bandwidth points.
+Current configuration on bus mb2 has a total of 0 bandwidth points 
+This configuration is within the PCI bus capacity and is supported. 
+
+Please refer to the following document &quot;Cisco 7200 Series Port Adaptor
+Hardware Configuration Guidelines&quot; on Cisco.com &lt;http://www.cisco.com&gt;
+for c7200 bandwidth points oversubscription and usage guidelines.
+
+
+2 FastEthernet interfaces
+125K bytes of NVRAM.
+
+65536K bytes of ATA PCMCIA card at slot 0 (Sector size 512 bytes).
+8192K bytes of Flash internal SIMM (Sector size 256K).
+Configuration register is 0x2102
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;prompt&gt;c7200_1#&lt;/prompt&gt;
+   &lt;echo&gt;show version&lt;/echo&gt;
+   &lt;promptName&gt;privileged&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+        <item name="sample2">
+            <action actionType="command">
+                <command>
+                    <body>show version</body>
+                </command>
+            </action>
+            <responseBody>Cisco IOS Software, 7200 Software (C7200-IK9O3S-M), Version 12.4(12), RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2006 by Cisco Systems, Inc.
+Compiled Fri 17-Nov-06 18:25 by prod_rel_team
+
+ROM: ROMMON Emulation Microcode
+BOOTLDR: 7200 Software (C7200-IK9O3S-M), Version 12.4(12), RELEASE SOFTWARE (fc1)
+
+c7200 uptime is 1 hour, 32 minutes
+System returned to ROM by unknown reload cause - suspect boot_data[BOOT_COUNT] 0x0, BOOT_COUNT 0, BOOTDATA 19
+System image file is &quot;tftp://255.255.255.255/unknown&quot;
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+Cisco 7206VXR (NPE400) processor (revision A) with 491520K/32768K bytes of memory.
+Processor board ID 4294967295
+R7000 CPU at 150MHz, Implementation 39, Rev 2.1, 256KB L2 Cache
+6 slot VXR midplane, Version 2.1
+          
+Last reset from power-on
+
+PCI bus mb0_mb1 (Slots 0, 1, 3 and 5) has a capacity of 600 bandwidth points.
+Current configuration on bus mb0_mb1 has a total of 400 bandwidth points. 
+This configuration is within the PCI bus capacity and is supported. 
+
+PCI bus mb2 (Slots 2, 4, 6) has a capacity of 600 bandwidth points.
+Current configuration on bus mb2 has a total of 0 bandwidth points 
+This configuration is within the PCI bus capacity and is supported. 
+
+Please refer to the following document &quot;Cisco 7200 Series Port Adaptor
+Hardware Configuration Guidelines&quot; on Cisco.com &lt;http://www.cisco.com&gt;
+for c7200 bandwidth points oversubscription and usage guidelines.
+
+
+2 FastEthernet interfaces
+125K bytes of NVRAM.
+
+65536K bytes of ATA PCMCIA card at slot 0 (Sector size 512 bytes).
+8192K bytes of Flash internal SIMM (Sector size 256K).
+Configuration register is 0x2102
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;prompt&gt;c7200#&lt;/prompt&gt;
+    &lt;echo&gt;show version&lt;/echo&gt;
+    &lt;promptName&gt;privileged&lt;/promptName&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="promptName">
+                    <queryFormatString>.//promptName</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.3</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Cisco IOS Software,\\s+</regex>
+                            <start>0</start>
+                            <end>20</end>
+                        </item>
+                        <item name="Software">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>20</start>
+                            <end>24</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+Software \\(</regex>
+                            <start>24</start>
+                            <end>35</end>
+                        </item>
+                        <item name="pattern1_group2">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>35</start>
+                            <end>49</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{14}">exactly 14 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\), Version\\s+</regex>
+                            <start>49</start>
+                            <end>60</end>
+                        </item>
+                        <item name="Version">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>60</start>
+                            <end>68</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{8}">exactly 8 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>, RELEASE SOFTWARE \\(</regex>
+                            <start>68</start>
+                            <end>88</end>
+                        </item>
+                        <item name="RELEASE_SOFTWARE">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>88</start>
+                            <end>91</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\)</regex>
+                            <start>91</start>
+                            <end>92</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Cisco IOS Software, 7200 Software (C7200-IK9O3S-M), Version 12.4(12), RELEASE SOFTWARE (fc1)</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern2">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Copyright \\(c\\)\\s+</regex>
+                            <start>0</start>
+                            <end>14</end>
+                        </item>
+                        <item name="Copyright">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>14</start>
+                            <end>23</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+by Cisco Systems, Inc\\.\\s+Compiled Fri\\s+</regex>
+                            <start>23</start>
+                            <end>60</end>
+                        </item>
+                        <item name="Compiled_Fri">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>60</start>
+                            <end>69</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+</regex>
+                            <start>69</start>
+                            <end>70</end>
+                        </item>
+                        <item name="by_prod_rel_team">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>70</start>
+                            <end>75</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\s+by prod_rel_team</regex>
+                            <start>75</start>
+                            <end>92</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Copyright (c) 1986-2006 by Cisco Systems, Inc.
+Compiled Fri 17-Nov-06 18:25 by prod_rel_team</sampleMatch>
+                </item>
+                <item name="pattern3">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>BOOTLDR:\\s+</regex>
+                            <start>0</start>
+                            <end>9</end>
+                        </item>
+                        <item name="BOOTLDR">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>9</start>
+                            <end>13</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+Software \\(</regex>
+                            <start>13</start>
+                            <end>24</end>
+                        </item>
+                        <item name="pattern3_Software">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>24</start>
+                            <end>38</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{14}">exactly 14 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\), Version\\s+</regex>
+                            <start>38</start>
+                            <end>49</end>
+                        </item>
+                        <item name="pattern3_Version">
+                            <regex>([\\d]+(\\.[\\d]+))</regex>
+                            <named>true</named>
+                            <start>49</start>
+                            <end>53</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                                <item name="([\d]+(\.[\d]+))">one simple decimal number</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\(</regex>
+                            <start>53</start>
+                            <end>54</end>
+                        </item>
+                        <item name="pattern3_group4">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>54</start>
+                            <end>56</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\), RELEASE SOFTWARE \\(</regex>
+                            <start>56</start>
+                            <end>77</end>
+                        </item>
+                        <item name="pattern3_RELEASE_SOFTWARE">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>77</start>
+                            <end>80</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\)</regex>
+                            <start>80</start>
+                            <end>81</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>BOOTLDR: 7200 Software (C7200-IK9O3S-M), Version 12.4(12), RELEASE SOFTWARE (fc1)</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern4">
+                    <groups>
+                        <item name="uptime">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>7</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor0">
+                            <regex>\\s+uptime is\\s+</regex>
+                            <start>7</start>
+                            <end>18</end>
+                        </item>
+                        <item name="time">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>18</start>
+                            <end>22</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+System returned to ROM by unknown reload cause - suspect boot_data\\[BOOT_COUNT]\\s+</regex>
+                            <start>22</start>
+                            <end>102</end>
+                        </item>
+                        <item name="System_returned_to_ROM_by_unknown_reload_cause_suspect_boot_data_BOOT_COUNT">
+                            <regex>([0][x][\\da-fA-F]+)</regex>
+                            <named>true</named>
+                            <start>102</start>
+                            <end>105</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([0][x][\da-fA-F]+)">one hexadecimal number</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>, BOOT_COUNT\\s+</regex>
+                            <start>105</start>
+                            <end>118</end>
+                        </item>
+                        <item name="BOOT_COUNT">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>118</start>
+                            <end>119</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>, BOOTDATA\\s+</regex>
+                            <start>119</start>
+                            <end>130</end>
+                        </item>
+                        <item name="BOOTDATA">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>130</start>
+                            <end>132</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+System image file is &quot;</regex>
+                            <start>132</start>
+                            <end>155</end>
+                        </item>
+                        <item name="System_image_file">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>155</start>
+                            <end>185</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{30}">exactly 30 of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>&quot;</regex>
+                            <start>185</start>
+                            <end>186</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>c7200_1 uptime is time
+System returned to ROM by unknown reload cause - suspect boot_data[BOOT_COUNT] 0x0, BOOT_COUNT 0, BOOTDATA 19
+System image file is &quot;tftp://255.255.255.255/unknown&quot;</sampleMatch>
+                </item>
+                <item name="pattern5">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Cisco\\s+</regex>
+                            <start>0</start>
+                            <end>6</end>
+                        </item>
+                        <item name="Cisco">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>6</start>
+                            <end>13</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+\\(</regex>
+                            <start>13</start>
+                            <end>15</end>
+                        </item>
+                        <item name="processor_revision_with">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>15</start>
+                            <end>21</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\) processor \\(revision A\\) with\\s+</regex>
+                            <start>21</start>
+                            <end>51</end>
+                        </item>
+                        <item name="pattern5_group3">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>51</start>
+                            <end>58</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>/</regex>
+                            <start>58</start>
+                            <end>59</end>
+                        </item>
+                        <item name="bytes_of_memory">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>59</start>
+                            <end>65</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+bytes of memory\\.</regex>
+                            <start>65</start>
+                            <end>82</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Cisco 7206VXR (NPE400) processor (revision A) with 245760K/16384K bytes of memory.</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern6">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Processor board ID\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Processor_board_ID">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>29</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Processor board ID 4294967295</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern7">
+                    <groups>
+                        <item name="anchor0">
+                            <start>0</start>
+                            <end>0</end>
+                        </item>
+                        <item name="CPU_at">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>5</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+CPU at\\s+</regex>
+                            <start>5</start>
+                            <end>13</end>
+                        </item>
+                        <item name="pattern7_group2">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>13</start>
+                            <end>19</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>, Implementation\\s+</regex>
+                            <start>19</start>
+                            <end>36</end>
+                        </item>
+                        <item name="Implementation">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>36</start>
+                            <end>38</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>, Rev\\s+</regex>
+                            <start>38</start>
+                            <end>44</end>
+                        </item>
+                        <item name="Rev">
+                            <regex>([\\d]+(\\.[\\d]+))</regex>
+                            <named>true</named>
+                            <start>44</start>
+                            <end>47</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                                <item name="([\d]+(\.[\d]+))">one simple decimal number</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>,\\s+</regex>
+                            <start>47</start>
+                            <end>49</end>
+                        </item>
+                        <item name="pattern7_group5">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>49</start>
+                            <end>54</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\s+</regex>
+                            <start>54</start>
+                            <end>55</end>
+                        </item>
+                        <item name="Cache">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>55</start>
+                            <end>57</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\s+Cache</regex>
+                            <start>57</start>
+                            <end>63</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>R7000 CPU at 150MHz, Implementation 39, Rev 2.1, 256KB L2 Cache</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern8">
+                    <groups>
+                        <item name="anchor0">
+                            <start>0</start>
+                            <end>0</end>
+                        </item>
+                        <item name="slot_VXR_midplane">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>1</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+slot VXR midplane, Version\\s+</regex>
+                            <start>1</start>
+                            <end>29</end>
+                        </item>
+                        <item name="pattern8_group2">
+                            <regex>([\\d]+(\\.[\\d]+))</regex>
+                            <named>true</named>
+                            <start>29</start>
+                            <end>32</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="((\d+\.)+\d+)">one or more of digit and dots</item>
+                                <item name="([\d]+(\.[\d]+))">one simple decimal number</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>6 slot VXR midplane, Version 2.1</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern9">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>PCI bus\\s+</regex>
+                            <start>0</start>
+                            <end>8</end>
+                        </item>
+                        <item name="pattern9_PCI_bus">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>8</start>
+                            <end>15</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+\\(Slots\\s+</regex>
+                            <start>15</start>
+                            <end>23</end>
+                        </item>
+                        <item name="pattern9_Slots">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>23</start>
+                            <end>24</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>,\\s+</regex>
+                            <start>24</start>
+                            <end>26</end>
+                        </item>
+                        <item name="pattern9_group3">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>26</start>
+                            <end>27</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>,\\s+</regex>
+                            <start>27</start>
+                            <end>29</end>
+                        </item>
+                        <item name="and">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>29</start>
+                            <end>30</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+and\\s+</regex>
+                            <start>30</start>
+                            <end>35</end>
+                        </item>
+                        <item name="pattern9_has_capacity_of">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>35</start>
+                            <end>36</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\) has a capacity of\\s+</regex>
+                            <start>36</start>
+                            <end>56</end>
+                        </item>
+                        <item name="pattern9_bandwidth_points">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>56</start>
+                            <end>59</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\s+bandwidth points\\.</regex>
+                            <start>59</start>
+                            <end>77</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>PCI bus mb0_mb1 (Slots 0, 1, 3 and 5) has a capacity of 600 bandwidth points.</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern10">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>PCI bus\\s+</regex>
+                            <start>0</start>
+                            <end>8</end>
+                        </item>
+                        <item name="pattern10_PCI_bus">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>8</start>
+                            <end>11</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+\\(Slots\\s+</regex>
+                            <start>11</start>
+                            <end>19</end>
+                        </item>
+                        <item name="pattern10_Slots">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>20</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>,\\s+</regex>
+                            <start>20</start>
+                            <end>22</end>
+                        </item>
+                        <item name="pattern10_group3">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>22</start>
+                            <end>23</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>,\\s+</regex>
+                            <start>23</start>
+                            <end>25</end>
+                        </item>
+                        <item name="pattern10_has_capacity_of">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>26</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\) has a capacity of\\s+</regex>
+                            <start>26</start>
+                            <end>46</end>
+                        </item>
+                        <item name="pattern10_bandwidth_points">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>46</start>
+                            <end>49</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\s+bandwidth points\\.\\s+Current configuration on bus\\s+</regex>
+                            <start>49</start>
+                            <end>97</end>
+                        </item>
+                        <item name="has_total_of">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>97</start>
+                            <end>100</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\s+has a total of\\s+</regex>
+                            <start>100</start>
+                            <end>116</end>
+                        </item>
+                        <item name="group7">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>116</start>
+                            <end>117</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor7">
+                            <regex>\\s+bandwidth points\\s+This configuration is within the PCI bus capacity and is supported\\.\\s+</regex>
+                            <start>117</start>
+                            <end>204</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>PCI bus mb2 (Slots 2, 4, 6) has a capacity of 600 bandwidth points.
+Current configuration on bus mb2 has a total of 0 bandwidth points 
+This configuration is within the PCI bus capacity and is supported. </sampleMatch>
+                </item>
+                <item name="pattern11">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Please refer to the following document &quot;Cisco\\s+</regex>
+                            <start>0</start>
+                            <end>46</end>
+                        </item>
+                        <item name="Please_refer_to_the_following_document_Cisco">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>46</start>
+                            <end>50</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+Series Port Adaptor\\s+Hardware Configuration Guidelines&quot; on Cisco\\.com \\&lt;http://www\\.cisco\\.com\\&gt;\\s+for\\s+</regex>
+                            <start>50</start>
+                            <end>146</end>
+                        </item>
+                        <item name="for">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>146</start>
+                            <end>151</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+bandwidth points oversubscription and usage guidelines\\.</regex>
+                            <start>151</start>
+                            <end>207</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>Please refer to the following document &quot;Cisco 7200 Series Port Adaptor
+Hardware Configuration Guidelines&quot; on Cisco.com &lt;http://www.cisco.com&gt;
+for c7200 bandwidth points oversubscription and usage guidelines.</sampleMatch>
+                </item>
+                <item name="pattern12">
+                    <groups>
+                        <item name="anchor0">
+                            <start>0</start>
+                            <end>0</end>
+                        </item>
+                        <item name="FastEthernet_interfaces">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>1</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+FastEthernet interfaces\\s+</regex>
+                            <start>1</start>
+                            <end>26</end>
+                        </item>
+                        <item name="bytes_of_NVRAM">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>26</start>
+                            <end>30</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+bytes of NVRAM\\.</regex>
+                            <start>30</start>
+                            <end>46</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>2 FastEthernet interfaces
+125K bytes of NVRAM.</sampleMatch>
+                </item>
+                <item name="pattern13">
+                    <groups>
+                        <item name="anchor0">
+                            <start>0</start>
+                            <end>0</end>
+                        </item>
+                        <item name="bytes_of_ATA_PCMCIA_card_at_slot">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>0</start>
+                            <end>6</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+bytes of ATA PCMCIA card at slot\\s+</regex>
+                            <start>6</start>
+                            <end>40</end>
+                        </item>
+                        <item name="Sector_size">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>40</start>
+                            <end>41</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+\\(Sector size\\s+</regex>
+                            <start>41</start>
+                            <end>55</end>
+                        </item>
+                        <item name="bytes">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>55</start>
+                            <end>58</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\s+bytes\\)\\.\\s+</regex>
+                            <start>58</start>
+                            <end>67</end>
+                        </item>
+                        <item name="bytes_of_Flash_internal_SIMM_Sector_size">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>67</start>
+                            <end>72</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+bytes of Flash internal SIMM \\(Sector size\\s+</regex>
+                            <start>72</start>
+                            <end>115</end>
+                        </item>
+                        <item name="pattern13_group5">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>115</start>
+                            <end>119</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\)\\.\\s+Configuration register is\\s+</regex>
+                            <start>119</start>
+                            <end>148</end>
+                        </item>
+                        <item name="Configuration_register">
+                            <regex>([0][x][\\da-fA-F]+)</regex>
+                            <named>true</named>
+                            <start>148</start>
+                            <end>154</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([0][x][\da-fA-F]+)">one hexadecimal number</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>65536K bytes of ATA PCMCIA card at slot 0 (Sector size 512 bytes).
+8192K bytes of Flash internal SIMM (Sector size 256K).
+Configuration register is 0x2102</sampleMatch>
+                </item>
+                <item name="colon_auto1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Technical Support:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Technical_Support">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>51</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Technical Support: http://www.cisco.com/techsupport</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="colon_auto2">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>ROM:\\s+</regex>
+                            <start>0</start>
+                            <end>5</end>
+                        </item>
+                        <item name="ROM">
+                            <regex>[^0-9\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>5</start>
+                            <end>31</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>ROM: ROMMON Emulation Microcode</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+            </regexMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties"/>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* ver*">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

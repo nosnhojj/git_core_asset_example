@@ -1,0 +1,866 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.2.2.69880">
+    <responseStructure></responseStructure>
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="execute" description="SELECT id,start,endTime,testCase,result FROM testreport WHERE result = &quot;Pass&quot;">
+                <command>
+                    <body>SELECT id,start,endTime,testCase,result FROM testreport WHERE result = &quot;Pass&quot;</body>
+                </command>
+            </action>
+            <responseBody>
+index  id   start          endTime        testCase                                                            result
+------------------------------------------------------------------------------------------------------------------------
+1      2    1273697819075  1273697827561  project://Standard/test_cases/myPingTest_snmp.fftc                  Pass  
+2      4    1274132724796  1274132736906  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+3      10   1274141085879  1274141097786  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+4      14   1274200739468  1274200752687  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+5      18   1274460741991  1274460753435  project://Standard/test_cases/myPingTest_snmp.fftc                  Pass  
+6      19   1274460765879  1274460775365  project://Standard/test_cases/myPingTest_snmp.fftc                  Pass  
+7      20   1274463556129  1274463565692  project://Standard/test_cases/myPingTest_snmp.fftc                  Pass  
+8      21   1274463578303  1274463587803  project://Standard/test_cases/myPingTest_snmp.fftc                  Pass  
+9      48   1275493538447  1275493551401  project://my_project/test_cases/Fujitsu_demo.fftc                   Pass  
+10     51   1275493628267  1275493640550  project://my_project/test_cases/Fujitsu_demo.fftc                   Pass  
+11     52   1275493659286  1275493666240  project://my_project/test_cases/Fujitsu_demo.fftc                   Pass  
+12     56   1275502342651  1275502358824  project://my_project/test_cases/Fujitsu_demo.fftc                   Pass  
+13     57   1275502381622  1275502387482  project://my_project/test_cases/Fujitsu_demo.fftc                   Pass  
+14     59   1275502542821  1275502557103  project://my_project/test_cases/Fujitsu_demo.fftc                   Pass  
+15     63   1275509333049  1275509348956  project://my_project/test_cases/Fujitsu_Demo.fftc                   Pass  
+16     64   1275509527656  1275509543017  project://my_project/test_cases/Fujitsu_Demo.fftc                   Pass  
+17     65   1275509992705  1275510001221  project://my_project/test_cases/Fujitsu_Demo.fftc                   Pass  
+18     76   1276609738005  1276609780083  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+19     79   1276610593505  1276610611645  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+20     100  1276647454703  1276647473546  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+21     101  1276647752375  1276647784812  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+22     108  1276700133912  1276700150506  project://com.fnfr.demo.MockWebService/test_cases/Motive_Demo.fftc  Pass  
+23     113  1276702243158  1276702270892  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+24     134  1277153693307  1277153731044  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+25     144  1277217515868  1277217580876  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+26     145  1277218144694  1277218201326  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+27     167  1277226447288  1277226643294  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+28     171  1277226805416  1277226869219  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+29     172  1277226887684  1277226954583  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+30     173  1277227401415  1277227470173  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+31     174  1277227899383  1277227965716  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+32     175  1277228223888  1277228287485  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+33     176  1277228525638  1277228594298  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+34     177  1277228933643  1277229003303  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+35     178  1277229365322  1277229432278  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+36     179  1277229749935  1277229827830  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+37     191  1277988003263  1277988022099  project://Standard/test_cases/syslog_demo.fftc                      Pass  
+38     192  1277988085047  1277988101664  project://Standard/test_cases/syslog_demo.fftc                      Pass  
+39     207  1278429782422  1278429870375  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+40     208  1278429877345  1278429951858  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+41     210  1278430874939  1278430909789  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+42     211  1278433100302  1278433137449  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+43     212  1278433590574  1278433667696  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+44     215  1278941553375  1278941591203  project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc     Pass  
+45     286  1281721900765  1281721908548  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+46     287  1281721922521  1281721928194  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+47     288  1281721933539  1281721939806  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+48     290  1282139085556  1282139099213  project://Standard/test_cases/myPingTest_snmp.fftc                  Pass  
+49     292  1282141070040  1282141086822  project://Standard/test_cases/syslog_demo.fftc                      Pass  
+50     293  1282142179571  1282142186228  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+51     294  1282142205979  1282142211745  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+52     295  1282142228309  1282142234543  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+53     296  1282142272656  1282142283594  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+54     297  1282142293673  1282142307689  project://Standard/test_cases/myPingTest_telnet.fftc                Pass  
+55     324  1282190720118  1282190729540  project://my_project/test_cases/configure.fftc                      Pass  
+56     325  1282190787790  1282190797493  project://my_project/test_cases/configure.fftc                      Pass  
+57     326  1282190858149  1282190868493  project://my_project/test_cases/configure.fftc                      Pass  
+58     327  1282190957461  1282190985618  project://my_project/test_cases/configure.fftc                      Pass  
+59     331  1282221645355  1282221675214  project://my_project/test_cases/configure.fftc                      Pass  
+60     332  1282243365890  1282243399031  project://my_project/test_cases/configure.fftc                      Pass  
+61     333  1282243796515  1282243821156  project://my_project/test_cases/configure.fftc                      Pass  
+62     334  1282243897171  1282243921578  project://my_project/test_cases/configure.fftc                      Pass  
+63     337  1282250268953  1282250280375  project://my_project/test_cases/ALU_DEMO.fftc                       Pass  
+64     340  1282250404500  1282250416078  project://my_project/test_cases/ALU_DEMO.fftc                       Pass  
+65     342  1282250480046  1282250491562  project://my_project/test_cases/ALU_DEMO.fftc                       Pass  
+66     345  1282251056781  1282251082656  project://my_project/test_cases/configure.fftc                      Pass  
+67     350  1282257764640  1282257781265  project://my_project/test_cases/ALU_DEMO.fftc                       Pass  
+68     352  1282257826531  1282257838375  project://my_project/test_cases/ALU_DEMO.fftc                       Pass  
+69     353  1282257856156  1282257860640  project://my_project/test_cases/ALU_DEMO.fftc                       Pass  
+70     354  1282257928875  1282257940000  project://my_project/test_cases/ALU_DEMO.fftc                       Pass  
+71     399  1282674311220  1282674386235  project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc   Pass  
+
+
+Records retrieved: 71
+Additional records available: false
+success: true
+</responseBody>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;resultset map:nodetype=&quot;table&quot;&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;3&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;1&lt;/index&gt;
+         &lt;id map:endcol=&quot;8&quot; map:line=&quot;3&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;2&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;3&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1273697819075&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;3&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1273697827561&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;92&quot; map:line=&quot;3&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_snmp.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;3&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;4&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;2&lt;/index&gt;
+         &lt;id map:endcol=&quot;8&quot; map:line=&quot;4&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;4&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;4&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1274132724796&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;4&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1274132736906&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;4&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;4&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;5&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;3&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;5&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;10&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;5&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1274141085879&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;5&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1274141097786&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;5&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;5&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;6&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;4&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;6&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;14&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;6&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1274200739468&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;6&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1274200752687&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;6&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;6&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;7&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;5&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;7&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;18&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;7&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1274460741991&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;7&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1274460753435&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;92&quot; map:line=&quot;7&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_snmp.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;7&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;8&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;6&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;8&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;19&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;8&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1274460765879&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;8&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1274460775365&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;92&quot; map:line=&quot;8&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_snmp.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;8&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;9&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;7&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;9&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;20&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;9&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1274463556129&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;9&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1274463565692&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;92&quot; map:line=&quot;9&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_snmp.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;9&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;10&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;8&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;10&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;21&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;10&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1274463578303&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;10&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1274463587803&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;92&quot; map:line=&quot;10&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_snmp.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;10&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;1&quot; map:line=&quot;11&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;9&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;11&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;48&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;11&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275493538447&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;11&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275493551401&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;11&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;11&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;12&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;10&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;12&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;51&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;12&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275493628267&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;12&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275493640550&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;12&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;12&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;13&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;11&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;13&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;52&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;13&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275493659286&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;13&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275493666240&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;13&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;13&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;14&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;12&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;14&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;56&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;14&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275502342651&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;14&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275502358824&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;14&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;14&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;15&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;13&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;15&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;57&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;15&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275502381622&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;15&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275502387482&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;15&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;15&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;16&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;14&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;16&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;59&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;16&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275502542821&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;16&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275502557103&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;16&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;16&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;17&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;15&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;17&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;63&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;17&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275509333049&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;17&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275509348956&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;17&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_Demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;17&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;18&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;16&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;18&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;64&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;18&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275509527656&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;18&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275509543017&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;18&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_Demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;18&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;19&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;17&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;19&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;65&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;19&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1275509992705&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;19&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1275510001221&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;91&quot; map:line=&quot;19&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/Fujitsu_Demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;19&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;20&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;18&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;20&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;76&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;20&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1276609738005&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;20&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1276609780083&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;20&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;20&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;21&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;19&lt;/index&gt;
+         &lt;id map:endcol=&quot;9&quot; map:line=&quot;21&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;79&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;21&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1276610593505&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;21&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1276610611645&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;21&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;21&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;22&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;20&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;22&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;100&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;22&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1276647454703&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;22&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1276647473546&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;22&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;22&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;23&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;21&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;23&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;101&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;23&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1276647752375&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;23&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1276647784812&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;23&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;23&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;24&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;22&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;24&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;108&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;24&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1276700133912&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;24&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1276700150506&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;108&quot; map:line=&quot;24&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/Motive_Demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;24&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;25&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;23&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;25&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;113&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;25&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1276702243158&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;25&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1276702270892&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;25&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;25&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;26&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;24&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;26&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;134&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;26&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277153693307&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;26&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277153731044&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;26&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;26&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;27&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;25&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;27&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;144&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;27&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277217515868&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;27&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277217580876&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;27&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;27&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;28&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;26&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;28&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;145&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;28&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277218144694&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;28&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277218201326&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;28&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;28&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;29&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;27&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;29&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;167&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;29&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277226447288&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;29&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277226643294&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;29&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;29&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;30&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;28&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;30&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;171&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;30&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277226805416&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;30&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277226869219&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;30&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;30&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;31&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;29&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;31&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;172&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;31&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277226887684&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;31&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277226954583&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;31&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;31&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;32&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;30&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;32&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;173&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;32&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277227401415&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;32&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277227470173&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;32&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;32&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;33&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;31&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;33&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;174&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;33&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277227899383&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;33&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277227965716&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;33&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;33&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;34&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;32&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;34&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;175&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;34&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277228223888&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;34&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277228287485&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;34&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;34&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;35&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;33&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;35&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;176&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;35&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277228525638&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;35&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277228594298&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;35&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;35&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;36&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;34&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;36&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;177&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;36&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277228933643&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;36&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277229003303&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;36&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;36&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;37&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;35&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;37&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;178&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;37&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277229365322&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;37&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277229432278&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;37&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;37&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;38&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;36&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;38&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;179&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;38&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277229749935&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;38&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277229827830&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;38&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;38&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;39&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;37&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;39&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;191&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;39&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277988003263&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;39&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277988022099&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;39&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/syslog_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;39&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;40&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;38&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;40&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;192&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;40&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1277988085047&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;40&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1277988101664&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;40&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/syslog_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;40&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;41&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;39&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;41&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;207&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;41&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1278429782422&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;41&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1278429870375&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;41&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;41&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;42&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;40&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;42&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;208&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;42&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1278429877345&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;42&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1278429951858&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;42&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;42&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;43&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;41&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;43&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;210&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;43&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1278430874939&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;43&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1278430909789&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;43&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;43&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;44&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;42&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;44&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;211&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;44&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1278433100302&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;44&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1278433137449&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;44&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;44&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;45&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;43&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;45&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;212&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;45&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1278433590574&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;45&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1278433667696&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;45&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;45&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;46&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;44&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;46&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;215&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;46&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1278941553375&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;46&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1278941591203&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;105&quot; map:line=&quot;46&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.MockWebService/test_cases/buy_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;46&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;47&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;45&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;47&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;286&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;47&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1281721900765&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;47&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1281721908548&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;47&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;47&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;48&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;46&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;48&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;287&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;48&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1281721922521&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;48&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1281721928194&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;48&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;48&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;49&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;47&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;49&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;288&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;49&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1281721933539&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;49&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1281721939806&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;49&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;49&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;50&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;48&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;50&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;290&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;50&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282139085556&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;50&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282139099213&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;92&quot; map:line=&quot;50&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_snmp.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;50&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;51&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;49&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;51&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;292&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;51&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282141070040&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;51&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282141086822&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;51&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/syslog_demo.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;51&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;52&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;50&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;52&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;293&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;52&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282142179571&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;52&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282142186228&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;52&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;52&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;53&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;51&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;53&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;294&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;53&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282142205979&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;53&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282142211745&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;53&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;53&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;54&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;52&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;54&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;295&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;54&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282142228309&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;54&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282142234543&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;54&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;54&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;55&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;53&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;55&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;296&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;55&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282142272656&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;55&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282142283594&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;55&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;55&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;56&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;54&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;56&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;297&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;56&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282142293673&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;56&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282142307689&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;94&quot; map:line=&quot;56&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://Standard/test_cases/myPingTest_telnet.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;56&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;57&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;55&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;57&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;324&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;57&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282190720118&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;57&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282190729540&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;57&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;57&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;58&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;56&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;58&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;325&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;58&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282190787790&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;58&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282190797493&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;58&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;58&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;59&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;57&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;59&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;326&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;59&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282190858149&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;59&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282190868493&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;59&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;59&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;60&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;58&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;60&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;327&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;60&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282190957461&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;60&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282190985618&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;60&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;60&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;61&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;59&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;61&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;331&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;61&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282221645355&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;61&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282221675214&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;61&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;61&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;62&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;60&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;62&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;332&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;62&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282243365890&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;62&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282243399031&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;62&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;62&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;63&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;61&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;63&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;333&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;63&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282243796515&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;63&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282243821156&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;63&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;63&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;64&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;62&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;64&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;334&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;64&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282243897171&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;64&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282243921578&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;64&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;64&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;65&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;63&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;65&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;337&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;65&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282250268953&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;65&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282250280375&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;87&quot; map:line=&quot;65&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/ALU_DEMO.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;65&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;66&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;64&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;66&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;340&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;66&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282250404500&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;66&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282250416078&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;87&quot; map:line=&quot;66&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/ALU_DEMO.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;66&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;67&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;65&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;67&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;342&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;67&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282250480046&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;67&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282250491562&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;87&quot; map:line=&quot;67&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/ALU_DEMO.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;67&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;68&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;66&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;68&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;345&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;68&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282251056781&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;68&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282251082656&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;88&quot; map:line=&quot;68&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/configure.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;68&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;69&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;67&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;69&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;350&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;69&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282257764640&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;69&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282257781265&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;87&quot; map:line=&quot;69&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/ALU_DEMO.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;69&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;70&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;68&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;70&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;352&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;70&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282257826531&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;70&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282257838375&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;87&quot; map:line=&quot;70&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/ALU_DEMO.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;70&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;71&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;69&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;71&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;353&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;71&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282257856156&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;71&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282257860640&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;87&quot; map:line=&quot;71&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/ALU_DEMO.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;71&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;72&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;70&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;72&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;354&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;72&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282257928875&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;72&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282257940000&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;87&quot; map:line=&quot;72&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://my_project/test_cases/ALU_DEMO.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;72&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+      &lt;row map:nodetype=&quot;row&quot;&gt;
+         &lt;index map:endcol=&quot;2&quot; map:line=&quot;73&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;0&quot;&gt;71&lt;/index&gt;
+         &lt;id map:endcol=&quot;10&quot; map:line=&quot;73&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;7&quot;&gt;399&lt;/id&gt;
+         &lt;start map:endcol=&quot;25&quot; map:line=&quot;73&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;12&quot;&gt;1282674311220&lt;/start&gt;
+         &lt;endTime map:endcol=&quot;40&quot; map:line=&quot;73&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;27&quot;&gt;1282674386235&lt;/endTime&gt;
+         &lt;testCase map:endcol=&quot;107&quot; map:line=&quot;73&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;42&quot;&gt;project://com.fnfr.demo.selenium/test_cases/selenium_rc_test.fftc&lt;/testCase&gt;
+         &lt;result map:endcol=&quot;114&quot; map:line=&quot;73&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;110&quot;&gt;Pass&lt;/result&gt;
+      &lt;/row&gt;
+   &lt;/resultset&gt;
+   &lt;recordNumber map:endcol=&quot;21&quot; map:line=&quot;76&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;19&quot;&gt;71&lt;/recordNumber&gt;
+   &lt;additional map:endcol=&quot;35&quot; map:line=&quot;77&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;30&quot;&gt;false&lt;/additional&gt;
+   &lt;success map:endcol=&quot;13&quot; map:line=&quot;78&quot; map:nodetype=&quot;token&quot; map:startcol=&quot;9&quot;&gt;true&lt;/success&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="id">
+                    <queryFormatString>.//resultset//id</queryFormatString>
+                </item>
+                <item name="index">
+                    <queryFormatString>.//resultset/row[id = &apos;{0}&apos;]/index</queryFormatString>
+                    <arguments>
+                        <item name="id">
+                            <defaultvalue>399</defaultvalue>
+                            <valuesQuery>.//resultset/row/id</valuesQuery>
+                            <interpretAs>SampleValues</interpretAs>
+                        </item>
+                    </arguments>
+                </item>
+                <item name="start">
+                    <queryFormatString>.//resultset/row[id = &apos;{0}&apos;]/start</queryFormatString>
+                    <arguments>
+                        <item name="id">
+                            <defaultvalue>399</defaultvalue>
+                            <valuesQuery>.//resultset/row/id</valuesQuery>
+                            <interpretAs>SampleValues</interpretAs>
+                        </item>
+                    </arguments>
+                </item>
+                <item name="endTime">
+                    <queryFormatString>.//resultset/row[id = &apos;{0}&apos;]/endTime</queryFormatString>
+                    <arguments>
+                        <item name="id">
+                            <defaultvalue>399</defaultvalue>
+                            <valuesQuery>.//resultset/row/id</valuesQuery>
+                            <interpretAs>SampleValues</interpretAs>
+                        </item>
+                    </arguments>
+                </item>
+                <item name="testCase">
+                    <queryFormatString>.//resultset/row[id = &apos;{0}&apos;]/testCase</queryFormatString>
+                    <arguments>
+                        <item name="id">
+                            <defaultvalue>399</defaultvalue>
+                            <valuesQuery>.//resultset/row/id</valuesQuery>
+                            <interpretAs>SampleValues</interpretAs>
+                        </item>
+                    </arguments>
+                </item>
+                <item name="result">
+                    <queryFormatString>.//resultset/row[id = &apos;{0}&apos;]/result</queryFormatString>
+                    <arguments>
+                        <item name="id">
+                            <defaultvalue>399</defaultvalue>
+                            <valuesQuery>.//resultset/row/id</valuesQuery>
+                            <interpretAs>SampleValues</interpretAs>
+                        </item>
+                    </arguments>
+                </item>
+                <item name="recordNumber">
+                    <queryFormatString>recordNumber</queryFormatString>
+                </item>
+                <item name="additional">
+                    <queryFormatString>additional</queryFormatString>
+                </item>
+                <item name="success">
+                    <queryFormatString>success</queryFormatString>
+                </item>
+            </aliases>
+            <duration>0.1</duration>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="colon_auto1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Records retrieved:\\s+</regex>
+                            <start>0</start>
+                            <end>19</end>
+                        </item>
+                        <item name="Records_retrieved">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>19</start>
+                            <end>21</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Records retrieved: 71</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="colon_auto2">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>Additional records available:\\s+</regex>
+                            <start>0</start>
+                            <end>30</end>
+                        </item>
+                        <item name="Additional_records_available">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>30</start>
+                            <end>35</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>Additional records available: false</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="colon_auto3">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>success:\\s+</regex>
+                            <start>0</start>
+                            <end>9</end>
+                        </item>
+                        <item name="success">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>9</start>
+                            <end>13</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>success: true</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+            </regexMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <additionalBannerLineCount>1</additionalBannerLineCount>
+                    <banner>index\\s+id\\s+start\\s+endTime\\s+testCase\\s+result\\s*</banner>
+                    <bannerStructure>Regex</bannerStructure>
+                    <minOccurences>0</minOccurences>
+                    <columns>
+                        <item name="index">
+                            <width>7</width>
+                        </item>
+                        <item name="id">
+                            <width>5</width>
+                        </item>
+                        <item name="start">
+                            <width>15</width>
+                        </item>
+                        <item name="endTime">
+                            <width>15</width>
+                        </item>
+                        <item name="testCase">
+                            <isKey>true</isKey>
+                            <width>68</width>
+                        </item>
+                        <item name="result">
+                            <width>999</width>
+                        </item>
+                    </columns>
+                    <ignoreBlankLines>false</ignoreBlankLines>
+                    <autoUpdateNames>false</autoUpdateNames>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="execute" command="SELECT id,start,endTime,testCase,result FROM testreport WHERE result = &quot;Pass&quot;">
+        <application>
+            <item>com.fnfr.itest.tools.database</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="time_by_testcase">
+            <queryFormatString>//row[testCase=&apos;{0}&apos;]/endTime - //row[testCase=&apos;{0}&apos;]/start</queryFormatString>
+            <arguments>
+                <item name="tc">
+                    <valuesQuery>//testCase</valuesQuery>
+                    <interpretAs>SampleValues</interpretAs>
+                </item>
+            </arguments>
+        </item>
+    </aliases>
+</ResponseMap>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <owner>jjohnson</owner>
+    </general>
+    <testbed>project://a_WebServices/topologies/WebServices.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="aa20340a-7975-41e6-b875-de3da723dc7e" action="open" session="Weather">
+                    <command>
+                        <body>device:Weather#Web_Services</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices" transferableType="com.fnfr.itest.applications.webservices.properties.wsdl.WSDLSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="23713ecf-5262-4342-84b4-71ff4bf62fe4" action="eval">
+                    <command>
+                        <body>set myzip 10001</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e7f62c84-f1e2-49de-bb2f-e71122a24171" action="WeatherSoap/GetCityForecastByZIP" session="Weather" normalOffset="6.816" estimatedStepExecutionTime="0.141">
+                    <command>
+                        <body>zIP=$myzip</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>MorningLows()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value &gt; 32</expression>
+                                        <actionOnMultiple>True if all true</actionOnMultiple>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>No freezing temperatures for the upcoming week.</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="PassTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>Freezing temperatures expected this week.</message>
+                                                </actionProperties>
+                                            </item>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices" transferableType="com.fnfr.itest.applications.webservices.properties.wsdl.WSDLInvokeProperties" rawresponse="true" rawresponse.inherit="false">
+                        <message inherit="false">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+  &lt;SOAP-ENV:Header/&gt;
+  &lt;SOAP-ENV:Body&gt;
+    &lt;WeatherWS:GetCityForecastByZIP xmlns:WeatherWS=&quot;http://ws.cdyne.com/WeatherWS/&quot;&gt;
+      &lt;WeatherWS:ZIP&gt;$myzip&lt;/WeatherWS:ZIP&gt;
+    &lt;/WeatherWS:GetCityForecastByZIP&gt;
+  &lt;/SOAP-ENV:Body&gt;
+&lt;/SOAP-ENV:Envelope&gt;
+</message>
+                    </applicationProperties>
+                </item>
+                <item guid="7bc53cbb-34c5-4436-bd01-4101e852b1f0" action="close" session="Weather">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

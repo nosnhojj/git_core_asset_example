@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <general>
+        <owner>jjohnson</owner>
+    </general>
+    <testbed>project://d_MRV/topologies/mrv.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="b21709ed-f877-4360-82c0-4b777eb05955" action="comment">
+                    <command>
+                        <body>List all ports for this switch</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0c5801da-88bc-49d3-b9df-305d776941e3" action="eval">
+                            <command>
+                                <body>set num_ports [tbml property -name &quot;MRV Switch36&quot; num_ports]</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^\\d+$</regex>
+                                                <extractionGroupIndex>0</extractionGroupIndex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="message">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                <message>Layer 0 Switch contains {value} ports.</message>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="196a3d8e-8c0e-41ad-811e-9c872dc9bb0c" action="comment">
+                            <command>
+                                <body>List the port number from the custom attribute</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="c9f6d0eb-c3ca-4175-9b9f-fa25b1b6ddcd" action="for">
+                                    <command>
+                                        <body>{set i 1} {$i &lt;= $num_ports} {incr i}</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="91ab4a21-188a-4847-ad97-019fc14c0e01" action="comment">
+                                            <command>
+                                                <body>Insert steps here to be executed on each loop</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="e05d5ac3-07d5-46b1-81c5-88dadf00d347" action="eval">
+                                            <command>
+                                                <body>puts [tbml property -name &quot;MRV Switch36 port$i&quot; port]</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="none">
+                                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="message">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                                <message>Testing port $i</message>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6299a6fe-1e46-4951-bcce-cbe5de2deb54" action="comment">
+                    <command>
+                        <body>Get the port number from the custom properites branch</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="987d7757-0cf2-4ef8-aa28-353bc6e09c41" action="eval">
+                            <command>
+                                <body>puts [tbml property -name &quot;MRV Switch36 port1&quot; &quot;[list custom port]&quot;]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="28ac882c-bdca-41e7-b07d-fd409efe515c" action="comment">
+                    <command>
+                        <body>List all the links for the MRV switch</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="904ca08e-969f-4945-b39a-d91e4f160064" action="eval">
+                            <command>
+                                <body>puts [tbml linkList -id MRV]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

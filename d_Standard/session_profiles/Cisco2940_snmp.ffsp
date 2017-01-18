@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.1.4.63326">
+    <baseApplication>com.fnfr.svt.applications.snmp</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties">
+        <ipAddress inherit="false">192.168.1.33</ipAddress>
+    </sessionProperties>
+    <parameters version="4.1.4.63326">
+        <parameters escape="true">
+            <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                <DUT_IP>192.168.1.33</DUT_IP>
+            </parameters>
+        </parameters>
+    </parameters>
+    <nickName>Cisco2940_snmp</nickName>
+</SessionTemplate>

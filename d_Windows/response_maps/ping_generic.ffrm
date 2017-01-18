@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="Ping_Success_Normal">
+            <action actionType="command">
+                <command>
+                    <body>ping 10.155.20.1</body>
+                </command>
+            </action>
+            <responseBody>
+Pinging 10.155.20.1 with 32 bytes of data:
+
+Reply from 10.155.20.1: bytes=32 time=273ms TTL=64
+Reply from 10.155.20.1: bytes=32 time=4ms TTL=64
+Reply from 10.155.20.1: bytes=32 time=4ms TTL=64
+Reply from 10.155.20.1: bytes=32 time=4ms TTL=64
+
+Ping statistics for 10.155.20.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 4ms, Maximum = 273ms, Average = 71ms
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure&gt;
+   &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+      &lt;prompt&gt;C:\\&amp;gt;&lt;/prompt&gt;
+      &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+      &lt;echo&gt;ping 10.155.20.1&lt;/echo&gt;
+      &lt;idleTime&gt;1.001&lt;/idleTime&gt;
+      &lt;contentType&gt;text&lt;/contentType&gt;
+      &lt;terminator&gt;SLASH_R&lt;/terminator&gt;
+   &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+        <item name="Ping_Unsuccessful_DHU">
+            <action>
+                <command>
+                    <body>ping 1.1.1.1</body>
+                </command>
+            </action>
+            <responseBody>
+Pinging 1.1.1.1 with 32 bytes of data:
+
+Request timed out.
+Reply from 157.130.197.17: Destination host unreachable.
+Request timed out.
+Reply from 157.130.197.17: Destination host unreachable.
+
+Ping statistics for 1.1.1.1:
+    Packets: Sent = 4, Received = 2, Lost = 2 (50% loss),</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+        <item name="Ping_Invalid">
+            <action>
+                <command>
+                    <body>ping 444.444.444.444</body>
+                </command>
+            </action>
+            <responseBody>Ping request could not find host 444.444.444.444. Please check the name and try again.</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+        <item name="Ping_Success_Loopback">
+            <action>
+                <command>
+                    <body>ping loopback</body>
+                </command>
+            </action>
+            <responseBody>
+Pinging Jeff-RMT.fnfr.com [127.0.0.1] with 32 bytes of data:
+
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+Reply from 127.0.0.1: bytes=32 time&lt;1ms TTL=128
+
+Ping statistics for 127.0.0.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>Ping_Success_Loopback</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Ping_Success_Normal">
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Header_Invalid">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="Ping" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="request" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="could" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="not" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="find" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="host" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="444.444" parser="Number" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue="." parser="Punctuation" isWildcard="true"/>
+                                            <item representativeValue="444.444" parser="Number" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Please" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="check" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="the" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="name" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="and" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="try" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="again" parser="Word"/>
+                                            <item representativeValue="." parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Header">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="Pinging" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Ping_Host" representativeValue="host" parser="Word" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="with" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Ping_Bytes" representativeValue="32" parser="Number" isVariable="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="bytes" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="of" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="data" parser="Word"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Line">
+                                <minOccurrences>0</minOccurrences>
+                                <maxOccurences>0</maxOccurences>
+                                <nodes>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Line_Reply">
+                                        <minOccurrences>0</minOccurrences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="Reply" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="from" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="Reply_IP_Address" representativeValue="10.155.20.1" parser="IPv4Address" isVariable="true"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="bytes" parser="Word"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item name="Reply_Bytes" representativeValue="32" parser="Number" isVariable="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="time" parser="Word"/>
+                                                    <item representativeValue="=" parser="Punctuation" isWildcard="true"/>
+                                                    <item name="Reply_Time" representativeValue="273" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="ms" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="TTL" parser="Word"/>
+                                                    <item representativeValue="=" parser="Punctuation"/>
+                                                    <item name="Reply_TTL" representativeValue="64" parser="Number" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Line_Loopback">
+                                        <minOccurrences>0</minOccurrences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="Reply" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="from" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="data" parser="Word" isWildcard="true"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="time" parser="Word"/>
+                                                    <item representativeValue="&lt;" parser="Punctuation"/>
+                                                    <item name="Reply_Time" representativeValue="1" parser="Number" isVariable="true"/>
+                                                    <item representativeValue="ms" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Line_RTO">
+                                        <minOccurrences>0</minOccurrences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="Request" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="timed" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="out" parser="Word"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Line_DHU">
+                                        <minOccurrences>0</minOccurrences>
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="Reply" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="from" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="157.130.197.17" parser="IPv4Address" isVariable="true"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Destination" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="host" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="unreachable" parser="Word"/>
+                                                    <item representativeValue="." parser="Punctuation"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                </nodes>
+                                <isOrderedList>false</isOrderedList>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Footer">
+                                <minOccurrences>0</minOccurrences>
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="Ping" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="statistics" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="for" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Ping_Stats_Host" representativeValue="host" parser="Word" isVariable="true" isWildcard="true"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Packets" parser="Word"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Sent" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Packets_Sent" representativeValue="4" parser="Number" isVariable="true"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Received" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Packets_Received" representativeValue="4" parser="Number" isVariable="true"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Lost" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Packets_Lost" representativeValue="0" parser="Number" isVariable="true"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="(" parser="Punctuation"/>
+                                            <item name="Percent_Loss" representativeValue="0" parser="Number" isVariable="true"/>
+                                            <item representativeValue="%" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="loss" parser="Word"/>
+                                            <item representativeValue=")" parser="Punctuation"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                        </tokens>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="Approximate" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="round" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="trip" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="times" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="in" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="milli" parser="Word"/>
+                                            <item representativeValue="-" parser="Punctuation"/>
+                                            <item representativeValue="seconds" parser="Word"/>
+                                            <item representativeValue=":" parser="Punctuation"/>
+                                        </tokens>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Minimum" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Round_Trip_Minimum" representativeValue="4" parser="Number" isVariable="true"/>
+                                            <item representativeValue="ms" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Maximum" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Round_Trip_Maximum" representativeValue="273" parser="Number" isVariable="true"/>
+                                            <item representativeValue="ms" parser="Word"/>
+                                            <item representativeValue="," parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="Average" parser="Word"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item representativeValue="=" parser="Punctuation"/>
+                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                            <item name="Round_Trip_Average" representativeValue="71" parser="Number" isVariable="true"/>
+                                            <item representativeValue="ms" parser="Word"/>
+                                        </tokens>
+                                        <isOptional>true</isOptional>
+                                    </item>
+                                </lines>
+                            </item>
+                        </nodes>
+                        <isOrderedList>false</isOrderedList>
+                    </item>
+                </nodes>
+            </BlockMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="ping *">
+        <application>
+            <item>com.fnfr.svt.applications.cmd</item>
+            <item>com.fnfr.svt.applications.process</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

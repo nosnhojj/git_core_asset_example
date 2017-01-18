@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="d69ec9f6-d794-40c8-8953-5e95df9e3447" action="open" session="google">
+                    <command>
+                        <body>project://d_Standard/session_profiles/google_home.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="f6463877-d7f2-45ca-af26-a3d2abf3a5b3" action="setText" session="google" context="form_maps/google_home" target="textbox_question()" normalOffset="1.422" estimatedStepExecutionTime="0.125">
+                    <command>
+                        <body>&quot;Jeff Johnson&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+                <item guid="0ad44699-812a-4aba-86c8-4ee28b722ec1" action="click" session="google" context="form_maps/google_home" target="button_Google_Search()">
+                    <command>
+                        <body>&lt;enter text&gt;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.ClickStepProperties"/>
+                </item>
+                <item guid="99d9424d-5058-43eb-bc60-65da8cd88b9c" action="sleep" context="form_maps/new_form_map" target="&lt;target&gt;">
+                    <command>
+                        <body>5</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="bedca71b-41ea-4347-8247-e1244cb23762" action="close" session="google" normalOffset="1.749">
+                    <applicationProperties type="com.fnfr.svt.applications.web.documents.stepproperties.StepProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

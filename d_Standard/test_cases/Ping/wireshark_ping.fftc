@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="c8e4d509-27b7-4c00-8b3e-0ea7802cea76" action="open" session="Wireshark">
+                    <command>
+                        <body>project://d_Standard/session_profiles/wireshark.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.applications.wireshark.WiresharkSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="90ae4d36-3ac3-4ec6-9e98-42c3f6ce3962" action="command" session="Wireshark" normalOffset="4.672" estimatedStepExecutionTime="11.297">
+                    <command>
+                        <body>capture start </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="30a905d8-0366-42e5-b353-c3bc14fffb87" action="command" session="Wireshark">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="a0d0a7bc-5545-4029-880d-c677801b15b7" action="command" session="Wireshark">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="49319a64-f360-42ef-ba85-d0e80d65496e" action="open" session="laptop" normalOffset="5.703">
+                    <command>
+                        <body>project://d_Standard/session_profiles/laptop.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="630e2b01-9e36-4472-8493-583dfed34683" action="command" session="laptop" normalOffset="4.03" estimatedStepExecutionTime="3.172">
+                    <command>
+                        <body>ping 192.168.1.33</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.0" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="f679133f-8301-4da0-8113-a211b6408929" action="command" session="Wireshark" normalOffset="9.14">
+                    <command>
+                        <body>capture status </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="f055fa1b-f8f4-4bb3-9aff-07b6f1f73fe1" action="command" session="Wireshark" normalOffset="4.515" estimatedStepExecutionTime="1.5">
+                    <command>
+                        <body>capture stop </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="479cb2b3-823d-466f-9d29-4f31f834c2d4" action="command" session="Wireshark" normalOffset="5.125" estimatedStepExecutionTime="0.203">
+                    <command>
+                        <body>show packets </body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="4ff0c810-0105-4052-adcf-d7f0d4df087f" action="command" session="Wireshark" normalOffset="10.578" estimatedStepExecutionTime="0.11">
+                    <command>
+                        <body>show details 4</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="b55308fb-7279-401b-9dce-a8ee1a66fff8" action="close" session="Wireshark">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="3b67faef-6489-4409-854f-847b66688dd4" action="close" session="laptop">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

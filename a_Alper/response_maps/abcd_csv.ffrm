@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.4.0.75339">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="readFile">
+                <command>
+                    <body>abcd.csv</body>
+                </command>
+            </action>
+            <responseBody>problem
+a,10,20,30
+b,11,21,31
+c,12,22,32</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner>problem</banner>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <delimiter>Comma</delimiter>
+                    <columns>
+                        <item name="x">
+                            <isKey>true</isKey>
+                        </item>
+                        <item name="y"/>
+                        <item name="w"/>
+                        <item name="z"/>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="readFile" command="abcd.csv"/>
+</ResponseMap>

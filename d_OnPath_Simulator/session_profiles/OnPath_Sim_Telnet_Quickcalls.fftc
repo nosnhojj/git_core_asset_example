@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<testCase version="4.3.0.71664">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="OnPath_Sim_Telnet_Base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="67b3c19d-ef64-4f0e-95f2-c2a4969a5949" action="comment">
+                    <command>
+                        <body>Quickcalls for the OnPath L1 Switch Simulator</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="logon" isPublic="true">
+            <steps>
+                <item guid="72901f40-7887-4496-864d-73d25b96e8bb" action="command" session="$session" normalOffset="20.52" estimatedStepExecutionTime="0.202">
+                    <command>
+                        <body>logon $username $password</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.3" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+            </steps>
+            <arguments>
+                <item name="username">
+                    <defaultValue>admin</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="password">
+                    <defaultValue>password</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="selectSwitch" isPublic="true">
+            <steps>
+                <item guid="4b195345-47d5-468b-a2ce-9923706acf51" action="command" session="$session" normalOffset="20.075" estimatedStepExecutionTime="0.202">
+                    <command>
+                        <body>select switch $switch</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.52" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+            </steps>
+            <arguments>
+                <item name="switch">
+                    <defaultValue>OnPath_SIM</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

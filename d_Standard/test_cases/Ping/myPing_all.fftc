@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution estimatedExecutionTime="16">
+        <parameters version="6.0.0.18638fa">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <ping_count pt:datatype="INTEGER">5</ping_count>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <testbed>project://d_Standard/topologies/simulation.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="7a3bcbf1-7c39-44eb-9f36-d7de0168ebcc" action="comment">
+                    <command>
+                        <body>Open Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7e8582a2-5ed3-4b46-af40-9aa02b3b6e2a" action="open" session="Laptop">
+                            <command>
+                                <body>device:host</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="38f7f7a8-4044-4306-9a45-9fef068c3783" action="open" session="SNMP_DUT">
+                            <command>
+                                <body>device:DUT#SNMP</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.applications.snmp.documents.DeviceProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="b80b8501-1064-4ff6-9cc6-92ef55f772db" action="open" session="Web_DUT">
+                            <command>
+                                <body>device:DUT#Web</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="60e97b02-10d5-4097-8f94-a261a32820e0" action="open" session="Telnet_DUT">
+                            <command>
+                                <body>device:DUT#CLI</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="9ba77bf3-e86c-4719-8085-ebf33bf5d6b1" action="login" session="Telnet_DUT">
+                            <command>
+                                <body masked="true">CaK+mWSFs84=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="8f2d1fa5-305d-4097-8ad9-aa2602797a39" action="command" session="Telnet_DUT" skip="true">
+                            <command>
+                                <body>ena</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="f20cbccc-d391-4111-a579-ab7a90361919" action="command" session="Telnet_DUT" skip="true">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="eee9b47c-08fe-44e1-bac3-d238171fc899" action="teststep">
+                    <command>
+                        <body>Collect Initial Results</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="2bbb672d-6cda-49ba-8c70-b6232ca10f40" action="comment">
+                    <command>
+                        <body>Collect Initial Results</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8daf4620-7be1-4823-9912-53c6d65f8657" action="get" session="SNMP_DUT">
+                            <command>
+                                <body>MIB-2::icmp.icmpInEchos</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>icmpInEchos()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>snmp_ping_count</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="a20659ed-7228-4a5a-8f5c-0af600ccb143" action="go" session="Web_DUT">
+                            <command>
+                                <body>http://[profile Telnet_DUT document/sessionProperties/ipAddress]/exec/-/show/ip/traffic</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumPageLoadCompletionProperties"/>
+                        </item>
+                        <item guid="5cd9c8f0-c015-4bdd-ab06-2ebca5a518b6" action="snapshot" session="Web_DUT">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^\\s+(\\d+)\\secho,\\s\\d+\\secho reply,\\s\\d+\\smask requests,\\s\\d+\\smask replies,\\s\\d+\\squench$</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>web_ping_count</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSnapshotProperties"/>
+                        </item>
+                        <item guid="4bf50e35-5975-4dc6-aa52-a0de2ec0311f" action="showIPTraffic" session="Telnet_DUT">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>icmp_rcvd_echo()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="store">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                <storageLocation>telnet_ping_count</storageLocation>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="82866303-a074-4f69-8cd2-ca2ac234cac0" action="comment">
+                    <command>
+                        <body>Ping the Device</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7f8b8e97-6974-403d-b8d2-2853342e97f3" action="command" session="Laptop">
+                            <command>
+                                <body>ping -n [param ping_count] [profile Telnet_DUT document/sessionProperties/ipAddress]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="49b631f2-bf0b-4a5b-95a2-91c60043463a" action="comment">
+                    <command>
+                        <body>Refresh Results</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="a1f6a670-d973-46b4-b779-2da3affe5f47" action="get" session="SNMP_DUT">
+                            <command>
+                                <body>MIB-2::icmp.icmpInEchos</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>icmpInEchos()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == $snmp_ping_count + [param ping_count]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>SNMP Check Successful.  Received $value packets</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>SNMP Check Failed.  Expected:  [expr $snmp_ping_count + [param ping_count]]  Actual:  $value</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="5660c30d-f6c3-48ff-9129-794282589ed0" action="refresh" session="Web_DUT">
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumPageLoadCompletionProperties"/>
+                        </item>
+                        <item guid="3957f4b9-b8af-499f-9b01-04b6331a4fd1" action="snapshot" session="Web_DUT">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="regex">
+                                            <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                <regex>^\\s+(\\d+)\\secho,\\s\\d+\\secho reply,\\s\\d+\\smask requests,\\s\\d+\\smask replies,\\s\\d+\\squench$</regex>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == $web_ping_count + [param ping_count]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>Web Check Successful.  Received $value packets</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>Web Checked Failed.  Expected:  [expr $web_ping_count + [param ping_count]]   Actual:  $value</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSnapshotProperties"/>
+                        </item>
+                        <item guid="4d40cb82-2d40-4446-af9e-9f76b851e8d9" action="showIPTraffic" session="Telnet_DUT">
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="query">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                <query>icmp_rcvd_echo()</query>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == $telnet_ping_count + [param ping_count]</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                            <message>CLI Check Successful.  Received $value packets.</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="PassTestIfNotAlreadyFailed">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                                <actionsWhenFalse>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>CLI Check Failed.  Expected:  [expr $telnet_ping_count + [param ping_count]]  Actual:  $value</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="FailTest">
+                                                        <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    </item>
+                                                </actionsWhenFalse>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="08692c36-89ff-4ef0-a813-d8bccd0ec23f" action="comment">
+                    <command>
+                        <body>Close Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4a8961bd-c2fb-4c43-80e4-7f7404525977" action="close" session="Laptop">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="5a0aaedd-61ba-4553-a0a6-0de46a992d5b" action="close" session="SNMP_DUT">
+                            <applicationProperties type="com.fnfr.svt.applications.snmp.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="53281a6f-508d-4783-87ad-fcd17f9542a8" action="close" session="Web_DUT">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="8a12a667-8774-469f-bde0-db0336dad054" action="command" session="Telnet_DUT">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="fdbf9115-0ec8-45d8-9cf1-a82d728ba5ec" action="close" session="Telnet_DUT">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+    <qualityCenterTestInfo domain="FANFARE" project="DEMO">
+        <testLocation>Subject\\Training\\Managing Test Cases\\myPing_all</testLocation>
+        <testInstanceLocation>Root\\Training\\Workshop\\[1]myPing_all</testInstanceLocation>
+    </qualityCenterTestInfo>
+</testCase>

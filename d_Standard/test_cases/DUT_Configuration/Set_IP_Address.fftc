@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="19d5ea2a-df4d-4678-aefa-ff412a69aafb" action="open" session="Cisco2940_COM1">
+                    <command>
+                        <body>project://d_Standard/session_profiles/serial_COM1.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.itest.application.serial.documents.SerialSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="fd5748e7-4536-49b2-a918-529cac0125c9" action="command" session="Cisco2940_COM1" normalOffset="1.5" estimatedStepExecutionTime="0.094">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="66d1cc6e-0e90-48fa-8f6e-38ff56ae5c91" action="command" session="Cisco2940_COM1" normalOffset="0.031" estimatedStepExecutionTime="0.172">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0b5cf0e9-3793-4248-b3b8-7dbb3a809fce" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="acdd7dd5-b4e0-4bbe-9169-60f726e561c7" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="70cdd382-a854-4ec0-9c59-9e5462afb4d9" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d7852c25-c2e1-43ec-bbb1-ba4fa2fbe474" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fc1ec770-7444-49ac-a0fb-c74fce79c56c" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2937da72-1496-4eb1-906a-0e1a083153d5" action="comment">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5fb07311-d7c8-4b32-a5d7-b91d34f58b28" action="comment">
+                    <command>
+                        <body>Log into Privileged Mode</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ef41b03a-917f-4512-9605-a5dd146edaaa" action="command" session="Cisco2940_COM1" normalOffset="5.156" estimatedStepExecutionTime="0.047">
+                            <command>
+                                <body>ena</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.188" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="9110c280-7e94-4ad8-9d6a-85cbda911186" action="command" session="Cisco2940_COM1" normalOffset="1.374" estimatedStepExecutionTime="0.031">
+                            <command>
+                                <body masked="true">/k0EmzmSuV4=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="441c1315-e57b-444e-a277-a341bc6fd044" action="comment">
+                            <command>
+                                <body>Configure Terminal</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="da41965d-dd28-441a-8b27-a446878b4571" action="command" session="Cisco2940_COM1" normalOffset="2.86" estimatedStepExecutionTime="0.14">
+                                    <command>
+                                        <body>conf t</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.39" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                                <item guid="0bf8f434-e24b-4af3-828d-dc13a5d69cda" action="comment">
+                                    <command>
+                                        <body>Change the VLAN interface</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="f8f76f3d-3977-4b0a-9a9f-92feb286ced2" action="command" session="Cisco2940_COM1" normalOffset="5.063" estimatedStepExecutionTime="0.14">
+                                            <command>
+                                                <body>int vlan 1</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                                <completionProperties expectedIdleTime="0.39" expectedIdleTime.inherit="false"/>
+                                            </applicationProperties>
+                                        </item>
+                                        <item guid="39b8b324-18f4-4b5e-8a23-d038d67aad95" action="comment">
+                                            <command>
+                                                <body>Change the IP Address</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="ebda306c-c4cc-4433-a1f2-bcb52b9271a8" action="command" session="Cisco2940_COM1" normalOffset="9.812" estimatedStepExecutionTime="0.203">
+                                                    <command>
+                                                        <body>ip address 192.168.1.33 255.255.255.0</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                                        <completionProperties expectedIdleTime="1.203" expectedIdleTime.inherit="false"/>
+                                                    </applicationProperties>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="a7d28dc1-ab05-4243-9063-fca58fc262a7" action="command" session="Cisco2940_COM1" normalOffset="8.109" estimatedStepExecutionTime="0.11">
+                                            <command>
+                                                <body>exit   </body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                                <completionProperties expectedIdleTime="0.593" expectedIdleTime.inherit="false"/>
+                                            </applicationProperties>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="3332bdc9-1d45-4016-8609-2a9830f712dc" action="command" session="Cisco2940_COM1" normalOffset="86.312" estimatedStepExecutionTime="0.031">
+                                    <command>
+                                        <body>exit </body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="2.797" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="77d6d325-057c-40b8-8bce-ca41b94613c2" action="comment">
+                            <command>
+                                <body>Save the running configuration for the next power cycle.</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="763deb7a-69dd-4b20-a11a-e9d003e2a88b" action="command" session="Cisco2940_COM1" normalOffset="2.734" estimatedStepExecutionTime="0.875">
+                                    <command>
+                                        <body>copy running_config startup_config</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties expectedIdleTime="0.813" expectedIdleTime.inherit="false"/>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="c9824416-8235-479e-9423-e1b3a0f6fec3" action="command" session="Cisco2940_COM1" normalOffset="105.312" estimatedStepExecutionTime="0.282">
+                            <command>
+                                <body>exit</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="869fb8b6-d78a-4f54-ae93-20a350bef2ac" action="close" session="Cisco2940_COM1" normalOffset="4.796">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

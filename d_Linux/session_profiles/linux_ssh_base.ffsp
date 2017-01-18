@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="prompt1" MatchMethod="WILDCARD">
+                    <Content>[*@*]$</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Linux/</responseLibrary>
+    <sessionClassTestCase inherit="false">linux_ssh_quickcalls.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

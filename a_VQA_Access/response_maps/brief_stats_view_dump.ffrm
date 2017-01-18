@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.0.0.49128">
+    <sampleDictionary>
+        <item name="sample2">
+            <responseBody>*                        = {Stream ID} {Sample Time} {UTC Time} {URL ID} MCAST/UNICAST {URL Port} {URL Subnet} {URL User Profile} URL {Source IP} {Source Port} {Destination IP} {Destination Port} {Stream Type} {VLAN IDs} {SSRC or PID} {Transport Type} {MDI Average Delay Factor} {MDI Minimum Delay Factor} {MDI Maximum Delay Factor} {MDI Average MLR} {MDI Minimum MLR} {MDI Maximum MLR} {MOS A} {Minimum MOS A} {Maximum MOS A} {Absolute MOS V} {Absolute Minimum MOS V} {Absolute Maximum MOS V} R-Factor-LQ R-Factor-CQ MOS-LQ MOS-CQ
+Absolute MOS V           = 4.73046875
+Absolute Maximum MOS V   = 4.73046875
+Absolute Minimum MOS V   = 4.73046875
+Destination IP           = 192.168.1.136
+Destination Port         = 1028
+MCAST/UNICAST            = UNICAST
+MDI Average Delay Factor = 16.8359375
+MDI Average MLR          = 0
+MDI Maximum Delay Factor = 35.05859375
+MDI Maximum MLR          = 0
+MDI Minimum Delay Factor = 7.6328125
+MDI Minimum MLR          = 0
+MOS A                    = 
+MOS-CQ                   = 
+MOS-LQ                   = 
+Maximum MOS A            = 
+Minimum MOS A            = 
+R-Factor-CQ              = 
+R-Factor-LQ              = 
+SSRC or PID              = 4037767481
+Sample Time              = 36
+Source IP                = 70.110.95.110
+Source Port              = 1028
+Stream ID                = 1
+Stream Type              = VIDEO
+Transport Type           = RTP
+URL                      = 70.110.95.110/Spirent_HDTV_GoFootball_MainConcept_H264_cbr12mbps_384kaudio.mpg
+URL ID                   = 1
+URL Port                 = Test_75M_vidoedata_S1_inf0
+URL Subnet               = 3_3_20_V110_0_0_1
+URL User Profile         = Default_30
+UTC Time                 = 2009/07/28 21:49:14 
+VLAN IDs                 = 
+
+*                        = {Stream ID} {Sample Time} {UTC Time} {URL ID} MCAST/UNICAST {URL Port} {URL Subnet} {URL User Profile} URL {Source IP} {Source Port} {Destination IP} {Destination Port} {Stream Type} {VLAN IDs} {SSRC or PID} {Transport Type} {MDI Average Delay Factor} {MDI Minimum Delay Factor} {MDI Maximum Delay Factor} {MDI Average MLR} {MDI Minimum MLR} {MDI Maximum MLR} {MOS A} {Minimum MOS A} {Maximum MOS A} {Absolute MOS V} {Absolute Minimum MOS V} {Absolute Maximum MOS V} R-Factor-LQ R-Factor-CQ MOS-LQ MOS-CQ
+Absolute MOS V           = 4.73046875
+Absolute Maximum MOS V   = 4.73046875
+Absolute Minimum MOS V   = 4.73046875
+Destination IP           = 192.168.1.136
+Destination Port         = 1028
+MCAST/UNICAST            = UNICAST
+MDI Average Delay Factor = 7.73828125
+MDI Average MLR          = 0
+MDI Maximum Delay Factor = 9.21875
+MDI Maximum MLR          = 0
+MDI Minimum Delay Factor = 6.7265625
+MDI Minimum MLR          = 0
+MOS A                    = 
+MOS-CQ                   = 
+MOS-LQ                   = 
+Maximum MOS A            = 
+Minimum MOS A            = 
+R-Factor-CQ              = 
+R-Factor-LQ              = 
+SSRC or PID              = 4037767481
+Sample Time              = 40
+Source IP                = 70.110.95.110
+Source Port              = 1028
+Stream ID                = 1
+Stream Type              = VIDEO
+Transport Type           = RTP
+URL                      = 70.110.95.110/Spirent_HDTV_GoFootball_MainConcept_H264_cbr12mbps_384kaudio.mpg
+URL ID                   = 1
+URL Port                 = Test_75M_vidoedata_S1_inf0
+URL Subnet               = 3_3_20_V110_0_0_1
+URL User Profile         = Default_30
+UTC Time                 = 2009/07/28 21:49:18 
+VLAN IDs                 = 
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner>*                        = {Stream ID} {Sample Time} {UTC Time} {URL ID} MCAST/UNICAST {URL Port} {URL Subnet} {URL User Profile} URL {Source IP} {Source Port} {Destination IP} {Destination Port} {Stream Type} {VLAN IDs} {SSRC or PID} {Transport Type} {MDI Average Delay Factor} {MDI Minimum Delay Factor} {MDI Maximum Delay Factor} {MDI Average MLR} {MDI Minimum MLR} {MDI Maximum MLR} {MOS A} {Minimum MOS A} {Maximum MOS A} {Absolute MOS V} {Absolute Minimum MOS V} {Absolute Maximum MOS V} R-Factor-LQ R-Factor-CQ MOS-LQ MOS-CQ</banner>
+                    <bannerStructure>CaseInsensitive</bannerStructure>
+                    <customDelimiter>=</customDelimiter>
+                    <delimiter>Custom</delimiter>
+                    <columns>
+                        <item name="entry"/>
+                        <item name="value">
+                            <defaultValue>0</defaultValue>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties includeInLibrary="false"/>
+    <responseFilters>
+        <item name="RemoveValue">
+            <pattern>values(</pattern>
+        </item>
+        <item name="RemoveParenthesis">
+            <pattern>)</pattern>
+        </item>
+    </responseFilters>
+</ResponseMap>

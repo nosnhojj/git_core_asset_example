@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<testCase version="6.0.0.18638fa">
+    <execution renderCommentsIntoIssues="true"/>
+    <testbed>project://a_multithreading/topologies/multithreading_topo.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="4735ad44-abf9-4a56-8df7-4c646df962d8" action="comment">
+                    <command>
+                        <body>Open Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c53c9a2b-eac1-42e6-beb0-61360471af19" action="open" session="s1">
+                            <command>
+                                <body>device:laptop</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                        <item guid="22864566-dfa7-45db-9043-9f34d12938c8" action="open" session="s2">
+                            <command>
+                                <body>device:laptop</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="d43b8dd6-f164-4daa-884b-8e045a98f454" action="comment">
+                    <command>
+                        <body>Start Pinging the Box</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f9dc9992-a143-40dd-a6c4-d4d78df3dba2" action="call" async="true">
+                            <command>
+                                <body>DoPing -ping_count 70 -host 127.0.0.1</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5578efae-ccf7-4a91-b0d3-3d00dea4d728" action="comment">
+                    <command>
+                        <body>Start Threads</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d102e0cd-d658-4f5b-bcad-08480bf4166c" action="call" async="true">
+                            <threadName>test_1</threadName>
+                            <command>
+                                <body>testMutex1 -session_1 s1 -session_2 s2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="154fcf8b-7a57-4582-a079-378422601472" action="comment">
+                            <command>
+                                <body>To create a deadlock situation, use &quot;-session_1 s2 -session_2 s1&quot;.</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="63b59cba-48cd-4c54-9e15-147b0dcb0094" action="call" async="true">
+                            <threadName>test_2</threadName>
+                            <command>
+                                <body>testMutex1 -session_1 s1 -session_2 s2</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="9d17814c-59a5-4bb7-97f1-88cbb79e7704" action="comment">
+                    <command>
+                        <body>Wait for threads to start</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="0b88c50a-0872-4cfc-8b47-0b5a9ff7df13" action="sleep">
+                            <command>
+                                <body>5</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="4032a0e3-a01d-48ed-8618-561fd6d1550c" action="comment">
+                    <command>
+                        <body>Kick off Threads</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="45d953aa-13c3-4f34-b97f-48dadbbbf94a" action="signalAll">
+                            <command>
+                                <body>test_start</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="5ab2f558-a23a-4213-820e-438456bc60a6" action="comment">
+                    <command>
+                        <body>Wait for Threads to stop.</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b33fc615-2053-42e9-b322-17a56ead7444" action="waitthread">
+                            <command>
+                                <body>test_*</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c24637cd-9625-40fe-9e20-a41c8748c245" action="comment">
+                    <command>
+                        <body>Close Devices</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="58596655-a370-4909-992f-75bb8022b17b" action="close" session="s1">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="df20c97d-2b71-4cf4-8d7b-605527342358" action="close" session="s2">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        </item>
+                        <item guid="d80ff2e0-e456-4efd-bd6a-6df05bc4d2d2" action="exit">
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="testMutex1" defaultSessionProfile="application:com.fnfr.svt.applications.telnet">
+            <steps>
+                <item guid="0768f68b-234b-47a2-b179-d0d0cb98b8cb" action="comment">
+                    <command>
+                        <body>Thread ID [info threadId]:  Wait until told to continue</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="23d5b440-8861-43ca-b40d-930443bf2854" action="signalWait">
+                            <command>
+                                <body>test_start</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="6188d57f-f503-4f4f-a353-2410d33cea70" action="comment">
+                    <command>
+                        <body>Thread ID [info threadId]:  Show Ping Count on First Session</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="d74dc744-2799-4c37-9d3f-753427f7f881" action="lock">
+                            <command>
+                                <body>$session_1</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="1e296d7a-5a29-4859-bff7-26628b88823d" action="command" session="$session_1">
+                                    <command>
+                                        <body>netstat -es</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>ICMPv4_Statistics_Received_by_Stat(&quot;Echos&quot;)</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="message">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                        <message>Thread ID [info threadId]:  Ping Count is {value}</message>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="08086f65-d47e-4819-95ba-689b597dc2c4" action="sleep">
+                                    <command>
+                                        <body>10</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="0158810c-28eb-4ea5-bec0-2c549d486c5b" action="comment">
+                                    <command>
+                                        <body>Thread ID [info threadId]:  Show Ping Count on Second Session</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="f46f6108-d5cc-4ed1-bbe8-aa5c65264e48" action="lock">
+                                    <command>
+                                        <body>$session_2</body>
+                                    </command>
+                                    <nestedSteps>
+                                        <item guid="ba05f7cc-41ee-4838-902a-19b6b78e7854" action="command" session="$session_2">
+                                            <command>
+                                                <body>netstat -es</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="query">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                                <query>ICMPv4_Statistics_Received_by_Stat(&quot;Echos&quot;)</query>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="message">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.MessageProcessorPropertyGroup" severity="Information">
+                                                                <message>Thread ID [info threadId]:  Ping Count is {value}</message>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                        <item guid="80789e88-5065-4a1f-8ce1-8f9598f6350a" action="sleep">
+                                            <command>
+                                                <body>10</body>
+                                            </command>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="ff8739f8-da5f-45d9-b9a3-38dfd85a0394" action="return">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="session_1">
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="session_2">
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="DoPing">
+            <steps>
+                <item guid="ab6d87da-777f-4dbe-950f-bc970858c0df" action="open" session="s3">
+                    <command>
+                        <body>device:laptop</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="b8afaab5-011d-482c-9e51-dc7f9d43e4e1" action="ping" session="s3">
+                    <command>
+                        <body>-ping_count $ping_count -host $host</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="813f8c0a-ddce-4cf4-9592-4db4f463440b" action="close" session="s3">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <arguments>
+                <item name="ping_count">
+                    <defaultValue>5</defaultValue>
+                </item>
+                <item name="host">
+                    <defaultValue>localhost</defaultValue>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

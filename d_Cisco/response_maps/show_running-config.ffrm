@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show running-config</body>
+                </command>
+            </action>
+            <responseBody>Building configuration...
+
+Current configuration : 1243 bytes
+!
+version 12.1
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+no service password-encryption
+!
+hostname Cisco2940
+!
+enable password fanfare
+!
+ip subnet-zero
+!
+!
+spanning-tree mode pvst
+no spanning-tree optimize bpdu transmission
+spanning-tree extend system-id
+!
+!
+!
+!
+interface FastEthernet0/1
+ description port1
+!
+interface FastEthernet0/2
+ description port2
+!
+interface FastEthernet0/3
+ description port3
+!
+interface FastEthernet0/4
+ description port4
+!
+interface FastEthernet0/5
+ description port5
+!
+interface FastEthernet0/6
+ description port6
+!
+interface FastEthernet0/7
+ description port7
+!
+interface FastEthernet0/8
+ description port8
+!
+interface GigabitEthernet0/1
+ description port9
+!
+interface Vlan1
+ ip address 192.168.1.33 255.255.255.0
+ no ip route-cache
+!
+ip default-gateway 192.168.1.254
+ip http server
+snmp-server community public RO
+snmp-server community fanfare RW
+snmp-server enable traps config
+snmp-server host 10.155.20.100 public 
+snmp-server host 192.168.1.100 public 
+snmp-server manager
+banner login ^C
+Cisco 2940 Switch
+Fanfare Sales
+^C
+!
+line con 0
+line vty 0 4
+ password fanfare
+ login
+ transport preferred none
+line vty 5 15
+ password fanfare
+ login
+ transport preferred none
+!
+!
+end
+
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+   &lt;echo&gt;show running-config&lt;/echo&gt;
+   &lt;prompt&gt;Cisco2940#&lt;/prompt&gt;
+&lt;/structure&gt;
+</structuredData>
+            <aliases>
+                <item name="echo">
+                    <queryFormatString>.//echo</queryFormatString>
+                </item>
+                <item name="prompt">
+                    <queryFormatString>.//prompt</queryFormatString>
+                </item>
+            </aliases>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="snmp_host">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>snmp-server host\\s</regex>
+                            <start>0</start>
+                            <end>17</end>
+                        </item>
+                        <item name="snmp_server_host">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>17</start>
+                            <end>30</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\spublic</regex>
+                            <start>30</start>
+                            <end>37</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>snmp-server host 10.155.20.100 public</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+                <item name="community_definitions">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>snmp-server community\\s</regex>
+                            <start>0</start>
+                            <end>22</end>
+                        </item>
+                        <item name="community">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <key>true</key>
+                            <start>22</start>
+                            <end>28</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s</regex>
+                            <start>28</start>
+                            <end>29</end>
+                        </item>
+                        <item name="properties">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>29</start>
+                            <end>31</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>snmp-server community public RO</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="trap_defintions">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>snmp-server enable traps\\s</regex>
+                            <start>0</start>
+                            <end>25</end>
+                        </item>
+                        <item name="trap_type">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>25</start>
+                            <end>31</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\D+">one or more non-digit characters</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>snmp-server enable traps config</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* run*">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

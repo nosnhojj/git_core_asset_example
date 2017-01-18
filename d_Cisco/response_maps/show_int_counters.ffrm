@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="command">
+                <command>
+                    <body>show int counters</body>
+                </command>
+            </action>
+            <responseBody>
+Port            InOctets   InUcastPkts   InMcastPkts   InBcastPkts
+Fa0/1           30744867           666          8393        424052
+Fa0/2                 64             1             0             0
+Fa0/3                 64             1             0             0
+Fa0/4                 64             1             0             0
+Fa0/5                 64             1             0             0
+Fa0/6                 64             1             0             0
+Fa0/7                 64             1             0             0
+Fa0/8                 64             1             0             0
+Gi0/1                 64             1             0             0
+
+Port           OutOctets  OutUcastPkts  OutMcastPkts  OutBcastPkts
+Fa0/1           23979386         52138        274065             4
+Fa0/2                 64             1             0             0
+Fa0/3                 64             1             0             0
+Fa0/4                 64             1             0             0
+Fa0/5                 64             1             0             0
+Fa0/6                 64             1             0             0
+Fa0/7                 64             1             0             0
+Fa0/8                 64             1             0             0
+Gi0/1                 64             1             0             0</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure&gt;
+   &lt;terminal RequiredForRendering=&quot;true&quot;&gt;
+      &lt;prompt&gt;Cisco2940#&lt;/prompt&gt;
+      &lt;promptExtraction&gt;LAST_LINE&lt;/promptExtraction&gt;
+      &lt;echo&gt;show int counters&lt;/echo&gt;
+      &lt;idleTime&gt;0.125&lt;/idleTime&gt;
+      &lt;contentType&gt;text&lt;/contentType&gt;
+      &lt;terminator&gt;SLASH_R_SLASH_N&lt;/terminator&gt;
+   &lt;/terminal&gt;
+&lt;/structure&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="In_PKTS">
+                    <banner>Port\\s+InOctets\\s+InUcastPkts\\s+InMcastPkts\\s+InBcastPkts\\s*</banner>
+                    <bannerStructure>Regex</bannerStructure>
+                    <minOccurences>0</minOccurences>
+                    <columns>
+                        <item name="Port">
+                            <isKey>true</isKey>
+                            <width>11</width>
+                        </item>
+                        <item name="InOctets">
+                            <width>13</width>
+                        </item>
+                        <item name="InUcastPkts">
+                            <width>14</width>
+                        </item>
+                        <item name="InMcastPkts">
+                            <width>14</width>
+                        </item>
+                        <item name="InBcastPkts">
+                            <width>999</width>
+                        </item>
+                    </columns>
+                    <ignoreBlankLines>false</ignoreBlankLines>
+                    <autoUpdateNames>false</autoUpdateNames>
+                </item>
+                <item name="Out_PKTS">
+                    <banner>Port\\s+OutOctets\\s+OutUcastPkts\\s+OutMcastPkts\\s+OutBcastPkts\\s*</banner>
+                    <bannerStructure>Regex</bannerStructure>
+                    <minOccurences>0</minOccurences>
+                    <columns>
+                        <item name="Port">
+                            <isKey>true</isKey>
+                            <width>10</width>
+                        </item>
+                        <item name="OutOctets">
+                            <width>14</width>
+                        </item>
+                        <item name="OutUcastPkts">
+                            <width>14</width>
+                        </item>
+                        <item name="OutMcastPkts">
+                            <width>14</width>
+                        </item>
+                        <item name="OutBcastPkts">
+                            <width>999</width>
+                        </item>
+                    </columns>
+                    <ignoreBlankLines>false</ignoreBlankLines>
+                    <autoUpdateNames>false</autoUpdateNames>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* int counters">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

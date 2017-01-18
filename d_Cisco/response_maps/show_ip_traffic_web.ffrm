@@ -1,0 +1,1568 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.3.0.71664">
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="getInnerText" context="form_maps/show_ip_traffic_web" target="//PRE/FORM/PRE/DL"/>
+            <responseBody> IP statistics: Rcvd: 46808 total, 46808 local destination 0 format errors, 0 checksum errors, 0 bad hop count 0 unknown protocol, 0 not a gateway 0 security failures, 0 bad options, 186 with options Opts: 0 end, 0 nop, 0 basic security, 0 loose source route 0 timestamp, 0 extended security, 0 record route 0 stream ID, 0 strict source route, 186 alert, 0 cipso 0 other Frags: 0 reassembled, 0 timeouts, 0 couldn&apos;t reassemble 0 fragmented, 0 couldn&apos;t fragment Bcast: 27925 received, 1 sent Mcast: 0 received, 0 sent Sent: 23224 generated, 0 forwarded Drop: 547 encapsulation failed, 0 unresolved, 0 no adjacency 0 no route, 0 unicast RPF, 0 forced drop Drop: 0 packets with source IP address zero ICMP statistics: Rcvd: 0 format errors, 0 checksum errors, 0 redirects, 742 unreachable 488 echo, 0 echo reply, 0 mask requests, 0 mask replies, 0 quench 0 parameter, 0 timestamp, 0 info request, 0 other 0 irdp solicitations, 0 irdp advertisements Sent: 0 redirects, 0 unreachable, 0 echo, 488 echo reply 0 mask requests, 0 mask replies, 0 quench, 0 timestamp 0 info reply, 0 time exceeded, 0 parameter problem 0 irdp solicitations, 0 irdp advertisements UDP statistics: Rcvd: 27958 total, 0 checksum errors, 27925 no port Sent: 781 total, 0 forwarded broadcasts TCP statistics: Rcvd: 17620 total, 0 checksum errors, 0 no port Sent: 21956 total ARP statistics: Rcvd: 1160705 requests, 35 replies, 0 reverse, 0 other Sent: 37 requests, 4643 replies (0 proxy), 0 reverse</responseBody>
+            <contentType>text</contentType>
+            <structuredData>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>IP statistics: Rcvd:\\s</regex>
+                            <start>0</start>
+                            <end>21</end>
+                        </item>
+                        <item name="IP_statistics_Rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>21</start>
+                            <end>26</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\stotal,\\s</regex>
+                            <start>26</start>
+                            <end>34</end>
+                        </item>
+                        <item name="local_destination">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>34</start>
+                            <end>39</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\slocal destination\\s</regex>
+                            <start>39</start>
+                            <end>58</end>
+                        </item>
+                        <item name="format_errors">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>58</start>
+                            <end>59</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>\\sformat errors,\\s</regex>
+                            <start>59</start>
+                            <end>75</end>
+                        </item>
+                        <item name="checksum_errors">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>75</start>
+                            <end>76</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\schecksum errors,\\s</regex>
+                            <start>76</start>
+                            <end>94</end>
+                        </item>
+                        <item name="bad_hop_count">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>94</start>
+                            <end>95</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\sbad hop count\\s</regex>
+                            <start>95</start>
+                            <end>110</end>
+                        </item>
+                        <item name="unknown_protocol">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>110</start>
+                            <end>111</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\sunknown protocol,\\s</regex>
+                            <start>111</start>
+                            <end>130</end>
+                        </item>
+                        <item name="not_gateway">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>130</start>
+                            <end>131</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor7">
+                            <regex>\\snot a gateway\\s</regex>
+                            <start>131</start>
+                            <end>146</end>
+                        </item>
+                        <item name="security_failures">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>146</start>
+                            <end>147</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor8">
+                            <regex>\\ssecurity failures,\\s</regex>
+                            <start>147</start>
+                            <end>167</end>
+                        </item>
+                        <item name="bad_options">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>167</start>
+                            <end>168</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor9">
+                            <regex>\\sbad options,\\s</regex>
+                            <start>168</start>
+                            <end>182</end>
+                        </item>
+                        <item name="with_options_Opts">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>182</start>
+                            <end>185</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor10">
+                            <regex>\\swith options Opts:\\s</regex>
+                            <start>185</start>
+                            <end>205</end>
+                        </item>
+                        <item name="end">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>205</start>
+                            <end>206</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor11">
+                            <regex>\\send,\\s</regex>
+                            <start>206</start>
+                            <end>212</end>
+                        </item>
+                        <item name="nop">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>212</start>
+                            <end>213</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor12">
+                            <regex>\\snop,\\s</regex>
+                            <start>213</start>
+                            <end>219</end>
+                        </item>
+                        <item name="basic_security">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>219</start>
+                            <end>220</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor13">
+                            <regex>\\sbasic security,\\s</regex>
+                            <start>220</start>
+                            <end>237</end>
+                        </item>
+                        <item name="loose_source_route">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>237</start>
+                            <end>238</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor14">
+                            <regex>\\sloose source route\\s</regex>
+                            <start>238</start>
+                            <end>258</end>
+                        </item>
+                        <item name="timestamp">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>258</start>
+                            <end>259</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor15">
+                            <regex>\\stimestamp,\\s</regex>
+                            <start>259</start>
+                            <end>271</end>
+                        </item>
+                        <item name="extended_security">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>271</start>
+                            <end>272</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor16">
+                            <regex>\\sextended security,\\s</regex>
+                            <start>272</start>
+                            <end>292</end>
+                        </item>
+                        <item name="record_route">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>292</start>
+                            <end>293</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor17">
+                            <regex>\\srecord route\\s</regex>
+                            <start>293</start>
+                            <end>307</end>
+                        </item>
+                        <item name="stream_ID">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>307</start>
+                            <end>308</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor18">
+                            <regex>\\sstream ID,\\s</regex>
+                            <start>308</start>
+                            <end>320</end>
+                        </item>
+                        <item name="strict_source_route">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>320</start>
+                            <end>321</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor19">
+                            <regex>\\sstrict source route,\\s</regex>
+                            <start>321</start>
+                            <end>343</end>
+                        </item>
+                        <item name="alert">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>343</start>
+                            <end>346</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor20">
+                            <regex>\\salert,\\s</regex>
+                            <start>346</start>
+                            <end>354</end>
+                        </item>
+                        <item name="cipso">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>354</start>
+                            <end>355</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor21">
+                            <regex>\\scipso\\s</regex>
+                            <start>355</start>
+                            <end>362</end>
+                        </item>
+                        <item name="other_Frags">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>362</start>
+                            <end>363</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor22">
+                            <regex>\\sother Frags:\\s</regex>
+                            <start>363</start>
+                            <end>377</end>
+                        </item>
+                        <item name="reassembled">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>377</start>
+                            <end>378</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor23">
+                            <regex>\\sreassembled,\\s</regex>
+                            <start>378</start>
+                            <end>392</end>
+                        </item>
+                        <item name="timeouts">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>392</start>
+                            <end>393</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor24">
+                            <regex>\\stimeouts,\\s</regex>
+                            <start>393</start>
+                            <end>404</end>
+                        </item>
+                        <item name="couldn_reassemble">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>404</start>
+                            <end>405</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor25">
+                            <regex>\\scouldn&apos;t reassemble\\s</regex>
+                            <start>405</start>
+                            <end>426</end>
+                        </item>
+                        <item name="fragmented">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>426</start>
+                            <end>427</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor26">
+                            <regex>\\sfragmented,\\s</regex>
+                            <start>427</start>
+                            <end>440</end>
+                        </item>
+                        <item name="couldn_fragment_Bcast">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>440</start>
+                            <end>441</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor27">
+                            <regex>\\scouldn&apos;t fragment Bcast:\\s</regex>
+                            <start>441</start>
+                            <end>467</end>
+                        </item>
+                        <item name="received">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>467</start>
+                            <end>472</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor28">
+                            <regex>\\sreceived,\\s</regex>
+                            <start>472</start>
+                            <end>483</end>
+                        </item>
+                        <item name="sent_Mcast">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>483</start>
+                            <end>484</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor29">
+                            <regex>\\ssent Mcast:\\s</regex>
+                            <start>484</start>
+                            <end>497</end>
+                        </item>
+                        <item name="group29">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>497</start>
+                            <end>498</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor30">
+                            <regex>\\sreceived,\\s</regex>
+                            <start>498</start>
+                            <end>509</end>
+                        </item>
+                        <item name="sent_Sent">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>509</start>
+                            <end>510</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor31">
+                            <regex>\\ssent Sent:\\s</regex>
+                            <start>510</start>
+                            <end>522</end>
+                        </item>
+                        <item name="generated">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>522</start>
+                            <end>527</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor32">
+                            <regex>\\sgenerated,\\s</regex>
+                            <start>527</start>
+                            <end>539</end>
+                        </item>
+                        <item name="forwarded_Drop">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>539</start>
+                            <end>540</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor33">
+                            <regex>\\sforwarded Drop:\\s</regex>
+                            <start>540</start>
+                            <end>557</end>
+                        </item>
+                        <item name="encapsulation_failed">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>557</start>
+                            <end>560</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor34">
+                            <regex>\\sencapsulation failed,\\s</regex>
+                            <start>560</start>
+                            <end>583</end>
+                        </item>
+                        <item name="unresolved">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>583</start>
+                            <end>584</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor35">
+                            <regex>\\sunresolved,\\s</regex>
+                            <start>584</start>
+                            <end>597</end>
+                        </item>
+                        <item name="no_adjacency">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>597</start>
+                            <end>598</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor36">
+                            <regex>\\sno adjacency\\s</regex>
+                            <start>598</start>
+                            <end>612</end>
+                        </item>
+                        <item name="no_route">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>612</start>
+                            <end>613</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor37">
+                            <regex>\\sno route,\\s</regex>
+                            <start>613</start>
+                            <end>624</end>
+                        </item>
+                        <item name="unicast_RPF">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>624</start>
+                            <end>625</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor38">
+                            <regex>\\sunicast RPF,\\s</regex>
+                            <start>625</start>
+                            <end>639</end>
+                        </item>
+                        <item name="forced_drop_Drop">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>639</start>
+                            <end>640</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor39">
+                            <regex>\\sforced drop Drop:\\s</regex>
+                            <start>640</start>
+                            <end>659</end>
+                        </item>
+                        <item name="packets_with_source_IP_address_zero_ICMP_statistics_Rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>659</start>
+                            <end>660</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor40">
+                            <regex>\\spackets with source IP address zero ICMP statistics: Rcvd:\\s</regex>
+                            <start>660</start>
+                            <end>720</end>
+                        </item>
+                        <item name="group40">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>720</start>
+                            <end>721</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor41">
+                            <regex>\\sformat errors,\\s</regex>
+                            <start>721</start>
+                            <end>737</end>
+                        </item>
+                        <item name="group41">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>737</start>
+                            <end>738</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor42">
+                            <regex>\\schecksum errors,\\s</regex>
+                            <start>738</start>
+                            <end>756</end>
+                        </item>
+                        <item name="redirects">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>756</start>
+                            <end>757</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor43">
+                            <regex>\\sredirects,\\s</regex>
+                            <start>757</start>
+                            <end>769</end>
+                        </item>
+                        <item name="unreachable">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>769</start>
+                            <end>772</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor44">
+                            <regex>\\sunreachable\\s</regex>
+                            <start>772</start>
+                            <end>785</end>
+                        </item>
+                        <item name="rcvd_echo">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>785</start>
+                            <end>788</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor45">
+                            <regex>\\secho,\\s</regex>
+                            <start>788</start>
+                            <end>795</end>
+                        </item>
+                        <item name="echo_reply">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>795</start>
+                            <end>796</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor46">
+                            <regex>\\secho reply,\\s</regex>
+                            <start>796</start>
+                            <end>809</end>
+                        </item>
+                        <item name="mask_requests">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>809</start>
+                            <end>810</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor47">
+                            <regex>\\smask requests,\\s</regex>
+                            <start>810</start>
+                            <end>826</end>
+                        </item>
+                        <item name="mask_replies">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>826</start>
+                            <end>827</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor48">
+                            <regex>\\smask replies,\\s</regex>
+                            <start>827</start>
+                            <end>842</end>
+                        </item>
+                        <item name="quench">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>842</start>
+                            <end>843</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor49">
+                            <regex>\\squench\\s</regex>
+                            <start>843</start>
+                            <end>851</end>
+                        </item>
+                        <item name="parameter">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>851</start>
+                            <end>852</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor50">
+                            <regex>\\sparameter,\\s</regex>
+                            <start>852</start>
+                            <end>864</end>
+                        </item>
+                        <item name="group50">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>864</start>
+                            <end>865</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor51">
+                            <regex>\\stimestamp,\\s</regex>
+                            <start>865</start>
+                            <end>877</end>
+                        </item>
+                        <item name="info_request">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>877</start>
+                            <end>878</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor52">
+                            <regex>\\sinfo request,\\s</regex>
+                            <start>878</start>
+                            <end>893</end>
+                        </item>
+                        <item name="other">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>893</start>
+                            <end>894</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor53">
+                            <regex>\\sother\\s</regex>
+                            <start>894</start>
+                            <end>901</end>
+                        </item>
+                        <item name="irdp_solicitations">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>901</start>
+                            <end>902</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor54">
+                            <regex>\\sirdp solicitations,\\s</regex>
+                            <start>902</start>
+                            <end>923</end>
+                        </item>
+                        <item name="irdp_advertisements_Sent">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>923</start>
+                            <end>924</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor55">
+                            <regex>\\sirdp advertisements Sent:\\s</regex>
+                            <start>924</start>
+                            <end>951</end>
+                        </item>
+                        <item name="group55">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>951</start>
+                            <end>952</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor56">
+                            <regex>\\sredirects,\\s</regex>
+                            <start>952</start>
+                            <end>964</end>
+                        </item>
+                        <item name="group56">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>964</start>
+                            <end>965</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor57">
+                            <regex>\\sunreachable,\\s</regex>
+                            <start>965</start>
+                            <end>979</end>
+                        </item>
+                        <item name="group57">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>979</start>
+                            <end>980</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor58">
+                            <regex>\\secho,\\s</regex>
+                            <start>980</start>
+                            <end>987</end>
+                        </item>
+                        <item name="group58">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>987</start>
+                            <end>990</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor59">
+                            <regex>\\secho reply\\s</regex>
+                            <start>990</start>
+                            <end>1002</end>
+                        </item>
+                        <item name="group59">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1002</start>
+                            <end>1003</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor60">
+                            <regex>\\smask requests,\\s</regex>
+                            <start>1003</start>
+                            <end>1019</end>
+                        </item>
+                        <item name="group60">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1019</start>
+                            <end>1020</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor61">
+                            <regex>\\smask replies,\\s</regex>
+                            <start>1020</start>
+                            <end>1035</end>
+                        </item>
+                        <item name="group61">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1035</start>
+                            <end>1036</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor62">
+                            <regex>\\squench,\\s</regex>
+                            <start>1036</start>
+                            <end>1045</end>
+                        </item>
+                        <item name="group62">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1045</start>
+                            <end>1046</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor63">
+                            <regex>\\stimestamp\\s</regex>
+                            <start>1046</start>
+                            <end>1057</end>
+                        </item>
+                        <item name="info_reply">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1057</start>
+                            <end>1058</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor64">
+                            <regex>\\sinfo reply,\\s</regex>
+                            <start>1058</start>
+                            <end>1071</end>
+                        </item>
+                        <item name="time_exceeded">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1071</start>
+                            <end>1072</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor65">
+                            <regex>\\stime exceeded,\\s</regex>
+                            <start>1072</start>
+                            <end>1088</end>
+                        </item>
+                        <item name="parameter_problem">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1088</start>
+                            <end>1089</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor66">
+                            <regex>\\sparameter problem\\s</regex>
+                            <start>1089</start>
+                            <end>1108</end>
+                        </item>
+                        <item name="group66">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1108</start>
+                            <end>1109</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor67">
+                            <regex>\\sirdp solicitations,\\s</regex>
+                            <start>1109</start>
+                            <end>1130</end>
+                        </item>
+                        <item name="irdp_advertisements_UDP_statistics_Rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1130</start>
+                            <end>1131</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor68">
+                            <regex>\\sirdp advertisements UDP statistics: Rcvd:\\s</regex>
+                            <start>1131</start>
+                            <end>1174</end>
+                        </item>
+                        <item name="total">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1174</start>
+                            <end>1179</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor69">
+                            <regex>\\stotal,\\s</regex>
+                            <start>1179</start>
+                            <end>1187</end>
+                        </item>
+                        <item name="group69">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1187</start>
+                            <end>1188</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor70">
+                            <regex>\\schecksum errors,\\s</regex>
+                            <start>1188</start>
+                            <end>1206</end>
+                        </item>
+                        <item name="no_port_Sent">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1206</start>
+                            <end>1211</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor71">
+                            <regex>\\sno port Sent:\\s</regex>
+                            <start>1211</start>
+                            <end>1226</end>
+                        </item>
+                        <item name="group71">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1226</start>
+                            <end>1229</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor72">
+                            <regex>\\stotal,\\s</regex>
+                            <start>1229</start>
+                            <end>1237</end>
+                        </item>
+                        <item name="forwarded_broadcasts_TCP_statistics_Rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1237</start>
+                            <end>1238</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor73">
+                            <regex>\\sforwarded broadcasts TCP statistics: Rcvd:\\s</regex>
+                            <start>1238</start>
+                            <end>1282</end>
+                        </item>
+                        <item name="group73">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1282</start>
+                            <end>1287</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor74">
+                            <regex>\\stotal,\\s</regex>
+                            <start>1287</start>
+                            <end>1295</end>
+                        </item>
+                        <item name="group74">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1295</start>
+                            <end>1296</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor75">
+                            <regex>\\schecksum errors,\\s</regex>
+                            <start>1296</start>
+                            <end>1314</end>
+                        </item>
+                        <item name="group75">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1314</start>
+                            <end>1315</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor76">
+                            <regex>\\sno port Sent:\\s</regex>
+                            <start>1315</start>
+                            <end>1330</end>
+                        </item>
+                        <item name="total_ARP_statistics_Rcvd">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1330</start>
+                            <end>1335</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor77">
+                            <regex>\\stotal ARP statistics: Rcvd:\\s</regex>
+                            <start>1335</start>
+                            <end>1364</end>
+                        </item>
+                        <item name="requests">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1364</start>
+                            <end>1371</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor78">
+                            <regex>\\srequests,\\s</regex>
+                            <start>1371</start>
+                            <end>1382</end>
+                        </item>
+                        <item name="replies">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1382</start>
+                            <end>1384</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor79">
+                            <regex>\\sreplies,\\s</regex>
+                            <start>1384</start>
+                            <end>1394</end>
+                        </item>
+                        <item name="reverse">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1394</start>
+                            <end>1395</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor80">
+                            <regex>\\sreverse,\\s</regex>
+                            <start>1395</start>
+                            <end>1405</end>
+                        </item>
+                        <item name="other_Sent">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1405</start>
+                            <end>1406</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor81">
+                            <regex>\\sother Sent:\\s</regex>
+                            <start>1406</start>
+                            <end>1419</end>
+                        </item>
+                        <item name="group81">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1419</start>
+                            <end>1421</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor82">
+                            <regex>\\srequests,\\s</regex>
+                            <start>1421</start>
+                            <end>1432</end>
+                        </item>
+                        <item name="group82">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1432</start>
+                            <end>1436</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor83">
+                            <regex>\\sreplies \\(</regex>
+                            <start>1436</start>
+                            <end>1446</end>
+                        </item>
+                        <item name="proxy">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1446</start>
+                            <end>1447</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor84">
+                            <regex>\\sproxy\\),\\s</regex>
+                            <start>1447</start>
+                            <end>1456</end>
+                        </item>
+                        <item name="group84">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>1456</start>
+                            <end>1457</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor85">
+                            <regex>\\sreverse</regex>
+                            <start>1457</start>
+                            <end>1465</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>IP statistics: Rcvd: 46808 total, 46808 local destination 0 format errors, 0 checksum errors, 0 bad hop count 0 unknown protocol, 0 not a gateway 0 security failures, 0 bad options, 186 with options Opts: 0 end, 0 nop, 0 basic security, 0 loose source route 0 timestamp, 0 extended security, 0 record route 0 stream ID, 0 strict source route, 186 alert, 0 cipso 0 other Frags: 0 reassembled, 0 timeouts, 0 couldn&apos;t reassemble 0 fragmented, 0 couldn&apos;t fragment Bcast: 27925 received, 1 sent Mcast: 0 received, 0 sent Sent: 23224 generated, 0 forwarded Drop: 547 encapsulation failed, 0 unresolved, 0 no adjacency 0 no route, 0 unicast RPF, 0 forced drop Drop: 0 packets with source IP address zero ICMP statistics: Rcvd: 0 format errors, 0 checksum errors, 0 redirects, 742 unreachable 488 echo, 0 echo reply, 0 mask requests, 0 mask replies, 0 quench 0 parameter, 0 timestamp, 0 info request, 0 other 0 irdp solicitations, 0 irdp advertisements Sent: 0 redirects, 0 unreachable, 0 echo, 488 echo reply 0 mask requests, 0 mask replies, 0 quench, 0 timestamp 0 info reply, 0 time exceeded, 0 parameter problem 0 irdp solicitations, 0 irdp advertisements UDP statistics: Rcvd: 27958 total, 0 checksum errors, 27925 no port Sent: 781 total, 0 forwarded broadcasts TCP statistics: Rcvd: 17620 total, 0 checksum errors, 0 no port Sent: 21956 total ARP statistics: Rcvd: 1160705 requests, 35 replies, 0 reverse, 0 other Sent: 37 requests, 4643 replies (0 proxy), 0 reverse</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                    <optional>true</optional>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="getInnerText" target="*">
+        <application>
+            <item>com.fnfr.svt.applications.web</item>
+            <item>com.fnfr.itest.applications.selenium</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

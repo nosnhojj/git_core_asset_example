@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<testCase version="4.3.1.73463" entryPoint="STC_DISK_CHECK">
+    <general>
+        <sessionClass sessionType="project://Spirent_Scripts/session_profile/stc_inventory_tclsh.ffsp"/>
+    </general>
+    <execution renderCommentsIntoIssues="true">
+        <parameters version="4.3.1.73463">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <email_to>haidong.chang@spirent.com;chris.thompson@spirent.com</email_to>
+                    <email_from>stc_disk_check@spirent.com</email_from>
+                    <email_subject>STC disk check</email_subject>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="STC_DISK_CHECK" isPublic="true" defaultSessionProfile="stc_ssh.ffsp">
+            <steps>
+                <item guid="c9929289-120c-480a-a2e1-18997de86491" action="readFile">
+                    <command>
+                        <body>input.csv</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>chassis_list</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.ReadFilePropertyGroup"/>
+                    <responseMap>lib/config_files_csv.ffrm</responseMap>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="441cd942-cff0-4663-82dd-2fe25842b24e" action="comment">
+                    <command>
+                        <body>Init Parameters</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ca4c0dfb-da14-480e-abec-269e6f47fbc8" action="eval">
+                            <command>
+                                <body>set now [clock seconds]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="2550d9bb-3919-4018-aa1a-04bdeb1d11cb" action="writeFile">
+                            <command>
+                                <body>result.csv  &quot;[clock format $now]: total chassis to be checked [llength $chassis_list]&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup">
+                                <appendMode>Overwrite</appendMode>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="284143f5-d533-4c6c-aa14-ec64de24c515" action="eval">
+                            <command>
+                                <body>set cha_index 0</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a9249f08-728b-4129-9422-f24915b49c43" action="foreach">
+                    <command>
+                        <body>chassis_ip $chassis_list</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="9e7b1957-707e-4602-8ffa-e3d5aebb16da" action="eval">
+                            <command>
+                                <body>set user &quot;admin&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="47e301e9-41fc-4dc2-a3a4-b720e1956d83" action="eval">
+                            <command>
+                                <body>set pass &quot;spt_admin&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="1fe948c7-8d7d-498a-8ab5-11eabdb9def4" action="eval">
+                            <command>
+                                <body>incr cha_index</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="6cdb5d4b-c6f7-4823-a688-213a16efaca0" action="comment" async="true">
+                            <threadName>each_chassis</threadName>
+                            <command>
+                                <body>work on chassis $chassis_ip</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="c8c9f415-391c-4c63-8289-21b3ebc42f84" action="open" session="stc$cha_index">
+                                    <command>
+                                        <body>stc_ssh.ffsp</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="ea90cb82-241b-4515-9112-a76100e5877c" action="command" session="stc$cha_index">
+                                    <command>
+                                        <body>version</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>Chassis_OS()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>stc_version</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="011e0e89-2485-4ea9-bc19-5891735fe7a7" action="close" session="stc$cha_index">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="fb4a2334-252f-42b2-ab5d-25a034c50db4" action="comment">
+                                    <command>
+                                        <body>Chassis($cha_index): $chassis_ip $stc_version</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                                <item guid="d7a65587-9a44-4f29-ad41-2c9773f552f3" action="eval">
+                                    <command>
+                                        <body>set user &quot;root&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="2f68303c-4909-4213-9e78-43a81d03addf" action="eval">
+                                    <command>
+                                        <body>set pass &quot;aMP#JANH&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="cc26677d-33a6-4ca4-9a18-26f3666479d3" action="open" session="stc$cha_index">
+                                    <command>
+                                        <body>stc_ssh.ffsp</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    </applicationProperties>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="10d698bd-302f-47fd-920e-0ee1c531aa03" action="command" session="stc$cha_index">
+                                    <command>
+                                        <body>ssh root@nfs</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <promptProperties>
+                                            <stepPrompts>
+                                                <item name="prompt5" TypeOfPrompt="MORE">
+                                                    <Content>Are you sure you want to continue connecting (yes/no)?</Content>
+                                                    <MoreNextCommand>yes\\n</MoreNextCommand>
+                                                </item>
+                                            </stepPrompts>
+                                        </promptProperties>
+                                    </applicationProperties>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="f0c5c0d3-baac-4a34-a031-b359b1c112e4" action="command" session="stc$cha_index">
+                                    <command>
+                                        <body>nfs_be</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="1720d4b7-c708-424c-a645-a2c7ccf1ab83" action="eval">
+                                    <command>
+                                        <body>set real &quot;None&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="4f75c0ba-fb96-4949-ba80-2de44552614c" action="command" session="stc$cha_index" estimatedStepExecutionTime="300" timeout="300" useProcTimeout="false">
+                                    <command>
+                                        <body>/usr/spirent/script/initscripts/chkhdd.sh</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="regex">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.regex.extractors.RegexExtractorPropertyGroup" useLineMode="true">
+                                                        <regex>^real\\s+(\\S+)$</regex>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>real</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                        <completionProperties promptLearnUserResponseTime="300" promptLearnUserResponseTime.inherit="false">
+                                            <maxIdleTimeAddition inherit="false">150.0</maxIdleTimeAddition>
+                                        </completionProperties>
+                                    </applicationProperties>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="45b7b439-d93f-41f4-898d-a5e351c87e40" action="writeFile">
+                                    <command>
+                                        <body>result.csv  &quot;Chassis($cha_index): $chassis_ip $stc_version real=$real&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="fb3ca876-6a65-46d5-9cf0-c1b1e8d20511" action="writeFile" skip="true">
+                                    <command>
+                                        <body>result.csv  &quot;real=$real&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="628e7880-9678-4f5d-aff1-ca75053422e1" action="writeFile" skip="true">
+                                    <command>
+                                        <body>result.csv &quot; &quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                                <item guid="430661e7-c411-43fa-a230-5d008fc2b39c" action="close" session="stc$cha_index">
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="ac1e5775-34b8-4a95-9ad5-6a4df58f7fd3" action="comment" skip="true">
+                            <command>
+                                <body>Save below chassis result into chassis_info_sql</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                    <advancedProperties defaultSessionProfile="lib/stc_tclsh.ffsp"/>
+                </item>
+                <item guid="83369fab-aeac-4df0-8134-374ad54bcf69" action="waitthread">
+                    <command>
+                        <body>each_chassis</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.kernel.WaitThreadPropertyGroup"/>
+                </item>
+                <item guid="be0b58a9-5adb-498f-9949-7c6ade53d820" action="eval">
+                    <command>
+                        <body>set now2 [clock seconds]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="36238abf-7835-42bb-8e54-b89a48a4823e" action="writeFile">
+                    <command>
+                        <body>result.csv  &quot;end: [clock format $now2]&quot;</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.WriteFilePropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="649c21f7-92c7-459d-bc01-b88b35c8f420" action="readFile">
+                    <command>
+                        <body>result.csv</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>all_changed</storeResponseAt>
+                        <storeResponseText>true</storeResponseText>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.execution.builtin.exec.ReadFilePropertyGroup"/>
+                </item>
+                <item guid="703ed008-de36-4ba3-8b8a-242e058e9c63" action="call">
+                    <command>
+                        <body>Mail.fftc#main -from &quot;[param email_from]&quot; -to &quot;[param email_to]&quot; -subject &quot;[param email_subject]&quot; -attach1 &quot;&quot; -attach2 &quot;&quot; -body $all_changed</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

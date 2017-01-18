@@ -1,0 +1,532 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>BGP router identifier 10.20.20.16, local AS number 65000
+BGP table version is 3381, main routing table version 3381
+47 network entries using 7003 bytes of memory
+47 path entries using 3572 bytes of memory
+10/8 BGP path/bestpath attribute entries using 1240 bytes of memory
+3 BGP AS-PATH entries using 72 bytes of memory
+2 BGP community entries using 48 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 11935 total bytes of memory
+BGP activity 2796/2700 prefixes, 3366/3270 paths, scan interval 60 secs
+
+Neighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+2001:506:14:2::1
+                4 13979   24672   23341     3381    0    0 00:26:38       45
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample1</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container"/>
+        </item>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner>Neighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd</banner>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <maxOccurences>1</maxOccurences>
+                    <columns>
+                        <item name="Neighbor"/>
+                        <item name="V"/>
+                        <item name="AS"/>
+                        <item name="MsgRcvd"/>
+                        <item name="MsgSent"/>
+                        <item name="TblVer"/>
+                        <item name="InQ"/>
+                        <item name="OutQ"/>
+                        <item name="Up_Down"/>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern1">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>BGP router identifier\\s</regex>
+                            <start>0</start>
+                            <end>22</end>
+                        </item>
+                        <item name="BGP_router_identifier">
+                            <regex>\\S+</regex>
+                            <named>true</named>
+                            <start>22</start>
+                            <end>33</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name=".{11}">exactly 11 of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>, local AS number\\s</regex>
+                            <start>33</start>
+                            <end>51</end>
+                        </item>
+                        <item name="local_AS_number">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>51</start>
+                            <end>56</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor2">
+                            <regex>\\s+BGP table version is\\s</regex>
+                            <start>56</start>
+                            <end>78</end>
+                        </item>
+                        <item name="BGP_table_version">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>78</start>
+                            <end>82</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor3">
+                            <regex>, main routing table version\\s</regex>
+                            <start>82</start>
+                            <end>111</end>
+                        </item>
+                        <item name="main_routing_table_version">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>111</start>
+                            <end>115</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor4">
+                            <regex>\\s+</regex>
+                            <start>115</start>
+                            <end>116</end>
+                        </item>
+                        <item name="network_entries_using">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>116</start>
+                            <end>118</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor5">
+                            <regex>\\snetwork entries using\\s</regex>
+                            <start>118</start>
+                            <end>141</end>
+                        </item>
+                        <item name="network_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>141</start>
+                            <end>145</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor6">
+                            <regex>\\sbytes of memory\\s+</regex>
+                            <start>145</start>
+                            <end>162</end>
+                        </item>
+                        <item name="path_entries_using">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>162</start>
+                            <end>164</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor7">
+                            <regex>\\spath entries using\\s</regex>
+                            <start>164</start>
+                            <end>184</end>
+                        </item>
+                        <item name="path_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>184</start>
+                            <end>188</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor8">
+                            <regex>\\sbytes of memory\\s+</regex>
+                            <start>188</start>
+                            <end>205</end>
+                        </item>
+                        <item name="BGP_path">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>205</start>
+                            <end>207</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor9">
+                            <regex>/</regex>
+                            <start>207</start>
+                            <end>208</end>
+                        </item>
+                        <item name="BGP_bestpath">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>208</start>
+                            <end>209</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor10">
+                            <regex>\\sBGP path/bestpath attribute entries using\\s</regex>
+                            <start>209</start>
+                            <end>252</end>
+                        </item>
+                        <item name="attribute_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>252</start>
+                            <end>256</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor11">
+                            <regex>\\sbytes of memory\\s+</regex>
+                            <start>256</start>
+                            <end>273</end>
+                        </item>
+                        <item name="BGP_AS_PATH_entries_using">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>273</start>
+                            <end>274</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor12">
+                            <regex>\\sBGP AS-PATH entries using\\s</regex>
+                            <start>274</start>
+                            <end>301</end>
+                        </item>
+                        <item name="BGP_AS_PATH_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>301</start>
+                            <end>303</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor13">
+                            <regex>\\sbytes of memory\\s+</regex>
+                            <start>303</start>
+                            <end>320</end>
+                        </item>
+                        <item name="BGP_community_entries_using">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>320</start>
+                            <end>321</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor14">
+                            <regex>\\sBGP community entries using\\s</regex>
+                            <start>321</start>
+                            <end>350</end>
+                        </item>
+                        <item name="BGP_community_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>350</start>
+                            <end>352</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor15">
+                            <regex>\\sbytes of memory\\s+</regex>
+                            <start>352</start>
+                            <end>369</end>
+                        </item>
+                        <item name="BGP_route_map_cache_entries_using">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>369</start>
+                            <end>370</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor16">
+                            <regex>\\sBGP route-map cache entries using\\s</regex>
+                            <start>370</start>
+                            <end>405</end>
+                        </item>
+                        <item name="BGP_route_map_cache_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>405</start>
+                            <end>406</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor17">
+                            <regex>\\sbytes of memory\\s+</regex>
+                            <start>406</start>
+                            <end>423</end>
+                        </item>
+                        <item name="BGP_filter_list_cache_entries_using">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>423</start>
+                            <end>424</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor18">
+                            <regex>\\sBGP filter-list cache entries using\\s</regex>
+                            <start>424</start>
+                            <end>461</end>
+                        </item>
+                        <item name="BGP_filter_list_cache_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>461</start>
+                            <end>462</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor19">
+                            <regex>\\sbytes of memory\\s+BGP using\\s</regex>
+                            <start>462</start>
+                            <end>489</end>
+                        </item>
+                        <item name="total_bytes_of_memory">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>489</start>
+                            <end>494</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor20">
+                            <regex>\\stotal bytes of memory\\s+BGP activity\\s</regex>
+                            <start>494</start>
+                            <end>530</end>
+                        </item>
+                        <item name="group20">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>530</start>
+                            <end>534</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor21">
+                            <regex>/</regex>
+                            <start>534</start>
+                            <end>535</end>
+                        </item>
+                        <item name="prefixes">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>535</start>
+                            <end>539</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor22">
+                            <regex>\\sprefixes,\\s</regex>
+                            <start>539</start>
+                            <end>550</end>
+                        </item>
+                        <item name="group22">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>550</start>
+                            <end>554</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor23">
+                            <regex>/</regex>
+                            <start>554</start>
+                            <end>555</end>
+                        </item>
+                        <item name="paths">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>555</start>
+                            <end>559</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor24">
+                            <regex>\\spaths, scan interval\\s</regex>
+                            <start>559</start>
+                            <end>581</end>
+                        </item>
+                        <item name="scan_interval">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>581</start>
+                            <end>583</end>
+                            <suggestions>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\d+">one or more digits</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name=".+">one or more of any character</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor25">
+                            <regex>\\ssecs</regex>
+                            <start>583</start>
+                            <end>588</end>
+                        </item>
+                    </groups>
+                    <sampleMatch>BGP router identifier 10.20.20.16, local AS number 65000
+BGP table version is 3381, main routing table version 3381
+47 network entries using 7003 bytes of memory
+47 path entries using 3572 bytes of memory
+10/8 BGP path/bestpath attribute entries using 1240 bytes of memory
+3 BGP AS-PATH entries using 72 bytes of memory
+2 BGP community entries using 48 bytes of memory
+0 BGP route-map cache entries using 0 bytes of memory
+0 BGP filter-list cache entries using 0 bytes of memory
+BGP using 11935 total bytes of memory
+BGP activity 2796/2700 prefixes, 3366/3270 paths, scan interval 60 secs</sampleMatch>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* bgp ipv6 uni* sum*">
+        <application>
+            <item>com.fnfr.svt.applications.ssh</item>
+            <item>com.fnfr.svt.applications.telnet</item>
+        </application>
+    </applicabilityProperties>
+</ResponseMap>

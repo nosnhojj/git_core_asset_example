@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.4.0.75339">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <TerminalProperties>
+            <prompts merge="true">
+                <item name="prompt1">
+                    <Content>Username:</Content>
+                </item>
+                <item name="prompt2" TypeOfPrompt="PASSWORD">
+                    <Content>Password:</Content>
+                </item>
+                <item name="prompt3">
+                    <Content>Cisco2940&gt;</Content>
+                </item>
+                <item name="prompt4">
+                    <Content>Cisco2940#</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Cisco/</responseLibrary>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

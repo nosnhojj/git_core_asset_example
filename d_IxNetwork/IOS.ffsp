@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<SessionTemplate version="4.0.2.53609">
+    <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+        <ipAddress inherit="false">10.155.20.134</ipAddress>
+        <TerminalProperties>
+            <stepDefaults>
+                <responseFile inherit="false">file:/C:/Documents%20and%20Settings/amalik/Desktop/router_response.txt</responseFile>
+            </stepDefaults>
+            <captureProperties>
+                <learnCompletionChars inherit="false">false</learnCompletionChars>
+                <learnBreakChars inherit="false">false</learnBreakChars>
+                <commandBreakChars inherit="false">
+                    <item>[char Ctrl-C]</item>
+                </commandBreakChars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="catos_enable_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*\\(enable\\) ?$.*</Content>
+                </item>
+                <item name="more_prompt" MatchMethod="WILDCARD" TypeOfPrompt="MORE">
+                    <Content>**--More--**</Content>
+                </item>
+                <item name="router_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*&gt; ?$.*</Content>
+                </item>
+                <item name="question_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*\\? ?$.*</Content>
+                </item>
+                <item name="password_ok_prompt">
+                    <Content>Password OK</Content>
+                </item>
+                <item name="password" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*Password: ?$.*</Content>
+                </item>
+                <item name="wirelessController_username" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*User: ?$.*</Content>
+                </item>
+                <item name="priviledge_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*# ?$.*</Content>
+                </item>
+                <item name="catos_enable_password" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*Enter password: ?$.*</Content>
+                </item>
+                <item name="escape_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*Escape character is .*\\.\\n.*</Content>
+                </item>
+                <item name="username_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*Username: ?$.*</Content>
+                </item>
+                <item name="yes_no_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*^.*\\[yes\\/no\\].*$.*</Content>
+                </item>
+                <item name="start_prompt">
+                    <Content>Press RETURN to get started.</Content>
+                </item>
+                <item name="confirm_prompt" MatchMethod="REGULAR_EXPRESSION">
+                    <Content>.*.*\\[confirm\\].*$.*</Content>
+                </item>
+                <item name="prompt1">
+                    <Content>1w2d: %SYS-5-CONFIG_I: Configured from console by console</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+    </sessionProperties>
+    <parameters version="4.0.2.53609">
+        <parameters escape="true">
+            <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                <telnetport pt:description="2.x Build-In Parameter: telnetport, this parameter was imported from 2.x.  It is static and is will not be automatically updated when the session profile changes.">23</telnetport>
+                <sshport pt:description="2.x Build-In Parameter: sshport, this parameter was imported from 2.x.  It is static and is will not be automatically updated when the session profile changes.">22</sshport>
+            </parameters>
+        </parameters>
+    </parameters>
+    <responseLibrary inherit="false">project://my_project/</responseLibrary>
+    <Overview>this is IOS session profile </Overview>
+    <Description>prompts for all routers of different platforms as well as pagent and CatOS.</Description>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

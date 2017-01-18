@@ -1,0 +1,1875 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.1.4.63326">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody> ATM2/0.70: VC 0/70 -
+
+  Service-policy output: QE_LABS_A7296_3M58_1M02_512k_8k_1
+
+    Class-map: COSQ_EVPN_NMC (match-any)
+      117 packets, 7167 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group 178
+        117 packets, 7167 bytes
+        30 second rate 0 bps
+      Match: access-group 180
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 137 
+        Bandwidth remaining 1 (%)
+        (pkts matched/bytes matched) 117/7167
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0          100     200  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6     117/7167            0/0              0/0          200     300  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       0/0               0/0              0/0           20      40  1/10
+
+
+      Service-policy : PE_NMC
+
+        Class-map: COSP_EVPN_NMC_RP (match-any)
+          117 packets, 7167 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group 178
+            117 packets, 7167 bytes
+            30 second rate 0 bps
+          police:
+              cir 16000 bps, bc 8000 bytes
+            conformed 117 packets, 7167 bytes; actions:
+              set-dscp-transmit cs6
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit cs6
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: COSP_EVPN_NMC_NM (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group 180
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 16000 bps, bc 8000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS1_TC1 (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name COS1_APP_TC1
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Strict Priority
+        Output Queue: Conversation 136 
+        Bandwidth 3584 (kbps) Burst 448000 (Bytes)
+        (pkts matched/bytes matched) 0/0
+        (total drops/bytes drops) 0/0
+
+      Service-policy : PE_LABS_3584k_COS1_TC1
+
+        Class-map: COSP_EVPN_LABS_COS1_TC1 (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name COS1_APP_TC1
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 3584000 bps, bc 448000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit ef
+            exceeded 0 packets, 0 bytes; actions:
+              drop 
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS2_TC1 (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name COS2_APP_TC1
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 138 
+        Bandwidth remaining 65 (%)
+        (pkts matched/bytes matched) 0/0
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0           32      40  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0          400     600  1/10
+   af32       0/0               0/0              0/0          300     400  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       0/0               0/0              0/0           20      40  1/10
+
+
+      Service-policy : PE_LABS_1M02_COS2_TC1
+
+        Class-map: COSP_EVPN_LABS_COS2_TC1 (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name COS2_APP_TC1
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 1024000 bps, bc 128000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit af31
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af32
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS3_TC1 (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name COS3_APP_TC1
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 139 
+        Bandwidth remaining 32 (%)
+        (pkts matched/bytes matched) 0/0
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0          400     600  1/10
+   af22       0/0               0/0              0/0          300     400  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       0/0               0/0              0/0           20      40  1/10
+
+
+      Service-policy : PE_LABS_512k_COS3_TC1
+
+        Class-map: COSP_EVPN_LABS_COS3_TC1 (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name COS3_APP_TC1
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 512000 bps, bc 64000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af22
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS4_TC1 (match-any)
+      1 packets, 32 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: any 
+      Queueing
+        Output Queue: Conversation 140 
+        Bandwidth remaining 1 (%)
+        (pkts matched/bytes matched) 0/0
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0           32      40  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       1/32              0/0              0/0          100     200  1/10
+
+
+      Service-policy : PE_LABS_8k_COS4_TC1
+
+        Class-map: COSP_EVPN_LABS_COS4_TC1 (match-any)
+          1 packets, 32 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+          police:
+              cir 8000 bps, bc 4000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit default
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit default
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: class-default (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: any 
+ ATM5/ima0.100: VC 0/100 -
+
+  Service-policy output: QE_LABS_A7296_3M58_1M02_512k_8k_1
+
+    Class-map: COSQ_EVPN_NMC (match-any)
+      1385 packets, 88200 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group 178
+        1385 packets, 88200 bytes
+        30 second rate 0 bps
+      Match: access-group 180
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 137 
+        Bandwidth remaining 1 (%)
+        (pkts matched/bytes matched) 1385/88200
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0          100     200  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6    1385/88200           0/0              0/0          200     300  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       0/0               0/0              0/0           20      40  1/10
+
+
+      Service-policy : PE_NMC
+
+        Class-map: COSP_EVPN_NMC_RP (match-any)
+          1385 packets, 88200 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group 178
+            1385 packets, 88200 bytes
+            30 second rate 0 bps
+          police:
+              cir 16000 bps, bc 8000 bytes
+            conformed 1385 packets, 88200 bytes; actions:
+              set-dscp-transmit cs6
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit cs6
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: COSP_EVPN_NMC_NM (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group 180
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 16000 bps, bc 8000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS1_TC1 (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name COS1_APP_TC1
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Strict Priority
+        Output Queue: Conversation 136 
+        Bandwidth 3584 (kbps) Burst 448000 (Bytes)
+        (pkts matched/bytes matched) 0/0
+        (total drops/bytes drops) 0/0
+
+      Service-policy : PE_LABS_3584k_COS1_TC1
+
+        Class-map: COSP_EVPN_LABS_COS1_TC1 (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name COS1_APP_TC1
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 3584000 bps, bc 448000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit ef
+            exceeded 0 packets, 0 bytes; actions:
+              drop 
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS2_TC1 (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name COS2_APP_TC1
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 138 
+        Bandwidth remaining 65 (%)
+        (pkts matched/bytes matched) 0/0
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0           32      40  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0          400     600  1/10
+   af32       0/0               0/0              0/0          300     400  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       0/0               0/0              0/0           20      40  1/10
+
+
+      Service-policy : PE_LABS_1M02_COS2_TC1
+
+        Class-map: COSP_EVPN_LABS_COS2_TC1 (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name COS2_APP_TC1
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 1024000 bps, bc 128000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit af31
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af32
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS3_TC1 (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name COS3_APP_TC1
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 139 
+        Bandwidth remaining 32 (%)
+        (pkts matched/bytes matched) 0/0
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0          400     600  1/10
+   af22       0/0               0/0              0/0          300     400  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       0/0               0/0              0/0           20      40  1/10
+
+
+      Service-policy : PE_LABS_512k_COS3_TC1
+
+        Class-map: COSP_EVPN_LABS_COS3_TC1 (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name COS3_APP_TC1
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 512000 bps, bc 64000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af22
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COSQ_EVPN_LABS_COS4_TC1 (match-any)
+      2 packets, 64 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: any 
+      Queueing
+        Output Queue: Conversation 140 
+        Bandwidth remaining 1 (%)
+        (pkts matched/bytes matched) 0/0
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0           32      40  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       2/64              0/0              0/0          100     200  1/10
+
+
+      Service-policy : PE_LABS_8k_COS4_TC1
+
+        Class-map: COSP_EVPN_LABS_COS4_TC1 (match-any)
+          2 packets, 64 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+          police:
+              cir 8000 bps, bc 4000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit default
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit default
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: class-default (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: any 
+</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+        <item name="sample2">
+            <responseBody> GigabitEthernet0/1 
+
+  Service-policy output: REMARK_PASSIVE
+
+    Class-map: COS2_NONCONFORMING_PACKETS (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: ip dscp af32 (28)
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      QoS Set
+        dscp af31
+          Packets marked 0
+
+    Class-map: COS3_NONCONFORMING_PACKETS (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: ip dscp af22 (20)
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      QoS Set
+        dscp af21
+          Packets marked 0
+
+    Class-map: class-default (match-any)
+      271546158 packets, 33702170110 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: any 
+ Multilink1 
+
+  Service-policy output: CE_EGRESS_QUEUING
+
+    Class-map: NMC (match-any)
+      40570 packets, 2085621 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group 178
+        40570 packets, 2085621 bytes
+        30 second rate 0 bps
+      Match: access-group 180
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 265 
+        Bandwidth remaining 1 (%)
+        (pkts matched/bytes matched) 40570/2085621
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0          100     200  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6   40570/2085621         0/0              0/0          200     300  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default       0/0               0/0              0/0           20      40  1/10
+
+
+      Service-policy : NMC_POLICING
+          
+        Class-map: NMC_RP (match-any)
+          40570 packets, 2085621 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group 178
+            40570 packets, 2085621 bytes
+            30 second rate 0 bps
+          police:
+              cir 16000 bps, bc 8000 bytes
+            conformed 40570 packets, 2085621 bytes; actions:
+              set-dscp-transmit cs6
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit cs6
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: NMC_SNMP (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group 180
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          police:
+              cir 16000 bps, bc 8000 bytes
+            conformed 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af21
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COS1 (match-any)
+      65878207 packets, 7378358080 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name CLASSIFICATION_COS1
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Match: access-group name IPv6_CLASSIFICATION_COS1
+        65878207 packets, 7378358080 bytes
+        30 second rate 0 bps
+      Queueing
+        Strict Priority
+        Output Queue: Conversation 264 
+        Bandwidth 2048 (kbps) Burst 256000 (Bytes)
+        (pkts matched/bytes matched) 1095/121536
+        (total drops/bytes drops) 0/0
+
+      Service-policy : COS1_POLICING
+
+        Class-map: COS1_TRAFFIC (match-any)
+          65348896 packets, 7319075248 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name CLASSIFICATION_COS1
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          Match: access-group name IPv6_CLASSIFICATION_COS1
+            65348896 packets, 7319075248 bytes
+            30 second rate 0 bps
+          police:
+              cir 2048000 bps, bc 256000 bytes
+            conformed 65348896 packets, 7319075248 bytes; actions:
+              set-dscp-transmit ef
+            exceeded 0 packets, 0 bytes; actions:
+              drop 
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          529311 packets, 59282832 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COS2 (match-any)
+      65878193 packets, 7378357616 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name CLASSIFICATION_COS2
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Match: access-group name IPv6_CLASSIFICATION_COS2
+        65878192 packets, 7378357504 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 266 
+        Bandwidth remaining 33 (%)
+        (pkts matched/bytes matched) 1095/122640
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0           32      40  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31 65348064/7318983168      0/0              0/0          400     600  1/10
+   af32       0/0               0/0              0/0          300     400  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default  530130/59374560        0/0              0/0           20      40  1/10
+
+
+      Service-policy : COS2_POLICING
+
+        Class-map: COS2_TRAFFIC (match-any)
+          65348062 packets, 7318982944 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name CLASSIFICATION_COS2
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          Match: access-group name IPv6_CLASSIFICATION_COS2
+            65348064 packets, 7318983168 bytes
+            30 second rate 0 bps
+          police:
+              cir 512000 bps, bc 64000 bytes
+            conformed 65348064 packets, 7318983168 bytes; actions:
+              set-dscp-transmit af31
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af32
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          530130 packets, 59374560 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COS3 (match-any)
+      65878126 packets, 7378350112 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: access-group name CLASSIFICATION_COS3
+        0 packets, 0 bytes
+        30 second rate 0 bps
+      Match: access-group name IPv6_CLASSIFICATION_COS3
+        65878130 packets, 7378350560 bytes
+        30 second rate 0 bps
+      Queueing
+        Output Queue: Conversation 267 
+        Bandwidth remaining 33 (%)
+        (pkts matched/bytes matched) 989/110768
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21 65348809/7319066608      0/0              0/0          400     600  1/10
+   af22       0/0               0/0              0/0          300     400  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default  529322/59284064        0/0              0/0           20      40  1/10
+
+
+      Service-policy : COS3_POLICING
+
+        Class-map: COS3_TRAFFIC (match-any)
+          65348803 packets, 7319065936 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: access-group name CLASSIFICATION_COS3
+            0 packets, 0 bytes
+            30 second rate 0 bps
+          Match: access-group name IPv6_CLASSIFICATION_COS3
+            65348808 packets, 7319066496 bytes
+            30 second rate 0 bps
+          police:
+              cir 512000 bps, bc 64000 bytes
+            conformed 65348809 packets, 7319066608 bytes; actions:
+              set-dscp-transmit af21
+            exceeded 0 packets, 0 bytes; actions:
+              set-dscp-transmit af22
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          529322 packets, 59284064 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: COS4 (match-any)
+      74737885 packets, 8368973452 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: any 
+      Queueing
+        Output Queue: Conversation 268 
+        Bandwidth remaining 33 (%)
+        (pkts matched/bytes matched) 41613/3026020
+        (depth/total drops/no-buffer drops) 0/0/0
+         exponential weight: 1
+         mean queue depth: 0
+
+   dscp    Transmitted      Random drop      Tail drop    Minimum Maximum  Mark
+           pkts/bytes       pkts/bytes       pkts/bytes    thresh  thresh  prob
+   af11       0/0               0/0              0/0           32      40  1/10
+   af12       0/0               0/0              0/0           28      40  1/10
+   af13       0/0               0/0              0/0           24      40  1/10
+   af21       0/0               0/0              0/0           32      40  1/10
+   af22       0/0               0/0              0/0           28      40  1/10
+   af23       0/0               0/0              0/0           24      40  1/10
+   af31       0/0               0/0              0/0           32      40  1/10
+   af32       0/0               0/0              0/0           28      40  1/10
+   af33       0/0               0/0              0/0           24      40  1/10
+   af41       0/0               0/0              0/0           32      40  1/10
+   af42       0/0               0/0              0/0           28      40  1/10
+   af43       0/0               0/0              0/0           24      40  1/10
+    cs1       0/0               0/0              0/0           22      40  1/10
+    cs2       0/0               0/0              0/0           24      40  1/10
+    cs3       0/0               0/0              0/0           26      40  1/10
+    cs4       0/0               0/0              0/0           28      40  1/10
+    cs5       0/0               0/0              0/0           30      40  1/10
+    cs6       0/0               0/0              0/0           32      40  1/10
+    cs7       0/0               0/0              0/0           34      40  1/10
+     ef       0/0               0/0              0/0           36      40  1/10
+   rsvp       0/0               0/0              0/0           36      40  1/10
+default 74737890/8368974012      0/0              0/0          100     200  1/10
+
+
+      Service-policy : COS4_POLICING
+          
+        Class-map: COS4_TRAFFIC (match-any)
+          74737889 packets, 8368973900 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+          police:
+              cir 512000 bps, bc 64000 bytes
+            conformed 71887495 packets, 8049765195 bytes; actions:
+              set-dscp-transmit default
+            exceeded 2850051 packets, 319205321 bytes; actions:
+              set-dscp-transmit default
+            conformed 0 bps, exceed 0 bps
+
+        Class-map: class-default (match-any)
+          0 packets, 0 bytes
+          30 second offered rate 0 bps, drop rate 0 bps
+          Match: any 
+
+    Class-map: class-default (match-any)
+      0 packets, 0 bytes
+      30 second offered rate 0 bps, drop rate 0 bps
+      Match: any </responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+        </item>
+    </sampleDictionary>
+    <selectedSample>sample2</selectedSample>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.block.documents.BlockMapperProperties">
+            <BlockMaps name="container">
+                <nodes>
+                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Interface">
+                        <maxOccurences>0</maxOccurences>
+                        <nodes>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Header">
+                                <lines>
+                                    <item>
+                                        <tokens>
+                                            <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                            <item name="interface" representativeValue="interface" parser="Word" isVariable="true" isWildcard="true"/>
+                                        </tokens>
+                                    </item>
+                                </lines>
+                            </item>
+                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Physical_Policy_Section">
+                                <nodes>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Physical_Policy_Header">
+                                        <lines>
+                                            <item>
+                                                <tokens>
+                                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="Service" parser="Word"/>
+                                                    <item representativeValue="-" parser="Punctuation"/>
+                                                    <item representativeValue="policy" parser="Word"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item representativeValue="output" parser="Word"/>
+                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                    <item name="physical_service_policy" representativeValue="policy" parser="Word" isVariable="true" isWildcard="true"/>
+                                                </tokens>
+                                            </item>
+                                        </lines>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Physical_Class_Map">
+                                        <maxOccurences>0</maxOccurences>
+                                        <nodes>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Class_Map_Header">
+                                                <lines>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="    " parser="Whitespace"/>
+                                                            <item representativeValue="Class" parser="Word"/>
+                                                            <item representativeValue="-" parser="Punctuation"/>
+                                                            <item representativeValue="map" parser="Word"/>
+                                                            <item representativeValue=":" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="physical_class_map" representativeValue="map" parser="Word" isVariable="true" isWildcard="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                            <item name="physical_class_map_packets" representativeValue="117" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="packets" parser="Word"/>
+                                                            <item representativeValue="," parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="physical_class_map_bytes" representativeValue="7167" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="bytes" parser="Word"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="30" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="second" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="offered" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="rate" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="physical_class_map_thirty_second_offered_rate" representativeValue="0" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="bps" parser="Word"/>
+                                                            <item representativeValue="," parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="drop" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="rate" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="physical_class_map_drop_rate" representativeValue="0" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="bps" parser="Word"/>
+                                                        </tokens>
+                                                    </item>
+                                                </lines>
+                                            </item>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Match">
+                                                <minOccurrences>0</minOccurrences>
+                                                <maxOccurences>0</maxOccurences>
+                                                <lines>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Match" parser="Word"/>
+                                                            <item representativeValue=":" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="match" representativeValue="match" parser="Word" isVariable="true" isWildcard="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item name="match_packets" representativeValue="117" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="packets" parser="Word"/>
+                                                            <item representativeValue="," parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="match_bytes" representativeValue="7167" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="bytes" parser="Word"/>
+                                                        </tokens>
+                                                        <isOptional>true</isOptional>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="30" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="second" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="rate" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="thirty_second_rate" representativeValue="0" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="bps" parser="Word"/>
+                                                        </tokens>
+                                                        <isOptional>true</isOptional>
+                                                    </item>
+                                                </lines>
+                                            </item>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="QOS">
+                                                <minOccurrences>0</minOccurrences>
+                                                <lines>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="QoS" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Set" parser="Word"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="dscp" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="qos_dscp" representativeValue="value" parser="Word" isVariable="true" isWildcard="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Packets" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="marked" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="qos_packets_marked" representativeValue="0" parser="Number" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                </lines>
+                                            </item>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Queueing1">
+                                                <minOccurrences>0</minOccurrences>
+                                                <lines>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Queueing" parser="Word"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Output" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Queue" parser="Word"/>
+                                                            <item representativeValue=":" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_output_queue" representativeValue="queue" parser="Word" isVariable="true" isWildcard="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Bandwidth" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="remaining" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_bandwidth_remaining" representativeValue="1" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="(" parser="Punctuation"/>
+                                                            <item representativeValue="%" parser="Punctuation"/>
+                                                            <item representativeValue=")" parser="Punctuation"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="(" parser="Punctuation"/>
+                                                            <item representativeValue="pkts" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="matched" parser="Word"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item representativeValue="bytes" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="matched" parser="Word"/>
+                                                            <item representativeValue=")" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_pkts_matched" representativeValue="117" parser="Number" isVariable="true"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item name="queueing_bytes_matched" representativeValue="7167" parser="Number" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="(" parser="Punctuation"/>
+                                                            <item representativeValue="depth" parser="Word"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item representativeValue="total" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="drops" parser="Word"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item representativeValue="no" parser="Word"/>
+                                                            <item representativeValue="-" parser="Punctuation"/>
+                                                            <item representativeValue="buffer" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="drops" parser="Word"/>
+                                                            <item representativeValue=")" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_depth" representativeValue="0" parser="Number" isVariable="true"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item name="queueing_total_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item name="queueing_no_buffer_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="         " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="exponential" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="weight" parser="Word"/>
+                                                            <item representativeValue=":" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_exponential_weight" representativeValue="1" parser="Number" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="         " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="mean" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="queue" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="depth" parser="Word"/>
+                                                            <item representativeValue=":" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_mean_queue_depth" representativeValue="0" parser="Number" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                </lines>
+                                            </item>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Queueing2">
+                                                <minOccurrences>0</minOccurrences>
+                                                <lines>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Queueing" parser="Word"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Strict" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Priority" parser="Word"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Output" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Queue" parser="Word"/>
+                                                            <item representativeValue=":" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_output_queue" representativeValue="queue" parser="Word" isVariable="true" isWildcard="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Bandwidth" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_bandwidth" representativeValue="3584" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="(" parser="Punctuation"/>
+                                                            <item representativeValue="kbps" parser="Word"/>
+                                                            <item representativeValue=")" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="Burst" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_burst" representativeValue="448000" parser="Number" isVariable="true"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="(" parser="Punctuation"/>
+                                                            <item representativeValue="Bytes" parser="Word"/>
+                                                            <item representativeValue=")" parser="Punctuation"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="(" parser="Punctuation"/>
+                                                            <item representativeValue="pkts" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="matched" parser="Word"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item representativeValue="bytes" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="matched" parser="Word"/>
+                                                            <item representativeValue=")" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_pkts_matched" representativeValue="0" parser="Number" isVariable="true"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item name="queueing_bytes_matched" representativeValue="0" parser="Number" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="(" parser="Punctuation"/>
+                                                            <item representativeValue="total" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="drops" parser="Word"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item representativeValue="bytes" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue="drops" parser="Word"/>
+                                                            <item representativeValue=")" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="queueing_total_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                            <item representativeValue="/" parser="Punctuation"/>
+                                                            <item name="queueing_bytes_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                </lines>
+                                            </item>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Class_Map_Table">
+                                                <minOccurrences>0</minOccurrences>
+                                                <nodes>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Header">
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="   " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="dscp" parser="Word"/>
+                                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Transmitted" parser="Word"/>
+                                                                    <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Random" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="drop" parser="Word"/>
+                                                                    <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Tail" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="drop" parser="Word"/>
+                                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Minimum" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Maximum" parser="Word"/>
+                                                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Mark" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="           " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="pkts" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="pkts" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="pkts" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue="    " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="thresh" parser="Word"/>
+                                                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="thresh" parser="Word"/>
+                                                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="prob" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Line">
+                                                        <minOccurrences>0</minOccurrences>
+                                                        <maxOccurences>0</maxOccurences>
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="   " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                                    <item name="class_map_table_dscp" representativeValue="dscp" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                    <item representativeValue="       " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="class_map_table_transmitted_pkts" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="class_map_table_transmitted_bytes" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="               " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="class_map_table_tail_drop_pkts" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="class_map_table_random_drop_bytes" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="              " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="class_map_table_tail_drop_bytes" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="class_map_table_tail_drop_bytes" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="           " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="class_map_table_minimum_thresh" representativeValue="32" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="class_map_table_maximum_thresh" representativeValue="40" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="  " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="class_map_table_mark_prob" representativeValue="mark" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                </nodes>
+                                                <isOrderedList>false</isOrderedList>
+                                            </item>
+                                        </nodes>
+                                        <isOrderedList>false</isOrderedList>
+                                    </item>
+                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Logical_Policy_Section">
+                                        <minOccurrences>0</minOccurrences>
+                                        <maxOccurences>0</maxOccurences>
+                                        <nodes>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Logical_Policy_Header">
+                                                <lines>
+                                                    <item>
+                                                        <tokens>
+                                                            <item representativeValue="      " parser="Whitespace"/>
+                                                            <item representativeValue="Service" parser="Word"/>
+                                                            <item representativeValue="-" parser="Punctuation"/>
+                                                            <item representativeValue="policy" parser="Word"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item representativeValue=":" parser="Punctuation"/>
+                                                            <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                            <item name="logical_service_policy" representativeValue="policy" parser="Word" isVariable="true" isWildcard="true"/>
+                                                        </tokens>
+                                                    </item>
+                                                </lines>
+                                            </item>
+                                            <item type="com.fnfr.svt.mapping.block.documents.ResponseMapNodeContainer" name="Logical_Class_Map">
+                                                <maxOccurences>0</maxOccurences>
+                                                <nodes>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Class_Map_Header">
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace"/>
+                                                                    <item representativeValue="Class" parser="Word"/>
+                                                                    <item representativeValue="-" parser="Punctuation"/>
+                                                                    <item representativeValue="map" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="logical_class_map" representativeValue="map" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="logical_class_map_packets" representativeValue="117" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="packets" parser="Word"/>
+                                                                    <item representativeValue="," parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="logical_class_map_bytes" representativeValue="7167" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="30" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="second" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="offered" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="rate" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="logical_class_map_thirty_second_offered_rate" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bps" parser="Word"/>
+                                                                    <item representativeValue="," parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="drop" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="rate" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="logical_class_map_drop_rate" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bps" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Match">
+                                                        <minOccurrences>0</minOccurrences>
+                                                        <maxOccurences>0</maxOccurences>
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Match" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="match" representativeValue="match" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="match_packets" representativeValue="117" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="packets" parser="Word"/>
+                                                                    <item representativeValue="," parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="match_bytes" representativeValue="7167" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                </tokens>
+                                                                <isOptional>true</isOptional>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="30" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="second" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="rate" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="thirty_second_rate" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bps" parser="Word"/>
+                                                                </tokens>
+                                                                <isOptional>true</isOptional>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="QOS">
+                                                        <minOccurrences>0</minOccurrences>
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="QoS" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Set" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="dscp" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="qos_dscp" representativeValue="value" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="          " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Packets" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="marked" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="qos_packets_marked" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Queueing1">
+                                                        <minOccurrences>0</minOccurrences>
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Queueing" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Output" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Queue" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_output_queue" representativeValue="queue" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Bandwidth" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="remaining" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_bandwidth_remaining" representativeValue="1" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                                    <item representativeValue="%" parser="Punctuation"/>
+                                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                                    <item representativeValue="pkts" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="matched" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="matched" parser="Word"/>
+                                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_pkts_matched" representativeValue="117" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="queueing_bytes_matched" representativeValue="7167" parser="Number" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                                    <item representativeValue="depth" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="total" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="drops" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="no" parser="Word"/>
+                                                                    <item representativeValue="-" parser="Punctuation"/>
+                                                                    <item representativeValue="buffer" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="drops" parser="Word"/>
+                                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_depth" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="queueing_total_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="queueing_no_buffer_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="         " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="exponential" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="weight" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_exponential_weight" representativeValue="1" parser="Number" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="         " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="mean" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="queue" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="depth" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_mean_queue_depth" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Queueing2">
+                                                        <minOccurrences>0</minOccurrences>
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="      " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Queueing" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Strict" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Priority" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Output" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Queue" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_output_queue" representativeValue="queue" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isOptional="true" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Bandwidth" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_bandwidth" representativeValue="3584" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                                    <item representativeValue="kbps" parser="Word"/>
+                                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="Burst" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_burst" representativeValue="448000" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                                    <item representativeValue="Bytes" parser="Word"/>
+                                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                                    <item representativeValue="pkts" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="matched" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="matched" parser="Word"/>
+                                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_pkts_matched" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="queueing_bytes_matched" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="        " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="(" parser="Punctuation"/>
+                                                                    <item representativeValue="total" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="drops" parser="Word"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="drops" parser="Word"/>
+                                                                    <item representativeValue=")" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="queueing_total_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue="/" parser="Punctuation"/>
+                                                                    <item name="queueing_bytes_drops" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                    <item type="com.fnfr.svt.mapping.block.documents.ResponseMapBlock" name="Police">
+                                                        <minOccurrences>0</minOccurrences>
+                                                        <lines>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="          " parser="Whitespace"/>
+                                                                    <item representativeValue="police" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="              " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="cir" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_cir_bps" representativeValue="16000" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bps" parser="Word"/>
+                                                                    <item representativeValue="," parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bc" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_bc_bytes" representativeValue="8000" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="conformed" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_conformed_packets" representativeValue="117" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="packets" parser="Word"/>
+                                                                    <item representativeValue="," parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_conformed_bytes" representativeValue="7167" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue=";" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="actions" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="              " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_conformed_actions" representativeValue="actions" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="exceeded" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_exceeded_packets" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="packets" parser="Word"/>
+                                                                    <item representativeValue="," parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_exceeded_bytes" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bytes" parser="Word"/>
+                                                                    <item representativeValue=";" parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="actions" parser="Word"/>
+                                                                    <item representativeValue=":" parser="Punctuation"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="              " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_exceeded_actions" representativeValue="actions" parser="Word" isVariable="true" isWildcard="true"/>
+                                                                </tokens>
+                                                            </item>
+                                                            <item>
+                                                                <tokens>
+                                                                    <item representativeValue="            " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="conformed" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_conformed_bps" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bps" parser="Word"/>
+                                                                    <item representativeValue="," parser="Punctuation"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="exceed" parser="Word"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item name="police_exceed_bps" representativeValue="0" parser="Number" isVariable="true"/>
+                                                                    <item representativeValue=" " parser="Whitespace" isVariable="true"/>
+                                                                    <item representativeValue="bps" parser="Word"/>
+                                                                </tokens>
+                                                            </item>
+                                                        </lines>
+                                                    </item>
+                                                </nodes>
+                                                <isOrderedList>false</isOrderedList>
+                                            </item>
+                                        </nodes>
+                                        <isOrderedList>false</isOrderedList>
+                                    </item>
+                                </nodes>
+                                <isOrderedList>false</isOrderedList>
+                            </item>
+                        </nodes>
+                        <isOrderedList>false</isOrderedList>
+                    </item>
+                </nodes>
+                <isOrderedList>false</isOrderedList>
+            </BlockMaps>
+            <maxSearchDepth>5000</maxSearchDepth>
+        </item>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties"/>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="sh* policy-map int">
+        <application>
+            <item>com.fnfr.svt.applications.telnet</item>
+            <item>com.fnfr.svt.applications.ssh</item>
+        </application>
+    </applicabilityProperties>
+    <aliases>
+        <item name="NumberOfInterfaces">
+            <queryFormatString>fn:count(mapped/Block/Body/container/Interface)</queryFormatString>
+        </item>
+    </aliases>
+</ResponseMap>

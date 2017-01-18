@@ -1,0 +1,960 @@
+<?xml version="1.0"?>
+<testCase version="5.1.0.77511">
+    <general>
+        <owner>Cosmin Stanuica</owner>
+        <isProcedureLibrary>true</isProcedureLibrary>
+        <sessionClass includeTestCase="true" sessionType="project://d_STC/session_profiles/tg_stc_conformance.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main" isPublic="true">
+            <steps>
+                <item guid="3fb51b2b-f460-4d85-ba77-d86cd056488a" action="comment">
+                    <command>
+                        <body>Main procedure</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Cosmin Stanuica</author>
+        </item>
+        <item name="load_conformance_library" isPublic="true">
+            <steps>
+                <item guid="fac72560-7131-42cc-ab37-a81c2495459a" action="comment">
+                    <command>
+                        <body>Initialize return code</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="Eval">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                    <statement>set retCode &quot;TRUE&quot;</statement>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8d739ed7-9cf4-4397-a4fa-0abab5473a8d" action="comment">
+                    <command>
+                        <body>Load Spirent Library</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ce094abe-a66c-478b-afcd-5e6d843893a3" action="command" session="$session">
+                            <command>
+                                <body>package require SpirentTestCenterConformance</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>can&apos;t find package</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>TG - TCL shell did not find SpirentTestCenterConformance package. Test cannot run</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="Eval">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                            <statement>set retCode &quot;FALSE&quot;</statement>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>couldn&apos;t read file</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 1</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="DeclareExecutionIssue">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                            <message>TG - TCL shell did not find SpirentTestCenterConformance package. Test cannot run</message>
+                                                        </actionProperties>
+                                                    </item>
+                                                    <item actionId="Eval">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                            <statement>set retCode &quot;FALSE&quot;</statement>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                                <storeResponseAt>cmd_output</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="398ee41d-92de-42aa-bbbd-3039e866b672" action="comment">
+                    <command>
+                        <body>Return result</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="e26f2f42-868c-4b75-b438-6623c8a3a079" action="return">
+                            <command>
+                                <body>retCode: $retCode</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Cosmin Stanuica</author>
+        </item>
+        <item name="load_conformance_workspace" isPublic="true">
+            <steps>
+                <item guid="fb2ff473-f05f-4bfa-a59d-55c089056461" action="comment">
+                    <command>
+                        <body>Load workspace</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="8e31c08b-e082-4c12-8bba-26857e5754c1" action="command" session="$session">
+                            <command>
+                                <body>stc::perform CtsLoadWorkSpace -fileName \\&quot;$workspace_path\\&quot;</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>cmd_output</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="e9ae0b18-2fe7-410b-89d8-b110be532eeb" action="comment">
+                    <command>
+                        <body>Race condition after loading workspace need to delay not sure why but it works</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="15b5e514-3f92-4fab-ab13-e7a06a772ada" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="32d0ec05-a909-4526-a2e5-f3bd8d4fb8d1" action="comment">
+                    <command>
+                        <body>Return command output</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c090aed0-2e8c-45cd-b42d-82f1463565da" action="return">
+                            <command>
+                                <body>[response cmd_output]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Cosmin Stanuica</author>
+            <arguments>
+                <item name="workspace_path">
+                    <description>This is a valid CTS workspace path.
+
+Example: C:/Users/cstanuica/ConformanceWSP/workspace_internal.wks</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+            </arguments>
+        </item>
+        <item name="select_conformance_tests" isPublic="true">
+            <steps>
+                <item guid="dc2072e1-a5df-45ce-9f8c-f6be02c18a10" action="comment">
+                    <command>
+                        <body>Selects Test Case</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="c3672e07-edaf-4867-95a5-5234dcc6f831" action="command" session="$session">
+                            <command>
+                                <body>set this_suite \\[stc::get project1 -children-$suite\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="5c50d692-f83e-415a-a71f-44690bc049f4" action="scriptGet">
+                            <command>
+                                <body>created_suite {$this_suite}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="1d2f3d00-e943-4696-8a9a-10158200c1d6" action="command" session="$session">
+                            <command>
+                                <body>set this_session \\[stc::get $created_suite -children-testsession\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="95c00e89-cf31-41ac-9fe4-29fdd9c3a71a" action="scriptGet">
+                            <command>
+                                <body>created_session {$this_session}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="d80b6b72-88dd-49dd-ba2e-3d16b89d9865" action="command" session="$session">
+                            <command>
+                                <body>stc::perform CtsSelectTestCases -session $created_session -testSelectionCategory NAME -testCaseNames \\&quot;$test_case_list\\&quot;</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="6a5bb6c8-b8f5-4000-b977-60818bc6e7c8" action="comment">
+                            <command>
+                                <body>Wait step to avoid race conditions</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="483ba7f3-ccec-420c-9a3c-85f1616bb856" action="sleep">
+                                    <command>
+                                        <body>10</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="38313218-e537-4c62-8c82-c22cde10ebbd" action="comment">
+                            <command>
+                                <body>Return command output</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="6d249e06-a890-49d3-9768-6004e98280cc" action="return">
+                                    <command>
+                                        <body>[response cmd_output]</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Cosmin Stanuica</author>
+            <multilineDescription>Runs the selected tests.
+Checks to see if the test has passed or not.</multilineDescription>
+            <arguments>
+                <item name="test_case_list">
+                    <description>The test case to be run.
+
+Example: &quot;TC_1_2&quot;</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="suite">
+                    <description>Suite to use</description>
+                    <defaultValue>bgp4testsuite</defaultValue>
+                </item>
+            </arguments>
+        </item>
+        <item name="run_conformance_tests" isPublic="true">
+            <steps>
+                <item guid="99b600fb-76fa-4138-bf20-c5ec40330dcf" action="comment">
+                    <command>
+                        <body>Initialize return code</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="Eval">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                    <statement>set retCode &quot;TRUE&quot;</statement>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="a848239f-4d88-40d4-a018-eea164ebed32" action="comment">
+                    <command>
+                        <body>Runs the test</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bf5e46bf-6468-489f-ae23-77f4353f58bf" action="command" session="$session">
+                            <command>
+                                <body>set this_suite \\[stc::get project1 -children-$suite\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="f8ffd9ed-1a50-42c8-9a9c-646c1cd7e4ab" action="scriptGet">
+                            <command>
+                                <body>created_suite {$this_suite}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="d60131f7-306c-4312-ae47-69f64dc16447" action="command" session="$session">
+                            <command>
+                                <body>set this_session \\[stc::get $created_suite -children-testsession\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a5469b09-3899-41e2-85a8-d585769f8f8e" action="scriptGet">
+                            <command>
+                                <body>created_session {$this_session}</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="contains">
+                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                <searchString>testsession</searchString>
+                                            </extractorProperties>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>$value == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="Eval">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                            <statement>set retCode &quot;FALSE&quot;</statement>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="cc322eb6-0fae-421b-9374-430bbff3d6dc" action="command" session="$session">
+                            <command>
+                                <body>array set selectedTestCasesInfo \\[stc::perform CtsGetSelectedTestCases -session $created_session\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="3fa529b0-2e4e-4965-9f08-659e672b5b9a" action="sleep">
+                            <command>
+                                <body>10</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="fb0fb352-2ad6-44c0-9d05-8b863bfb28cf" action="if">
+                            <command>
+                                <body>$retCode != &quot;FALSE&quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="f73175f9-1b66-401a-9e16-d9c4fa91b9eb" action="then">
+                                    <nestedSteps>
+                                        <item guid="25fafe88-ec5e-4e25-bab2-40566d17bf40" action="command" session="$session">
+                                            <command>
+                                                <body>stc::perform CtsStartTestExecution -session $created_session -runCount 1 -testCaseList \\$selectedTestCasesInfo(-TestCaseList)</body>
+                                            </command>
+                                            <postProcessing>
+                                                <analysisRules>
+                                                    <item>
+                                                        <extractorInfo extractorType="contains">
+                                                            <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                <searchString>State COMPLETED</searchString>
+                                                            </extractorProperties>
+                                                        </extractorInfo>
+                                                        <processorInfo ruleType="assert">
+                                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                <expression>$value == 0</expression>
+                                                                <actionsWhenTrue>
+                                                                    <item actionId="Eval">
+                                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                                            <statement>set retCode &quot;FALSE&quot;</statement>
+                                                                        </actionProperties>
+                                                                    </item>
+                                                                </actionsWhenTrue>
+                                                            </ruleProperties>
+                                                        </processorInfo>
+                                                    </item>
+                                                </analysisRules>
+                                            </postProcessing>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="c06cf531-c5f0-40d6-beda-0f0b90bedb30" action="if">
+                            <command>
+                                <body>$retCode != &quot;FALSE&quot;</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="43558216-f41c-4094-b4d7-f66a09b4ab58" action="then">
+                                    <nestedSteps>
+                                        <item guid="14a2bd31-6ec4-431b-b5fe-20ba1bf0834c" action="while">
+                                            <command>
+                                                <body>1</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="fe6ecad7-5123-4279-b8f7-9f95849e588e" action="sleep">
+                                                    <command>
+                                                        <body>10</body>
+                                                    </command>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="e71cc1ad-3768-456a-b98f-432d7afbbf2a" action="command" session="$session">
+                                                    <command>
+                                                        <body>stc::get $created_session -ExecState</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="contains">
+                                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.ExtractorContainsPropertyGroup">
+                                                                        <searchString>IDLE</searchString>
+                                                                    </extractorProperties>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$value == 1</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="Break">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                </item>
+                                                <item guid="0d970e4c-7bb1-4138-8d79-b1ba086af791" action="comment">
+                                                    <command>
+                                                        <body>If an error occures, exit loop</body>
+                                                    </command>
+                                                    <postProcessing>
+                                                        <analysisRules>
+                                                            <item>
+                                                                <extractorInfo extractorType="none">
+                                                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                                                </extractorInfo>
+                                                                <processorInfo ruleType="assert">
+                                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                                        <expression>$retCode == &quot;FALSE&quot;</expression>
+                                                                        <actionsWhenTrue>
+                                                                            <item actionId="Break">
+                                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                                            </item>
+                                                                        </actionsWhenTrue>
+                                                                    </ruleProperties>
+                                                                </processorInfo>
+                                                            </item>
+                                                        </analysisRules>
+                                                    </postProcessing>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="38cd451e-4a1f-4ee5-b0a2-0b8b2cb477d9" action="comment">
+                    <command>
+                        <body>Return run result</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="ac8327bf-4066-44e0-8f7a-9740013d8d64" action="return">
+                            <command>
+                                <body>retCode: $retCode</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Cosmin Stanuica</author>
+            <multilineDescription>Runs the selected tests.
+Checks to see if the test has passed or not.</multilineDescription>
+            <arguments>
+                <item name="suite">
+                    <description>Suite to use</description>
+                    <defaultValue>bgp4testsuite</defaultValue>
+                </item>
+            </arguments>
+        </item>
+        <item name="get_execution_results" isPublic="true">
+            <steps>
+                <item guid="116278aa-8021-4bbd-8c77-4df5cbdf87cf" action="comment">
+                    <command>
+                        <body>Identify results data</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="none">
+                                    <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>1</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="Eval">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                    <statement>set return_data &quot;&quot;</statement>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <nestedSteps>
+                        <item guid="f9ebaf47-9389-4f8a-9b37-1fecf0c2cb5a" action="command" session="$session">
+                            <command>
+                                <body>set this_suite \\[stc::get project1 -children-$suite\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="6be9bfee-984f-42c9-b928-b03030cde7db" action="scriptGet">
+                            <command>
+                                <body>created_suite {$this_suite}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="f13c067e-dd68-4ae2-801d-adfe7b5a8512" action="command" session="$session">
+                            <command>
+                                <body>set this_session \\[stc::get $created_suite -children-testsession\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="a18e3abb-8c73-4f3b-95ab-349a0b9d815a" action="scriptGet">
+                            <command>
+                                <body>created_session {$this_session}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="957995db-c414-4f3f-ac8f-d2290957acf3" action="command" session="$session">
+                            <command>
+                                <body>set test_results_summary \\[stc::get $created_session -children-executionSummary\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c92933d0-096b-411d-b4a2-78c8fdc5e698" action="comment">
+                    <command>
+                        <body>Create summary result array</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="6e490f2d-530f-4af7-8f57-ed9038ca5533" action="command" session="$session">
+                            <command>
+                                <body>array set conformance_summary [stc::get $test_results_summary]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="0cd12da7-9de9-4f02-ae54-ee81e639af91" action="scriptGet">
+                            <command>
+                                <body>conformance_summary_children {$conformance_summary(-children)}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="21c475cd-2dff-4349-839a-9826497c06a5" action="scriptGet">
+                            <command>
+                                <body>pass_count {$conformance_summary(-PassCount)}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="7ed2897c-e8af-425c-bf35-e0147b86dda7" action="scriptGet">
+                            <command>
+                                <body>inconclusive_count {$conformance_summary(-InconclusiveCount)}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="17032fb4-c9f4-4b04-aa02-9d088b922d9e" action="scriptGet">
+                            <command>
+                                <body>fail_count {$conformance_summary(-FailCount)}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="49f934be-d704-4903-9d72-057b3775af0b" action="scriptGet">
+                            <command>
+                                <body>run_count {$conformance_summary(-CompletedTestCaseCount)}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="1a443411-7f24-486f-ace5-9383b83a56f5" action="comment">
+                            <command>
+                                <body>Add Header</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="bff79d0f-cb06-4ea9-9659-105a6b1891c7" action="eval">
+                                    <command>
+                                        <body>set return_data &quot;TestsExecuted: $run_count ; PASS: $pass_count ; INCONCLUSIVE: $inconclusive_count ; FAIL: $fail_count \\n&quot;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="6c433f15-d168-4c2f-8190-95188a980e02" action="comment">
+                    <command>
+                        <body>Create test - result array</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="09ba14a3-8951-4c91-8bb0-c52abb87801c" action="if">
+                            <command>
+                                <body>$get_detailed_report == 1</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="c0475c6c-d84b-4ce3-89e3-db1ddfbb1397" action="then">
+                                    <nestedSteps>
+                                        <item guid="6dfe917e-6c94-4f7b-8cef-c4ca9311b7ce" action="foreach">
+                                            <command>
+                                                <body>selected_test $conformance_summary_children</body>
+                                            </command>
+                                            <nestedSteps>
+                                                <item guid="1b5febfa-7ccf-4ac4-9a71-92cfb6455ad7" action="comment">
+                                                    <command>
+                                                        <body>Determine parent and test result</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="941d1024-9bae-44f1-94bb-b9241b88bd66" action="command" session="$session">
+                                                            <command>
+                                                                <body>set this_status \\[stc::get $selected_test -Status\\]</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="903638d5-29f0-4fce-ac72-18f6d1b45dda" action="command" session="$session">
+                                                            <command>
+                                                                <body>set this_name \\[stc::get [string map {testrun testcase} $selected_test] -Name\\]</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                        </item>
+                                                        <item guid="67e92342-430c-4c6d-afbf-eca369b48605" action="scriptGet">
+                                                            <command>
+                                                                <body>selected_status {$this_status}</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                                                            </applicationProperties>
+                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                        </item>
+                                                        <item guid="6e38afa2-ea21-40bb-98e3-f647f3c8d22d" action="scriptGet">
+                                                            <command>
+                                                                <body>selected_name {$this_name}</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                                                            </applicationProperties>
+                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                                <item guid="80a4051d-6dc0-47d0-a5fd-64fefbc094e0" action="comment">
+                                                    <command>
+                                                        <body>Add current entry to return data</body>
+                                                    </command>
+                                                    <nestedSteps>
+                                                        <item guid="dd01775c-1322-444e-be68-469930115024" action="eval">
+                                                            <command>
+                                                                <body>set return_data &quot;${return_data}\\nTest Case: ${selected_name} ${selected_status}&quot;</body>
+                                                            </command>
+                                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                                        </item>
+                                                    </nestedSteps>
+                                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                                </item>
+                                            </nestedSteps>
+                                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            <useFieldsInCommand>false</useFieldsInCommand>
+                                        </item>
+                                    </nestedSteps>
+                                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                    <useFieldsInCommand>false</useFieldsInCommand>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="7adc1a75-28bd-4c23-b108-5531aefda1e2" action="comment">
+                    <command>
+                        <body>Return output</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="1ae11355-1424-4152-96aa-38415e9d090c" action="return">
+                            <command>
+                                <body>$return_data</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Cosmin Stanuica</author>
+            <arguments>
+                <item name="get_detailed_report">
+                    <description>Values:
+\t- 0 - Only summary data will be displayed
+\t- 1 - Detailed - per test case - results will be displayed</description>
+                    <defaultValue>0</defaultValue>
+                </item>
+                <item name="suite">
+                    <description>Suite to use</description>
+                    <defaultValue>bgp4testsuite</defaultValue>
+                </item>
+            </arguments>
+        </item>
+        <item name="export_test_results" isPublic="true">
+            <steps>
+                <item guid="982caeee-e23d-4906-a969-56016fdbab74" action="comment">
+                    <command>
+                        <body>Identify results data</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="bb640e85-99bb-41e5-b4e5-2c43ae7dcb97" action="command" session="$session">
+                            <command>
+                                <body>set this_suite \\[stc::get project1 -children-$suite\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="5a451a77-27b9-4794-b051-63157f8ea1f7" action="scriptGet">
+                            <command>
+                                <body>created_suite {$this_suite}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="44b3a4b5-2599-4af3-8449-0b5fe2ffa02c" action="command" session="$session">
+                            <command>
+                                <body>set this_session \\[stc::get $created_suite -children-testsession\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                        <item guid="88b0bf02-67b0-4669-b4f0-34b0c4f88cb6" action="scriptGet">
+                            <command>
+                                <body>created_session {$this_session}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="a67699bb-3e33-4db2-b82e-e34c4125286c" action="command" session="$session">
+                            <command>
+                                <body>set test_results_summary \\[stc::get $created_session -children-executionSummary\\]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="fdb21537-3dd4-4c6f-b3c6-566f9b81cabd" action="comment">
+                    <command>
+                        <body>Create summary result array</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="446bfa54-6fe9-418e-ab6d-75d0eba9daf3" action="command" session="$session">
+                            <command>
+                                <body>array set conformance_summary [stc::get $test_results_summary]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="65305685-0d04-4084-b3be-aef8408abc3b" action="scriptGet">
+                            <command>
+                                <body>conformance_summary_children {$conformance_summary(-children)}</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.execution.tcl.properties.ScriptGetProperties">
+                                <sessionTclInterpreter inherit="false" sub="true">$session</sessionTclInterpreter>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="cdaada05-17a1-4822-aad0-9de61868d860" action="comment">
+                            <command>
+                                <body>Keep list of test cases without \\n</body>
+                            </command>
+                            <postProcessing>
+                                <analysisRules>
+                                    <item>
+                                        <extractorInfo extractorType="none">
+                                            <extractorProperties type="com.fnfr.svt.documents.EmptyExtractorPropertyGroup"/>
+                                        </extractorInfo>
+                                        <processorInfo ruleType="assert">
+                                            <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                <expression>[regexp {(.*)\\n} $conformance_summary_children match test_list] == 0</expression>
+                                                <actionsWhenTrue>
+                                                    <item actionId="Eval">
+                                                        <actionProperties type="com.fnfr.svt.execution.builtin.actions.EvalActionPropertyGroup">
+                                                            <statement>set test_list $conformance_summary_children</statement>
+                                                        </actionProperties>
+                                                    </item>
+                                                </actionsWhenTrue>
+                                            </ruleProperties>
+                                        </processorInfo>
+                                    </item>
+                                </analysisRules>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="b2a8a256-2baa-4ea7-9dc9-441d4814b1bb" action="comment">
+                    <command>
+                        <body>Create test - result array</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="720008d2-6ed1-406f-990f-2f57370b0210" action="command" session="$session">
+                            <command>
+                                <body>stc::perform CtsExportTestResultsCommand -FileName $file_path -TestRunList \\&quot;$test_list\\&quot;</body>
+                            </command>
+                            <postProcessing>
+                                <storeResponseAt>cmd_output</storeResponseAt>
+                            </postProcessing>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1bc14781-25df-4c5c-a510-cb000c903d51" action="comment">
+                    <command>
+                        <body>Return result</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="841bcc13-3521-4971-960f-1f0cc93948d8" action="return">
+                            <command>
+                                <body>[response cmd_output]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+            <author>Cosmin Stanuica</author>
+            <arguments>
+                <item name="file_path">
+                    <description>Path and file name ending with .html or .xml
+Example: C:/conformance_results/configuration_1.html</description>
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="suite">
+                    <description>Suite to use</description>
+                    <defaultValue>bgp4testsuite</defaultValue>
+                </item>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ParameterTree version="4.3.0.71664">
+    <parameters escape="true">
+        <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+            <stc_config_input_file>stc_config.xml</stc_config_input_file>
+        </parameters>
+    </parameters>
+</ParameterTree>

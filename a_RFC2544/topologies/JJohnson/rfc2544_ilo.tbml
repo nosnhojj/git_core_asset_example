@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema">
+  <header>
+    <name>RFC2544_iLO</name>
+    <description></description>
+    <property name="author">jjohnson</property>
+    <property name="dateCreated">2013-09-10T15:25:50.806-04:00</property>
+    <property name="rmGuid">01d317cb-f4ee-43dc-9688-a7de2556d33f</property>
+    <property name="dateModified">2013-11-01T15:53:46.694-04:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">4.3.0.71664</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="210fac48-05f1-4b59-be9b-88e30c3d748c" id="resource_0" shared="true" type="cisco2940">
+        <boundary height="100" width="100" x="666" y="190"/>
+        <propertyCollection name="Location Information">
+<property name="id">6e825c47-e90a-494c-909a-9cead50141da</property>
+<property id="38fcf9a8-d4db-43f9-a557-e40800951858" name="Rack Position" type="text"/>
+<property id="35247e90-5594-4bb6-89b8-12fe763fed04" name="Floor Position" type="text">Area 1 - Rack 2 - </property>
+<property id="6d2024f3-8422-436d-9dc6-1ab539e4a068" name="Room" type="text">Spirent Test Automation Lab</property>
+<property id="67afafe4-e2e5-49ed-a953-11a8a2f383bc" name="Facility" type="text">Calabasas</property>
+</propertyCollection>
+        <propertyCollection name="System Identification">
+<property name="id">451ae9c3-3ee2-44b0-a270-76d963b32551</property>
+<property id="59d4b68e-f7ad-4bb3-82d4-b8d32634c44f" name="Model" type="text">2940 </property>
+<property id="ffe20499-9df9-4b8b-8bc9-84b7add9b37a" name="Device Type" type="text">Switch</property>
+<property id="f93cedda-f770-49d0-8827-0185cbd7dde8" name="ipAddress" type="text">10.88.99.3</property>
+<property id="25008a50-8183-45c6-a713-647e9adc7c5e" name="Serial Number" type="text"/>
+<property id="5d9948bb-2f2e-4398-80da-150866d51ad4" name="Make" type="text">Cisco</property>
+<property id="9d2f5f61-4239-429c-b6de-5cacb40f9042" name="tcpPort" type="text">2100</property>
+<property id="a6f42eaf-8052-42d6-ab74-6f5d1b79f562" name="Hostname" type="text">gsdemo-2940</property>
+<property id="60ef2c84-0dae-41f5-b28d-bb71947d0c45" name="Default Credentials" type="text">cisco:cisco</property>
+</propertyCollection>
+        <propertyCollection name="Device Admin">
+<property name="id">213f2197-2de4-4463-9119-6fdd30a0f33c</property>
+<property id="fac14838-fed6-41b8-99ca-83f704f0e1ad" name="Phone Number" type="text">+1 (818) 292-0566</property>
+<property id="8713ed03-a8fd-4a5a-8a7c-3c558222be65" name="Device Owner" type="text">Rick Morton</property>
+<property id="2deb4e15-7869-4ff9-8e1a-c2d669e589a3" name="Email Address" type="text">rick.morton@spirent.com</property>
+</propertyCollection>
+        <property name="name">Cisco2940</property>
+        <property name="description">Cisco 2940 9-port L2 switch</property>
+        <property name="iconURI">ilo://api/0/resource/icon?id=210fac48-05f1-4b59-be9b-88e30c3d748c</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="telnet" provider="com.fnfr">
+            <sessionProfile version="4.3.0.71664">
+              <baseApplication>com.fnfr.svt.applications.telnet</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                <ipAddress inherit="false">[ilo property ipAddress]</ipAddress>
+                <port inherit="false">2100</port>
+              </sessionProperties>
+              <baseProfile>project://Cisco/session_profiles/CiscoIOS_Telnet_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <extensions type="com.fnfr.rm.condition" XMLSchema:namespace="com.fnfr.rm.condition">template[Switch]</extensions>
+        <resource guid="b0fe68e4-9879-4878-9258-1f32de863717" id="resource_0_0" type="port">
+          <property name="name">port1</property>
+          <extensions type="com.fnfr.rm.condition">any</extensions>
+        </resource>
+        <resource guid="f0e6fb68-ec10-4595-af3b-5d8e89067f6b" id="resource_0_1" type="port">
+          <property name="name">port2</property>
+          <extensions type="com.fnfr.rm.condition">any</extensions>
+        </resource>
+      </resource>
+      <resource guid="f770d558-7a26-46a6-a60d-479c5b11aa05" id="resource_1" shared="true" type="spirenttestcenter">
+        <boundary height="100" width="113" x="336" y="192"/>
+        <propertyCollection name="Location Information">
+<property name="id">52dc4dc5-a705-4a03-bfd3-08fe955fb919</property>
+<property id="949c1678-ffbc-48cb-9628-4befe29f68fe" name="Room" type="text">Spirent Test Automation Lab</property>
+<property id="70383e42-adda-4434-99f9-02c7f4e250b1" name="Rack Position" type="text"/>
+<property id="2e213577-f191-4dcb-9f62-373724efb151" name="Facility" type="text">Calabasas</property>
+<property id="d7c85802-306a-4202-9f91-73a7139a2f6f" name="Floor Position" type="text">Area 1 - Rack 2</property>
+</propertyCollection>
+        <propertyCollection name="System Identification">
+<property name="id">a22409d9-2565-4f9c-9398-3e1501ceffc9</property>
+<property id="d1fd6cdb-a04b-4e6a-b322-e030907c99fd" name="Model" type="text">SPT-2000A-HS</property>
+<property id="996de410-b0c0-4249-a0f8-57f3781a84f6" name="Hostname" type="text">gsdemo-stc</property>
+<property id="69dbb3b9-05af-4a39-b828-4f2762bfc009" name="Device Type" type="text">Tester</property>
+<property id="f550e467-1c74-43f0-99d5-96cadbfacaf3" name="Make" type="text">Spirent</property>
+<property id="351fabc7-9862-443f-9b41-5feae5eb86bb" name="Default Credentials" type="text">admin:spt_admin</property>
+<property id="c9f04309-c789-4b01-b861-802b7dd6d218" name="ipAddress" type="text">10.88.99.101</property>
+<property id="e89fce60-756a-4418-9373-01dddfd3ddbd" name="tcpPort" type="text">n/a</property>
+<property id="710d5e02-a4ea-4450-8a9a-5d4d9cdbc914" name="Serial Number" type="text"/>
+</propertyCollection>
+        <propertyCollection name="Device Admin">
+<property name="id">9acf2c41-8b8a-4d03-9f17-b3f6c3957835</property>
+<property id="a91363f8-753c-4b8c-a754-838aab0958f0" name="Phone Number" type="text">+1 (818) 292-0566</property>
+<property id="f40879af-fa5d-4f6d-bc64-17df8c62f065" name="Device Owner" type="text">Rick Morton</property>
+<property id="2398c951-a137-4b18-b62e-afdacdc9dc30" name="Email Address" type="text">rick.morton@spirent.com</property>
+</propertyCollection>
+        <property name="name">SpirentTestCenter</property>
+        <property name="description">SPT-2000A-HS with two EDM-2003B 12-port dual media blades</property>
+        <property name="iconURI">ilo://api/0/resource/icon?id=f770d558-7a26-46a6-a60d-479c5b11aa05</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="Spirent_TestCenter" provider="com.fnfr">
+            <sessionProfile version="4.3.0.71664">
+              <baseApplication>com.fnfr.svt.applications.spirent.testcenter.gui</baseApplication>
+              <sessionProperties config="project://RFC2544/config/RFC2544_New.xml" config.inherit="false" ipAddress="[ilo property ipAddress]" ipAddress.inherit="false" ports="[ilo reservedPortList]" ports.inherit="false" transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.TestCenterGUISessionProperties" type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject">
+                <configurePort dataPathMode="NORMAL" dataPathMode.inherit="false" duplexMode="FULL" duplexMode.inherit="false" transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.ConfigurePortProperties"/>
+                <configureCustom16bitFilter endOfRange="ffff" endOfRange.inherit="false" mask="ffff" mask.inherit="false" transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.Analyzer16BitFilterProperties"/>
+                <configureStreamBlock enableFcsErrorInsertion="false" enableFcsErrorInsertion.inherit="false" transferableToolId="com.fnfr.svt.applications.spirent.testcenter.gui" transferableType="com.fnfr.itest.applications.spirent.testcenter.properties.StreamBlockProperties"/>
+              </sessionProperties>
+              <baseProfile>project://Spirent/session_profiles/STC_GUI_Base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+          <session baseSessionProfile="" name="Results_Web" provider="com.fnfr">
+            <sessionProfile version="4.3.0.71664">
+              <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties"/>
+              <baseProfile>project://Spirent/session_profiles/Results_Reporter_Base_web.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <extensions type="com.fnfr.rm.condition">template[Spirent TestCenter]</extensions>
+        <resource guid="fc72dd56-74b8-4711-8c88-e94c7fa6e8f7" id="resource_1_0" type="port">
+          <property name="name">port1</property>
+          <extensions type="com.fnfr.rm.condition">any</extensions>
+        </resource>
+        <resource guid="af25555d-dbfb-4093-afb2-7deb3f6748e6" id="resource_1_1" type="port">
+          <property name="name">port2</property>
+          <extensions type="com.fnfr.rm.condition">any</extensions>
+        </resource>
+        <resource guid="f732c745-b3f9-43be-af7d-e7cbdb107a85" id="resource_1_2" type="port">
+          <property name="name">port3</property>
+          <extensions type="com.fnfr.rm.condition">any</extensions>
+        </resource>
+        <resource guid="60740607-df69-41f8-8592-79536ea50210" id="resource_1_3" type="port">
+          <property name="name">port4</property>
+          <extensions type="com.fnfr.rm.condition">any</extensions>
+        </resource>
+      </resource>
+      <resource guid="fea52e8b-8d75-455e-baa5-80751d9625c7" id="resource_2" shared="true" type="pc">
+        <boundary height="100" width="100" x="86" y="317"/>
+        <propertyCollection name="Device Admin"><property name="id">ab0711f1-c9fc-47fb-827d-bc6207f3006c</property><property id="996cf94f-2653-4a25-bec6-137a041ad095" name="Device Owner" type="text"/><property id="01cd6178-dd9c-4adb-8d04-1acf3048a563" name="Email Address" type="text"/><property id="6a9ea05b-f2fb-4049-a5a3-d523e8974c16" name="Phone Number" type="text"/></propertyCollection>
+        <propertyCollection name="System Identification"><property name="id">26da58f1-faf6-4a0c-abcc-ae623b80bf3e</property><property id="ca293f3d-b25c-4376-ab05-9ef44d56dcf8" name="Make" type="text"/><property id="7a8e2086-37d8-4036-86ac-f822753ceefc" name="OS" type="text"/><property id="690d7918-ca50-4f75-9da8-f39d0d95b570" name="Default Credentials" type="text"/><property id="836219f6-855c-422e-89f3-9cb999db48ea" name="Model" type="text"/><property id="dbd71502-e140-4768-9ebe-ae482a5309c7" name="ipAddress" type="text"/><property id="d5221f78-4ae9-4873-8f57-51f6f075dbef" name="Hostname" type="text"/><property id="918c51d0-7bcf-43c9-aafe-e75aa15dd3c3" name="tcpPort" type="text"/><property id="ed8ff1fa-646c-4bb1-90fa-0a2baccc2f1c" name="Serial Number" type="text"/><property id="ee33f99d-40eb-4032-bb0e-0281b527aa95" name="Device Type" type="text"/></propertyCollection>
+        <propertyCollection name="Location Information"><property name="id">efc557a3-0802-465b-a302-fd962f671361</property><property id="16389c6d-9723-4f8f-ad03-0c297f693c8b" name="Room" type="text">Spirent Test Automation Lab</property><property id="e5dc337e-706d-4293-9cad-5a69e83c18ff" name="Floor Position" type="text"> Area 1 - Rack 2</property><property id="c41f2085-f492-4bc3-abd7-e489801e1182" name="Facility" type="text">Calabasas</property><property id="dc5cfc4c-4776-4b39-902d-203204196278" name="Rack Position" type="text"/></propertyCollection>
+        <property name="name">PC</property>
+        <property name="description"/>
+        <property name="iconURI">ilo://api/0/resource/icon?id=fea52e8b-8d75-455e-baa5-80751d9625c7</property>
+        <extensions type="com.fnfr.rm.condition">template[PC]</extensions>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="cmd" provider="com.fnfr">
+            <sessionProfile version="4.3.0.71664">
+              <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
+              <baseProfile>project://Windows/session_profiles/windows_base.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="name">link1</property>
+        <endpoint id="resource_1_0"/>
+        <endpoint id="resource_1_1"/>
+      </link>
+      <link id="link_1">
+        <property name="name">link2</property>
+        <endpoint id="resource_1_2"/>
+        <endpoint id="resource_0_0"/>
+      </link>
+      <link id="link_2">
+        <property name="name">link3</property>
+        <endpoint id="resource_1_3"/>
+        <endpoint id="resource_0_1"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

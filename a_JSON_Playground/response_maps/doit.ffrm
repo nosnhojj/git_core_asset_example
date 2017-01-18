@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ResponseMap version="5.1.0.77511">
+    <responseStructure>application/json</responseStructure>
+    <sampleDictionary>
+        <item name="sample1">
+            <action actionType="call">
+                <command>
+                    <body>doit -session s1</body>
+                </command>
+            </action>
+            <responseBody>{&quot;num_files&quot;:&quot;17&quot;,&quot;num_dir&quot;:&quot;16&quot;}</responseBody>
+            <contentType>text</contentType>
+            <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+            <duration>0.2</duration>
+        </item>
+    </sampleDictionary>
+    <applicabilityProperties actionType="call" command="doit -session *"/>
+    <aliases>
+        <item name="getDirCount">
+            <queryFormatString>mapped/Json/num_dir</queryFormatString>
+        </item>
+        <item name="getFileCount">
+            <queryFormatString>mapped/Json/num_files</queryFormatString>
+        </item>
+    </aliases>
+</ResponseMap>

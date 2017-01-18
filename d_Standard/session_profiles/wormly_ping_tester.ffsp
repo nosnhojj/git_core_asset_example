@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SessionTemplate version="6.0.0.18638fa">
+    <baseApplication>com.fnfr.svt.applications.web</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.web.documents.WebSessionProperties">
+        <baseUrl inherit="false">http://www.wormly.com/test_remote_ping</baseUrl>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://d_Standard/</responseLibrary>
+    <nickName>wormly_ping_test</nickName>
+</SessionTemplate>

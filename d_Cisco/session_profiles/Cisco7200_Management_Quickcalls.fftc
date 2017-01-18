@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<testCase version="4.4.0.75339">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="Cisco7200_Management_Base.ffsp"/>
+    </general>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="1620b45c-2652-463a-9157-6c4e5472709c" action="open" session="s1">
+                    <command>
+                        <body>Cisco7200_Telnet_Base.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.telnet.documents.TelnetSessionProperties">
+                            <ipAddress inherit="false">192.168.3.33</ipAddress>
+                        </sessionProperties>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2f6c3315-f473-4f1d-b3c4-fd9424e4de7d" action="login" session="s1">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="8187e8bb-f4c1-4b9f-9717-ee1bb3a35dc7" action="close" session="s1">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+        <item name="login" isPublic="true">
+            <steps>
+                <item guid="27ea455c-5e5b-4f3a-8a73-76906fbfb6d3" action="command" session="$session">
+                    <command>
+                        <body masked="true">CaK+mWSFs84=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1f4f1cfd-a075-4a22-8c2a-0342e4d07873" action="command" session="$session">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e1f3e157-0736-4f07-8293-a16e00c21a4d" action="command" session="$session">
+                    <command>
+                        <body>ena</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e4d7c2f2-b822-4952-9afd-adec3cf9cb6b" action="command" session="$session">
+                    <command>
+                        <body masked="true">/k0EmzmSuV4=</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="0f8b0ba7-8fc1-4f34-93ab-5b7ddd7149dc" action="command" session="$session">
+                    <command>
+                        <body>show version</body>
+                    </command>
+                    <postProcessing>
+                        <storeResponseAt>sh_ver_resp</storeResponseAt>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="8a5ace8b-6187-4a2f-9980-907efb8c8fb1" action="return">
+                    <command>
+                        <body>[response sh_ver_resp]</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+        <item name="configure_Web_Interface" isPublic="true">
+            <steps>
+                <item guid="9028da63-7320-4e75-9289-944d6a0a7366" action="command" session="$session" normalOffset="4.127" estimatedStepExecutionTime="0.093">
+                    <command>
+                        <body>conf t</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.344" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="2a44c87a-b37c-4897-9128-32d22555f663" action="comment">
+                    <command>
+                        <body>Activate Web Interface</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="4f0a403d-98c0-4cc8-96b0-34f728e0e485" action="command" session="$session" normalOffset="3.753" estimatedStepExecutionTime="0.156">
+                            <command>
+                                <body>ip http server</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.453" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="4c33fab7-6466-479f-9e01-6e49e0f64368" action="command" session="$session" normalOffset="1.515" estimatedStepExecutionTime="0.079">
+                            <command>
+                                <body>end</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                                <completionProperties expectedIdleTime="0.203" expectedIdleTime.inherit="false"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>
