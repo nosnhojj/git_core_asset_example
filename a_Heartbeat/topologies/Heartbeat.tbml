@@ -5,7 +5,7 @@
     <description>Demonstration topology using the simulated C7600</description>
     <property name="author">jjohnson</property>
     <property name="dateCreated">2010-04-05T12:55:42.837-04:00</property>
-    <property name="dateModified">2017-01-18T11:56:33.649-05:00</property>
+    <property name="dateModified">2017-01-18T14:32:07.897-05:00</property>
     <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
     <property name="creationToolVersion" vendor="com.fnfr">6.0.0.18638fa</property>
   </header>
@@ -78,11 +78,11 @@
         <property name="iconURI">project://Windows/images/windows.bmp</property>
         <property name="name">host</property>
         <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
-          <session baseSessionProfile="" name="laptop" provider="com.fnfr">
+          <session baseSessionProfile="project://d_Windows/session_profiles/windows_base.ffsp" name="laptop" provider="com.fnfr">
             <sessionProfile version="6.0.0.18638fa">
               <baseApplication>com.fnfr.svt.applications.cmd</baseApplication>
               <sessionProperties type="com.fnfr.svt.applications.cmd.CmdSessionProperties"/>
-              <baseProfile>project://Windows/session_profiles/windows_base.ffsp</baseProfile>
+              <baseProfile>project://d_Windows/session_profiles/windows_base.ffsp</baseProfile>
               <standalone>false</standalone>
             </sessionProfile>
           </session>
